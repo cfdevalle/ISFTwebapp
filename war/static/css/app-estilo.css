@@ -1,0 +1,14 @@
+#user, #pass{
+    width: 100%;
+}
+
+#wrapper{
+    background-color: #000000;
+}
+
+#principal{width:1024px; height:778px; margin:auto auto;}
+#titulo{ margin:auto auto; height:10%;background:#E8F2FF; }
+#contenedor{margin:auto auto; height:85%;background:#FFFFFF;}
+	#indice{ width:10%; height:100%; float:left;background:#FFFFFF; }
+	#frame{ width:90%; height:100%; float:right;background:#FFFFFF; }
+#pie{margin:auto auto; height:5%;background:#E8F2FF;}
