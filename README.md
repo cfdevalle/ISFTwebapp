@@ -27,9 +27,13 @@ Se debe hacer esto con todos los archivos .dist antes de empezar a desarrollar. 
 se deben copiar:
 
 /properties/ant-enviroment.properties.dist
+
 build.xml.dist
+
 /netbeans.dist (es una carpeta)
 
+
+======================================================================================================================
 
 NO MODIFICAR NI ELIMINAR LOS ARCHIVOS/CARPETAS .dist NI CAMBIAR LA EXTENSIÓN DE ESOS ARCHIVOS/CARPETAS. COPIARLOS Y
 AL ARCHIVO/CARPETA COPIADA ELIMINARLE LA EXTENSIÓN .dist
