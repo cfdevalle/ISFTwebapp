@@ -16,7 +16,7 @@ esa extensión.
 Por ejemplo:
 
 el archivo ant-enviroment.properties.dist que se encuentra dentro de la carpeta properties del proyecto, debe ser 
-copiado y quitarle el .dist, por lo que quedrían 2 archivos dentro de la carpeta properties, el archivo mencionado y
+copiado y quitarle el .dist, por lo que quedarían 2 archivos dentro de la carpeta properties, el archivo mencionado y
 el nuevo archivo ant-enviroment.properties (sin .dist).
 
 
