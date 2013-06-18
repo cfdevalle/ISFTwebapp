@@ -218,3 +218,4 @@ pip-log.txt
 /nbproject/
 /properties/ant-enviroment.properties
 build.xml
+/war/WEB-INF/jsp/META-INF/
