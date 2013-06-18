@@ -3,7 +3,7 @@ ISFTwebapp
 
 Proyecto de alumnos de 3er año de la carrera de Analista de Sistemas del ISFT Nº 179 de Moreno, Bs. As.
 
-El fin del mismo es desarollar un sistema que permita realizar inscripciones a finales, inscripciones a materias,
+El fin del mismo es desarrollar un sistema que permita realizar inscripciones a finales, inscripciones a materias,
 ingreso de notas por parte de los docentes y consultas del estado académico del alumno para dicho Instituto.
 
 ================================================================================================================
