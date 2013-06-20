@@ -74,9 +74,9 @@
 		<copy todir="${tomcat.dir}" preservelastmodified="true">
 			<fileset dir="${dir.root}/index"/>
 		</copy>
-		<copy todir="${tomcat.dir}/db" preservelastmodified="true">
+		<!--<copy todir="${tomcat.dir}/db" preservelastmodified="true">
 			<fileset dir="${dir.root}/db"/>
-		</copy>		
+		</copy>-->		
 	</target>
 	
         <target name="reload" description="Recargar aplicacion en Tomcat">
