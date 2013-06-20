@@ -219,3 +219,4 @@ pip-log.txt
 /properties/ant-enviroment.properties
 build.xml
 /war/WEB-INF/jsp/META-INF/
+/.classes/
