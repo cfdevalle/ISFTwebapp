@@ -16,14 +16,14 @@
         	<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
-<!-- PRIMER SERVLET-->
+<!-- SERVLET MENU-->
   <servlet>    
-	 <servlet-name>primerServlet</servlet-name>  
-	 <servlet-class>org.isft.logic.servlets.PrimerServlet</servlet-class>
+	 <servlet-name>frontController</servlet-name>  
+	 <servlet-class>org.isft.logic.servlets.frontController</servlet-class>
 	 </servlet> 
  	 <servlet-mapping>  
-	 <servlet-name>primerServlet</servlet-name>
-	 <url-pattern>*.do</url-pattern> 
+	 <servlet-name>frontController</servlet-name>
+	 <url-pattern>*.go</url-pattern> 
 	</servlet-mapping>
-<!--  FIN PRIMER SERVLET-->	
+<!--  FIN SERVLET MENU-->	
 </web-app>
