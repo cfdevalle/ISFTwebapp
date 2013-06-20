@@ -4,7 +4,6 @@
     Author     : Alan
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,10 +14,10 @@
         <div class="container">
             <%@include file="includes/encabezado_inc.jsp" %>
             <div class="row">
-                <div class="span6">
+                <div class="span6" style="min-height: 600px; background-color: #DCCCFF">
                     <h1>Hola</h1>
                 </div>
-                <div class="span6">
+                <div class="span6" style="min-height: 600px; background-color: #DCCCFF">
                     <h1>Hola</h1>
                 </div>
             </div>
