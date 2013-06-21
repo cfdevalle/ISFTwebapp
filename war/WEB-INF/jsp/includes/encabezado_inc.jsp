@@ -9,10 +9,13 @@
                 <ul class="nav">
                     <li class="active"><a href="#"><i class="icon-home"></i>Inicio</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book"></i>Inscripciones<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book"></i>Entrada al espacio de cada grupo<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Finales</a></li>
-                            <li><a href="#">Cursadas</a></li>
+                            <li><a href="frontControler.go?codpage=1001">sim</a></li>
+                            <li><a href="frontControler.go?codpage=1002">sif</a></li>
+                            <li><a href="frontControler.go?codpage=1003">sicnod</a></li>
+                            <li><a href="frontControler.go?codpage=1004">sicsa</a></li> 
+                            <li><a href="frontControler.go?codpage=1005">sahomcil</a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="icon-pencil"></i>Situacion Academica</a></li>

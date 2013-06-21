@@ -1,83 +1,63 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package org.isft.web.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
+import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Alan
- */
 public class frontController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String param = request.getParameter("codPage");
-        ResourceBundle rb = ResourceBundle.getBundle("web/pathMenu");
-        String path = rb.getString(param);
-        RequestDispatcher rd = request.getRequestDispatcher(path);
-        rd.forward(request, response);
+    @Override
+       public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP
-     * <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-        
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+ 	String param=request.getParameter("codpage");
+	try{	
+		despachar(request, response, param);	 
+        } catch(Exception exc){
+        	response.sendError(404, exc.toString());
+           	throw new ServletException(exc.getMessage());
+        }
     }
+   
+    
+   
 
-    /**
-     * Handles the HTTP
-     * <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
+    
+    public void despachar(HttpServletRequest request, HttpServletResponse response, String codPage) throws ServletException, IOException {
+	String path="";  
+        String error="";
+        try{
+            ResourceBundle bundle=ResourceBundle.getBundle("web.pathMenu");
+            try{
+                path=bundle.getString(codPage);
+            }catch(Exception exc){
+                path=bundle.getString("9505");
+                error="Pagina no encontrada";
+            }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+            RequestDispatcher despachador = getServletContext().getRequestDispatcher(path);
+            System.out.println("PATH A BUSCAR: " + path);
+            request.setAttribute("error", error);
+            despachador.forward(request, response);             
+     	
+} catch(MissingResourceException mExc){
+            System.out.println("MISSING EXCEPTION:" + mExc.toString());
+            throw new ServletException(mExc.getMessage());
+} catch(Exception exc){
+            throw new ServletException(exc.getMessage());
 }
+    }
+}
+
+
