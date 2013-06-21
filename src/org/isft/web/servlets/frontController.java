@@ -32,7 +32,9 @@ public class frontController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        String param = request.getParameter("codPage");
+        ResourceBundle rb = ResourceBundle.getBundle("org.isft.web.pathMenu");
+        String path = rb.getString(param);
         
     }
 
@@ -50,8 +52,7 @@ public class frontController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        String param = request.getParameter("codPage");
-        ResourceBundle rb = ResourceBundle.getBundle("");
+        
     }
 
     /**
