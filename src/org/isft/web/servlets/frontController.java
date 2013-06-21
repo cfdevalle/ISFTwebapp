@@ -5,9 +5,9 @@
 package org.isft.web.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Enumeration;
 import java.util.ResourceBundle;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,9 +33,10 @@ public class frontController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String param = request.getParameter("codPage");
-        ResourceBundle rb = ResourceBundle.getBundle("org.isft.web.pathMenu");
+        ResourceBundle rb = ResourceBundle.getBundle("web/pathMenu");
         String path = rb.getString(param);
-        
+        RequestDispatcher rd = request.getRequestDispatcher(path);
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

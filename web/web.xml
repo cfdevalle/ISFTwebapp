@@ -19,7 +19,7 @@
 <!-- SERVLET MENU-->
   <servlet>    
 	 <servlet-name>frontController</servlet-name>  
-	 <servlet-class>org.isft.logic.servlets.frontController</servlet-class>
+	 <servlet-class>org.isft.web.servlets.frontController</servlet-class>
 	 </servlet> 
  	 <servlet-mapping>  
 	 <servlet-name>frontController</servlet-name>
