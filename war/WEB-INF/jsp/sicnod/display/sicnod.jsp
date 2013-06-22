@@ -15,7 +15,7 @@
             <%@include file="../includes/encabezado_inc.jsp" %>
             <div class="row">
                 <div class="span6" style="min-height: 600px; background-color: #DCCCFF">
-                    <h1>Hola grupo sahomcil aca va su desarrollo</h1>
+                    <h1>Hola grupo sicnod aca va su desarrollo</h1>
                 </div>
                 <div class="span6" style="min-height: 600px; background-color: #DCCCFF">
                     <h1>Hola</h1>
