@@ -1,25 +1,23 @@
-<%-- 
-    Document   : pruebaWrapper
-    Created on : 19-jun-2013, 19:27:31
-    Author     : Alan
---%>
-
-<!DOCTYPE html>
+<%@page import="org.isft.logic.collection.EjemploConexion, java.util.Vector"%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <html>
-    <head>
-        <%@include file="jsp/includes/metas_inc.jsp" %>
-        <title>Prueba Wrapper</title>
-    </head>
-    <body>
-        <%@include file="jsp/includes/encabezado_inc.jsp" %>
-        <div class="row">
-            <div class="span6" style="min-height: 600px; background-color: #DCCCFF">
-                <h1>Hola</h1>
-            </div>
-            <div class="span6" style="min-height: 600px; background-color: #DCCCFF">
-                <h1>Hola</h1>
-            </div>
-        </div>
-        <%@include file="jsp/includes/pie_inc.jsp" %>
-    </body>
+<head>
+<title>AppModel index</title>
+</head>
+<body>
+	Pagina principal
+        <%
+        try{
+            EjemploConexion ejemplo=new EjemploConexion();%>
+            Conexion exitosa<br/>
+            <%Vector vec=ejemplo.traerClientes();
+            for(int i=0; i<vec.size(); i++){%>
+              Cliente : <%=(String)vec.get(i)%><br/>  
+            <%}
+        } catch(Exception exc){%>
+            Conexion erronea
+          <%=exc.getMessage()%>  
+        <%} 
+        %>
+</body>
 </html>

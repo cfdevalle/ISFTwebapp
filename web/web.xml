@@ -3,8 +3,8 @@
 
 <web-app>
 
-	<display-name>ISFTwebapp</display-name>
-	<description>ISFTwebapp</description>
+	<display-name>AppModel</display-name>
+	<description>AppModel</description>
 	
 <!-- SESSION CONFIGURATION -->
 	<session-config>
@@ -16,14 +16,16 @@
         	<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
-<!-- SERVLET MENU-->
-  <servlet>    
-	 <servlet-name>frontController</servlet-name>  
-	 <servlet-class>org.isft.web.servlets.frontController</servlet-class>
-	 </servlet> 
- 	 <servlet-mapping>  
-	 <servlet-name>frontController</servlet-name>
-	 <url-pattern>*.go</url-pattern> 
-	</servlet-mapping>
-<!--  FIN SERVLET MENU-->	
+<!-- PRIMER SERVLET-->
+ <servlet>
+     <servlet-name>primerServlet</servlet-name>
+    <servlet-class>org.isft.logic.servlets.PrimerServlet</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+   <servlet-name>primerServlet</servlet-name>
+<url-pattern>*.do</url-pattern>
+ </servlet-mapping>
+<!--  FIN PRIMER SERVLET-->
+	
 </web-app>
