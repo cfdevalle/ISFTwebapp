@@ -11,11 +11,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book"></i>Entrada al espacio de cada grupo<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="frontControler.go?codpage=1001">sim</a></li>
-                            <li><a href="frontControler.go?codpage=1002">sif</a></li>
-                            <li><a href="frontControler.go?codpage=1003">sicnod</a></li>
-                            <li><a href="frontControler.go?codpage=1004">sicsa</a></li> 
-                            <li><a href="frontControler.go?codpage=1005">sahomcil</a></li>
+                            <li><a href="modulo.go?codPage=1001">sim</a></li>
+                            <li><a href="modulo.go?codPage=2001">sif</a></li>
+                            <li><a href="modulo.go?codPage=3001">sicnod</a></li>
+                            <li><a href="modulo.go?codPage=4001">sicsa</a></li> 
+                            <li><a href="modulo.go?codPage=5001">sahomcil</a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="icon-pencil"></i>Situacion Academica</a></li>
