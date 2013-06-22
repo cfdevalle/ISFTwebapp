@@ -21,7 +21,7 @@ public class frontController extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 	String param=request.getParameter("codpage");
+ 	String param=request.getParameter("codPage");
 	try{	
 		despachar(request, response, param);	 
         } catch(Exception exc){
