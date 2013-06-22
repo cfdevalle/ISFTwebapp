@@ -7,7 +7,7 @@
             <div class="container">
                 <a class="brand" href="#">Gesti&oacute;n de Inscripciones</a>
                 <ul class="nav">
-                    <li class="active"><a href="#"><i class="icon-home"></i>Inicio</a></li>
+                    <li class="active"><a href="../pruebaWrapper.jsp"><i class="icon-home"></i>Inicio</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book"></i>Entrada al espacio de cada grupo<b class="caret"></b></a>
                         <ul class="dropdown-menu">
