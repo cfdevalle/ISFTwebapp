@@ -79,9 +79,9 @@
             </div>
 
             <div class="span3" style="min-height: 100px">
-                <button>
+                <a class="btn"  href="modulo.go?codPage=5002">
                     <b>AGREGAR</b>
-                </button>
+                </a>
             </div>
             <div class="span3" style="min-height: 100px">
                 <button>
