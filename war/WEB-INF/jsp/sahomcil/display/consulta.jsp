@@ -69,16 +69,12 @@
         <br></br>
         <!-- aca hay una serie de DIV'S ocupando 3 columnas cada una de ellas y 3 columnas en offset     -->
         <div class="row">
-            <div class="span9 offset3">
-            </div>
-
-            <div class="span3" style="min-height: 100px">
-                <button>
+            <div class="span3 offset3" style="min-height: 100px">
+                <a class="btn"  href="modulo.go?codPage=5002">
                     <b>MODIFICAR</b>
-                </button>
+                </a>
             </div>
-
-            <div class="span3" style="min-height: 100px">
+                        <div class="span3" style="min-height: 100px">
                 <a class="btn"  href="modulo.go?codPage=5002">
                     <b>AGREGAR</b>
                 </a>
