@@ -1,0 +1,7 @@
+name=ISFTwebapp
+appserver.home=C:/Tomcat7
+deploy.path=${appserver.home}/webapps
+deployTomcat.dir=${deploy.path}/${name}
+tomcat.manager.url=http://localhost:8080/manager
+tomcat.manager.username=jose
+tomcat.manager.password=luis

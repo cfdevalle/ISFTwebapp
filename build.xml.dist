@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<project name="ISFTwebapp" basedir="." default="usage">
+<!-- Uso de definiciones externas -->
+	<property file="properties/ant-enviroment.properties"/>
+	<property name="build.dir" value=".classes"/>
+	<property name="war.dir" value="war"/>
+	<property name="webXml.dir" value="web"/>
+	<property name="src.dir" value="src/org/isft"/>
+	<property name="tomcat.dir" value="${deployTomcat.dir}"/>
+	<property name="weblib.dir" value="${tomcat.dir}/WEB-INF/lib"/>
+	<property name="classesTomcat.dir" value="${tomcat.dir}/WEB-INF/classes"/>
+        <property name="dir.root" value="."/>
+  	<path id="master-classpath">          
+	 <fileset dir="${dir.root}/lib/j2ee">
+         <include name="servlet-api.jar"/> 
+	 <include name="jsp-api.jar"/> 
+         </fileset> 
+	</path>
+	
+<!-- DEFINICION DE TAREAS-->
+	
+
+        <taskdef name="reload" classname="org.apache.catalina.ant.ReloadTask">
+		<classpath>
+			<path location="${appserver.home}/lib/catalina-ant.jar"/>
+		</classpath>
+	</taskdef>
+	<taskdef name="start" classname="org.apache.catalina.ant.StartTask">
+		<classpath>
+			<path location="${appserver.home}/lib/catalina-ant.jar"/>
+		</classpath>
+	</taskdef>
+	<taskdef name="stop" classname="org.apache.catalina.ant.StopTask">
+		<classpath>
+			<path location="${appserver.home}/lib/catalina-ant.jar"/>
+		</classpath>
+	</taskdef>
+	
+<!-- TAREAS BASICAS -->
+	<target name="deployTomcat" depends="build">     
+        </target>
+
+        <target name="build" description="Compilar codigos fuentes y generar la libreria jar.">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${classesTomcat.dir}"/>
+		<mkdir dir="${tomcat.dir}/db"/>
+		<javac destdir="${build.dir}" source="1.7" target="1.7" >
+		<!--javac destdir="${build.dir}" source="1.6" target="1.6" -->
+			<src path="${src.dir}" />
+			<exclude name="**/.tmp/**"/>
+			<exclude name="**/.**/**"/>
+			<exclude name="**/.*"/>	
+			<classpath refid="master-classpath"/>	
+		</javac>
+		<copy todir="${build.dir}" preservelastmodified="true">
+			<fileset dir="${src.dir}">
+				<include name="**/*.properties"/>
+			</fileset>
+		</copy>
+		<copy todir="${classesTomcat.dir}" preservelastmodified="true">
+			<fileset dir="${build.dir}"/>				
+		</copy>	
+		
+		<copy todir="${tomcat.dir}/jsp" preservelastmodified="true">
+			<fileset dir="${war.dir}/WEB-INF/jsp"/>
+		</copy>
+		<copy todir="${tomcat.dir}/static" preservelastmodified="true">
+			<fileset dir="${war.dir}/static"/>
+		</copy>
+		<copy todir="${tomcat.dir}/WEB-INF" preservelastmodified="true">
+			<fileset dir="${webXml.dir}"/>			
+		</copy>
+		<mkdir dir="${weblib.dir}"/>
+		<copy todir="${tomcat.dir}" preservelastmodified="true">
+			<fileset dir="${dir.root}/index"/>
+		</copy>
+		<!--<copy todir="${tomcat.dir}/db" preservelastmodified="true">
+			<fileset dir="${dir.root}/db"/>
+		</copy>-->		
+	</target>
+	
+        <target name="reload" description="Recargar aplicacion en Tomcat">
+		<echo message="${tomcat.manager.url}"/>
+		<echo message="${name}"/>
+		<reload url="${tomcat.manager.url}"
+			username="${tomcat.manager.username}"
+			password="${tomcat.manager.password}"
+			path="/${name}"/>
+	</target>
+	<target name="start" description="Arrancar Tomcat">
+		<start url="${tomcat.manager.url}"
+			username="${tomcat.manager.username}"
+			password="${tomcat.manager.password}"
+			path="/${name}"/>
+	</target>
+
+	<target name="stop" description="Detener Tomcat">
+		<stop url="${tomcat.manager.url}"
+			username="${tomcat.manager.username}"
+			password="${tomcat.manager.password}"
+			path="/${name}"/>
+	</target>
+
+	
+</project>
