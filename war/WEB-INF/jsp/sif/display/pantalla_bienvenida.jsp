@@ -1,7 +1,6 @@
-
 <html>
     <head>
-        <link type="text/css" rel="stylesheet" href="../../../static/css/bootstrap.css">
+        <link type="text/css" rel="stylesheet" href="../../../static/css/bootstrap.css"/>
         <%@include file="../../includes/metas_inc.jsp" %>
         <title>Inscripcion Materia</title>
     </head>
