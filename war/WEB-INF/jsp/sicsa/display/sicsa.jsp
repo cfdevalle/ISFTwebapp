@@ -13,7 +13,7 @@
             <%@include file="../../includes/encabezado_inc.jsp" %>
             <div class="row">
                 <div class="span10 offset1">
-                    <h1> 1er A&ntilde;o <input style="float:right;" type="button" class="btn btn-primary" value="Descargar situacion academica (PDF)"></h1>
+                    <h1> 1er A&ntilde;o <a href="modulo.go?codPage=4002" style="float:right;" class="btn btn-primary">Peticiones</a></h1>
                     <table class="table table-hover table-bordered table-condensed">
                         <thead>
                             <tr>
