@@ -19,7 +19,7 @@
                 <h4>Seleccione Carrera:</h4>
             </div>
             <div class="span4" style="min-height: 70px">
-                <SELECT NAME="carrera" SIZE=1 onChange="javascript:alert('prueba');"> 
+                <SELECT NAME="carrera" SIZE=1 onChange="javascript:alert('cambio de carrera realizado');"> 
                     <OPTION VALUE="analisis_de_sistemas">analisis de sistemas</OPTION>
                     <OPTION VALUE="turismo">turismo</OPTION>
                     <OPTION VALUE="mantenimiento">mantenimiento</OPTION>
@@ -34,7 +34,7 @@
                 <h4>Seleccione Curso:</h4>
             </div>
             <div class="span4" style="min-height: 70px">
-                <SELECT NAME="curso" SIZE=1 onChange="javascript:alert('prueba');"> 
+                <SELECT NAME="curso" SIZE=1 onChange="javascript:alert('cambio de curso realizado');"> 
                     <OPTION VALUE="1ºB">"1ºA"</OPTION>
                     <OPTION VALUE="2ºA">"2ºA"</OPTION>
                     <OPTION VALUE="2ºB">"2ºB"</OPTION>
@@ -44,40 +44,105 @@
         </div>
         <!-- la tabla de informacion de materias/horas/profesor/dia ocupando 12 columnas     -->
         <div class="row">
-            <div class="span12" style="min-height: 100px">
-
-                <TABLE BORDER="10" CELLPADDING=10 CELLSPACING=0 WIDTH="100%">
-                    <TR><TH ALIGN=center BGCOLOR="green">CODIGO DE MATERIA</TH>
-
-                        <TD ALIGN=center BGCOLOR="green">MATERIA</TD> <TD ALIGN=center BGCOLOR="green">DIA Y HORA</TD> <TD ALIGN=center BGCOLOR="green">PROFESOR</TD></TR>
-
-                    <TR><TH ALIGN=center>1001</TH>
-
-                        <TD ALIGN=center>Algebra</TD> <TD ALIGN=center>Lunes 10:00hs-12:00hs/Miercoles 08:00hs-10:00hs</TD> <TD ALIGN=center>Trimarcher</TD></TR>
-
-                    <TR><TH ALIGN=center>1002</TH>
-
-                        <TD ALIGN=center>Analisis Matematico</TD> <TD ALIGN=center>Jueves 10:00hs-12:00hs</TD> <TD ALIGN=center>Enokida</TD></TR>
-
-                    <TR><TH ALIGN=center>1003</TH>
-
-                        <TD ALIGN=center>Programacion</TD> <TD ALIGN=center>Jueves 08:00hs-10:00hs/Viernes 10:00hs-12:00hs</TD> <TD ALIGN=center>Ramos</TD></TR>                                                         
-
-                </TABLE>
+            <div class="span10 offset1">
+                <h1> Horarios:</h1><br>
+                <table class="table table-hover table-bordered table-condensed">
+                    <thead> 
+                        <tr> 
+                            <th><P ALIGN=center>Hora</p></th>
+                    <th><P ALIGN=center>Lunes</p></th>
+                    <th><P ALIGN=center>Martes</p></th>
+                    <th><P ALIGN=center>Miercoles</p></th>
+                    <th><P ALIGN=center>Jueves</p></th>
+                    <th><P ALIGN=center>Viernes</p></th>
+                    <th><P ALIGN=center>Sabado</p></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="success">
+                            <td ><b>08:00<br>
+                                    ----<br>
+                                    09:00
+                                </b></td>
+                                <td><P ALIGN=center> <SELECT NAME="materia"  style=" width:100px" SIZE=1 onChange="javascript:alert('cambio de materia realizada');"></p> 
+                                    <OPTION VALUE="algebra">algebra</OPTION>
+                                    <OPTION VALUE="programacion">programacion</OPTION>
+                                    <OPTION VALUE="arquitectura">arquitectura</OPTION>
+                                    <OPTION VALUE="administracion">administracion</OPTION> 
+                                </SELECT> <br>
+                            <img alt="ok" src="static\images\sahomcil\ok.png" /> <img alt="ok" src="static\images\sahomcil\eliminar.png" /></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td>cod. materia: 101<br>
+                                <b>ANALISIS MATEMATICO</b><br>
+                                Prof: Enokida E. <br>                               
+                                <P ALIGN=right> <img alt="ok" src="static\images\sahomcil\cancelar.png" /></p></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                        </tr>
+                        <tr class="success">
+                            <td ><b>09:00<br>
+                                    ----<br>
+                                    10:00
+                                </b></td>
+                                <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td> <P ALIGN=center><SELECT NAME="materia" style=" width:100px" SIZE=1 onChange="javascript:alert('cambio de materia realizada');"></p> 
+                                    <OPTION VALUE="algebra">algebra</OPTION>
+                                    <OPTION VALUE="programacion">programacion</OPTION>
+                                    <OPTION VALUE="arquitectura">arquitectura</OPTION>
+                                    <OPTION VALUE="administracion">administracion</OPTION> 
+                                </SELECT> <br>
+                            <img alt="ok" src="static\images\sahomcil\ok.png" /> <img alt="ok" src="static\images\sahomcil\eliminar.png" /></td>
+                            <td>cod. materia: 101<br>
+                                <b>ANALISIS MATEMATICO</b><br>
+                                Prof: Enokida E. <br>                               
+                                <P ALIGN=right> <img alt="ok" src="static\images\sahomcil\cancelar.png" /></p></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                        </tr>
+                        <tr class="success">
+                            <td><b>10:00<br>
+                                    ----<br>
+                                    11:00
+                                </b></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td>cod. materia: 102<br>
+                                <b>PROGRAMACION</b><br>
+                                Prof: Ramos P. <br>                               
+                                <P ALIGN=right> <img alt="ok" src="static\images\sahomcil\cancelar.png" /></p></td>
+                        </tr>
+                        <tr class="success">
+                            <td><b>11:00<br>
+                                    ----<br>
+                                    12:00
+                                </b></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td>cod. materia: 102<br>
+                                <b>PROGRAMACION</b><br>
+                                Prof: Ramos P. <br>                               
+                                <P ALIGN=right> <img alt="ok" src="static\images\sahomcil\cancelar.png" /></p></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <br></br>
         <!-- aca hay una serie de DIV'S ocupando 3 columnas cada una de ellas y 3 columnas en offset     -->
         <div class="row">
             <div class="span3 offset3" style="min-height: 100px">
-                <a class="btn"  href="modulo.go?codPage=5002">
-                    <b>MODIFICAR</b>
-                </a>
+
             </div>
-                        <div class="span3" style="min-height: 100px">
-                <a class="btn"  href="modulo.go?codPage=5002">
-                    <b>AGREGAR</b>
-                </a>
+            <div class="span3" style="min-height: 100px">
+
             </div>
             <div class="span3" style="min-height: 100px">
                 <button>
