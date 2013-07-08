@@ -9,6 +9,25 @@
     <head>
         <%@include file="../../includes/metas_inc.jsp" %>
         <title>Prueba Wrapper</title>
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> Para llenar el campo
+<h3 id="myModalLabel">Seleccione la Materia</h3>
+</div>
+<div class="modal-body">
+<SELECT NAME="materia"  style=" width:100px" SIZE=1 onChange="javascript:alert('cambio de materia realizada');"></p> 
+                                    <OPTION VALUE="algebra">algebra</OPTION>
+                                    <OPTION VALUE="programacion">programacion</OPTION>
+                                    <OPTION VALUE="arquitectura">arquitectura</OPTION>
+                                    <OPTION VALUE="administracion">administracion</OPTION> 
+                                </SELECT> <br>
+</div>
+<div class="modal-footer">
+<button class="btn" data-dismiss="modal" aria-hidden="true">cancelar</button>
+<button class="btn btn-primary">aceptar</button>
+</div>
+</div>
+
     </head>
     <body>
         <%@include file="../../includes/encabezado_inc.jsp" %>
@@ -64,53 +83,42 @@
                                     ----<br>
                                     09:00
                                 </b></td>
-                                <td><P ALIGN=center> <SELECT NAME="materia"  style=" width:100px" SIZE=1 onChange="javascript:alert('cambio de materia realizada');"></p> 
-                                    <OPTION VALUE="algebra">algebra</OPTION>
-                                    <OPTION VALUE="programacion">programacion</OPTION>
-                                    <OPTION VALUE="arquitectura">arquitectura</OPTION>
-                                    <OPTION VALUE="administracion">administracion</OPTION> 
-                                </SELECT> <br>
-                            <img alt="ok" src="static\images\sahomcil\ok.png" /> <img alt="ok" src="static\images\sahomcil\eliminar.png" /></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                                <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a>      </p></td>
+                                <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
+                            <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
                             <td>cod. materia: 101<br>
                                 <b>ANALISIS MATEMATICO</b><br>
                                 Prof: Enokida E. <br>                               
                                 <P ALIGN=right> <img alt="ok" src="static\images\sahomcil\cancelar.png" /></p></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
+                            <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
                         </tr>
                         <tr class="success">
                             <td ><b>09:00<br>
                                     ----<br>
                                     10:00
                                 </b></td>
-                                <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
-                            <td> <P ALIGN=center><SELECT NAME="materia" style=" width:100px" SIZE=1 onChange="javascript:alert('cambio de materia realizada');"></p> 
-                                    <OPTION VALUE="algebra">algebra</OPTION>
-                                    <OPTION VALUE="programacion">programacion</OPTION>
-                                    <OPTION VALUE="arquitectura">arquitectura</OPTION>
-                                    <OPTION VALUE="administracion">administracion</OPTION> 
-                                </SELECT> <br>
-                            <img alt="ok" src="static\images\sahomcil\ok.png" /> <img alt="ok" src="static\images\sahomcil\eliminar.png" /></td>
+                                <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
+                            <td><P ALIGN=center><a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
+                            <td> <P ALIGN=center><a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a>
+                            </td>
                             <td>cod. materia: 101<br>
                                 <b>ANALISIS MATEMATICO</b><br>
                                 Prof: Enokida E. <br>                               
                                 <P ALIGN=right> <img alt="ok" src="static\images\sahomcil\cancelar.png" /></p></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
+                            <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
                         </tr>
                         <tr class="success">
                             <td><b>10:00<br>
                                     ----<br>
                                     11:00
                                 </b></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
+                            <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
+                            <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
+                            <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
+                            <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
                             <td>cod. materia: 102<br>
                                 <b>PROGRAMACION</b><br>
                                 Prof: Ramos P. <br>                               
@@ -121,11 +129,11 @@
                                     ----<br>
                                     12:00
                                 </b></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
-                            <td><P ALIGN=center> <img alt="ok" src="static\images\sahomcil\mas.png" /></p></td>
+                            <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
+                            <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
+                            <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
+                            <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
+                            <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
                             <td>cod. materia: 102<br>
                                 <b>PROGRAMACION</b><br>
                                 Prof: Ramos P. <br>                               
