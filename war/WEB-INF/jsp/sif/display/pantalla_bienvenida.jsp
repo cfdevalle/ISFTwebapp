@@ -7,7 +7,22 @@
     <body>
       
             <%@include file="../../includes/encabezado_inc.jsp" %>
-            <%@include file="../../includes/sif_menu.jsp" %> 
+           
+            <div class="row">
+            <div class="span12"> 
+               
+            	<ul class="nav nav-tabs">
+                    <li class="active"> <a href="modulo.go?codPage=2001">Bienvenido</a></li>
+                    <li > <a href="modulo.go?codPage=2003 ">Consultar Fechas</a></li>
+                    <li >              <a href="modulo.go?codPage=2004 ">Realizar Inscripcion</a></li>
+                    <li >               <a href="#">Modificar Inscripcion</a></li>
+                    <li >               <a href="modulo.go?codPage=2002  ">Consultar Inscripcion</a></li>
+                </ul>
+
+            
+            </div>
+            </div>
+            
             <div class="span12" style="min-height: 600px">   
              
          

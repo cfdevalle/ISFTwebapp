@@ -8,7 +8,12 @@
 <html>
     <head>
         <%@include file="../../includes/metas_inc.jsp" %>
-        <title>Prueba Wrapper</title>
+        <title>Horarios Gestion</title>
+        
+   
+        
+        
+        
         <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 <div class="modal-header">
 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> Para llenar el campo
@@ -31,7 +36,15 @@
     </head>
     <body>
         <%@include file="../../includes/encabezado_inc.jsp" %>
-
+        <div class="row">
+            <div class="span12"> 
+             <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#">Horarios</a>
+                        </li>                  
+                   </ul>
+            </div>
+         </div>
         <!-- el div que tiene el combo de carreras ocupando 3 columnas     -->
         <div class="row">
             <div class="span3" style="min-height: 70px">
