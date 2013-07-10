@@ -102,7 +102,7 @@
                             <td>cod. materia: 101<br>
                                 <b>ANALISIS MATEMATICO</b><br>
                                 Prof: Enokida E. <br>                               
-                                <P ALIGN=right> <img alt="ok" src="static\images\sahomcil\cancelar.png" /></p></td>
+                                <P ALIGN=right> <img alt="ok" src="static/images/sahomcil/cancelar.png" /></p></td>
                             <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
                             <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
                         </tr>
@@ -118,7 +118,7 @@
                             <td>cod. materia: 101<br>
                                 <b>ANALISIS MATEMATICO</b><br>
                                 Prof: Enokida E. <br>                               
-                                <P ALIGN=right> <img alt="ok" src="static\images\sahomcil\cancelar.png" /></p></td>
+                                <P ALIGN=right> <img alt="ok" src="static/images/sahomcil/cancelar.png" /></p></td>
                             <td><a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
                             <td><P ALIGN=center> <a href="#myModal" role="button" class="btn" data-toggle="modal">Agregar</a></p></td>
                         </tr>
@@ -135,7 +135,7 @@
                             <td>cod. materia: 102<br>
                                 <b>PROGRAMACION</b><br>
                                 Prof: Ramos P. <br>                               
-                                <P ALIGN=right> <img alt="ok" src="static\images\sahomcil\cancelar.png" /></p></td>
+                                <P ALIGN=right> <img alt="ok" src="static/images/sahomcil/cancelar.png" /></p></td>
                         </tr>
                         <tr class="success">
                             <td><b>11:00<br>
@@ -150,7 +150,7 @@
                             <td>cod. materia: 102<br>
                                 <b>PROGRAMACION</b><br>
                                 Prof: Ramos P. <br>                               
-                                <P ALIGN=right> <img alt="ok" src="static\images\sahomcil\cancelar.png" /></p></td>
+                                <P ALIGN=right> <img alt="ok" src="static/images/sahomcil/cancelar.png" /></p></td>
                         </tr>
                     </tbody>
                 </table>
