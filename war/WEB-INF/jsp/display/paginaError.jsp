@@ -22,10 +22,10 @@
 		
 		<div class="span6">
 					 <div class="alert alert-info">
-						La pagina no ha sido encontrada, porq puede que estemos trabajando para mejorar la calidad de la pagina, o bien a sucedido un error inesperado, intentalo nuevamente mas tarde.
+						La pagina no ha sido encontrada, porque puede que estemos trabajando para mejorar la calidad de la pagina, o bien a sucedido un error inesperado, intentalo nuevamente mas tarde.
 					</div>
 
-					<blockquote>Instituto De Formacion Terciaria Calos Pelegrini N°179</blockquote>	
+					<blockquote>Instituto De Formacion Terciaria Carlos Pellegrini N°179</blockquote>	
 		</div>
 </div>
 <hr/>
