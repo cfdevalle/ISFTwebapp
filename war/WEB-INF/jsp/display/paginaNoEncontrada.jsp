@@ -13,7 +13,7 @@
 				<div class="span6"><div class="alert alert alert-error"><h1>ops,no puedes estar aqui!</h1></div></div>
 			</div>
 			<div class="row">
-				<div class="span6">   <center><img src="static\images\errores\505.jpg" value="ops" /></center></div>
+				<div class="span6">   <center><img src="/ISFTwebapp/static/images/errores/505.jpg" value="ops" /></center></div>
 				<div class="span6">                 <div class="alert alert-info">
 									Puede que no recuerdes tu contraseña o tu sesion haya expirado, si no recuerdas los datos de ingreso, haz clic en Recordar.
 									</div>

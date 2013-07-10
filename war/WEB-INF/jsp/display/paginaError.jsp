@@ -14,7 +14,7 @@
 				<div class="span6"><div class="alert alert alert-error"><h1>Ops,Pagina no encontrada</h1></div></div>
 			</div>
 			<div class="row">
-				<div class="span6">   <center><img src="static\images\errores\404.jpg" value="ops" /></center></div>
+				<div class="span6">   <center><img src="/ISFTwebapp/static/images/errores/404.jpg" value="ops" /></center></div>
 				
                                   
                         </div>
