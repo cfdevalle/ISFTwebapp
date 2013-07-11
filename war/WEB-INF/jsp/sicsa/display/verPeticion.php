@@ -12,11 +12,11 @@
                         <ul>
                             <h4>Mal ingreso de notas</h4>
                             <li class="item mensaje">
-                                <span>Juan Perez dijo:</span>
+                                <span><strong>Juan Perez</strong> dijo:</span>
                                 <p>Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto </p>
                             </li>
                             <li class="item respusta">
-                                <span>Administrador dijo:</span>
+                                <span><strong>Administrador</strong> dijo:</span>
                                 <p>Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto </p>
                             </li>
                             <textarea>Respuesta</textarea>

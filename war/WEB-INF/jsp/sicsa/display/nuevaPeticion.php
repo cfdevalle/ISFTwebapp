@@ -5,8 +5,8 @@
         <title>Nueva peticion</title>
     </head>
     <body>
-            <div class="row">
-                <div class="span4">
+            <div>
+                <div class="span3">
                     <h3>Nueva peticion</h3>
                     <form>
                         <ul>
@@ -16,7 +16,7 @@
                             </li>
                             <li>
                                 <label>Mensaje</label>
-                                <textarea name="mensaje"></textarea>
+                                <textarea rows="6" name="mensaje"></textarea>
                             </li>
                             <input type="submit" class="btn btn-primary" value="Enviar peticion" name="submit">
                         </ul>

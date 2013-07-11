@@ -12,18 +12,16 @@
     <body>
             <%@include file="../../includes/encabezado_inc.jsp" %>
             <div class="row">
-            <div class="span12"> 
-               
-            	<ul class="nav nav-tabs">
-                    <li class="active"> <a href="modulo.go?codPage=4001">Situacion Academica</a></li>
-                </ul>
-
-            
-            </div>
+                <div class="span12"> 
+                	<ul class="nav nav-tabs">
+                        <li class="active"> <a href="modulo.go?codPage=4001">Situacion Academica</a></li>
+                        <li> <a href="modulo.go?codPage=4002">Peticiones</a></li>
+                    </ul>            
+                </div>
             </div>
             <div class="row">
                 <div class="span10 offset1">
-                    <h1> 1er A&ntilde;o <a href="modulo.go?codPage=4002" style="float:right;" class="btn btn-primary">Peticiones</a></h1>
+                    <h1> 1er A&ntilde;o</h1>
                     <table class="table table-hover table-bordered table-condensed">
                         <thead>
                             <tr>
