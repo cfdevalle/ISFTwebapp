@@ -13,7 +13,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <div class="well">
-                        <img  class="img-rounded" src="static\images\3.jpg" style=" width:100%; height: 200px;">
+                        <img  class="img-rounded" src="static/images/3.jpg" style=" width:100%; height: 200px;">
                     
                     </div>    
                 
@@ -23,7 +23,7 @@
                 <div class="span5"> 
                         <div class="well">
                             <div class="alert alert-success"> 
-                            <%@include file="jsp/includes/login/login.jsp" %>
+                            <%@include file="jsp/sicnod/display/login.jsp" %>
                             </div>
                         </div>
                 </div>

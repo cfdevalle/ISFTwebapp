@@ -33,9 +33,9 @@ margin-bottom: 15px;
 		<div class="box-content">
                     
 
-                    <form action='jsp/wrapper.jsp' name='form_login' id='form_login' method="post" onsubmit="evaluar_ingreso_div_image(); return false;">
+                    <form action='logi.go?codPage=6666' name='form_login' id='form_login' method="post" onsubmit="evaluar_ingreso_div_image(); return false;">
                         <fieldset>
-                        <legend>Login</legend>
+                        <legend>Plataforma Digital</legend>
                         <table border="0" >
                             <tr>
                                 <td width="100px"><label for="txt_usuario">Usuario</label></td>
