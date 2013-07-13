@@ -1,10 +1,3 @@
-<%-- 
-    Document   : pruebaWrapper
-    Created on : 19-jun-2013, 19:27:31
-    Author     : Alan
---%>
-
-<!DOCTYPE html>
 <html>
     <head>
         <%@include file="jsp/includes/metas_inc.jsp" %>
