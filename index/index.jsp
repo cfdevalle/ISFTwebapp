@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row">
                 <div class="span12">
-                    <div class="well"><h1>Instituto Carlos Pelegrini N°179</h1></div>
+                    <div class="well"><h1>Instituto Carlos Pelegrini Nï¿½179</h1></div>
                 </div>
             </div>
             <div class="row">
@@ -29,9 +29,9 @@
             <div class="row">
                 <div class="span5"> 
                         <div class="well">
-                            <div class="alert alert-success"> 
-                            <%@include file="jsp/includes/login/login.jsp" %>
-                            </div>
+                            
+                            <%@include file="jsp/sicnod/display/login.jsp" %>
+                            
                         </div>
                 </div>
                 <div class="span4"> 
