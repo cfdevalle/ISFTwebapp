@@ -12,9 +12,9 @@
             <div class="span12"> 
             	<ul class="nav nav-tabs">
                     <li > <a href="modulo.go?codPage=2001">Bienvenido</a></li>
-                    <li class="active"> <a href="modulo.go?codPage=2003">Consultar Fechas</a></li>
-                    <li > <a href="modulo.go?codPage=2004">Realizar Inscripcion</a></li>
-                    <li > <a href="modulo.go?codPage=2002">Consultar Inscripcion</a></li>
+                    <li class="active"> <a href="modulo.go?codPage=2003">Cronograma Finales</a></li>
+                    <li > <a href="modulo.go?codPage=2004">Inscripcion a Finales</a></li>
+                    <li > <a href="modulo.go?codPage=2002">Materias Inscripto/a</a></li>
                 </ul>
             </div>
             </div>
