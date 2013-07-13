@@ -1,12 +1,4 @@
- 
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<%@include file="../includes/metas_inc.jsp" %>
-<title>--OPS--</title>
-</head>
-	
-<body>
+
 <hr />
 <div class="row">
 		<div class="span6">
@@ -29,7 +21,6 @@
 		</div>
 </div>
 <hr/>
-</body>
-</html>
+
 
 	

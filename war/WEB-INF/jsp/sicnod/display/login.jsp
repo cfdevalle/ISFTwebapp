@@ -1,15 +1,5 @@
-<%--
-    Document   : pruebaWrapper
-    Created on : 19-jun-2013, 19:27:31
-    Author     : Alan
---%>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <%@include file="../../includes/metas_inc.jsp" %>
-        <title>Prueba Wrapper</title>
-        <style>
+<style>
 #f{
     width: 630px;
     margin: 0 auto;
@@ -38,15 +28,12 @@ margin-bottom: 15px;
 }
 </style>
 <script src="static/js/sicnod/login.js" type="text/javascript"></script>
-    </head>
-    <body>
-            <%@include file="../../includes/encabezado_inc.jsp" %>
 <div class="row-fluid">
 	<div class="box span12">
 		<div class="box-content">
                     
 
-                    <form action='jsp/archivo3.jsp' name='form_login' id='form_login' method="post" onsubmit="evaluar_ingreso_div_image(); return false;">
+                    <form action='jsp/wrapper.jsp' name='form_login' id='form_login' method="post" onsubmit="evaluar_ingreso_div_image(); return false;">
                         <fieldset>
                         <legend>Login</legend>
                         <table border="0" >
@@ -86,6 +73,4 @@ margin-bottom: 15px;
                 -->
             </div>
 </div>
-            <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>
+    

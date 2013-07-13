@@ -1,5 +1,5 @@
-<div class="container">
-<div>
+
+<div class="row-fluid">
     <div class="navbar">
         <div class="navbar-inner">
             <div class="container">
@@ -9,14 +9,14 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book"></i>Entrada al espacio de cada grupo<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="modulo.go?codPage=1001">sim</a></li>
-                            <li><a href="modulo.go?codPage=2001">sif</a></li>
-                            <li><a href="modulo.go?codPage=3002">sicnod</a></li>
-                            <li><a href="modulo.go?codPage=4001">sicsa</a></li> 
-                            <li><a href="modulo.go?codPage=5001">sahomcil</a></li>
+                            <li><a href="javascript:goPage(1001)">sim</a></li>
+                            <li><a href="javascript:goPage(2001)">sif</a></li>
+                            <li><a href="javascript:goPage(3001)">sicnod</a></li>
+                            <li><a href="javascript:goPage(4001)">sicnusa</a></li> 
+                            <li><a href="javascript:goPage(5001)">sahomcil</a></li>
                         </ul>
                     </li>
-                    <li><a href="modulo.go?codPage=4001"><i class="icon-pencil"></i>Situacion Academica</a></li>
+                    <li><a href="javascript:goPage(4001)"><i class="icon-pencil"></i>Situacion Academica</a></li>
                     <li><a href="#"><i class="icon-calendar"></i>Horarios </a></li>
                 </ul>
                 <ul class="nav pull-right">

@@ -1,12 +1,4 @@
-<%-- 
-    Document   : pruebaWrapper
-    Created on : 19-jun-2013, 19:27:31
-    Author     : Alan
---%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <%@include file="../../includes/metas_inc.jsp" %>
+
         <script type="text/javascript" src="static/js/facebox.js"></script>
         <link type="text/css" rel="stylesheet" href="static/css/facebox.css"/>
         <title>Consulta de Situaci&oacute;n acad&eacute;mica</title>
@@ -22,9 +14,6 @@
             }
         }
         </script>
-    </head>
-    <body>
-            <%@include file="../../includes/encabezado_inc.jsp" %>
             <!--<div class="row">
                 <div class="span12"> 
                     <ul class="nav nav-tabs">
@@ -33,9 +22,9 @@
                     </ul>
                 </div>
             </div>-->
-            <div class="row">
+            <div class="row-fluid">
                 <div class="span10 offset1">
-                    <h1> Peticiones <a style="float:right;" href="modulo.go?codPage=4003" rel="facebox" class="btn btn-primary" >Ver peticiones sin responder</a></h1>
+                    <h1> Peticiones <a style="float:right;" href="javascript:goPage(4003)" rel="facebox" class="btn btn-primary" >Ver peticiones sin responder</a></h1>
                     <p>
                         <span>Carrera: 
                             <select>
@@ -69,7 +58,7 @@
                                 <td>14/06/2013</td>
                                 <td>Mal ingreso de nota</td>
                                 <td>
-                                    <a href="modulo.go?codPage=4004&idPeticion=210" rel="facebox">Contestar</a>
+                                    <a href="javascript:goPage(4004)&idPeticion=210" rel="facebox">Contestar</a>
                                     <a href="javascript:" onclick="elimiarPeticion(210, this);">Eliminar</a>
                                 </td>
                             </tr>
@@ -82,7 +71,7 @@
                                 <td>14/06/2013</td>
                                 <td>Mal ingreso de nota</td>
                                 <td>
-                                    <a href="modulo.go?codPage=4004&idPeticion=210" rel="facebox">Contestar</a>
+                                    <a href="javascript:goPage(4004)&idPeticion=210" rel="facebox">Contestar</a>
                                     <a href="javascript:" onclick="elimiarPeticion(210, this);">Eliminar</a>
                                 </td>
                             </tr>
@@ -91,6 +80,4 @@
                     <p><input type="button" class="btn btn-primary" value="Eliminar"></p>
                 </div>
             </div>
-            <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>
+  

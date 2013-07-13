@@ -11,13 +11,13 @@
         <title>Prueba Wrapper</title>
     </head>
     <body>
-        <div class="container">
-            <div class="row">
+ 
+            <div class="row-fluid">
                 <div class="span12">
                     <div class="well"><h1>Instituto Carlos Pelegrini N°179</h1></div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row-fluid">
                 <div class="span12">
                     <div class="well">
                         <img  class="img-rounded" src="static\images\3.jpg" style=" width:100%; height: 200px;">
@@ -26,7 +26,7 @@
                 
                 </div>
             </div>
-            <div class="row">
+            <div class="row-fluid">
                 <div class="span5"> 
                         <div class="well">
                             <div class="alert alert-success"> 
@@ -42,18 +42,19 @@
                             <ul>Tecnico superior en Higiene y Seguridad Industrial</ul>
                             <ul>Turismo</ul>
                         </li>
-                    </div></div>
+                    </div>
+                </div>
                 <div class="span3"> <div class="well">
                         <h4>Articulamos con la siguientes universidades</h4>
                         <li>
                             <ul>Universidad Nacional de Lomas de Zamora</ul>
                         </li>
-                    </div></div>
+                </div>
+                </div>
             </div>
             
             <%@include file="jsp/includes/pie_inc.jsp" %>
             
-        </div>
-        </div>
+        
     </body>
 </html>
