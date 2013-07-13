@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : pruebaWrapper
     Created on : 19-jun-2013, 19:27:31
     Author     : Alan
@@ -23,9 +23,7 @@
     position:relative;
     margin-top:150px !important;
 }
-.table{
- text-align:center;
-}
+
 fieldset {
 
 position: relative;
@@ -43,13 +41,15 @@ margin-bottom: 15px;
     </head>
     <body>
             <%@include file="../../includes/encabezado_inc.jsp" %>
-            <div class="row">
-                <div class="span6" style="min-height: 600px;>
-                    <fieldset id="f">
+<div class="row-fluid">
+	<div class="box span12">
+		<div class="box-content">
                     
+
                     <form action='jsp/archivo3.jsp' name='form_login' id='form_login' method="post" onsubmit="evaluar_ingreso_div_image(); return false;">
+                        <fieldset>
+                        <legend>Login</legend>
                         <table border="0" >
-                            <caption style="font-weight: bold;float: left;font-size: 25px;margin-bottom: 15px;">Login</caption>
                             <tr>
                                 <td width="100px"><label for="txt_usuario">Usuario</label></td>
                                 <td width="230px"><input type="text" maxlength="30" name="txt_usuario" id="txt_usuario"></td>
@@ -75,14 +75,17 @@ margin-bottom: 15px;
                                 <td>&nbsp;</td>
                             </tr>
                         </table>
+                         </fieldset>
                     </form>
-                    </fieldset>
+                   
                 </div>
-
+                <!--
                 <div class="span6" style="min-height: 600px; background-color: #DCCCFF">
                     <h1>Hola</h1>
                 </div>
+                -->
             </div>
+</div>
             <%@include file="../../includes/pie_inc.jsp" %>
     </body>
 </html>

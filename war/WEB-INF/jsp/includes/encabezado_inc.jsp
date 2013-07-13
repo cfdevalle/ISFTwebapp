@@ -11,7 +11,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="modulo.go?codPage=1001">sim</a></li>
                             <li><a href="modulo.go?codPage=2001">sif</a></li>
-                            <li><a href="modulo.go?codPage=3001">sicnod</a></li>
+                            <li><a href="modulo.go?codPage=3002">sicnod</a></li>
                             <li><a href="modulo.go?codPage=4001">sicsa</a></li> 
                             <li><a href="modulo.go?codPage=5001">sahomcil</a></li>
                         </ul>
