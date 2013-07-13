@@ -49,6 +49,7 @@
                     <table class="table table-hover table-bordered table-condensed">
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>ID)</th>
                                 <th>Alumno</th>
                                 <th>Carrera</th>
@@ -60,6 +61,7 @@
                         </thead>
                         <tbody>
                             <tr class="success">
+                                <td><input type="checkbox"></td>
                                 <td>210</td>
                                 <td>Garcia Nicolas</td>
                                 <td>Sistemas</td>
@@ -72,6 +74,7 @@
                                 </td>
                             </tr>
                             <tr class="error">
+                                <td><input type="checkbox"></td>
                                 <td>210</td>
                                 <td>Garcia Nicolas</td>
                                 <td>Sistemas</td>
@@ -85,6 +88,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    <p><input type="button" class="btn btn-primary" value="Eliminar"></p>
                 </div>
             </div>
             <%@include file="../../includes/pie_inc.jsp" %>
