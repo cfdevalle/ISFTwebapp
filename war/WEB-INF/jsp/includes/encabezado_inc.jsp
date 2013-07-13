@@ -1,8 +1,5 @@
 <div class="container">
 <div>
-    <header class="page-header">
-
-    </header>
     <div class="navbar">
         <div class="navbar-inner">
             <div class="container">
@@ -19,7 +16,7 @@
                             <li><a href="modulo.go?codPage=5001">sahomcil</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="icon-pencil"></i>Situacion Academica</a></li>
+                    <li><a href="modulo.go?codPage=4001"><i class="icon-pencil"></i>Situacion Academica</a></li>
                     <li><a href="#"><i class="icon-calendar"></i>Horarios </a></li>
                 </ul>
                 <ul class="nav pull-right">

@@ -9,19 +9,21 @@
     <body>
             <%@include file="../../includes/encabezado_inc.jsp" %>
             <div class="row">
-                <div class="span12" style="min-height: 600px; background-color: #DCCCFF">
+            <div class="span12"> 
+               
+            	<ul class="nav nav-tabs">
+                    <li ><a href="modulo.go?codPage=1002">inscripcion a materias</a></li>
+                    <li >              <a href="modulo.go?codPage=1003">modificar inscripcion</a></li>
+                    <li class="active">               <a href="modulo.go?codPage=1004">eliminar materias inscriptas</a></li>
+                </ul>
+
+            
+            </div>
+            </div>
+            <div class="row">
+                <div class="span12">
 				
-					<p>LISTADO DE MATERIAS APTAS PARA ELIMINAR DE SU INSCRPCIÓN<P>
-					<hr>
-					<table border="0" cellpadding="5">
-						<tr>
-							<td><a href="modulo.go?codPage=1002">Inscribirse a Materias</a></td>
-							<td><a href="modulo.go?codPage=1003">Modificar Inscripción</a></td>
-							<td>Eliminar Materias de Inscripción</td>
-						</tr>
-					</table>
-					<hr>	
-					</br>
+					
 					<form method="post" action="modulo.go?codPage=1005">
 	
 					<table border="1">

@@ -12,8 +12,16 @@
     <body>
             <%@include file="../../includes/encabezado_inc.jsp" %>
             <div class="row">
+                <div class="span12"> 
+                	<ul class="nav nav-tabs">
+                        <li class="active"> <a href="modulo.go?codPage=4001">Situacion Academica</a></li>
+                        <li> <a href="modulo.go?codPage=4002">Peticiones</a></li>
+                    </ul>            
+                </div>
+            </div>
+            <div class="row">
                 <div class="span10 offset1">
-                    <h1> 1er A&ntilde;o <input style="float:right;" type="button" class="btn btn-primary" value="Descargar situacion academica (PDF)"></h1>
+                    <h1> 1er A&ntilde;o</h1>
                     <table class="table table-hover table-bordered table-condensed">
                         <thead>
                             <tr>

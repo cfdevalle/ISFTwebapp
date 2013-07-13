@@ -7,7 +7,17 @@
     <body>
       
             <%@include file="../../includes/encabezado_inc.jsp" %>
-            <%@include file="../includes/sif_menu.jsp" %>
+            <div class="row">
+            <div class="span12"> 
+            	<ul class="nav nav-tabs">
+                    <li > <a href="modulo.go?codPage=2001">Bienvenido</a></li>
+                    <li > <a href="modulo.go?codPage=2003">Consultar Fechas</a></li>
+                    <li > <a href="modulo.go?codPage=2004">Realizar Inscripcion</a></li>
+                    <li class="active" > <a href="modulo.go?codPage=2002  ">Consultar Inscripcion</a></li>
+                </ul>
+            </div>
+            </div>
+
             <div class="span12" style="min-height: 600px">   
                     <h1 align="center"><u>Materias Inscripto/a</u></h1>
                     <br>
@@ -50,6 +60,13 @@
                             <td align="center"><input type="image" src="../../../static/images/sif/error.png" height="25" width="25" /></td>
                         </tr>
                     </table>
+                    <br>
+                    <br>
+                    <table align="center">
+                        <tr><td><input type="button" Value="Descargar"></td></tr>
+                    </table>
+                        
+                       
             </div>
             <%@include file="../../includes/pie_inc.jsp" %>
     </body>
