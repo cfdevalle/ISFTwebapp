@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 14-07-2013 a las 16:38:24
+-- Tiempo de generación: 14-07-2013 a las 17:56:59
 -- Versión del servidor: 5.1.53
 -- Versión de PHP: 5.3.4
 
@@ -123,9 +123,7 @@ CREATE TABLE IF NOT EXISTS `cursoscantidad` (
   PRIMARY KEY (`legajoProfesor`,`Cod_Curso`,`Cod_Carrera`,`Cod_Materia`,`Lectivo`),
   KEY `fk_cursoscantidad_profesor1_idx` (`legajoProfesor`),
   KEY `fk_cursoscantidad_curso1_idx` (`Cod_Curso`,`Cod_Carrera`),
-  KEY `fk_cursoscantidad_materia1_idx` (`Cod_Materia`),
-  KEY `Lectivo` (`Lectivo`),
-  KEY `Cod_Carrera` (`Cod_Carrera`)
+  KEY `fk_cursoscantidad_materia1_idx` (`Cod_Materia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -154,8 +152,7 @@ CREATE TABLE IF NOT EXISTS `examenes` (
   `Cod_Materia` int(11) NOT NULL,
   `Cod_Carrera` int(11) NOT NULL,
   PRIMARY KEY (`Turno`,`Fecha2`,`Fecha1`,`Cod_Materia`,`Cod_Carrera`),
-  KEY `fk_examenes_materia1_idx` (`Cod_Materia`,`Cod_Carrera`),
-  KEY `Cod_Carrera` (`Cod_Carrera`)
+  KEY `fk_examenes_materia1_idx` (`Cod_Materia`,`Cod_Carrera`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -187,11 +184,7 @@ CREATE TABLE IF NOT EXISTS `horario` (
   `Lectivo` int(11) NOT NULL,
   PRIMARY KEY (`Dia`,`Hora_desde`,`Hora_hasta`,`legajoProfesor`,`Cod_Curso`,`Cod_Carrera`,`Cod_Materia`,`Lectivo`),
   KEY `fk_horario_hora1_idx` (`Hora_desde`,`Hora_hasta`),
-  KEY `fk_horario_cursoscantidad1_idx` (`legajoProfesor`,`Cod_Curso`,`Cod_Carrera`,`Cod_Materia`,`Lectivo`),
-  KEY `Cod_Curso` (`Cod_Curso`),
-  KEY `Cod_Carrera` (`Cod_Carrera`),
-  KEY `Cod_Materia` (`Cod_Materia`),
-  KEY `Lectivo` (`Lectivo`)
+  KEY `fk_horario_cursoscantidad1_idx` (`legajoProfesor`,`Cod_Curso`,`Cod_Carrera`,`Cod_Materia`,`Lectivo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -213,8 +206,7 @@ CREATE TABLE IF NOT EXISTS `libromatriz` (
   `Cod_Carrera` int(11) NOT NULL,
   `Alumnos_Legajo` int(11) NOT NULL,
   PRIMARY KEY (`Cod_Materia`,`Cod_Carrera`,`Alumnos_Legajo`),
-  KEY `fk_LibroMatriz_Alumnos1_idx` (`Alumnos_Legajo`),
-  KEY `Cod_Carrera` (`Cod_Carrera`)
+  KEY `fk_LibroMatriz_Alumnos1_idx` (`Alumnos_Legajo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -253,8 +245,7 @@ CREATE TABLE IF NOT EXISTS `nota_examenes` (
   `Alumnos_Legajo` int(11) NOT NULL,
   PRIMARY KEY (`Fecha_Examen`,`Cod_Materia`,`Cod_Carrera`,`Alumnos_Legajo`),
   KEY `fk_Nota_Examenes_materia1_idx` (`Cod_Materia`,`Cod_Carrera`),
-  KEY `fk_Nota_Examenes_Alumnos1_idx` (`Alumnos_Legajo`),
-  KEY `Cod_Carrera` (`Cod_Carrera`)
+  KEY `fk_Nota_Examenes_Alumnos1_idx` (`Alumnos_Legajo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -281,65 +272,45 @@ CREATE TABLE IF NOT EXISTS `profesor` (
 -- Filtros para la tabla `correlativa`
 --
 ALTER TABLE `correlativa`
-  ADD CONSTRAINT `correlativa_ibfk_2` FOREIGN KEY (`Cod_Carrera`) REFERENCES `carrera` (`Cod_Carrera`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `correlativa_ibfk_1` FOREIGN KEY (`Cod_Materia`) REFERENCES `materia` (`Cod_Materia`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_correlativa_materia1` FOREIGN KEY (`Cod_Materia`) REFERENCES `materia` (`Cod_Materia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_correlativa_carrera1` FOREIGN KEY (`Cod_Carrera`) REFERENCES `carrera` (`Cod_Carrera`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `curso`
 --
 ALTER TABLE `curso`
-  ADD CONSTRAINT `fk_curso_carrera1` FOREIGN KEY (`Cod_Carrera`) REFERENCES `carrera` (`Cod_Carrera`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `curso_ibfk_1` FOREIGN KEY (`Cod_Carrera`) REFERENCES `carrera` (`Cod_Carrera`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_curso_carrera1` FOREIGN KEY (`Cod_Carrera`) REFERENCES `carrera` (`Cod_Carrera`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `cursosalumnos`
 --
 ALTER TABLE `cursosalumnos`
-  ADD CONSTRAINT `cursosalumnos_ibfk_4` FOREIGN KEY (`Cod_Curso`) REFERENCES `curso` (`Cod_Curso`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cursosalumnos_ibfk_1` FOREIGN KEY (`Cod_Materia`) REFERENCES `materia` (`Cod_Materia`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cursosalumnos_ibfk_2` FOREIGN KEY (`Cod_Carrera`) REFERENCES `carrera` (`Cod_Carrera`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cursosalumnos_ibfk_3` FOREIGN KEY (`Alumnos_Legajo`) REFERENCES `alumnos` (`Legajo`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `cursoscantidad`
---
-ALTER TABLE `cursoscantidad`
-  ADD CONSTRAINT `cursoscantidad_ibfk_5` FOREIGN KEY (`Cod_Materia`) REFERENCES `materia` (`Cod_Materia`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cursoscantidad_ibfk_1` FOREIGN KEY (`Lectivo`) REFERENCES `cursoscantidad` (`legajoProfesor`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cursoscantidad_ibfk_2` FOREIGN KEY (`legajoProfesor`) REFERENCES `cursoscantidad` (`legajoProfesor`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cursoscantidad_ibfk_3` FOREIGN KEY (`Cod_Curso`) REFERENCES `curso` (`Cod_Curso`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cursoscantidad_ibfk_4` FOREIGN KEY (`Cod_Carrera`) REFERENCES `carrera` (`Cod_Carrera`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_cursosAlumnos_materia1` FOREIGN KEY (`Cod_Materia`) REFERENCES `materia` (`Cod_Materia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_cursosAlumnos_carrera1` FOREIGN KEY (`Cod_Carrera`) REFERENCES `carrera` (`Cod_Carrera`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_cursosAlumnos_Alumnos1` FOREIGN KEY (`Alumnos_Legajo`) REFERENCES `alumnos` (`Legajo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_cursosAlumnos_curso1` FOREIGN KEY (`Cod_Curso`) REFERENCES `curso` (`Cod_Curso`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `examenes`
 --
 ALTER TABLE `examenes`
-  ADD CONSTRAINT `examenes_ibfk_2` FOREIGN KEY (`Cod_Carrera`) REFERENCES `materia` (`Cod_Carrera`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `examenes_ibfk_1` FOREIGN KEY (`Cod_Materia`) REFERENCES `materia` (`Cod_Materia`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_examenes_materia1` FOREIGN KEY (`Cod_Materia`, `Cod_Carrera`) REFERENCES `materia` (`Cod_Materia`, `Cod_Carrera`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `horario`
 --
 ALTER TABLE `horario`
-  ADD CONSTRAINT `horario_ibfk_7` FOREIGN KEY (`Lectivo`) REFERENCES `cursoscantidad` (`Lectivo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `horario_ibfk_1` FOREIGN KEY (`legajoProfesor`) REFERENCES `cursoscantidad` (`legajoProfesor`),
+  ADD CONSTRAINT `fk_horarios_dia` FOREIGN KEY (`Dia`) REFERENCES `dia` (`Dia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_horario_cursoscantidad1` FOREIGN KEY (`legajoProfesor`, `Cod_Curso`, `Cod_Carrera`, `Cod_Materia`, `Lectivo`) REFERENCES `cursoscantidad` (`legajoProfesor`, `Cod_Curso`, `Cod_Carrera`, `Cod_Materia`, `Lectivo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_horario_hora1` FOREIGN KEY (`Hora_desde`, `Hora_hasta`) REFERENCES `hora` (`Hora_desde`, `Hora_hasta`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `horario_ibfk_1` FOREIGN KEY (`Dia`) REFERENCES `dia` (`Dia`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `horario_ibfk_2` FOREIGN KEY (`Hora_desde`) REFERENCES `hora` (`Hora_desde`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `horario_ibfk_3` FOREIGN KEY (`legajoProfesor`) REFERENCES `cursoscantidad` (`legajoProfesor`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `horario_ibfk_4` FOREIGN KEY (`Cod_Curso`) REFERENCES `cursosalumnos` (`Cod_Curso`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `horario_ibfk_5` FOREIGN KEY (`Cod_Carrera`) REFERENCES `cursosalumnos` (`Cod_Carrera`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `horario_ibfk_6` FOREIGN KEY (`Cod_Materia`) REFERENCES `cursosalumnos` (`Cod_Materia`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_horario_hora1` FOREIGN KEY (`Hora_desde`, `Hora_hasta`) REFERENCES `hora` (`Hora_desde`, `Hora_hasta`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `libromatriz`
 --
 ALTER TABLE `libromatriz`
-  ADD CONSTRAINT `libromatriz_ibfk_2` FOREIGN KEY (`Cod_Carrera`) REFERENCES `cursoscantidad` (`Cod_Carrera`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_LibroMatriz_Alumnos1` FOREIGN KEY (`Alumnos_Legajo`) REFERENCES `alumnos` (`Legajo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_LibroMatriz_materia1` FOREIGN KEY (`Cod_Materia`, `Cod_Carrera`) REFERENCES `materia` (`Cod_Materia`, `Cod_Carrera`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `libromatriz_ibfk_1` FOREIGN KEY (`Cod_Materia`) REFERENCES `materia` (`Cod_Materia`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_LibroMatriz_Alumnos1` FOREIGN KEY (`Alumnos_Legajo`) REFERENCES `alumnos` (`Legajo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `materia`
@@ -351,7 +322,5 @@ ALTER TABLE `materia`
 -- Filtros para la tabla `nota_examenes`
 --
 ALTER TABLE `nota_examenes`
-  ADD CONSTRAINT `nota_examenes_ibfk_3` FOREIGN KEY (`Alumnos_Legajo`) REFERENCES `alumnos` (`Legajo`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_Nota_Examenes_materia1` FOREIGN KEY (`Cod_Materia`, `Cod_Carrera`) REFERENCES `materia` (`Cod_Materia`, `Cod_Carrera`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `nota_examenes_ibfk_1` FOREIGN KEY (`Cod_Materia`) REFERENCES `materia` (`Cod_Materia`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `nota_examenes_ibfk_2` FOREIGN KEY (`Cod_Carrera`) REFERENCES `materia` (`Cod_Carrera`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_Nota_Examenes_Alumnos1` FOREIGN KEY (`Alumnos_Legajo`) REFERENCES `alumnos` (`Legajo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
