@@ -33,7 +33,7 @@ margin-bottom: 15px;
 		<div class="box-content">
                     
 
-                    <form action='logi.go?codPage=6666' name='form_login' id='form_login' method="post" onsubmit="evaluar_ingreso_div_image(); return false;">
+                    <form  action='logi.go?codPage=6000' name='form_login' id='form_login' method="post" onsubmit="evaluar_ingreso_div_image(); return false;">
                         <fieldset>
                         <legend>Plataforma Digital</legend>
                         <table border="0" >
