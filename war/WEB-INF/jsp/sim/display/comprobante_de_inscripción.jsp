@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <%@include file="../../includes/metas_inc.jsp" %>
-        <title>Sistema de Inscripcion a Materias</title>
-    </head>
-    <body>
-            <%@include file="../../includes/encabezado_inc.jsp" %>
-            <div class="row">
+            <div class="row-fluid">
                 <div class="span12" style="min-height: 600px; background-color: #DCCCFF">
 				
 					<p>COMPROBANTE DE INSCRIPCIÓN Nº242</p>
@@ -40,12 +32,9 @@
 					<table>	
 						<tr>
 							<td><form><input value="Descargar" onclick="guardar_archivo()" id="documento" type="submit"></form>	</td>
-							<td><form method="post" action="modulo.go?codPage=1001"> <input type="submit" value="Cancelar" > </form></td>
+							<td><form method="post" action="javascript:goPage(1001)"> <input type="submit" value="Cancelar" > </form></td>
 						</tr>
 					</table>
 				
                 </div>
             </div>
-            <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>

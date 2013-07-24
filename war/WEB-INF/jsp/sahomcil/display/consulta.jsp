@@ -1,14 +1,15 @@
-<%-- 
-    Document   : pruebaWrapper
-    Created on : 19-jun-2013, 19:27:31
-    Author     : Alan
---%>
+  <div class="row-fluid">
+            <div class="span12"> 
+             <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#">Horarios</a>
+                        </li>                  
+                   </ul>
+            </div>
+  </div>     
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <%@include file="../../includes/metas_inc.jsp" %>
-        <title>Horarios Gestion</title>
+
+<title>Horarios Gestion</title>
         
    
         
@@ -32,21 +33,9 @@
 <button class="btn btn-primary">aceptar</button>
 </div>
 </div>
-
-    </head>
-    <body>
-        <%@include file="../../includes/encabezado_inc.jsp" %>
-        <div class="row">
-            <div class="span12"> 
-             <ul class="nav nav-tabs">
-                        <li class="active">
-                            <a href="#">Horarios</a>
-                        </li>                  
-                   </ul>
-            </div>
-         </div>
+        
         <!-- el div que tiene el combo de carreras ocupando 3 columnas     -->
-        <div class="row">
+        <div class="row-fluid">
             <div class="span3" style="min-height: 70px">
                 <h4>Seleccione Carrera:</h4>
             </div>
@@ -61,7 +50,7 @@
         </div>
 
         <!-- el div que tiene el combo de curso ocupando 3 columnas     -->
-        <div class="row">
+        <div class="row-fluid">
             <div class="span3" style="min-height: 70px">
                 <h4>Seleccione Curso:</h4>
             </div>
@@ -75,7 +64,7 @@
             </div>
         </div>
         <!-- la tabla de informacion de materias/horas/profesor/dia ocupando 12 columnas     -->
-        <div class="row">
+        <div class="row-fluid">
             <div class="span10 offset1">
                 <h1> Horarios:</h1><br>
                 <table class="table table-hover table-bordered table-condensed">
@@ -158,7 +147,7 @@
         </div>
         <br></br>
         <!-- aca hay una serie de DIV'S ocupando 3 columnas cada una de ellas y 3 columnas en offset     -->
-        <div class="row">
+        <div class="row-fluid">
             <div class="span3 offset3" style="min-height: 100px">
 
             </div>
@@ -175,6 +164,3 @@
 
         </div>
 
-        <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>

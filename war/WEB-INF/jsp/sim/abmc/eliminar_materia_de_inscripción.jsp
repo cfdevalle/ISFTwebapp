@@ -1,30 +1,20 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <%@include file="../../includes/metas_inc.jsp" %>
-        <title>Sistema de Inscripcion a Materias</title>
-		<script type="text/javascript" src="js/desabilitar.js"></script>
-		<script type="text/javascript" src="js/confirmar_inscripcion.js"></script>
-    </head>
-    <body>
-            <%@include file="../../includes/encabezado_inc.jsp" %>
-            <div class="row">
+           <div class="row-fluid">
             <div class="span12"> 
                
             	<ul class="nav nav-tabs">
-                    <li ><a href="modulo.go?codPage=1002">inscripcion a materias</a></li>
-                    <li >              <a href="modulo.go?codPage=1003">modificar inscripcion</a></li>
-                    <li class="active">               <a href="modulo.go?codPage=1004">eliminar materias inscriptas</a></li>
+                    <li ><a href="javascript:goPage(1002)">inscripcion a materias</a></li>
+                    <li >              <a href="javascript:goPage(1003)">modificar inscripcion</a></li>
+                    <li class="active">               <a href="javascript:goPage(1004)">eliminar materias inscriptas</a></li>
                 </ul>
 
             
             </div>
             </div>
-            <div class="row">
+            <div class="row-fluid">
                 <div class="span12">
 				
 					
-					<form method="post" action="modulo.go?codPage=1005">
+					<form method="post" action="javascript:goPage(1005)">
 	
 					<table border="1">
 						<tr>
@@ -51,12 +41,9 @@
 						<tr>
 							<td><input type="button" value="Eliminar" id="insc"></td>
 							<td><input type="submit" value="Guardar cambios" id="insc"></form></td>
-							<td><form method="post" action="modulo.go?codPage=1001"><input type="submit" value="Cancelar" ></form></td>
+							<td><form method="post" action="javascript:goPage(1001)"><input type="submit" value="Cancelar" ></form></td>
 						</tr>
 					</table>
 				
                 </div>
             </div>
-            <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>

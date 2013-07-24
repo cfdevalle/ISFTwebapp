@@ -1,22 +1,14 @@
-
-<html>
-    <head>
-        <link type="text/css" rel="stylesheet" href="../../../static/css/bootstrap.css">
-        <%@include file="../../includes/metas_inc.jsp" %>
-        <title>Cronograma Finales</title>
-        <style type="text/css">td{white-space:nowrap;}</style>
-    </head>
-    <body>
-            <%@include file="../../includes/encabezado_inc.jsp" %>
-            <div class="row">
+       <style type="text/css">td{white-space:nowrap;}</style>
+  
+            <div class="row-fluid">
             <div class="span12"> 
                
             	<ul class="nav nav-tabs">
-                    <li > <a href="modulo.go?codPage=2001">Bienvenido</a></li>
-                    <li class="active"> <a href="modulo.go?codPage=2003 ">Consultar Fechas</a></li>
-                    <li  >              <a href="modulo.go?codPage=2004 ">Realizar Inscripcion</a></li>
+                    <li > <a href="javascript:goPage(2001)">Bienvenido</a></li>
+                    <li class="active"> <a href="javascript:goPage(2003) ">Consultar Fechas</a></li>
+                    <li  >              <a href="javascript:goPage(2004) ">Realizar Inscripcion</a></li>
                     <li >               <a href="#">Modificar Inscripcion</a></li>
-                    <li >               <a href="modulo.go?codPage=2002  ">Consultar Inscripcion</a></li>
+                    <li >               <a href="javascript:goPage(2002)  ">Consultar Inscripcion</a></li>
                 </ul>
 
             
@@ -105,6 +97,4 @@
                         </tr>
                     </table>
                 </div>
-            <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>
+  

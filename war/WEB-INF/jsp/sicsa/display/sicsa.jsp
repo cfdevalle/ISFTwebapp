@@ -1,25 +1,16 @@
-<%-- 
-    Document   : pruebaWrapper
-    Created on : 19-jun-2013, 19:27:31
-    Author     : Alan
---%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <%@include file="../../includes/metas_inc.jsp" %>
+
         <title>Consulta de Situaci&oacute;n acad&eacute;mica</title>
-    </head>
-    <body>
-            <%@include file="../../includes/encabezado_inc.jsp" %>
-            <div class="row">
+    
+        
+            <div class="row-fluid">
                 <div class="span12"> 
                 	<ul class="nav nav-tabs">
-                        <li class="active"> <a href="modulo.go?codPage=4001">Situacion Academica</a></li>
-                        <li> <a href="modulo.go?codPage=4002">Peticiones</a></li>
+                        <li class="active"> <a href="javascript:goPage(4001)">Situacion Academica</a></li>
+                        <li> <a href="javascript:goPage(4002)">Peticiones</a></li>
                     </ul>            
                 </div>
             </div>
-            <div class="row">
+            <div class="row-fluid">
                 <div class="span10 offset1">
                     <h1> 1er A&ntilde;o</h1>
                     <table class="table table-hover table-bordered table-condensed">
@@ -117,6 +108,4 @@
                     </table>
                 </div>
             </div>
-            <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>
+  
