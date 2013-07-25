@@ -1,3 +1,8 @@
+<script> 
+	var f = new Date(); 
+	f=f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+	$("#div_fecha").html("Fecha: " + f); 
+</script>
            <div class="row-fluid">
             <div class="span12"> 
                
@@ -11,11 +16,10 @@
             </div>
             </div>
             <div class="row-fluid">
-                <div class="span12">
-				
+                <div class="span12">				
 					<p>COMPROBANTE DE INSCRIPCIÓN Nº242</p>
 					<hr></br>
-					Fecha: <script> var f = new Date(); document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear()); </script></br>
+					<div id="div_fecha"/>
 					Carrera: Tecnicatura Superior en Analisis de Sistemas</br>
 					Estudiante: Peres Juan.</br>
 					Nº Legajo: 12345 </br>

@@ -1,5 +1,5 @@
-            <script type="text/javascript" src="js/desabilitar.js"></script>
-            <script type="text/javascript" src="js/confirmar_inscripcion.js"></script>
+            <script type="text/javascript" src="/ISFTwebapp/static/js/sim/desabilitar.js"></script>
+            <script type="text/javascript" src="/ISFTwebapp/static/js/sim/confirmar_inscripcion.js"></script>
 
             <div class="row-fluid">
             <div class="span12"> 
