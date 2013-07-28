@@ -233,8 +233,8 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `isftwebappfinal`.`hora` ;
 
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`hora` (
-  `Hora_desde` DATETIME NOT NULL ,
-  `Hora_hasta` DATETIME NOT NULL ,
+  `Hora_desde` TIMESTAMP NOT NULL ,
+  `Hora_hasta` TIMESTAMP NOT NULL ,
   PRIMARY KEY (`Hora_desde`, `Hora_hasta`) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
