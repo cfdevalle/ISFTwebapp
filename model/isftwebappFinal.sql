@@ -8,6 +8,8 @@ USE `isftwebappfinal` ;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`alumnos`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`alumnos` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`alumnos` (
   `Legajo` INT(6) NOT NULL ,
   `Nombre` VARCHAR(45) NULL DEFAULT NULL ,
@@ -27,6 +29,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`carrera`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`carrera` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`carrera` (
   `Cod_Carrera` INT(2) NOT NULL ,
   `Nombre` VARCHAR(45) NOT NULL ,
@@ -39,6 +43,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`materia`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`materia` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`materia` (
   `Cod_Materia` INT(3) NOT NULL ,
   `Nombre` VARCHAR(45) NULL DEFAULT NULL ,
@@ -58,6 +64,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`correlativa`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`correlativa` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`correlativa` (
   `Cod_Correlativa` INT(3) NOT NULL ,
   `Cod_Materia` INT(3) NOT NULL ,
@@ -82,6 +90,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`curso`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`curso` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`curso` (
   `Descripcion` VARCHAR(45) NOT NULL ,
   `Turno` VARCHAR(1) NOT NULL ,
@@ -101,6 +111,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`cursos_alumnos`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`cursos_alumnos` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`cursos_alumnos` (
   `Asistencia` TINYINT(1) NULL DEFAULT NULL ,
   `Regularizado` TINYINT(1) NULL DEFAULT NULL ,
@@ -144,6 +156,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`profesor`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`profesor` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`profesor` (
   `legajoProfesor` INT(11) NOT NULL ,
   `Nombre` VARCHAR(45) NULL DEFAULT NULL ,
@@ -159,9 +173,11 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`cursos_cantidad`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`cursos_cantidad` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`cursos_cantidad` (
   `Lectivo` INT(4) NOT NULL ,
-  `Cant_Alumnos` INT(3) NULL DEFAULT NULL ,
+  `Cant_Alumnos` INT(3) NULL ,
   `legajoProfesor` INT(11) NOT NULL ,
   `Cod_Curso` INT(2) NOT NULL ,
   `Cod_Carrera` INT(2) NOT NULL ,
@@ -170,13 +186,15 @@ CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`cursos_cantidad` (
   INDEX `fk_cursoscantidad_profesor1_idx` (`legajoProfesor` ASC) ,
   INDEX `fk_cursoscantidad_curso1_idx` (`Cod_Curso` ASC, `Cod_Carrera` ASC) ,
   INDEX `fk_cursoscantidad_materia1_idx` (`Cod_Materia` ASC) )
-ENGINE = MyISAM
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`dia`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`dia` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`dia` (
   `Dia` INT(2) NOT NULL ,
   `Descripcion` VARCHAR(10) NOT NULL ,
@@ -188,6 +206,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`examenes`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`examenes` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`examenes` (
   `ModalidadInscripcion` VARCHAR(2) NULL DEFAULT NULL ,
   `Fecha1` DATE NOT NULL ,
@@ -209,9 +229,11 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`hora`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`hora` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`hora` (
-  `Hora_desde` TIME NULL ,
-  `Hora_hasta` TIME NULL ,
+  `Hora_desde` TIME NULL DEFAULT NULL ,
+  `Hora_hasta` TIME NULL DEFAULT NULL ,
   PRIMARY KEY (`Hora_desde`, `Hora_hasta`) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -220,10 +242,12 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`horario`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`horario` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`horario` (
   `Dia` INT(2) NOT NULL ,
-  `Hora_desde` TIME NULL ,
-  `Hora_hasta` TIME NULL ,
+  `Hora_desde` TIME NULL DEFAULT NULL ,
+  `Hora_hasta` TIME NULL DEFAULT NULL ,
   `lectivo` INT(4) NOT NULL ,
   `legajoProfesor` INT(11) NOT NULL ,
   `Cod_Curso` INT(2) NOT NULL ,
@@ -254,6 +278,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`libro_matriz`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`libro_matriz` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`libro_matriz` (
   `Regularizado` TINYINT(1) NULL DEFAULT NULL ,
   `Fecha_Reg` DATE NULL DEFAULT NULL ,
@@ -285,6 +311,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`nota_examen`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`nota_examen` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`nota_examen` (
   `Fecha_Examen` DATE NOT NULL ,
   `Nota_Final` INT(11) NULL DEFAULT NULL ,
@@ -318,6 +346,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`mensaje`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`mensaje` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`mensaje` (
   `id_mensaje` INT NOT NULL AUTO_INCREMENT ,
   `titulo` VARCHAR(30) NOT NULL ,
@@ -339,6 +369,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `isftwebappfinal`.`respuesta_mensaje`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`respuesta_mensaje` ;
+
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`respuesta_mensaje` (
   `id_respuesta` INT NOT NULL AUTO_INCREMENT ,
   `id_mensaje` INT NOT NULL ,
