@@ -1,9 +1,9 @@
-function desabilitar(){
-						var option = document.getElementById('slct1');
+function desabilitarFila(){
+						var option = document.getElementById('slot1');
 						option.disabled = !option.disabled;
-						var option = document.getElementById('slct2');
+						var option = document.getElementById('slot2');
 						option.disabled = !option.disabled;
-						var option = document.getElementById('slct3');
+						var option = document.getElementById('slot3');
 						option.disabled = !option.disabled;
 						botom_inscripcion();		
 }
