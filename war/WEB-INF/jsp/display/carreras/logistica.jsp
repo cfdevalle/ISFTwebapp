@@ -1,0 +1,4 @@
+<h4>Tecnicatura Superior en Logística (Res. 1557/07)</h4>
+<h6>Resolución de la Carrera - Plan de estudio</h6>
+        <p>
+            En el ámbito de la Logística se ubican los procesos y procedimientos que integran, coordinan, y controlan el movimiento de componentes, productos terminados e información, vinculada desde los proveedores, a través de una empresa, para satisfacer los requerimientos del Cliente.  Su gestión facilita la integración de servicios combinados, integrando las fuentes de producción con los centros de abastecimientos, distribución y ventas. Siendo que uno de los principales objetivos de la Logística es cumplir con un nivel óptimo de servicios a un costo aceptable, la prioridad básica es poner los productos en movimiento y moverlos con celeridad.</p>

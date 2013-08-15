@@ -220,3 +220,4 @@ pip-log.txt
 build.xml
 /war/WEB-INF/jsp/META-INF/
 /.classes/
+/.classes - copia/

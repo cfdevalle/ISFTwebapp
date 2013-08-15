@@ -1,9 +1,12 @@
-<html>
-    <head>
-        <link type="text/css" rel="stylesheet" href="../../../static/css/bootstrap.css">
-        <%@include file="../../includes/metas_inc.jsp" %>
-        <title>Consultar Inscripcion</title>
-        
+<script type="text/javascript" src="static/js/facebox.js"></script>
+<link type="text/css" rel="stylesheet" href="static/css/facebox.css"/>
+
+<style>
+    .table td {
+        text-align: center;   
+    }
+</style>
+
         <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-header">
                 <h3 id="myModalLabel">Envio de Email</h3>
@@ -14,44 +17,38 @@
             <div class="modal-footer">
                 <a role="button" class="btn">Modificar direccion de email</a>
                 <a class="btn" data-dismiss="modal" aria-hidden="true">cancelar</a>
-                <a href="modulo.go?codPage=2004" class="btn btn-primary">aceptar</a>
+                <a href="javascript:goPage(2002)" class="btn btn-primary">aceptar</a>
             </div>
         </div>
-        
-        
-    </head>
-    <body>
-      
-            <%@include file="../../includes/encabezado_inc.jsp" %>
-            <div class="row">
+            <div class="row-fluid">
             <div class="span12"> 
             	<ul class="nav nav-tabs">
-                    <li > <a href="modulo.go?codPage=2001">Bienvenido</a></li>
-                    <li > <a href="modulo.go?codPage=2003">Cronograma Finales</a></li>
-                    <li > <a href="modulo.go?codPage=2004">Inscripcion a Finales</a></li>
-                    <li class="active" > <a href="modulo.go?codPage=2002">Materias Inscripto/a</a></li>
+                    <li><a href="javascript:goPage(2001)">Bienvenido</a></li>
+                    <li><a href="javascript:goPage(2003)">Cronograma Finales</a></li>
+                    <li><a href="javascript:goPage(2004)">Inscripcion a Finales</a></li>
+                    <li class="active"><a href="javascript:goPage(2002)">Materias Inscripto/a</a></li>
                 </ul>
             </div>
             </div>
-
-            <div class="span12" style="min-height: 600px">   
+            
+            <div class="span12">   
                     <h1 align="center"><u>Materias Inscripto/a</u></h1>
                     <br>
                     <br>
-                    <table align="center" cellpadding="5">
+                    <table class="table table-condensed">
                         <tr>
                             <td><h4>Materia</h4></td>
                             <td><h4>Fecha</h4></td>
                             <td><h4>Turno</h4></td>
                             <td><h4>Profesor</h4></td>
-                            <td><h4>Desinscrivirse</h4></td>
+                            <td><h4>Desinscribirse</h4></td>
                         </tr>
                         <tr>
                             <td>Algebra</td>
                             <td>27 de Noviembre</td>
                             <td>Noche</td>
                             <td>Prof. Mastuntuono</td>
-                            <td align="center"><input type="image" src="static/images/sif/error.png" height="25" width="25" /></td>
+                            <td><input type="checkbox"></td>
                             
                         </tr>
                         <tr>
@@ -59,34 +56,31 @@
                             <td>28 de Noviembre</td>
                             <td>Noche</td>
                             <td>Prof. Hansen</td>
-                            <td align="center"><input type="image" src="static/images/sif/error.png" height="25" width="25" /></td>
+                            <td><input type="checkbox"></td>
                         </tr>
                         <tr>
                             <td>Programacion 1</td>
                             <td>29 de Noviembre</td>
                             <td>Mañana</td>
                             <td>Prof. Seoane</td>
-                            <td align="center"><input type="image" src="static/images/sif/error.png" height="25" width="25" /></td>
+                            <td><input type="checkbox"></td>
                         </tr>
                         <tr>
                             <td>Adm. de las Org.</td>
                             <td>30 de Noviembre</td>
                             <td>Mañana</td>
                             <td>Prof. Massaro</td>
-                            <td align="center"><input type="image" src="static/images/sif/error.png" height="25" width="25" /></td>
+                            <td><input type="checkbox"></td>
                         </tr>
                     </table>
                     <br>
                     <br>
                     <table align="center">
                         <tr>
+                            <td width="200"><a class="btn">Desinscribirse</a></td>
                             <td width="200"><a class="btn">Descargar</a></td>
                             <td width="200"><a href="#myModal" role="button" class="btn" data-toggle="modal">Enviar email</a></td>
                         </tr>
-                    </table>
-                        
-                       
+                    </table> 
+                    <br>
             </div>
-            <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>

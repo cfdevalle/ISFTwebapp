@@ -1,0 +1,12 @@
+<h4>Técnico Superior en Análisis de Sistemas</h4>
+<h6>Resolución de la Carrera - Plan de estudio</h6>
+<p>
+Las computadoras y, en particular, la informática, como procesamiento automático de la información, se instauraron en la comunidad hace ya largo tiempo. Este fenómeno socio-tecnológico ha logrado que las organizaciones trabajen en forma más eficiente, analizando situaciones variables, ajustando los costos para obtener mayores beneficios y así, adaptar su organización al contexto. Las funciones de los profesionales en sistemas son de importancia fundamental para el desarrollo económico del país dado que la racionalización y automatización agilizan y optimizan procedimientos y métodos, permitiendo ahorro de tiempo y material con la consiguiente disminución de costos y el aumento de controles efectivos y aprovechamiento correcto del espacio físico. La Tecnicatura en Análisis de Sistemas se propone aunar a la formación especifica, el conocimiento del marco empresarial en que puede desarrollarse profesionalmente el egresado y el conocimiento de base que le permita comprender los avances científico-tecnológicos para que logre un perfeccionamiento continuo.
+</p>
+<h6>Perfil Profesional</h6>
+<p>
+El/la Técnico/a Superior en Análisis de Sistemas estará capacitado para diagnosticar necesidades, diseñar, desarrollar, poner en servicio y mantener productos, servicios o soluciones informáticas acorde a las organizaciones que lo requieran. Estas competencias serán desarrolladas según las incumbencias y las normas técnicas y legales que rigen su campo profesional.
+</p>
+<h6>Areas de Competencia</h6>
+<p>
+    Estas áreas requieren del/a técnico/a superior el dominio de un saber hacer complejo en el que se movilizan conocimientos, valores, actitudes y habilidades de carácter tecnológico, social y personal que definen su identidad profesional. Diagnosticar para determinar en donde se encuentra el conflicto de una organización. Organizar gestionando los recursos y las actividades dentro de la organización. Diseñar servicios y soluciones informáticas para organizaciones. Instalar y mantener sistemas diseñados bajo diferentes entornos. Desarrollar servicios y soluciones informáticas.</p>

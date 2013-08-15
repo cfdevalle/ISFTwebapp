@@ -1,28 +1,27 @@
+<script type="text/javascript" src="static/js/facebox.js"></script>
+<link type="text/css" rel="stylesheet" href="static/css/facebox.css"/>
 
-<html>
-    <head>
-        <link type="text/css" rel="stylesheet" href="../../../static/css/bootstrap.css">
-        <%@include file="../../includes/metas_inc.jsp" %>
-        <title>Cronograma Fechas</title>
-        <style type="text/css">td{white-space:nowrap;}</style>
-    </head>
-    <body>
-            <%@include file="../../includes/encabezado_inc.jsp" %>
-            <div class="row">
+<style>
+    .table td {
+        text-align: center;   
+    }
+</style>
+
+            <div class="row-fluid">
             <div class="span12"> 
             	<ul class="nav nav-tabs">
-                    <li > <a href="modulo.go?codPage=2001">Bienvenido</a></li>
-                    <li class="active"> <a href="modulo.go?codPage=2003">Cronograma Finales</a></li>
-                    <li > <a href="modulo.go?codPage=2004">Inscripcion a Finales</a></li>
-                    <li > <a href="modulo.go?codPage=2002">Materias Inscripto/a</a></li>
+                    <li><a href="javascript:goPage(2001)">Bienvenido</a></li>
+                    <li class="active"><a href="javascript:goPage(2003)">Cronograma Finales</a></li>
+                    <li><a href="javascript:goPage(2004)">Inscripcion a Finales</a></li>
+                    <li><a href="javascript:goPage(2002)">Materias Inscripto/a</a></li>
                 </ul>
             </div>
             </div>
-            <div class="span12" style="min-height: 600px">
+            <div class="span12">
                     <h1 align="center"><u>Cronograma Finales</u></h1>
                     <br>
                     <br>
-                    <table border="2" align="center" width="500">
+                    <table class="table table-hover table-bordered table-condensed">
                         <%--  INGRESO DE TURNO --%>
                         <tr align="center" >
                             <td colspan="5" ><h4>TURNO MAÑANA</h4></td>
@@ -98,6 +97,4 @@
                         </tr> 
                     </table>
                 </div>
-            <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>
+  

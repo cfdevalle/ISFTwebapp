@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="../../../static/css/bootstrap.css">
@@ -44,13 +45,25 @@
     <body>
             <%@include file="../../includes/encabezado_inc.jsp" %>
             <div class="row">
+=======
+
+           <div class="row-fluid">
+>>>>>>> 9e30d346567d928cb4ddc81f57ae1ba2bc03eedb
             <div class="span12"> 
             	<ul class="nav nav-tabs">
+<<<<<<< HEAD
                     <li > <a href="modulo.go?codPage=2001">Bienvenido</a></li>
                     <li > <a href="modulo.go?codPage=2003">Consultar Fechas</a></li>
                     <li class="active" > <a href="modulo.go?codPage=2004">Realizar Inscripcion</a></li>
                     <li > <a href="#">Modificar Inscripcion</a></li>
                     <li > <a href="modulo.go?codPage=2002">Consultar Inscripcion</a></li>
+=======
+                    <li > <a href="javascript:goPage(2001)">Bienvenido</a></li>
+                    <li > <a href="javascript:goPage(2003) ">Consultar Fechas</a></li>
+                    <li class="active" >              <a href="javascript:goPage(2004) ">Realizar Inscripcion</a></li>
+                    <li >               <a href="#">Modificar Inscripcion</a></li>
+                    <li >               <a href="javascript:goPage(2002)  ">Consultar Inscripcion</a></li>
+>>>>>>> 9e30d346567d928cb4ddc81f57ae1ba2bc03eedb
                 </ul>
             </div>
             </div>
@@ -156,6 +169,4 @@
                     </table>
                     </form>
                 </div>
-            <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>
+ 

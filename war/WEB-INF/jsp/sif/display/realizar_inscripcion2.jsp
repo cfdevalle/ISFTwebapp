@@ -1,9 +1,12 @@
-<html>
-    <head>
-        <link type="text/css" rel="stylesheet" href="../../../static/css/bootstrap.css">
-        <%@include file="../../includes/metas_inc.jsp" %>
-        <title>Inscripcion a Finales</title>
-       
+<script type="text/javascript" src="static/js/facebox.js"></script>
+<link type="text/css" rel="stylesheet" href="static/css/facebox.css"/>
+
+<style>
+    .table td {
+        text-align: center;   
+    }
+</style>
+
         <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-header">
                 <h3 id="myModalLabel">Resultado de la inscripcion</h3>
@@ -14,36 +17,26 @@
             <div class="modal-footer">
                 <a role="button" class="btn">Modificar direccion de email</a>
                 <a class="btn" data-dismiss="modal" aria-hidden="true">cancelar</a>
-                <a href="modulo.go?codPage=2002" class="btn btn-primary">aceptar</a>
+                <a href="javascript:goPage(2002)" class="btn btn-primary">aceptar</a>
             </div>
         </div>
-    
-        <style type="text/css">td{white-space:nowrap;text-align:left;}h4{text-align:center;}</style>
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-        <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-        
-    
-    </head>
-    <body>
-            <%@include file="../../includes/encabezado_inc.jsp" %>
             <div class="row">
             <div class="span12"> 
             	<ul class="nav nav-tabs">
-                    <li > <a href="modulo.go?codPage=2001">Bienvenido</a></li>
-                    <li > <a href="modulo.go?codPage=2003">Cronograma Finales</a></li>
-                    <li class="active" > <a href="modulo.go?codPage=2004">Inscripcion a Finales</a></li>
-                    <li > <a href="modulo.go?codPage=2002">Materias Inscripto/a</a></li>
+                    <li><a href="javascript:goPage(2001)">Bienvenido</a></li>
+                    <li><a href="javascript:goPage(2003)">Cronograma Finales</a></li>
+                    <li class="active"><a href="javascript:goPage(2004)">Inscripcion a Finales</a></li>
+                    <li><a href="javascript:goPage(2002)">Materias Inscripto/a</a></li>
                 </ul>
             </div>
             </div>
 
-            <div class="span12" style="min-height: 600px">
+            <div class="span12">
                     <h1 align="center"><u>Inscripcion a Finales</u></h1>
                     <br>
                     <br>
                     <form name="formu">
-                    <table border="2" align="center" width="500">
+                    <table  class="table table-hover table-bordered table-condensed">
                         <tr>
                             <td><h4>Materia</h4></td>
                             <td><h4>Fecha</h4></td>
@@ -107,6 +100,3 @@
                     </table>
                     </form>
                 </div>
-            <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>

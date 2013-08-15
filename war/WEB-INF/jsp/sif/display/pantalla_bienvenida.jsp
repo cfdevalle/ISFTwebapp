@@ -1,23 +1,20 @@
-<html>
-    <head>
-        <link type="text/css" rel="stylesheet" href="../../../static/css/bootstrap.css"/>
-        <%@include file="../../includes/metas_inc.jsp" %>
-        <title>Inscripcion Materia</title>
-    </head>
-    <body>
-      
-            <%@include file="../../includes/encabezado_inc.jsp" %>
-            <div class="row">
+<style>
+    .table td {
+        text-align: center;   
+    }
+</style>
+
+<div class="row-fluid">
             <div class="span12"> 
-            	<ul class="nav nav-tabs">
-                    <li class="active"> <a href="modulo.go?codPage=2001">Bienvenido</a></li>
-                    <li > <a href="modulo.go?codPage=2003">Cronograma Finales</a></li>
-                    <li > <a href="modulo.go?codPage=2004">Inscripcion a Finales</a></li>
-                    <li > <a href="modulo.go?codPage=2002">Materias Inscripto/a</a></li>
-                </ul>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="javascript:goPage(2001)">Bienvenido</a></li>
+                    <li><a href="javascript:goPage(2003)">Cronograma Finales</a></li>
+                    <li><a href="javascript:goPage(2004)">Inscripcion a Finales</a></li>
+                    <li><a href="javascript:goPage(2002)">Materias Inscripto/a</a></li>
+                </ul> 
             </div>
             </div>
-            <div class="span12" style="min-height: 600px">   
+            <div class="span12">  
              
          
                     <h1 align="center"><u>Bienvenido</u></h1>
@@ -47,8 +44,6 @@
                             <td width="50"></td>
                             <td>Muestra las materias a la que uno se inscribio previamente con su fecha,turno y profesor.</td>
                         </tr>
-                    </table>          
+                    </table> 
+                    <br>
             </div>
-            <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>

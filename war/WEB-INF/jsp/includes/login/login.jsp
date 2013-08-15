@@ -1,5 +1,5 @@
 Ingresa al campus digital
-<form class="form-horizontal" action="modulo.go?codPage=6666" method="post">
+<form class="form-horizontal" action="encabezado.go?codPage=6666" method="post">
   <div class="control-group">
     <label class="control-label" for="inputEmail">Email</label>
     <div class="controls">
