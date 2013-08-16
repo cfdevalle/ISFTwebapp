@@ -6,20 +6,7 @@
                 <ul class="nav">
                     <li class="active"><a href="index.jsp"><i class="icon-home"></i>Inicio</a></li>
                     <li class="dropdown">
-<<<<<<< HEAD
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book"></i>Entrada al espacio de cada grupo<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="modulo.go?codPage=1001">sim</a></li>
-                            <li><a href="modulo.go?codPage=2001">sif</a></li>
-                            <li><a href="modulo.go?codPage=3001">sicnod</a></li>
-                            <li><a href="modulo.go?codPage=4001">sicsa</a></li> 
-                            <li><a href="modulo.go?codPage=5001">sahomcil</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="modulo.go?codPage=4001"><i class="icon-pencil"></i>Situacion Academica</a></li>
-                    <li><a href="#"><i class="icon-calendar"></i>Horarios </a></li>
-=======
-                        
+
                             <li><a href="javascript:goPage(1001)">Inscripcion a Materias</a></li>
                          
                             <li><a href="javascript:goPage(2001)">Inscripcion a Finales</a></li>
@@ -58,9 +45,7 @@
                           
                             </ul>
                          
-                    
 
->>>>>>> 3e1f1a0aaea579b54cc71c3ba84e43a359b181b8
                 </ul>
                 <ul class="nav pull-right">
                     <li class="dropdown">

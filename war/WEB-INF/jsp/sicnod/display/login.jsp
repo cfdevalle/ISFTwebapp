@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-=======
-
 <style>
 #f{
     width: 630px;
@@ -29,19 +26,13 @@ font-size: 25px;
 margin-bottom: 15px;
 }
 </style>
->>>>>>> 3e1f1a0aaea579b54cc71c3ba84e43a359b181b8
 <script src="static/js/sicnod/login.js" type="text/javascript"></script>
 <div class="row-fluid">
 	<div class="box span12">
 		<div class="box-content">
 
-<<<<<<< HEAD
                     <form action='' name='form_login' id='form_login' method="post" onsubmit="evaluar_ingreso_div_image(); return false;">
-=======
-                    <form  action='logi.go?codPage=6000' name='form_login' id='form_login' method="post" onsubmit="evaluar_ingreso_div_image(); return false;">
->>>>>>> 3e1f1a0aaea579b54cc71c3ba84e43a359b181b8
-                        <fieldset>
-                        <legend>Plataforma Digital</legend>
+
                         <table border="0" >
                             <tr>
                                 <td width="100px"><label for="txt_usuario">Usuario</label></td>
@@ -62,6 +53,7 @@ margin-bottom: 15px;
                             <tr>
                                 <td>&nbsp;</td>
                                 <td>
+
                                     <input class="btn btn-primary" type="reset" value="Cancelar" name="btn_cancelar" />
                                     <input class="btn btn-primary"  type="submit" name="btn_aceptar" value="Aceptar" />
                                 </td>
@@ -75,19 +67,8 @@ margin-bottom: 15px;
                                 <td>&nbsp;</td>
                             </tr>
                         </table>
-                         </fieldset>
                     </form>
                    
-                </div>
-                <!--
-                <div class="span6" style="min-height: 600px; background-color: #DCCCFF">
-                    <h1>Hola</h1>
-                </div>
-                -->
+                </div>                
             </div>
 </div>
-<<<<<<< HEAD
-          
-=======
-    
->>>>>>> 3e1f1a0aaea579b54cc71c3ba84e43a359b181b8
