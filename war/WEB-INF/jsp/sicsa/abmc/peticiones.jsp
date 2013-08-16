@@ -1,41 +1,30 @@
-<%-- 
-    Document   : pruebaWrapper
-    Created on : 19-jun-2013, 19:27:31
-    Author     : Alan
---%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <%@include file="../../includes/metas_inc.jsp" %>
-        <script type="text/javascript" src="static/js/facebox.js"></script>
-        <link type="text/css" rel="stylesheet" href="static/css/facebox.css"/>
+
         <title>Consulta de Situaci&oacute;n acad&eacute;mica</title>
         <script type="text/javascript">
-        jQuery(document).ready(function($) {
-          $('a[rel*=facebox]').facebox() 
-        });
-        function elimiarPeticion(id, elm){
-            var c = confirm("Esta seguro que desea eliminar la peticion "+id+"?");
+        function eliminarMensaje(id, elm){
+            var c = confirm("Esta seguro que desea eliminar el mensaje "+id+"?");
             if(c){
                 var tr = elm.parentNode.parentNode;
-                tr.remove(); 
+                tr.remove();
+                return false;
             }
         }
+        function verPeticion(){
+            $('.modal-body').load("jsp/sicsa/display/verPeticion.php");
+            $('#myModal').modal('show');
+        }
         </script>
-    </head>
-    <body>
-            <%@include file="../../includes/encabezado_inc.jsp" %>
             <!--<div class="row">
                 <div class="span12"> 
                     <ul class="nav nav-tabs">
                         <li> <a href="modulo.go?codPage=4001">Situacion Academica</a></li>
-                        <li class="active"> <a href="modulo.go?codPage=4002">Peticiones</a></li>
+                        <li class="active"> <a href="modulo.go?codPage=4002">mensajes</a></li>
                     </ul>
                 </div>
             </div>-->
-            <div class="row">
+            <div class="row-fluid">
                 <div class="span10 offset1">
-                    <h1> Peticiones <a style="float:right;" href="modulo.go?codPage=4003" rel="facebox" class="btn btn-primary" >Ver peticiones sin responder</a></h1>
+                    <h1> Mensajes <a style="float:right;" href="javascript:" class="btn btn-primary" >Ver mensajes sin responder</a></h1>
                     <p>
                         <span>Carrera: 
                             <select>
@@ -49,6 +38,7 @@
                     <table class="table table-hover table-bordered table-condensed">
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>ID)</th>
                                 <th>Alumno</th>
                                 <th>Carrera</th>
@@ -60,6 +50,7 @@
                         </thead>
                         <tbody>
                             <tr class="success">
+                                <td><input type="checkbox"></td>
                                 <td>210</td>
                                 <td>Garcia Nicolas</td>
                                 <td>Sistemas</td>
@@ -67,11 +58,12 @@
                                 <td>14/06/2013</td>
                                 <td>Mal ingreso de nota</td>
                                 <td>
-                                    <a href="modulo.go?codPage=4004&idPeticion=210" rel="facebox">Contestar</a>
-                                    <a href="javascript:" onclick="elimiarPeticion(210, this);">Eliminar</a>
+                                    <a href="javascript:verPeticion()">Contestar</a>
+                                    <a href="javascript:" onclick="eliminarMensaje(210, this);">Eliminar</a>
                                 </td>
                             </tr>
                             <tr class="error">
+                                <td><input type="checkbox"></td>
                                 <td>210</td>
                                 <td>Garcia Nicolas</td>
                                 <td>Sistemas</td>
@@ -79,14 +71,20 @@
                                 <td>14/06/2013</td>
                                 <td>Mal ingreso de nota</td>
                                 <td>
-                                    <a href="modulo.go?codPage=4004&idPeticion=210" rel="facebox">Contestar</a>
-                                    <a href="javascript:" onclick="elimiarPeticion(210, this);">Eliminar</a>
+                                    <a href="javascript:verPeticion()">Contestar</a>
+                                    <a href="javascript:" onclick="eliminarMensaje(210, this);">Eliminar</a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    <p><input type="button" class="btn btn-primary" value="Eliminar"></p>
                 </div>
             </div>
-            <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>
+            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+  

@@ -1,11 +1,47 @@
+<<<<<<< HEAD
+=======
+
+<style>
+#f{
+    width: 630px;
+    margin: 0 auto;
+    float:none;
+
+}
+.body{
+    position:relative;
+    float: left;
+    width:630px;
+    position:relative;
+    margin-top:150px !important;
+}
+
+fieldset {
+
+position: relative;
+
+}
+.t_caption{
+{
+font-weight: bold;
+float: left;
+font-size: 25px;
+margin-bottom: 15px;
+}
+</style>
+>>>>>>> 3e1f1a0aaea579b54cc71c3ba84e43a359b181b8
 <script src="static/js/sicnod/login.js" type="text/javascript"></script>
 <div class="row-fluid">
 	<div class="box span12">
 		<div class="box-content">
 
+<<<<<<< HEAD
                     <form action='' name='form_login' id='form_login' method="post" onsubmit="evaluar_ingreso_div_image(); return false;">
+=======
+                    <form  action='logi.go?codPage=6000' name='form_login' id='form_login' method="post" onsubmit="evaluar_ingreso_div_image(); return false;">
+>>>>>>> 3e1f1a0aaea579b54cc71c3ba84e43a359b181b8
                         <fieldset>
-                        <legend>Login</legend>
+                        <legend>Plataforma Digital</legend>
                         <table border="0" >
                             <tr>
                                 <td width="100px"><label for="txt_usuario">Usuario</label></td>
@@ -50,4 +86,8 @@
                 -->
             </div>
 </div>
+<<<<<<< HEAD
           
+=======
+    
+>>>>>>> 3e1f1a0aaea579b54cc71c3ba84e43a359b181b8

@@ -2,13 +2,13 @@
 <html>
     <head>
         <?php include("../../includes/metas_inc.jsp"); ?>
-        <title>Nueva peticion</title>
+        <title>Nuevo mensaje</title>
     </head>
     <body>
             <div class="row">
                 <div class="span4">
-                    <h4>Peticion ID: 210</h4>
-                    <form>
+                    <h4>Mensaje ID: 210</h4>
+                    <form onsubmit="return false;">
                         <ul>
                             <h4>Mal ingreso de notas</h4>
                             <li class="item mensaje">

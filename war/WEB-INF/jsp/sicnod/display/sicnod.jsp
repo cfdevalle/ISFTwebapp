@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%-- 
     Document   : pruebaWrapper
     Created on : 19-jun-2013, 19:27:31
@@ -45,3 +46,5 @@ margin-bottom: 15px;
             <%@include file="../../includes/pie_inc.jsp" %>
     </body>
 </html>
+=======
+>>>>>>> 3e1f1a0aaea579b54cc71c3ba84e43a359b181b8
