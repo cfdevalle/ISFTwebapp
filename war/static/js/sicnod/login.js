@@ -104,5 +104,16 @@ function evaluar_ingreso_div_image(){
     }
     return false;
 }
-
-
+function valida_int(Field){
+    success = false;
+    
+        if($('#'+Field).val() != "" && $.isNumeric($('#'+Field).val())) {
+            success = true;
+        }else{
+            alert("El legajo debe ser un número!");
+            success = false;
+            
+        }
+    
+    return success;
+}

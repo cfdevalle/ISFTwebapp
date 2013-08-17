@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <%@include file="../../includes/metas_inc.jsp" %>
-        <title>Prueba Wrapper</title>
+
         <style>
 #f{
     width: 630px;
@@ -34,9 +30,7 @@ margin-bottom: 15px;
 }
 </style>
 <script src="static/js/sicnod/login.js" type="text/javascript"></script>
-    </head>
-    <body>
-            <%@include file="../../includes/encabezado_inc.jsp" %>
+
 <div class="row-fluid">
 	<div class="box span12">		
 		<div class="box-content">
@@ -53,7 +47,7 @@ margin-bottom: 15px;
                
            
             <% if(form){ %>
-                <form class="form-horizontal" action="" method="post" name="FormForgot" id="FormForgot" >
+                <form class="form-horizontal" action="javascript:goPage(3004)" method="post" name="FormForgot" id="FormForgot" >
                     <fieldset>
                         <legend>Olvidaste tu contraseña?</legend>
                         <input type="hidden" name="section"         id="section"         value="home" />
@@ -62,7 +56,7 @@ margin-bottom: 15px;
                         <input type="hidden" name="execute_action"  id="execute_action"  value="paso1" />
                          
                         <div class="control-group ">
-                            <label class="control-label" for="inputWarning">Ingrese su email:&nbsp;</label>
+                            <label class="control-label" for="inputWarning">Ingrese su Legajo:&nbsp;</label>
                             <div class="controls">
                                 <input type="text" name="email_fp" id="email_fp" value="" style="border:1px solid gray" />
                                 <button type="button" name="recovery" class="btn btn-primary"  onclick="sendFormForgot();">Enviar</button>
@@ -84,6 +78,3 @@ function sendFormForgot(){
     document.getElementById("FormForgot").submit();
 }
 </script>
- <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>
