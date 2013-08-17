@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package org.isft.logic.collection;
-import org.isft.domain.Alumno;
+import org.isft.domain.Alumnos;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -33,7 +33,7 @@ public class EjemploConexion {
         }
         return vec;
     }
-    public boolean usuarioValido(Alumno alumno,HashMap paramSQL){
+    public boolean usuarioValido(Alumnos alumno,HashMap paramSQL){
         //Vector vec = new Vector();
         boolean result = false;
         try{
@@ -56,8 +56,8 @@ public class EjemploConexion {
         }
         return result;
     }
-    public Alumno getFullUsuario(Alumno alumno_login,HashMap paramSQL){
-        Alumno alumno=new Alumno();
+    public Alumnos getFullUsuario(Alumnos alumno_login,HashMap paramSQL){
+        Alumnos alumno=new Alumnos();
         try{
             DataBase db = new DataBase(paramSQL);
             //DataBase db = new DataBase(new HashMap());

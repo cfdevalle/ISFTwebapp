@@ -9,7 +9,7 @@
  */
 package org.isft.logic.validator;
 //import org.isft.domain.Usuario;
-import org.isft.domain.Alumno;
+import org.isft.domain.Alumnos;
 import org.isft.logic.collection.EjemploConexion;
 import java.util.Vector;
 import java.util.HashMap;
@@ -19,7 +19,7 @@ public class ValidarUsuario {
     /**
      * validacion simple
     
-    public boolean isUsuarioValido(Alumno alumno){
+    public boolean isUsuarioValido(Alumnos alumno){
         boolean returnValue = false;
         try{
             int txt_usuario = alumno.getLegajo();
@@ -43,7 +43,7 @@ public class ValidarUsuario {
         return returnValue;
     }*/
 
-    public boolean isUsuarioValidoBySql(Alumno alumno,HashMap paramSQL){
+    public boolean isUsuarioValidoBySql(Alumnos alumno,HashMap paramSQL){
         boolean returnValue = false;
         try{
             EjemploConexion ejemplo=new EjemploConexion();
@@ -55,8 +55,8 @@ public class ValidarUsuario {
         }
         return returnValue;
     }
-    public Alumno getFullUsuario(Alumno alumno,HashMap paramSQL){
-        Alumno returnValue=new Alumno();
+    public Alumnos getFullUsuario(Alumnos alumno,HashMap paramSQL){
+        Alumnos returnValue=new Alumnos();
         try{
             EjemploConexion ejemplo=new EjemploConexion();
 

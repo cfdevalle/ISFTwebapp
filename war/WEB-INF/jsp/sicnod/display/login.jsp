@@ -1,4 +1,4 @@
-<%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumno, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap"%>
+<%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap"%>
 <style>
 #f{
     width: 630px;
@@ -33,7 +33,7 @@ margin-bottom: 15px;
 		<div class="box-content">
 
             <% if(request.getSession(false).getAttribute("alumno")!=null){ %>
-                <% Alumno alumno = (Alumno)request.getSession(false).getAttribute("alumno"); %>
+                <% Alumnos alumno = (Alumnos)request.getSession(false).getAttribute("alumno"); %>
                 <ul class="nav pull-right">
                     <li class="dropdown">
                         Bienvenido <%= alumno.getNombre() %> <%= alumno.getApellido() %><br />

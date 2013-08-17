@@ -1,5 +1,8 @@
-<%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumno, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap"%>
+<%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap"%>
 <%
+/**
+ * FIXME: HAY QUE HACER SE TOMES ESTOS VALORES POR COFIGURACION DE CADA PC
+ */
 HashMap paramSQL = new HashMap();
 paramSQL.put("origen_datos","isftwebappfinal");
 paramSQL.put("user","root");
@@ -18,7 +21,7 @@ if( txt_usuario==null && txt_password==null ||  txt_usuario.equals("") && txt_pa
 }else if(txt_password.equals(null) || txt_password.trim().equals("")){
     txt_mensaje = "password_incompleto";
 }else{
-    Alumno alumno = new Alumno();
+    Alumnos alumno = new Alumnos();
     int aux = Integer.parseInt(txt_usuario);
     alumno.setLegajo(aux);
     //alumno.setLegajo(Integer.parseInt(txt_usuario));
@@ -29,7 +32,7 @@ if( txt_usuario==null && txt_password==null ||  txt_usuario.equals("") && txt_pa
     if(validarUsuario.isUsuarioValidoBySql(alumno, paramSQL)){
         txt_mensaje = "ok";
         //validarUsuario.getFullUsuario(alumno, paramSQL);
-        Alumno FullUsuario = validarUsuario.getFullUsuario(alumno, paramSQL);
+        Alumnos FullUsuario = validarUsuario.getFullUsuario(alumno, paramSQL);
         request.getSession(false).setAttribute("alumno", FullUsuario);
     }else{
         txt_mensaje = "datos_invalidos";
