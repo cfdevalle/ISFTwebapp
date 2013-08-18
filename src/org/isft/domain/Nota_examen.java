@@ -19,7 +19,7 @@ public class Nota_examen {
     private String turno;
     private String modalidadInscripcion;
     
-    private Horario horario;
+  /*  private Horario horario;*/
     private Alumnos alumnos;
 
     /**
@@ -151,17 +151,17 @@ public class Nota_examen {
     /**
      * @return the horario
      */
-    public Horario getHorario() {
+ /*   public Horario getHorario() {
         return horario;
     }
 
     /**
      * @param horario the horario to set
-     */
+     
     public void setHorario(Horario horario) {
         this.horario = horario;
     }
-
+*/
     /**
      * @return the alumnos
      */

@@ -51,14 +51,43 @@ margin-bottom: 15px;
             <% }else{ %>
                 <form action='modulo.go?codPage=3002' name='form_login' id='form_login' method="post" onsubmit="if(!valida_int('txt_usuario')) return false;">
                     <table border="0" >
-                    <%
+                    
+                        <tr>
+                            <td width="240px">
+                                <input  type="text" maxlength="30" name="txt_usuario" id="txt_usuario" placeholder="INGRESAR USUARIO" required="true" />
+                            </td>
+                            <td width="300px">
+                                <img id="imagen_user" src="" width="25px" style="visibility:hidden;" />
+                                <span id="mensaje_user"></span>
+                            </td>
+                        
+
+                       
+                            <td><input   type="password" name="txt_password" id="txt_password" placeholder="INGRESAR PASSWORD" required="true" /></td>
+                            <td>
+                                <img id="imagen_pass" src="" width="25px"  style="visibility:hidden;" />
+                                <span id="mensaje_pass"></span>
+                            </td>
+                       
+                            <td>
+                                <!--<input class="btn btn-primary" type="reset" value="Cancelar" name="btn_cancelar" />-->
+                                <input class="btn  btn-primary"   type="submit" name="btn_aceptar" value="Aceptar" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>    
+                             <a href="javascript:goPage(3003)">Recuperar password</a>
+                            </td>
+                            <td></td>
+                       
+                        <%
                         String salida = "";
                         String result_login=request.getParameter("result_login");
                         if(result_login==null || result_login.equals("") ){
                             salida = "";
                         }else{
                         %>
-                            <tr>
+                         
                                 <td style="color:red;">
                                     <%
                                     if(result_login.equals("todo_incompleto")){
@@ -80,31 +109,6 @@ margin-bottom: 15px;
                         <%
                         }
                         %>
-                        <tr>
-                            <td width="240px">
-                                <input type="text" maxlength="30" name="txt_usuario" id="txt_usuario" placeholder="INGRESAR USUARIO" required="true" />
-                            </td>
-                            <td width="300px">
-                                <img id="imagen_user" src="" width="25px" style="visibility:hidden;" />
-                                <span id="mensaje_user"></span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><input type="password" name="txt_password" id="txt_password" placeholder="INGRESAR PASSWORD" required="true" /></td>
-                            <td>
-                                <img id="imagen_pass" src="" width="25px"  style="visibility:hidden;" />
-                                <span id="mensaje_pass"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <!--<input class="btn btn-primary" type="reset" value="Cancelar" name="btn_cancelar" />-->
-                                <input class="btn btn-primary"  type="submit" name="btn_aceptar" value="Aceptar" />
-                                <a href="javascript:goPage(3003)">Recuperar password</a>
-                            </td>
-                            <td>&nbsp;</td>
-                        </tr>
                     </table>
                 </form>
             <% } %>
