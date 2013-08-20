@@ -15,6 +15,10 @@
          <include name="servlet-api.jar"/> 
 	 <include name="jsp-api.jar"/> 
          </fileset> 
+	 <fileset dir="${dir.root}/lib">
+                <include name="jasperreports-5.2.0.jar"/>                
+         </fileset>
+	</path>
 	</path>
 	
 <!-- DEFINICION DE TAREAS-->
@@ -100,6 +104,13 @@
 			password="${tomcat.manager.password}"
 			path="/${name}"/>
 	</target>
-
+	<replace dir="${tomcat.dir}" value="${name}">
+			<include name="**/*.*"/>
+			<replacetoken>ISFT_APPLICATION_NAME</replacetoken>
+		</replace>
+		<replace dir="${tomcat.dir}" value="${deployTomcat.dir}">
+			<include name="**/*.properties"/>
+			<replacetoken>ISFT_REPORT_PATH</replacetoken>
+	</replace>
 	
 </project>

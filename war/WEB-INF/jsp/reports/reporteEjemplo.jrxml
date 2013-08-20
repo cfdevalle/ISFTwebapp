@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteEjemplo" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="253d453d-0d0f-437b-b16e-b235796e9c61">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="549"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="p_rol" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from rol where idRol= $P{p_rol} or $P{p_rol} is null ]]>
+	</queryString>
+	<field name="idRol" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcionRol" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="eded26f1-f031-4f6e-a5d2-481fba93f63b" x="10" y="4" width="381" height="20"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Titulo - Reporte ejemplo ISFT 179 - "Dr. Carlos Pellegrini"]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="b5f5e5ab-b816-4778-9eef-c02c137be2a4" x="10" y="6" width="232" height="20"/>
+				<textElement/>
+				<text><![CDATA[Cabecera - Reporte ejemplo ISFT 179]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="38c6ede5-7449-4706-b6b6-3b1f95b31010" x="338" y="6" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{p_rol}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="41c6cd96-757b-4732-aa3b-f1ed26251b13" x="263" y="6" width="75" height="20"/>
+				<textElement/>
+				<text><![CDATA[Rol parametro:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="550f1216-3d4d-4e0b-880f-fb5016363cec" x="11" y="6" width="54" height="17"/>
+				<textElement/>
+				<text><![CDATA[IdRol]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1ee1f427-3b78-42d8-98da-15679a120d4b" x="65" y="6" width="244" height="17"/>
+				<textElement/>
+				<text><![CDATA[Descripcion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement uuid="4344506e-0394-4bb9-88b5-206151417ef2" x="11" y="0" width="54" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{idRol}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="473d0b9e-0e23-43c2-b395-c3ddb0f4888e" x="65" y="0" width="244" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{descripcionRol}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,7 +1,7 @@
 <html>
     <head>
         <%@include file="jsp/includes/metas_inc.jsp" %>
-        <title>Prueba Wrapper</title>
+        <title>ISFT 179</title>
     </head>
     <body>
 
@@ -12,8 +12,8 @@
                     <div class="well">
                             <table>
                                 <tr>
-                                    <td><div style="border: 1px solid;"><img src="static/images/logo.png"></div></td>
-                                    <td style=" width: 800px;">   <H2>I.S.F.T. N° 179 Dr. Carlos Pellegrini</h2>
+                                    <!--<td style=" width: 200px;"><div style="border: 1px solid;"><a href="javascript:goPage(6019)"><img src="static/images/logo.png"></a></div></td>-->
+                                    <td style=" width: 800px;"><a href="javascript:goPage(6019)">   <H2>I.S.F.T. N° 179 Dr. Carlos Pellegrini</h2></a>
                                         
                                           <p class="muted">Excelencia Acad&eacute;mica - Solidez Institucional - Salida Laboral</p>
                                     </td>
@@ -40,19 +40,19 @@
                 
                 <div class="span2">
                   
-                    <div class="tabbable tabs-left">
-                     <ul class="nav nav-tabs"> 
-                         
-                         <li class="active"><a class="goTop" href="javascript:goPage(6001)">Visi�n y Misi�n</a></li>
+                    <div class="well">
+                     <ul class="nav nav-list"> 
+                         <li class="nav-header">Instituci�n</li> 
+                         <li class="divider"></li>
+                         <li><a class="goTop" href="javascript:goPage(6001)">Visi�n y Misi�n</a></li>
                          <li><a class="goTop" href="javascript:goPage(6002)">Staff</a></li>
                          <li><a class="goTop" href="javascript:goPage(6003)">Docentes</a></li>
                          <li><a class="goTop" href="javascript:goPage(6004)">Periodico</a></li>
                          <li><a class="goTop" href="javascript:goPage(6007)">Biblioteca</a></li>
                          <li><a class="goTop" href="javascript:goPage(6005)">Normativa</a></li>
                          <li><a class="goTop" href="javascript:goPage(6006)">Contacto</a></li>
-                         <li class="divider"></li>
-                         <li><h6>CARRERAS</h6></li> 
-                         <li><a  class="divider"></li>
+                         <li class="nav-header">CARRERAS</li> 
+                         <li class="divider"></li
                          <li><a class="goTop" href="javascript:goPage(6009)">Administraci�n General</a></li>
                          <li><a class="goTop" href="javascript:goPage(6010)">Servicios Gastronimicos</a></li>
                          <li><a class="goTop" href="javascript:goPage(6011)">Industria Textil</a></li>
@@ -71,7 +71,7 @@
      
                 </div>
                 
-                <div class="span10" id="div_screen"><%@include file="jsp/display/carreras/sistemas.jsp" %></div>
+                <div class="span10" id="div_screen"><%@include file="jsp/display/informativo/portada.jsp" %></div>
          </div> 
                      
                         

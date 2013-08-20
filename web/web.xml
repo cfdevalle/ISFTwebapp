@@ -20,10 +20,22 @@
   <servlet>    
 	 <servlet-name>frontController</servlet-name>  
 	 <servlet-class>org.isft.web.servlets.frontController</servlet-class>
-	 </servlet> 
- 	 <servlet-mapping>  
-	 <servlet-name>frontController</servlet-name>
-	 <url-pattern>*.go</url-pattern> 
+ </servlet> 
+ <servlet-mapping>  
+ <servlet-name>frontController</servlet-name>
+ <url-pattern>*.go</url-pattern> 
 	</servlet-mapping>
-<!--  FIN SERVLET MENU-->	
+<!--  FIN SERVLET MENU-->
+<!-- SERVLET REPORTES -->
+<servlet>
+	  <servlet-name>ControladorReporte</servlet-name>
+		<servlet-class>org.isft.web.servlets.ControladorReporte</servlet-class>
+</servlet>
+<servlet-mapping>
+		<servlet-name>ControladorReporte</servlet-name>
+		<url-pattern>*.rpt</url-pattern>
+</servlet-mapping>
+
+<!-- FIN SERVLET REPORTES -->
+	
 </web-app>
