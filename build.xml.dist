@@ -18,7 +18,7 @@
 	 <fileset dir="${dir.root}/lib">
                 <include name="jasperreports-5.2.0.jar"/>                
          </fileset>
-	</path>
+	
 	</path>
 	
 <!-- DEFINICION DE TAREAS-->
