@@ -21,14 +21,14 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import org.isft.jdbc.DataBase;
 
 public class ControladorReporte  extends HttpServlet {
-    
+
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   	doGet(request, response);
   }
 
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 		try{	
-			generar(request, response);	 
+ 		try{
+			generar(request, response);
   	} catch(Exception exc){
       	response.sendError(404, exc.toString());
        	throw new ServletException(exc.getMessage());
@@ -36,7 +36,7 @@ public class ControladorReporte  extends HttpServlet {
    }
 
    public void generar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	  	HashMap parameters=new HashMap();                
+	  	HashMap parameters=new HashMap();
 	  	String path="",  error="";
   		String codPage=request.getParameter("cod"); //codPage, vinculado con pathReportes.properties
   		String fileName=request.getParameter("file"); //nombre del archivo que se exportara
@@ -47,25 +47,25 @@ public class ControladorReporte  extends HttpServlet {
       }catch(Exception exc){
           throw new ServletException("Reporte no encontrado");
       }
-      
+
       System.out.println("Ruta del reporte: " + path);
       try{
           DataBase db=new DataBase(new HashMap());
           Connection cn=db.getConnection();
-      
+
           if(param!=null){
-          	System.out.println("Parametros originales: " + param);      
+          	System.out.println("Parametros originales: " + param);
           	String[] s_param=param.split("@");
       			for(int i=0; i<s_param.length; i++){
-          		System.out.println("Parametros: " + s_param[i]);      
+          		System.out.println("Parametros: " + s_param[i]);
           		String[] ss_param=s_param[i].split("=");
-          		parameters.put(ss_param[0], ss_param[1]);					
+          		parameters.put(ss_param[0], ss_param[1]);
           	}
           }
-          
+
           ServletOutputStream out;
           JasperReport jasperReport = (JasperReport)JRLoader.loadObject (path);
-       		
+
        		byte[] reporte= JasperRunManager.runReportToPdf (jasperReport, parameters, cn);
 
           response.setContentType ("application/pdf");
@@ -79,7 +79,7 @@ public class ControladorReporte  extends HttpServlet {
           out.write (reporte, 0, reporte.length);
           out.flush ();
           out.close ();
-          
+
       }catch(Exception exc){
       		exc.printStackTrace();
           throw new ServletException("Error al generar el reporte");

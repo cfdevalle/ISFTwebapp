@@ -1,13 +1,23 @@
-<%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap"%>
+<%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap, java.util.ResourceBundle"%>
 <%
-/**
- * FIXME: HAY QUE HACER SE TOMES ESTOS VALORES POR COFIGURACION DE CADA PC
- */
-HashMap paramSQL = new HashMap();
-paramSQL.put("origen_datos","isftwebappfinal");
-paramSQL.put("user","root");
-paramSQL.put("password","");
 
+String origen_datos = "";
+String password = "";
+String user = "";
+ResourceBundle resbound=ResourceBundle.getBundle("web.conexionDb");
+try{
+    origen_datos=resbound.getString("origen_datos");
+    user=resbound.getString("user");
+    password=resbound.getString("password");
+}catch(Exception exc){
+    System.out.println("MISSING EXCEPTION:" + exc.toString());
+    throw new ServletException("Reporte no encontrado");
+}
+
+HashMap paramSQL = new HashMap();
+paramSQL.put("origen_datos",origen_datos);
+paramSQL.put("user",user);
+paramSQL.put("password",password);
 
 String txt_usuario  = request.getParameter("txt_usuario");
 String txt_password = request.getParameter("txt_password");
