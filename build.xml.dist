@@ -10,9 +10,7 @@
 	<property name="weblib.dir" value="${tomcat.dir}/WEB-INF/lib"/>
 	<property name="classesTomcat.dir" value="${tomcat.dir}/WEB-INF/classes"/>
         <property name="dir.root" value="."/>
-  	<property name="webtld.dir" value="${tomcat.dir}/WEB-INF/tld"/>
-	<property name="tldTomcat.dir" value="war/WEB-INF/tld"/>
-	<path id="master-classpath">          
+  	<path id="master-classpath">          
 	 <fileset dir="${dir.root}/lib/j2ee">
          <include name="servlet-api.jar"/> 
 	 <include name="jsp-api.jar"/> 
@@ -82,11 +80,7 @@
 		</copy>
 		<!--<copy todir="${tomcat.dir}/db" preservelastmodified="true">
 			<fileset dir="${dir.root}/db"/>
-		</copy>-->	
-		<mkdir dir="${webtld.dir}" />
-		<copy todir="${webtld.dir}" preservelastmodified="true">
-			<fileset dir="${tldTomcat.dir}"/>
-		</copy>	
+		</copy>-->		
 	</target>
 	
         <target name="reload" description="Recargar aplicacion en Tomcat">
