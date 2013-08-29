@@ -50,8 +50,33 @@
 			     <rtexprvalue>true</rtexprvalue>
 			     <type>String</type>
 			  </attribute>
+			  
 </tag>
 
-
+<tag>
+            <name>ComboMateria</name>
+            <tag-class>org.isft.web.tags.TagComboMateria</tag-class>
+            <body-content>empty</body-content>
+            <description>Tag with Parameter</description>
+            		
+            <attribute>
+	             <name>nombreCombo</name>
+		     <required>true</required>
+		     <rtexprvalue>true</rtexprvalue>
+		     <type>String</type>
+            </attribute>  
+            <attribute>
+                   <name>cod_materia</name>
+                   <required>false</required>
+                   <rtexprvalue>true</rtexprvalue>
+                   <type>int</type>
+            </attribute>
+            <attribute>
+                   <name>nombre</name>
+                   <required>false</required>
+                   <rtexprvalue>true</rtexprvalue>
+                   <type>String</type>
+            </attribute>
+</tag>
 
 </taglib>
