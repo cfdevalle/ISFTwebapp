@@ -1,6 +1,7 @@
 <html>
     <head>
         <%@include file="jsp/includes/metas_inc.jsp" %>
+       
         <title>ISFT 179</title>
     </head>
     <body>
@@ -71,7 +72,8 @@
      
                 </div>
                 
-                <div class="span10" id="div_screen"><%@include file="jsp/display/informativo/portada.jsp" %></div>
+                <div class="span10" id="div_screen">
+                    <%@include file="jsp/display/informativo/portada.jsp" %></div>
          </div> 
                      
                         
