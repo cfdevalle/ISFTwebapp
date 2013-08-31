@@ -44,10 +44,13 @@ margin-bottom: 15px;
                             <li><a href="javascript:goPage(3004)">Cambiar contrase&ntilde;a</a></li>
                             <li class="divider"/>
                             <li><a href="modulo.go?codPage=3001"><i class="icon-remove-sign"></i> Cerrar sesi&oacute;n</a></li>
+                            
                         </ul>
                     </li>
                 </ul>
-                
+                <p>
+                    <a href="modulo.go?codPage=6000" target="_blank"><i class="icon-remove-sign"></i> PANEL WRAPPER </a>
+                </p>
             <% }else{ %>
                 <form action='modulo.go?codPage=3002' name='form_login' id='form_login' method="post" onsubmit="if(!valida_int('txt_usuario')) return false;">
                     <table border="0" >
