@@ -49,7 +49,7 @@
         <mkdir dir="${build.dir}"/>
         <mkdir dir="${classesTomcat.dir}"/>
         <mkdir dir="${tomcat.dir}/db"/>
-        <javac destdir="${build.dir}" source="1.6" target="1.6" >
+        <javac destdir="${build.dir}" source="1.7" target="1.7" >
 		<!--javac destdir="${build.dir}" source="1.6" target="1.6" -->
             <src path="${src.dir}" />
             <exclude name="**/.tmp/**"/>
@@ -82,38 +82,17 @@
 		<!--<copy todir="${tomcat.dir}/db" preservelastmodified="true">
 			<fileset dir="${dir.root}/db"/>
 		</copy>-->
-    </target>
 
-    <target name="reload" description="Recargar aplicacion en Tomcat">
-        <echo message="${tomcat.manager.url}"/>
-        <echo message="${name}"/>
-        <reload url="${tomcat.manager.url}"
-			username="${tomcat.manager.username}"
-			password="${tomcat.manager.password}"
-			path="/${name}"/>
-    </target>
-    <target name="start" description="Arrancar Tomcat">
-        <start url="${tomcat.manager.url}"
-			username="${tomcat.manager.username}"
-			password="${tomcat.manager.password}"
-			path="/${name}"/>
-    </target>
 
-    <target name="stop" description="Detener Tomcat">
-        <stop url="${tomcat.manager.url}"
-			username="${tomcat.manager.username}"
-			password="${tomcat.manager.password}"
-			path="/${name}"/>
-    </target>
     <!-- NUEVO JASPER -->
-    <!--<replace dir="${tomcat.dir}" value="${name}">-->
-    <replace dir="${tomcat.dir}" value="${deployTomcat.dir}">
-        <include name="**/*.*"/>
-        <replacetoken>ISFT_APPLICATION_NAME</replacetoken>
-    </replace>
-    <replace dir="${tomcat.dir}" value="${deployTomcat.dir}">
-        <include name="**/*.properties"/>
-        <replacetoken>ISFT_REPORT_PATH</replacetoken>
-    </replace>
+        <replace dir="${tomcat.dir}" value="${deployTomcat.dir}">
+            <include name="**/*.*"/>
+            <replacetoken>ISFT_APPLICATION_NAME</replacetoken>
+        </replace>
+        <replace dir="${tomcat.dir}" value="${deployTomcat.dir}">
+            <include name="**/*.properties"/>
+            <replacetoken>ISFT_REPORT_PATH</replacetoken>
+        </replace>
 	<!-- FIN NUEVO JASPER -->
+    </target>
 </project>

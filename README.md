@@ -29,7 +29,9 @@ se deben copiar:
 /properties/ant-enviroment.properties.dist
 
 build.xml.dist
-
+/**
+ * FIXME: ingnorar del git
+ */
 /netbeans.dist (es una carpeta)
 
 
