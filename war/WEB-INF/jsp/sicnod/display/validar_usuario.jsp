@@ -44,16 +44,17 @@ if( txt_usuario==null && txt_password==null ||  txt_usuario.equals("") && txt_pa
         //validarUsuario.getFullUsuario(alumno, paramSQL);
         Alumnos FullUsuario = validarUsuario.getFullUsuario(alumno, paramSQL);
         request.getSession(false).setAttribute("alumno", FullUsuario);
+        %>
+        <script>window.location.href = 'modulo.go?codPage=6000';</script>
+        <%
+        
     }else{
-        txt_mensaje = "datos_invalidos";
+        txt_mensaje = "datos_invalidos";%>
+        <script>
+                    var url = "http://localhost:8080/ISFTwebapp/index.jsp?result_login=<%= txt_mensaje %>";
+                    window.location.href =url;
+        </script>
+    <%
     }
 }
 %>
-<html>
-<body>
-<script>
-var url = "http://localhost:8080/ISFTwebapp/index.jsp?result_login=<%= txt_mensaje %>";
-window.location.href = url;
-</script>
-</body>
-</html>
