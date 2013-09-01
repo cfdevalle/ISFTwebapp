@@ -43,7 +43,7 @@ if( txt_usuario==null && txt_password==null ||  txt_usuario.equals("") && txt_pa
 <body>
 <script>
 var url = "http://localhost:8080/ISFTwebapp/index.jsp?result_login=<%= txt_mensaje %>";
-window.location.href = url;
+window.location.href = 'modulo.go?codPage=6000';
 </script>
 </body>
 </html>
