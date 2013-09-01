@@ -29,7 +29,9 @@ se deben copiar:
 /properties/ant-enviroment.properties.dist
 
 build.xml.dist
-
+/**
+ * FIXME: ingnorar del git
+ */
 /netbeans.dist (es una carpeta)
 
 
@@ -37,3 +39,35 @@ build.xml.dist
 
 NO MODIFICAR NI ELIMINAR LOS ARCHIVOS/CARPETAS .dist NI CAMBIAR LA EXTENSIÓN DE ESOS ARCHIVOS/CARPETAS. COPIARLOS Y
 AL ARCHIVO/CARPETA COPIADA ELIMINARLE LA EXTENSIÓN .dist
+
+======================================================================================================================
+
+NUEVAS CONFIGURACIONES 24.08.2013 By Sebastian Marquez:
+
+JASPER REPORT:
+se agregraon lineas de configuracion para el JasperReport en el archivo /build.xml.dist (cada desarollador debe actualizar su build.xml)
+hay 2 configuraciones nuevas que tiene un comentario html:
+<!-- NUEVO CONFIG JASPER -->
+//... codigo nuevo
+<!-- fin NUEVO CONFIG JASPER -->
+
+CONEXION A BASE DE DATOS:
+se agregó el archivo /src/org/isft/web/conexionDb.properties.dist
+cada desarrollador tiene que copiar este archivo y crear uno nuevo llamado /src/org/isft/web/conexionDb.properties
+En este archivo vamos a configurar nuestro acceso a labase de datos:
+
+origen_datos=isftwebappfinal
+user=root
+password=
+
+En general si importamos el archivo /model/isftwebappFinal.sql se crea la db "isftwebappfinal" con todas las tablas
+por ahora sin datos insertados. esta base de datos coincide con la propiedad "origen_datos",
+hacer lo mismo con usuario y contraseña
+
+FIXME: AL GRUPO QUE SE ENCARGA DE IGNORAR LOS ARCHIVOS, POR FAVOR ELIMINAR /src/org/isft/web/conexionDb.properties Y desversionarlo del git.
+dejar solo /src/org/isft/web/conexionDb.properties.dist
+
+
+
+
+

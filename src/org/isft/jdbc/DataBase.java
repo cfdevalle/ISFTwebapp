@@ -36,6 +36,7 @@ public class DataBase {
     	String url = "jdbc:mysql://localhost:3306/"+dataBaseDomain.getOrigenDatos();
         try{
             Class.forName("com.mysql.jdbc.Driver").newInstance();     
+            System.out.println(url+":: "+dataBaseDomain.getUser()+":: "+dataBaseDomain.getPassword());
             cn = DriverManager.getConnection(url, dataBaseDomain.getUser(), dataBaseDomain.getPassword());
             System.out.println("Conexion establecida exitosamente a base de datos");
         }catch(SQLException e){ throw new Exception(e.getMessage());}

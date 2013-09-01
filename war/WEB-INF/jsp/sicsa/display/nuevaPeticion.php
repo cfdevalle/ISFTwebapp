@@ -2,13 +2,13 @@
 <html>
     <head>
         <?php include("../../includes/metas_inc.jsp"); ?>
-        <title>Nueva peticion</title>
+        <title>Nuevao mensaje</title>
     </head>
     <body>
             <div>
                 <div class="span3">
-                    <h3>Nueva peticion</h3>
-                    <form>
+                    <h3>Nuevo mensaje</h3>
+                    <form onsubmit="return false;">
                         <ul>
                             <li>
                                 <label>Titulo</label>
@@ -18,7 +18,7 @@
                                 <label>Mensaje</label>
                                 <textarea rows="6" name="mensaje"></textarea>
                             </li>
-                            <input type="submit" class="btn btn-primary" value="Enviar peticion" name="submit">
+                            <input type="submit" class="btn btn-primary" value="Enviar mensaje" name="submit">
                         </ul>
                     </form>
                 </div>

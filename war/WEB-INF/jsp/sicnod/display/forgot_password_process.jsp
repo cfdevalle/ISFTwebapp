@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <%@include file="../../includes/metas_inc.jsp" %>
-        <title>Prueba Wrapper</title>
-        <style>
+<style>
 #f{
     width: 630px;
     margin: 0 auto;
@@ -34,33 +29,18 @@ margin-bottom: 15px;
 }
 </style>
 <script src="static/js/sicnod/login.js" type="text/javascript"></script>
-    </head>
-    <body>
-            <%@include file="../../includes/encabezado_inc.jsp" %>
+   
 <%
 String _fp_=request.getParameter("_fp_");
 %>
 <div class="row-fluid">
 	<div class="box span12">		
 		<div class="box-content">
-                <% 
-                 boolean form = true;
-                String error = "";
-                if(!error.trim().equals("")){
-                    if(error.trim().equals("error")){  %>
-                        <h3 style="color:red;">Revise los datos ingresados. No se pudo modificar las contraseña.</h3>
-                <% }else if(error.trim().equals("ok")){ form = false; %>
-                        <h3 style="color:red;">Su contraseña ha sido modificada..</h3>
-                <% } } %>
-               
-           
-            <% if(form){ %>
-                 <form class="form-horizontal" action="" method="post" name="FormForgot" id="FormForgot" >
+              
+                 <form class="form-horizontal" action="javascript:goPage(3009)" method="post" name="FormForgot" id="FormForgot" >
                     <fieldset>
-                        <legend>Olvidaste tu contraseña?</legend>
-						<% 
-                        //if(!_fp_.equals(null) && !_fp_.trim().equals("")){
-                             %>
+                        <legend>Cambiar contraseña?</legend>
+						
                                 
                                     <input type="hidden" name="section"         id="section"         value="home" />
                                     
@@ -84,19 +64,15 @@ String _fp_=request.getParameter("_fp_");
                                             
                                             <button type="button" name="recovery" class="btn btn-primary"  onclick="sendFormForgot();">Enviar</button>
                                         </div>
-                                    </div> 
-                                    
-                                
-                        <% //} %>
+                            
                     </fieldset>
                 </form>
-            <% } %>
+            
         </div>
     </div>
 </div>
 <script type="text/javascript">
 function sendFormForgot(){
-    //nombre apellido email telefono pass alias compania job_title Address Address_2 city state
     if(document.getElementById("pass_1_fp").value=="" || document.getElementById("pass_2_fp").value==""){
         alert("Revise las contraseñas ingresadas");
         return false;
@@ -110,6 +86,3 @@ function sendFormForgot(){
     }
 }
 </script>
- <%@include file="../../includes/pie_inc.jsp" %>
-    </body>
-</html>
