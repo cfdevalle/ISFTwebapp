@@ -45,7 +45,7 @@ if( txt_usuario==null && txt_password==null ||  txt_usuario.equals("") && txt_pa
         Alumnos FullUsuario = validarUsuario.getFullUsuario(alumno, paramSQL);
         request.getSession(false).setAttribute("alumno", FullUsuario);
         %>
-        <script>window.location.href = 'modulo.go?codPage=6000';</script>
+        <script>window.location.href = 'modulo.go?codPage=6020';</script>
         <%
         
     }else{
