@@ -15,6 +15,10 @@
             <include name="servlet-api.jar"/>
             <include name="jsp-api.jar"/>
         </fileset>
+<!-- NUEVO TLD-->
+	<property name="webtld.dir" value="${tomcat.dir}/WEB-INF/tld"/>
+	<property name="tldTomcat.dir" value="war/WEB-INF/tld"/>
+<!-- FIN NUEVO TLD-->
 <!-- NUEVO JASPER -->
         <fileset dir="${dir.root}/lib">
             <include name="jasperreports-5.2.0.jar"/>
@@ -82,8 +86,12 @@
 		<!--<copy todir="${tomcat.dir}/db" preservelastmodified="true">
 			<fileset dir="${dir.root}/db"/>
 		</copy>-->
-
-
+    <!-- NUEVO TLD-->
+	<mkdir dir="${webtld.dir}" />
+		<copy todir="${webtld.dir}" preservelastmodified="true">
+			<fileset dir="${tldTomcat.dir}"/>
+		</copy>	
+    <!-- FIN NUEVO TLD-->
     <!-- NUEVO JASPER -->
         <replace dir="${tomcat.dir}" value="${deployTomcat.dir}">
             <include name="**/*.*"/>
@@ -95,4 +103,5 @@
         </replace>
 	<!-- FIN NUEVO JASPER -->
     </target>
+
 </project>
