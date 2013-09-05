@@ -1,3 +1,4 @@
+<<<<<<< HEAD:isftwebapp/war/WEB-INF/jsp/sicnod/sicnod.jsp
 <%-- 
     Document   : pruebaWrapper
     Created on : 19-jun-2013, 19:27:31
@@ -25,3 +26,11 @@
         </div>
     </body>
 </html>
+=======
+cierro la sesion
+<%
+HttpSession session = request.getSession(false);
+session.invalidate();
+response.sendRedirect("index.jsp");
+%>
+>>>>>>> 6048d703ca953b07f94e525a1342acbb804d1a82:war/WEB-INF/jsp/sicnod/display/sicnod.jsp

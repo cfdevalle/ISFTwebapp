@@ -79,4 +79,11 @@
             </attribute>
 </tag>
 
+<tag>
+            <name>GrillaFinalesAInscribir</name>
+            <tag-class>org.isft.web.tags.TagGrillaFinalesAInscribir</tag-class>
+            <body-content>empty</body-content>
+            <description>Tag with Parameter</description>
+</tag>
+
 </taglib>
