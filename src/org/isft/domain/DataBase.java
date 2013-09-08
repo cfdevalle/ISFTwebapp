@@ -14,14 +14,10 @@ public final class DataBase {
     private String user, password, origenDatos, motor;
     
     public DataBase(HashMap param){
-        setUser(param.get("user")==null?"sergio":(String)param.get("user"));
+        setUser(param.get("user")==null?"root":(String)param.get("user"));
         setPassword(param.get("password")==null?"1234":(String)param.get("password"));
         setMotor(param.get("motor")==null?"mysql":(String)param.get("motor"));
-        setOrigenDatos(param.get("origen_datos")==null?"dbtp2":(String)param.get("origen_datos"));
-        setUser(param.get("user")==null?"root":(String)param.get("user"));
-        setPassword(param.get("password")==null?"admin":(String)param.get("password"));
-        setMotor(param.get("motor")==null?"mysql":(String)param.get("motor"));
-        setOrigenDatos(param.get("origen_datos")==null?"dbEjercicios":(String)param.get("origen_datos"));
+        setOrigenDatos(param.get("origen_datos")==null?"isftwebappfinal":(String)param.get("origen_datos"));
     }
 
     /**

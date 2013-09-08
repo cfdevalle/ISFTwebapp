@@ -1,5 +1,6 @@
 <script type="text/javascript" src="static/js/facebox.js"></script>
 <link type="text/css" rel="stylesheet" href="static/css/facebox.css"/>
+
 <style>
     .table td {
         text-align: center;   
@@ -34,9 +35,58 @@
                     <h1 align="center"><u>Inscripcion a Finales</u></h1>
                     <br>
                     <br>
-                        <div id="div_GrillaFinalesAInscribir">
-                            <%@include file="tagGrillaFinalesAInscribir.jsp" %>
-                        </div>
+                    <form name="formu">
+                    <table  class="table table-hover table-bordered table-condensed">
+                        <tr>
+                            <td><h4>Materia</h4></td>
+                            <td><h4>Fecha</h4></td>
+                            <td><h4>Modalidad de Inscripcion</h4></td>
+                            <td><h4>Situacion Academica</h4></td>              
+                        </tr>
+                        
+                        <tr>
+                            <td>Analisis Matematico 1</td>
+                            <td><select>
+                                    <option></option>
+                                    <option>Lunes 29/06 (Turno Mañana)</option>
+                                    <option>Miercoles 31/06 (Turno Mañana)</option>
+                                    <option>Martes 06/07 (Turno Noche)</option>
+                                    <option>Viernes 09/07 (Turno Noche)</option>
+                                </select>
+                            </td>
+                            <td>Presencial</td>
+                            <td>Cohorte</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Ingles 1</td>
+                            <td><select>
+                                    <option></option>
+                                    <option>Martes 30/06 (Turno Mañana)</option>
+                                    <option>Jueves 01/07 (Turno Noche)</option>
+                                    <option>Martes 06/07 (Turno Noche)</option>
+                                    <option>Jueves 08/07 (Turno Mañana)</option>
+                                </select>
+                            </td>
+                            <td>Libre</td>
+                            <td>Recursante</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Adm. de las Org.</td>
+                            <td><select>
+                                    <option></option>
+                                    <option>Miercoles 31/06 (Turno Noche)</option>
+                                    <option>Viernes 02/07   (Turno Noche)</option>
+                                    <option>Martes 06/07    (Turno Mañana)</option>
+                                    <option>Jueves 08/07    (Turno Mañana)</option>
+                                </select>
+                            </td>
+                            <td>Presencial</td>
+                            <td>Atraso Academico</td>
+                        </tr>
+                    </table>
+                    
                     <br>
                     <br>    
                     <%-- Botones de navegacion --%>
@@ -49,4 +99,4 @@
                         </tr>
                     </table>
                     </form>
-                </div>   
+                </div>

@@ -35,44 +35,8 @@
                     <h1 align="center"><u>Materias Inscripto/a</u></h1>
                     <br>
                     <br>
-                    <table class="table table-condensed">
-                        <tr>
-                            <td><h4>Materia</h4></td>
-                            <td><h4>Fecha</h4></td>
-                            <td><h4>Turno</h4></td>
-                            <td><h4>Profesor</h4></td>
-                            <td><h4>Desinscribirse</h4></td>
-                        </tr>
-                        <tr>
-                            <td>Algebra</td>
-                            <td>27 de Noviembre</td>
-                            <td>Noche</td>
-                            <td>Prof. Mastuntuono</td>
-                            <td><input type="checkbox"></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Edi 1</td>
-                            <td>28 de Noviembre</td>
-                            <td>Noche</td>
-                            <td>Prof. Hansen</td>
-                            <td><input type="checkbox"></td>
-                        </tr>
-                        <tr>
-                            <td>Programacion 1</td>
-                            <td>29 de Noviembre</td>
-                            <td>Mañana</td>
-                            <td>Prof. Seoane</td>
-                            <td><input type="checkbox"></td>
-                        </tr>
-                        <tr>
-                            <td>Adm. de las Org.</td>
-                            <td>30 de Noviembre</td>
-                            <td>Mañana</td>
-                            <td>Prof. Massaro</td>
-                            <td><input type="checkbox"></td>
-                        </tr>
-                    </table>
+                    <%@ taglib uri="/WEB-INF/tld/taglib.tld" prefix="tag" %>
+                    <tag:FinalesInscriptos/>
                     <br>
                     <br>
                     <table align="center">
