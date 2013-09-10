@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+  <tlib-version>1.0</tlib-version>
+  <short-name>combocursos</short-name>
+  <uri>/WEB-INF/tld/combocursos</uri>
+   <tlibversion>1.0</tlibversion>
+   <jspversion>1.1</jspversion>
+   <shortname>cursos</shortname>
+   <uri>org.isft.web.tags.ComboCursos</uri>
+   <info>A simple sample tag library</info>
+ 
+   <tag>
+     <name>cursos</name>
+     <tagclass>org.isft.web.tags.ComboCursos</tagclass>
+     <attribute>
+        <name>carrera</name>
+        <type>String</type>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+        
+    </attribute>
+     <bodycontent>empty</bodycontent>
+     <info>combo de los cursos segun la carrera</info>
+   </tag>
+</taglib>

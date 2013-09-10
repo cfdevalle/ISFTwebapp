@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+  <tlib-version>1.0</tlib-version>
+  <short-name>carrera</short-name>
+  <uri>/WEB-INF/tld/combocarrera</uri>
+   <tlibversion>1.0</tlibversion>
+   <jspversion>1.1</jspversion>
+   <shortname>carrera</shortname>
+   <uri>org.isft.web.tags.combocarrera</uri>
+   <info>A simple sample tag library</info>
+ 
+   <tag>
+     <name>carrera</name>
+     <tagclass>org.isft.web.tags.ComboCarrera</tagclass>
+     <bodycontent>empty</bodycontent>
+     <info>combo de las carreras disponibles</info>
+   </tag>
+</taglib>
