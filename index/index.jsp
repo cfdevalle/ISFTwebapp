@@ -13,7 +13,7 @@
                     <div class="well">
                             <table>
                                 <tr>
-                                    <!--<td style=" width: 200px;"><div style="border: 1px solid;"><a href="javascript:goPage(6019)"><img src="static/images/logo.png"></a></div></td>-->
+                                    <td style=" width: 100px;"><a href="javascript:goPage(6019)"><img src="static/images/logo.png"></a></td>
                                     <td style=" width: 800px;"><a href="javascript:goPage(6019)">   <H2>I.S.F.T. N° 179 Dr. Carlos Pellegrini</h2></a>
                                         
                                           <p class="muted">Excelencia Acad&eacute;mica - Solidez Institucional - Salida Laboral</p>
@@ -37,7 +37,7 @@
             </div>
 
        <!--<div class="row" style=" max-height: 400px; overflow-y: auto;  ">-->
-       <div class="row" >
+       <div class="row-fluid" >
                 
                 <div class="span2">
                   

@@ -31,9 +31,14 @@ public class CollectionCarrera  implements org.isft.logic.AccessInterface{
        while (rs.next()){
            i++;
        String nombre = rs.getString("nombre");
-       String Cod_carrera = rs.getString("Cod_carrera");
+       String cod_carrera = rs.getString("Cod_carrera");
        String descripcion = rs.getString("descripcion");
-       Carrera carrera= new Carrera(Integer.parseInt(Cod_carrera), nombre, descripcion);
+       //Carrera carrera= new Carrera(Integer.parseInt(Cod_carrera), nombre, descripcion);
+       Carrera carrera=new Carrera();
+       carrera.setCod_carrera(Integer.parseInt(cod_carrera));
+       carrera.setNombre(nombre);
+       carrera.setDescripcion(descripcion);
+           
         System.out.println("carrera nº"+i+": "+nombre);
        vec.add(carrera);
        }

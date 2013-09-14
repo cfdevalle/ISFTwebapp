@@ -27,23 +27,6 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `isftwebappfinal`.`ultimoleg`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `isftwebappfinal`.`ultimoleg` ;
-
-CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`ultimoleg` (
-  `id` AUTO_INCREMENT NOT NULL ,
-  `ultleg` INT (6) NOT NULL ,
-  `ultleg` INT (4) NOT NULL ,
-  `clave` VARCHAR(20) NOT NULL ,
-  `cantregporacta` INT(2) NOT NULL ,
-  
-  PRIMARY KEY (`id`)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
 -- Table `isftwebappfinal`.`carrera`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `isftwebappfinal`.`carrera` ;
@@ -65,7 +48,7 @@ DROP TABLE IF EXISTS `isftwebappfinal`.`materia` ;
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`materia` (
   `Cod_Materia` INT(3) NOT NULL ,
   `Nombre` VARCHAR(45) NULL DEFAULT NULL ,
-  `ModalidadInscripcion` VARCHAR(2) NULL DEFAULT NULL ,
+  `ModalidadCursada` VARCHAR(2) NULL DEFAULT NULL ,
   `Cod_Carrera` INT(2) NOT NULL ,
   PRIMARY KEY (`Cod_Materia`, `Cod_Carrera`) ,
   INDEX `fk_materia_carrera1_idx` (`Cod_Carrera` ASC) ,
@@ -141,8 +124,7 @@ CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`cursos_alumnos` (
   `Cod_Carrera` INT(2) NOT NULL ,
   `Legajo` INT(6) NOT NULL ,
   `Cod_Curso` INT(2) NOT NULL ,
-  `Lectivo` INT(4) NOT NULL ,
-  PRIMARY KEY (`Cod_Materia`, `Cod_Carrera`, `Legajo`, `Cod_Curso`, `Lectivo`) ,
+  PRIMARY KEY (`Cod_Materia`, `Cod_Carrera`, `Legajo`, `Cod_Curso`) ,
   INDEX `fk_cursosAlumnos_materia1_idx` (`Cod_Materia` ASC) ,
   INDEX `fk_cursosAlumnos_carrera1_idx` (`Cod_Carrera` ASC) ,
   INDEX `fk_cursosAlumnos_Alumnos1_idx` (`Legajo` ASC) ,

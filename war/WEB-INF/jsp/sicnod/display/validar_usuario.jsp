@@ -1,5 +1,7 @@
-<%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap, java.util.ResourceBundle"%>
-<%
+<head><%@include file="../../includes/metas_inc.jsp" %></head>
+<%@page import="org.isft.domain.Carrera"%>
+<%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos, org.isft.domain.Carrera, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap, java.util.ResourceBundle"%>
+<% 
 
 String origen_datos = "";
 String password = "";
@@ -42,14 +44,45 @@ if( txt_usuario==null && txt_password==null ||  txt_usuario.equals("") && txt_pa
     if(validarUsuario.isUsuarioValidoBySql(alumno, paramSQL)){
         txt_mensaje = "ok";
         //validarUsuario.getFullUsuario(alumno, paramSQL);
-        Alumnos FullUsuario = validarUsuario.getFullUsuario(alumno, paramSQL);
-        request.getSession(false).setAttribute("alumno", FullUsuario);
-        %>
-        <script>window.location.href = 'modulo.go?codPage=6020';</script>
-        <%
+        Alumnos fullUsuario = validarUsuario.getFullUsuario(alumno, paramSQL);
+        request.getSession(false).setAttribute("alumno", fullUsuario); 
+        System.out.println("CANTIDAD DE CARRERAS PARA EL ALUMNO: " + fullUsuario.getCarreras().size());
+        if(fullUsuario.getCarreras().size()>1){
+                %>
+          
+            
+                <div class="modal">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3>Seleccione Carrera</h3>
+                    </div>
+                    <div class="modal-body">
+                        <form name="form" method="post" action="modulo.go?codPage=6020">
+                        <SELECT  NAME="cbo_carrera"> 
+                           <%  
+                           for(int i=0;i<fullUsuario.getCarreras().size();i++){
+                            Carrera carrera=(Carrera)fullUsuario.getCarreras().get(i);%> 
+                            <OPTION value="<%=carrera.getCod_carrera()%>"><%=carrera.getNombre()%></OPTION>  
+                          
+                           <%}%> 
+                           
+                            </SELECT> 
+                           <input class="btn btn-large btn-primary" type="submit" value="aceptar">
+                        </form>
+                    </div>
+                  
+                    </div>  
+                           
+        <%} else{
+           fullUsuario.setCarrera((Carrera)fullUsuario.getCarreras().get(0)); 
+           request.getSession(false).setAttribute("alumno", fullUsuario);
+          %> <script>window.location.href = 'modulo.go?codPage=6020';</script>
+        <%}%> 
         
-    }else{
-        txt_mensaje = "datos_invalidos";%>
+        
+        <%
+     } else{
+       txt_mensaje = "datos_invalidos";%>
         <script>
                     var url = "http://localhost:8080/ISFTwebapp/index.jsp?result_login=<%= txt_mensaje %>";
                     window.location.href =url;

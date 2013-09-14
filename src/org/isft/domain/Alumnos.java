@@ -4,6 +4,8 @@
  */
 package org.isft.domain;
 
+import java.util.Vector;
+
 /**
  *
  * @author st
@@ -19,6 +21,7 @@ public class Alumnos {
     private String sexo;
     private String pwd;
     private Carrera carrera;
+    private Vector carreras;
 
     /**
      * @return the legajo
@@ -158,5 +161,19 @@ public class Alumnos {
      */
     public void setCarrera(Carrera carrera) {
         this.carrera = carrera;
+    }
+
+    /**
+     * @return the carreras
+     */
+    public Vector getCarreras() {
+        return carreras;
+    }
+
+    /**
+     * @param carreras the carreras to set
+     */
+    public void setCarreras(Vector carreras) {
+        this.carreras = carreras;
     }
 }

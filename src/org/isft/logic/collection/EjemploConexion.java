@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Vector;
+import org.isft.domain.Carrera;
 import org.isft.jdbc.DataBase;
 
 /**
@@ -64,22 +65,32 @@ public class EjemploConexion {
             ResultSet rst = null;
             Connection cn = db.getConnection();
             Statement s = cn.createStatement();
-            rst = s.executeQuery("SELECT * FROM alumnos WHERE Legajo='"+alumno_login.getLegajo()+"' AND pwd='"+alumno_login.getPwd()+"'");
+            String query="SELECT a.legajo,a.apellido,a.nombre,a.pwd,c.cod_carrera, c.nombre as nombre_carrera FROM alumnos a, carrera c WHERE a.cod_carrera=c.cod_carrera AND a.legajo="+alumno_login.getLegajo()+" AND a.pwd="+alumno_login.getPwd()+""; 
+            System.out.println("CONSULTA:"+query);
+            rst = s.executeQuery(query);
+            Vector carreras= new Vector();
+            
+            
             while(rst.next()){
                 
                 alumno.setLegajo(rst.getInt("Legajo"));
                 alumno.setNombre(rst.getString("Nombre"));
                 alumno.setApellido(rst.getString("Apellido"));
                 alumno.setPwd(rst.getString("pwd"));
-
-//                vec.add(rst.getString("legajo"));
-//                vec.add(rst.getString("nombre"));
-//                vec.add(rst.getString("apellido"));
+               
+                Carrera carrera=new Carrera();
+                carrera.setCod_carrera(rst.getInt("Cod_carrera"));
+                carrera.setNombre(rst.getString("nombre_carrera"));
+                
+                
+                carreras.add(carrera);
             }
+            alumno.setCarreras(carreras);
         }catch(Exception exc){
             System.out.println("EXCEPCION AL INTENTAR CONECTAR CON LA BASE DE DATOS x: " + exc.getMessage());
         }
-        //System.out.println("lalala: "+ alumno.getPwd());
+        System.out.println("lalala: "+ alumno.getCarreras());
+        
         return alumno;
     }
     
