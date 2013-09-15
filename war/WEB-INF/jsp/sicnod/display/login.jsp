@@ -34,30 +34,27 @@ margin-bottom: 15px;
 
             <% 
                               
-                   if(request.getSession(false).getAttribute("alumno")!=null){ 
-                   Alumnos alumno = (Alumnos)request.getSession(false).getAttribute("alumno");    
-                   try{   
-                             String cod_carrera=request.getParameter("cbo_carrera");
-                             if(cod_carrera==null || cod_carrera.equals("") ){
-                                cod_carrera = "";
-                             } else{ 
-                              
-                              int cod=(Integer.parseInt(cod_carrera));
-                              System.out.println("cod carrerra"+cod);
-                              Carrera cadAux=new Carrera();
-                              cadAux.setCod_carrera(cod);
-                              alumno.setCarrera(cadAux);
-                              request.getSession(false).setAttribute("alumno", alumno);
-                              System.out.println("objeto alumno esta es la carrera"+alumno.getCarrera().getCod_carrera());  
-                              }
-                                                        } catch(Exception exc){
-                                                            exc.printStackTrace();
-                                                        }
-                                                    
-                     
-                   
-                                    
-                    %>
+			if(request.getSession(false).getAttribute("alumno")!=null){ 
+			Alumnos alumno = (Alumnos)request.getSession(false).getAttribute("alumno");    
+			try{   
+				String cod_carrera=request.getParameter("cbo_carrera");
+				if(cod_carrera==null || cod_carrera.equals("") ){
+					cod_carrera = "";
+				} else{ 
+					
+					int cod=(Integer.parseInt(cod_carrera));
+					System.out.println("cod carrerra"+cod);
+					Carrera cadAux=new Carrera();
+					cadAux.setCod_carrera(cod);
+					alumno.setCarrera(cadAux);
+					request.getSession(false).setAttribute("alumno", alumno);
+					System.out.println("objeto alumno esta es la carrera"+alumno.getCarrera().getCod_carrera());  
+					
+				}
+			} catch(Exception exc){
+				exc.printStackTrace();
+			}
+			%>
                 <ul class="nav pull-right">
                     <li class="dropdown">
                         Bienvenido <%= alumno.getNombre() %> <%= alumno.getApellido() %><br />
@@ -75,7 +72,7 @@ margin-bottom: 15px;
                 </ul>
               
             <% }else{ %>
-                <form action='modulo.go?codPage=3002' name='form_login' id='form_login' method="post" onsubmit="if(!valida_int('txt_usuario')) return false;">
+                <form action='http://localhost:8080/ISFTwebapp/modulo.go?codPage=3002' name='form_login' id='form_login' method="post" onsubmit="if(!valida_int('txt_usuario')) return false;">
                     <table border="0" >
                     
                         <tr>

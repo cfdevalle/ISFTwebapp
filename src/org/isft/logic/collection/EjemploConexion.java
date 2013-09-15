@@ -65,31 +65,35 @@ public class EjemploConexion {
             ResultSet rst = null;
             Connection cn = db.getConnection();
             Statement s = cn.createStatement();
-            String query="SELECT a.legajo,a.apellido,a.nombre,a.pwd,c.cod_carrera, c.nombre as nombre_carrera FROM alumnos a, carrera c WHERE a.cod_carrera=c.cod_carrera AND a.legajo="+alumno_login.getLegajo()+" AND a.pwd="+alumno_login.getPwd()+""; 
-            System.out.println("CONSULTA:"+query);
-            rst = s.executeQuery(query);
+            String query2="  SELECT Apellido, Legajo, pwd, c.Nombre AS NombreCarrera, a.Nombre as NombreAlumno, c.Cod_carrera as cc " +
+							"FROM alumnos a " +
+							"LEFT JOIN carrera c ON ( a.Cod_Carrera = c.Cod_Carrera ) " +
+							"AND Legajo =  "+alumno_login.getLegajo()+" " +
+							"AND pwd =  '"+alumno_login.getPwd()+"' ";
+            System.out.println("CONSULTA:"+query2);
+            rst = s.executeQuery(query2);
             Vector carreras= new Vector();
             
-            
-            while(rst.next()){
-                
-                alumno.setLegajo(rst.getInt("Legajo"));
-                alumno.setNombre(rst.getString("Nombre"));
-                alumno.setApellido(rst.getString("Apellido"));
-                alumno.setPwd(rst.getString("pwd"));
-               
-                Carrera carrera=new Carrera();
-                carrera.setCod_carrera(rst.getInt("Cod_carrera"));
-                carrera.setNombre(rst.getString("nombre_carrera"));
-                
-                
-                carreras.add(carrera);
-            }
+            System.out.println(rst.next());
+			rst.first();
+
+			alumno.setLegajo(rst.getInt("Legajo"));
+			alumno.setNombre(rst.getString("NombreAlumno"));
+			alumno.setApellido(rst.getString("Apellido"));
+			alumno.setPwd(rst.getString("pwd"));
+
+			Carrera carrera=new Carrera();
+			carrera.setCod_carrera(rst.getInt("cc"));
+			carrera.setNombre(rst.getString("NombreCarrera"));
+
+
+			carreras.add(carrera);
+				
             alumno.setCarreras(carreras);
         }catch(Exception exc){
             System.out.println("EXCEPCION AL INTENTAR CONECTAR CON LA BASE DE DATOS x: " + exc.getMessage());
         }
-        System.out.println("lalala: "+ alumno.getCarreras());
+        //System.out.println("Carreras: "+ alumno.getCarreras());
         
         return alumno;
     }

@@ -1,5 +1,5 @@
 <head><%@include file="../../includes/metas_inc.jsp" %></head>
-<%@page import="org.isft.domain.Carrera"%>
+<%@page import="org.isft.domain.Carrera, org.isft.web.servlets.frontController"%>
 <%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos, org.isft.domain.Carrera, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap, java.util.ResourceBundle"%>
 <% 
 
@@ -46,7 +46,7 @@ if( txt_usuario==null && txt_password==null ||  txt_usuario.equals("") && txt_pa
         //validarUsuario.getFullUsuario(alumno, paramSQL);
         Alumnos fullUsuario = validarUsuario.getFullUsuario(alumno, paramSQL);
         request.getSession(false).setAttribute("alumno", fullUsuario); 
-        System.out.println("CANTIDAD DE CARRERAS PARA EL ALUMNO: " + fullUsuario.getCarreras().size());
+
         if(fullUsuario.getCarreras().size()>1){
                 %>
           
@@ -74,9 +74,10 @@ if( txt_usuario==null && txt_password==null ||  txt_usuario.equals("") && txt_pa
                     </div>  
                            
         <%} else{
-           fullUsuario.setCarrera((Carrera)fullUsuario.getCarreras().get(0)); 
+           //fullUsuario.setCarrera((Carrera)fullUsuario.getCarreras().get(0)); 
+			fullUsuario.setCarrera(new Carrera()); 
            request.getSession(false).setAttribute("alumno", fullUsuario);
-          %> <script>window.location.href = 'modulo.go?codPage=6020';</script>
+          %> <script>window.location.href = 'http://localhost:8080/ISFTwebapp/';</script>
         <%}%> 
         
         
