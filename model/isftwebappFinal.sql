@@ -41,6 +41,21 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `isftwebappfinal`.`ultimoleg`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `isftwebappfinal`.`ultimoleg` ;
+
+CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`ultimoleg` (
+  `id` AUTO_INCREMENT NOT NULL ,
+  `ultleg` INT(6) NOT NULL ,
+  `lectivo` INT(4) NOT NULL ,
+  `cantregporacta` INT(2) NOT NULL ,
+  `clave` VARCHAR(20) NOT NULL ,
+  PRIMARY KEY (`Cod_Carrera`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+-- -----------------------------------------------------
 -- Table `isftwebappfinal`.`materia`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `isftwebappfinal`.`materia` ;
@@ -48,7 +63,7 @@ DROP TABLE IF EXISTS `isftwebappfinal`.`materia` ;
 CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`materia` (
   `Cod_Materia` INT(3) NOT NULL ,
   `Nombre` VARCHAR(45) NULL DEFAULT NULL ,
-  `ModalidadCursada` VARCHAR(2) NULL DEFAULT NULL ,
+  `ModalidadInscripcion` VARCHAR(2) NULL DEFAULT NULL ,
   `Cod_Carrera` INT(2) NOT NULL ,
   PRIMARY KEY (`Cod_Materia`, `Cod_Carrera`) ,
   INDEX `fk_materia_carrera1_idx` (`Cod_Carrera` ASC) ,
@@ -124,6 +139,7 @@ CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`cursos_alumnos` (
   `Cod_Carrera` INT(2) NOT NULL ,
   `Legajo` INT(6) NOT NULL ,
   `Cod_Curso` INT(2) NOT NULL ,
+  `Lectivo` INT(4) NOT NULL ,
   PRIMARY KEY (`Cod_Materia`, `Cod_Carrera`, `Legajo`, `Cod_Curso`) ,
   INDEX `fk_cursosAlumnos_materia1_idx` (`Cod_Materia` ASC) ,
   INDEX `fk_cursosAlumnos_carrera1_idx` (`Cod_Carrera` ASC) ,
@@ -214,8 +230,11 @@ CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`examenes` (
   `Fecha2` DATE NOT NULL ,
   `Turno` VARCHAR(2) NOT NULL ,
   `Cod_Materia` INT(3) NOT NULL ,
+  `CodProfPresidente` INT(11) NOT NULL ,
+  `CodProfVocal1` INT(11) NOT NULL ,
+  `CodProfVocal2` INT(11) NOT NULL ,
   `Cod_Carrera` INT(2) NOT NULL ,
-  PRIMARY KEY (`Turno`, `Fecha2`, `Fecha1`, `Cod_Materia`, `Cod_Carrera`) ,
+  PRIMARY KEY (`Turno`, `Fecha2`, `Fecha1`, `Cod_Materia`, `Cod_Carrera`,`CodProfPresidente`,`CodProfVocal1`,`CodProfVocal2`) ,
   INDEX `fk_examenes_materia1_idx` (`Cod_Materia` ASC, `Cod_Carrera` ASC) ,
   CONSTRAINT `fk_examenes_materia1`
     FOREIGN KEY (`Cod_Materia` , `Cod_Carrera` )
