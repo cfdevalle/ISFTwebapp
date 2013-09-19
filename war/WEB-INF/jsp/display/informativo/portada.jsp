@@ -22,7 +22,7 @@
 <div id="content">
 <div id="left">
 <div class="entry">
-    <h4>Inscripción</h4><img height="300px" width="100px " src="../../static/images/docente.jpg">
+    <h4>Inscripción</h4><img height="300px" width="100px " src="static/images/docente.jpg">
 <!--img class="entryphoto" src="images/alumnos.jpg" width="495" height="200" /!-->
 <p ALIGN="JUSTIFY">Para poder acceder a cualquiera de las carreras que nuestro Instituto te ofrece deberás acercarte a partir de mediados de Noviembre de cada año con la siguiente documentación:</p>
 <br>

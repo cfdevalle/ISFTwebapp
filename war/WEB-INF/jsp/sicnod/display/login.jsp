@@ -20,7 +20,6 @@ position: relative;
 
 }
 .t_caption{
-{
 font-weight: bold;
 float: left;
 font-size: 25px;
@@ -72,7 +71,7 @@ margin-bottom: 15px;
                 </ul>
               
             <% }else{ %>
-                <form action='http://localhost:8080/ISFTwebapp/modulo.go?codPage=3002' name='form_login' id='form_login' method="post" onsubmit="if(!valida_int('txt_usuario')) return false;">
+                <form action='modulo.go?codPage=3002' name='form_login' id='form_login' method="post" onsubmit="if(!valida_int('txt_usuario')) return false;">
                     <table border="0" >
                     
                         <tr>
