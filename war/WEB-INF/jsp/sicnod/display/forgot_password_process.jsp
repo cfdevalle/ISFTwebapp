@@ -1,88 +1,111 @@
+<head><%@include file="../../includes/metas_inc.jsp" %></head>
+<%@page import="org.isft.domain.Carrera, org.isft.web.servlets.frontController"%>
+<%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos, org.isft.domain.Carrera, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap, java.util.ResourceBundle"%>
+
 <style>
-#f{
-    width: 630px;
-    margin: 0 auto;
-    float:none;
+	#f{
+		width: 630px;
+		margin: 0 auto;
+		float:none;
 
-}
-.body{
-    position:relative;
-    float: left;
-    width:630px;
-    position:relative;
-    margin-top:150px !important;
-}
-.table{
- text-align:center;
-}
-fieldset {
+	}
+	.body{
+		position:relative;
+		float: left;
+		width:630px;
+		position:relative;
+		margin-top:150px !important;
+	}
+	.table{
+		text-align:center;
+	}
+	fieldset {
 
-position: relative;
+		position: relative;
 
-}
-.t_caption{
-{
-font-weight: bold;
-float: left;
-font-size: 25px;
-margin-bottom: 15px;
-}
+	}
+	.t_caption{
+
+		font-weight: bold;
+		float: left;
+		font-size: 25px;
+		margin-bottom: 15px;
+	}
 </style>
 <script src="static/js/sicnod/login.js" type="text/javascript"></script>
-   
+
 <%
-String _fp_=request.getParameter("_fp_");
-%>
+	String txt_mensaje = "";
+	String legajo = request.getParameter("legajo");
+	legajo = "4455";
+
+	if (legajo == null || legajo.equals("")) {
+		txt_mensaje = "legajo_incompleto";
+	} else {
+		Alumnos alumno = new Alumnos();
+		int aux = Integer.parseInt(legajo);
+		alumno.setLegajo(aux);
+
+		ValidarUsuario validarUsuario = new ValidarUsuario();
+
+		if (validarUsuario.isUsuarioValidoByLegajo(alumno)) {
+			txt_mensaje = "ok";
+		} else {
+			txt_mensaje = "legajo_invalido";
+		}
+	}
+	if (!txt_mensaje.equals("ok")) {
+	%>
+		<script>
+			console.log("me voy a la 3003");
+			goPage("3003&result_forgot=<%= txt_mensaje%>");
+			//var url = "index.jsp?result_login=<%= txt_mensaje%>";
+			//window.location.href = url;
+		</script>
+	<% }%>
 <div class="row-fluid">
 	<div class="box span12">		
 		<div class="box-content">
-              
-                 <form class="form-horizontal" action="javascript:goPage(3009)" method="post" name="FormForgot" id="FormForgot" >
-                    <fieldset>
-                        <legend>Cambiar contraseña?</legend>
-						
-                                
-                                    <input type="hidden" name="section"         id="section"         value="home" />
-                                    
-                                    <div class="control-group ">
-                                        <label class="control-label" for="inputWarning">Ingrese su nueva contraseña</label>
-                                        <div class="controls">
-                                            <input type="password" name="pass_1_fp" id="pass_1_fp" value="" />
-                                            
-                                        </div>
-                                    </div>       
-                                    <div class="control-group ">
-                                        <label class="control-label" for="inputWarning">reingrese la nueva contraseña</label>
-                                        <div class="controls">
-                                            <input type="password" name="pass_2_fp" id="pass_2_fp" value="" />
-                                            
-                                        </div>
-                                    </div> 
-                                    <div class="control-group ">
-                                        <label class="control-label" for="inputWarning">&nbsp;</label>
-                                        <div class="controls">
-                                            
-                                            <button type="button" name="recovery" class="btn btn-primary"  onclick="sendFormForgot();">Enviar</button>
-                                        </div>
-                            
-                    </fieldset>
-                </form>
-            
+			<form class="form-horizontal" action="javascript:goPage(3009)" method="post" name="FormForgot" id="FormForgot" >
+				<input type="hidden" name="legajo" id="legajo" value="<%=legajo%>" />
+				<fieldset>
+					<legend>Cambiar contraseña?</legend>
+					<div class="control-group ">
+						<label class="control-label" for="inputWarning">Ingrese su nueva contraseña</label>
+						<div class="controls">
+							<input type="password" name="pass_1_fp" id="pass_1_fp" value="" />
+
+						</div>
+					</div>       
+					<div class="control-group ">
+						<label class="control-label" for="inputWarning">reingrese la nueva contraseña</label>
+						<div class="controls">
+							<input type="password" name="pass_2_fp" id="pass_2_fp" value="" />
+
+						</div>
+					</div> 
+					<div class="control-group ">
+						<label class="control-label" for="inputWarning">&nbsp;</label>
+						<div class="controls">
+							<button type="button" name="recovery" class="btn btn-primary"  onclick="sendFormForgot();">Enviar</button>
+						</div>
+				</fieldset>
+			</form>
         </div>
     </div>
 </div>
 <script type="text/javascript">
-function sendFormForgot(){
-    if(document.getElementById("pass_1_fp").value=="" || document.getElementById("pass_2_fp").value==""){
-        alert("Revise las contraseñas ingresadas");
-        return false;
-    }
-    if(document.getElementById("pass_1_fp").value != document.getElementById("pass_2_fp").value){
-        alert("Revise las contraseñas ingresadas");
-        return false;
-    }else{
-        document.getElementById("FormForgot").submit();
-        return true;
-    }
-}
+	function sendFormForgot() {
+		if (document.getElementById("pass_1_fp").value == "" || document.getElementById("pass_2_fp").value == "") {
+			alert("Revise las contraseñas ingresadas");
+			return false;
+		}
+		if (document.getElementById("pass_1_fp").value != document.getElementById("pass_2_fp").value) {
+			alert("Las contraseñas ingresadas deben coincidir.");
+			return false;
+		} else {
+			document.getElementById("FormForgot").submit();
+			return true;
+		}
+	}
 </script>

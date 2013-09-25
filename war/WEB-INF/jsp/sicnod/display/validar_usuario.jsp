@@ -2,7 +2,7 @@
 <%@page import="org.isft.domain.Carrera, org.isft.web.servlets.frontController"%>
 <%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos, org.isft.domain.Carrera, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap, java.util.ResourceBundle"%>
 <%
-
+/*
     String origen_datos = "";
     String password = "";
     String user = "";
@@ -20,7 +20,7 @@
     paramSQL.put("origen_datos", origen_datos);
     paramSQL.put("user", user);
     paramSQL.put("password", password);
-
+*/
     String txt_usuario = request.getParameter("txt_usuario");
     String txt_password = request.getParameter("txt_password");
 
@@ -41,10 +41,9 @@
 
         ValidarUsuario validarUsuario = new ValidarUsuario();
 
-        if (validarUsuario.isUsuarioValidoBySql(alumno, paramSQL)) {
+        if (validarUsuario.isUsuarioValidoBySql(alumno)) {
             txt_mensaje = "ok";
-            //validarUsuario.getFullUsuario(alumno, paramSQL);
-            Alumnos fullUsuario = validarUsuario.getFullUsuario(alumno, paramSQL);
+            Alumnos fullUsuario = validarUsuario.getFullUsuario(alumno);
             request.getSession(false).setAttribute("alumno", fullUsuario);
 
             if (fullUsuario.getCarreras().size() > 1) {

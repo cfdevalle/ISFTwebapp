@@ -43,24 +43,62 @@ public class ValidarUsuario {
         return returnValue;
     }*/
 
-    public boolean isUsuarioValidoBySql(Alumnos alumno,HashMap paramSQL){
+    public boolean isUsuarioValidoBySql(Alumnos alumno){
         boolean returnValue = false;
         try{
             EjemploConexion ejemplo=new EjemploConexion();
 
-            returnValue=ejemplo.usuarioValido(alumno, paramSQL);
+            returnValue=ejemplo.usuarioValido(alumno);
             System.out.println("USUARIO VALIDO: "+returnValue);
         } catch(Exception exc) {
             System.out.println(exc.getMessage());
         }
         return returnValue;
     }
-    public Alumnos getFullUsuario(Alumnos alumno,HashMap paramSQL){
+    public boolean updatePasswordUsuario(Alumnos alumno){
+        boolean returnValue = false;
+        try{
+            EjemploConexion ejemplo=new EjemploConexion();
+
+            returnValue=ejemplo.updatePasswordUsuario(alumno);
+			System.out.println("updatePasswordUsuario: "+returnValue);
+        } catch(Exception exc) {
+            System.out.println(exc.getMessage());
+			System.out.println("updatePasswordUsuario: error!");
+        }
+        return returnValue;
+    }
+    public boolean updateUsuario(Alumnos alumno){
+        boolean returnValue = false;
+        try{
+            EjemploConexion ejemplo=new EjemploConexion();
+
+            returnValue=ejemplo.updateAlumno(alumno);
+			System.out.println("updatePasswordUsuario: "+returnValue);
+        } catch(Exception exc) {
+            System.out.println(exc.getMessage());
+			System.out.println("updatePasswordUsuario: error!");
+        }
+        return returnValue;
+    }
+    public boolean isUsuarioValidoByLegajo(Alumnos alumno){
+        boolean returnValue = false;
+        try{
+            EjemploConexion ejemplo=new EjemploConexion();
+
+            returnValue=ejemplo.usuarioValidoByLegajo(alumno);
+            System.out.println("USUARIO VALIDO: "+returnValue);
+        } catch(Exception exc) {
+            System.out.println(exc.getMessage());
+        }
+        return returnValue;
+    }
+    public Alumnos getFullUsuario(Alumnos alumno){
         Alumnos returnValue=new Alumnos();
         try{
             EjemploConexion ejemplo=new EjemploConexion();
 
-            returnValue=ejemplo.getFullUsuario(alumno, paramSQL);
+            returnValue=ejemplo.getFullUsuario(alumno);
            //System.out.println("USUARIO VALIDO: "+returnValue);
         } catch(Exception exc) {
             System.out.println(exc.getMessage());
