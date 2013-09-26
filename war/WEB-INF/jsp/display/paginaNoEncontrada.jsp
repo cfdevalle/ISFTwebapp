@@ -17,16 +17,11 @@
 		</div>
 		<div class="span6">
 						<div class="alert alert-info"><h4> Vuelve a inicar sesion </h4></div>
-		
-								<form>
-  								<input type="text" class="input-small" placeholder="Email">
-  								<input type="password" class="input-small" placeholder="Password">
- 						   			<label class="checkbox">
-							  	<input type="checkbox"> Recordar
-  									</label>
-  								<button type="submit" class="btn">Entrar</button>
-								</form>
-		
+                                                <div class="row-fluid">    
+                                                    <div class="span6"> <%@include file="../sicnod/display/login.jsp" %></div>
+                                                
+                                                </div>
+                                                    
 		
 		</div>
 </div>
