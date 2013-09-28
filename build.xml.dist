@@ -10,21 +10,21 @@
     <property name="weblib.dir" value="${tomcat.dir}/WEB-INF/lib"/>
     <property name="classesTomcat.dir" value="${tomcat.dir}/WEB-INF/classes"/>
     <property name="dir.root" value="."/>
+    <!-- NUEVO TLD-->
+    <property name="webtld.dir" value="${tomcat.dir}/WEB-INF/tld"/>
+    <property name="tldTomcat.dir" value="war/WEB-INF/tld"/>
+    <!-- FIN NUEVO TLD-->
     <path id="master-classpath">
         <fileset dir="${dir.root}/lib/j2ee">
             <include name="servlet-api.jar"/>
             <include name="jsp-api.jar"/>
         </fileset>
-<!-- NUEVO TLD-->
-	<property name="webtld.dir" value="${tomcat.dir}/WEB-INF/tld"/>
-	<property name="tldTomcat.dir" value="war/WEB-INF/tld"/>
-<!-- FIN NUEVO TLD-->
-<!-- NUEVO JASPER -->
+        <!-- NUEVO JASPER -->
         <fileset dir="${dir.root}/lib">
             <include name="jasperreports-5.2.0.jar"/>
         </fileset>
     </path>
-<!-- fin NUEVO JASPER -->
+    <!-- fin NUEVO JASPER -->
 
 <!-- DEFINICION DE TAREAS-->
 

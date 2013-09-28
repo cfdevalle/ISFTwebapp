@@ -1,13 +1,13 @@
 function evaluar_ingreso(){
     if(document.getElementById('txt_usuario').value=='' &&  document.getElementById('txt_password').value=='' ){
         alert("No se ingreso ningun dato");
-        return false
+        return false;
     }else if(document.getElementById('txt_usuario').value=='' ){
         alert("No se ingreso Usuario ");
-        return false
+        return false;
     }else if(document.getElementById('txt_password').value=='' ){
         alert("No se ingreso password ");
-        return false
+        return false;
     } else{
         document.getElementById('form_login').submit();
     }
@@ -110,7 +110,7 @@ function valida_int(Field){
         if($('#'+Field).val() != "" && $.isNumeric($('#'+Field).val())) {
             success = true;
         }else{
-            alert("El legajo debe ser un número!");
+            alert("El legajo debe ser un numero!");
             success = false;
             
         }

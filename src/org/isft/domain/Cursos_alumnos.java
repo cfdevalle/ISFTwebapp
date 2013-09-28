@@ -19,6 +19,8 @@ public class Cursos_alumnos {
     private Curso curso;
     private Alumnos alumnos;
     private Materia materia;
+    private int lectivo;
+    
 
     /**
      * @return the asistencia
@@ -158,5 +160,19 @@ public class Cursos_alumnos {
      */
     public void setMateria(Materia materia) {
         this.materia = materia;
+    }
+
+    /**
+     * @return the lectivo
+     */
+    public int getLectivo() {
+        return lectivo;
+    }
+
+    /**
+     * @param lectivo the lectivo to set
+     */
+    public void setLectivo(int lectivo) {
+        this.lectivo = lectivo;
     }
 }

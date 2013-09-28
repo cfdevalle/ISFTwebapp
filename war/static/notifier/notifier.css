@@ -1,0 +1,106 @@
+#notificationsContainer {
+  position: absolute;
+  top: 10px;
+  right: 12px; 
+  z-index: 9999;
+}
+
+#notificationsContainer_left {
+  position: absolute;
+  top: 8px;
+  left: 20px;  
+  z-index: 9999;
+}
+
+.notification {
+  padding: 12px 18px;
+  margin: 0 0 6px 0;
+  background-color: #000;
+  opacity: 0.80;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity = 80);
+  color: #fff;
+  font: normal 13px "Droid Sans", sans-serif;
+  border-radius: 3px;
+  box-shadow: #999 0 0 12px;
+  width: 300px;
+}
+
+.notification:hover {
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity = 100);
+  box-shadow: #000 0 0 12px;
+}
+
+.notification .icon {
+  width: 36px;
+  height: 36px;
+}
+
+.notification .icon, .notification .text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.notification .text {
+  padding: 0 12px;
+}
+
+.notification .text .title {
+  font-weight: bold;
+}
+
+
+.notification_wrapper_message {
+  background-color: #F06E10;
+  opacity: 0.90;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity = 80);
+  color: #fff;
+  font: normal 14px "Droid Sans", sans-serif;
+  border-radius: 7px;
+  box-shadow: #EAD582 0 0 50px;
+  width: 650px;  
+}
+
+.notification_wrapper_message:hover {
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity = 100);
+  box-shadow: #000 0 0 12px;
+}
+
+.notification_wrapper_message .icon {
+  width: 36px;
+  height: 36px;
+}
+
+.notification_wrapper_message .icon_small {
+  width: 20px;
+  height: 20px;
+}
+
+.notification_wrapper_message .icon, .notification .text {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 11px;
+}
+
+.notification_wrapper_message .text {
+  padding: 0 12px;  
+}
+
+.notification_wrapper_message .title {
+  font-weight: bold;
+  font-size: 14px;
+  color: #000000;
+}
+
+.notification_wrapper_message .icon_small:hover {
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity = 100);
+  box-shadow: #000 0 0 12px;
+}
+ 

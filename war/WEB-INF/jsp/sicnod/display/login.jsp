@@ -1,4 +1,4 @@
-<%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap"%>
+<%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos,org.isft.domain.Carrera, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap"%>
 <style>
 #f{
     width: 630px;
@@ -20,7 +20,6 @@ position: relative;
 
 }
 .t_caption{
-{
 font-weight: bold;
 float: left;
 font-size: 25px;
@@ -32,15 +31,37 @@ margin-bottom: 15px;
 	<div class="box span12">
 		<div class="box-content">
 
-            <% if(request.getSession(false).getAttribute("alumno")!=null){ %>
-                <% Alumnos alumno = (Alumnos)request.getSession(false).getAttribute("alumno"); %>
+            <% 
+                              
+			if(request.getSession(false).getAttribute("alumno")!=null){ 
+			Alumnos alumno = (Alumnos)request.getSession(false).getAttribute("alumno");    
+			try{   
+				String cod_carrera=request.getParameter("cbo_carrera");
+				if(cod_carrera==null || cod_carrera.equals("") ){
+					cod_carrera = "";
+				} else{ 
+					
+					int cod=(Integer.parseInt(cod_carrera));
+					System.out.println("cod carrerra"+cod);
+					Carrera cadAux=new Carrera();
+					cadAux.setCod_carrera(cod);
+					alumno.setCarrera(cadAux);
+					request.getSession(false).setAttribute("alumno", alumno);
+					System.out.println("objeto alumno esta es la carrera"+alumno.getCarrera().getCod_carrera());  
+					
+				}
+			} catch(Exception exc){
+				exc.printStackTrace();
+			}
+			%>
                 <ul class="nav pull-right">
                     <li class="dropdown">
                         Bienvenido <%= alumno.getNombre() %> <%= alumno.getApellido() %><br />
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>Mi cuenta<b class="caret"></b></a>
                         <ul class="dropdown-menu">
 
-                            <li><a href="javascript:goPage(3007)">Mis datos</a></li>
+                            <li><a href="javascript:goPage(3007)">  
+                                    Mis datos</a></li>
                             <li><a href="javascript:goPage(3004)">Cambiar contrase&ntilde;a</a></li>
                             <li class="divider"/>
                             <li><a href="modulo.go?codPage=3001"><i class="icon-remove-sign"></i> Cerrar sesi&oacute;n</a></li>
