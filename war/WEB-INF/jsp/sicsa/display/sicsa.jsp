@@ -1,4 +1,4 @@
-
+<%@ taglib uri="/WEB-INF/tld/taglib.tld" prefix="tag" %>
         <title>Consulta de Situaci&oacute;n acad&eacute;mica</title>
     
         
@@ -64,6 +64,8 @@
                             </tr>
                         </tbody>
                     </table>
+
+                    <tag:GrillaMateria />
                 </div>
             </div>
   

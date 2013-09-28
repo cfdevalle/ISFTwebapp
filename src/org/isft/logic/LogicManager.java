@@ -2,7 +2,7 @@ package org.isft.logic;
 
 import java.sql.Connection;
 import java.util.HashMap;
-import org.isft.domain.DataBase;
+import org.isft.jdbc.DataBase;
 
 public class LogicManager {
     private DataBase db=null;
@@ -13,7 +13,7 @@ public class LogicManager {
         		HashMap parameters=new HashMap();
           
             this.db=new DataBase(parameters);
-        //    this.cn = db.getConnection();
+            this.cn = db.getConnection();
         } catch(Exception exc){
             throw new Exception(exc.getMessage());
         }        
@@ -22,7 +22,7 @@ public class LogicManager {
     public void close_connection() throws Exception{
         try{
             if(this.db!=null){
-        //        this.db.closeConection(this.cn);
+                this.db.closeConection(this.cn);
             }
         }
         catch(Exception exc){

@@ -75,4 +75,18 @@
     <name>FinalesInscriptos</name>
     <tag-class>org.isft.web.tags.TagFinalesInscriptos</tag-class>
   </tag>
+
+  <!-- TAG GRILLA DE MATERIAS -->
+  <tag>
+    <name>GrillaMateria</name>
+    <tag-class>org.isft.web.tags.TagGrillaMateria</tag-class>
+    <attribute>
+      <name>cod_materia</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>int</type>
+    </attribute>
+  </tag>
+  <!-- FIN GRILLA DE MATERIAS -->
+
 </taglib>

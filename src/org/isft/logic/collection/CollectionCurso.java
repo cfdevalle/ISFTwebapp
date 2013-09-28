@@ -32,7 +32,11 @@ public class CollectionCurso implements org.isft.logic.AccessInterface{
        String cod_curso=rs.getString("cod_curso");
        String turno=rs.getString("turno");
        String Cod_carrera=rs.getString("cod_carrera");
-       Curso curso = new Curso(descripcion, turno, Integer.parseInt(cod_curso));
+       //Curso curso = new Curso(descripcion, turno, Integer.parseInt(cod_curso));
+       Curso curso=new Curso();
+       curso.setCod_curso(Integer.parseInt(cod_curso));
+       curso.setTurno(turno);
+       curso.setDescripcion(descripcion);
        vec.add(curso);
        }
        return vec;
