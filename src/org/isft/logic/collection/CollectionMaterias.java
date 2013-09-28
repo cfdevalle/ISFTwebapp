@@ -23,13 +23,13 @@ public class CollectionMaterias implements org.isft.logic.AccessInterface{
        
        String curso=(String)parameters.get("curso");
        String carrera=(String)parameters.get("carrera"); 
-       System.out.println("curso"+curso);
+       //System.out.println("curso"+curso);
         
-      System.out.println("campos"+campos);
+      //System.out.println("campos"+campos);
       ResultSet rs =null;
       AccessManager am = new AccessManager();
       if (curso.charAt(0)=='1'){
-          System.out.println("curso"+curso+curso.charAt(0));
+          //System.out.println("curso"+curso+curso.charAt(0));
         try{
             System.out.println("anio:1ro");
             String query = "Select "+campos+" from materia, carrera where materia.cod_materia>100&&materia.cod_materia<200&&carrera.cod_carrera='"+carrera+"'&&materia.cod_carrera=carrera.cod_carrera;";

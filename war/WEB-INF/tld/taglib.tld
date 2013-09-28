@@ -81,10 +81,16 @@
     <name>GrillaMateria</name>
     <tag-class>org.isft.web.tags.TagGrillaMateria</tag-class>
     <attribute>
-      <name>cod_materia</name>
-      <required>false</required>
+      <name>carrera</name>
+      <required>true</required>
       <rtexprvalue>true</rtexprvalue>
-      <type>int</type>
+      <type>String</type>
+    </attribute>
+    <attribute>
+      <name>curso</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>String</type>
     </attribute>
   </tag>
   <!-- FIN GRILLA DE MATERIAS -->

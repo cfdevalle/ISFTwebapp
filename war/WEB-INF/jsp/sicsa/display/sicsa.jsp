@@ -65,7 +65,7 @@
                         </tbody>
                     </table>
 
-                    <tag:GrillaMateria />
+                    <tag:GrillaMateria carrera="1" curso="1" />
                 </div>
             </div>
   
