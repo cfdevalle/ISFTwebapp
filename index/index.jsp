@@ -1,3 +1,5 @@
+<% 
+if(request.getSession(false).getAttribute("alumno")==null){ %>
 <html>
     <head>
         <%@include file="jsp/includes/metas_inc.jsp" %>
@@ -82,5 +84,11 @@
         
     </body>
 </html>
+<%}else{%>
+    <script>
+    var url = "modulo.go?codPage=6020";
+    window.location.href = url;
+    </script>
+<%}%>
                
         

@@ -1,4 +1,3 @@
-
 <% 
 if(request.getSession(false).getAttribute("alumno")!=null){ %>
 <html>
