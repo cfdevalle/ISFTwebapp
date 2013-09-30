@@ -37,5 +37,16 @@
 </servlet-mapping>
 
 <!-- FIN SERVLET REPORTES -->
+
+<!-- SERVLET MODULO SIM -->
+<servlet>
+	  <servlet-name>ControladorModuloSim</servlet-name>
+		<servlet-class>org.isft.web.servlets.sim.ControladorModuloSim</servlet-class>
+</servlet>
+<servlet-mapping>
+		<servlet-name>ControladorModuloSim</servlet-name>
+		<url-pattern>*.sim</url-pattern>
+</servlet-mapping>
+<!-- END SERVLET MODULO SIM -->
 	
 </web-app>
