@@ -61,7 +61,9 @@ public class CollectionMaterias implements org.isft.logic.AccessInterface{
        Vector vec = new Vector();
        while (rs.next()){
        String nombre = rs.getString("nombre");
+       String codigo=rs.getString("Cod_materia");
        vec.add(nombre);
+       vec.add(codigo);
        }
        return vec;
        
