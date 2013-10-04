@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class frontController extends HttpServlet {
+public class frontControllerForLogin extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,10 +32,6 @@ public class frontController extends HttpServlet {
         String error = "";
         try {
             ResourceBundle bundle = ResourceBundle.getBundle("web.pathMenu");
-             if(request.getSession(false)==null || request.getSession(false).getAttribute("alumno")==null){
-                codPage="9404";
-                error="Usuario No Logeado";
-            }
             
             try {
                 path = bundle.getString(codPage);

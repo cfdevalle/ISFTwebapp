@@ -26,6 +26,17 @@
  <url-pattern>*.go</url-pattern> 
 	</servlet-mapping>
 <!--  FIN SERVLET MENU-->
+<!-- SERVLET REDIRECCION DEL LOGIN-->
+  <servlet>    
+	 <servlet-name>frontControllerForLogin</servlet-name>  
+	 <servlet-class>org.isft.web.servlets.frontControllerForLogin</servlet-class>
+ </servlet> 
+ <servlet-mapping>  
+ <servlet-name>frontControllerForLogin</servlet-name>
+ <url-pattern>*.login</url-pattern> 
+	</servlet-mapping>
+<!--  FIN SERVLET REDIRECCION DEL LOGIN-->
+
 <!-- SERVLET REPORTES -->
 <servlet>
 	  <servlet-name>ControladorReporte</servlet-name>
