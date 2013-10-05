@@ -36,11 +36,11 @@ margin-bottom: 15px;
 <%
 	String txt_mensaje = "";
 	String legajo = request.getParameter("legajo");
-	legajo = "4455";
+	//legajo = "4455";
 	String pass_1_fp = request.getParameter("pass_1_fp");
-	pass_1_fp = "333";
+	//pass_1_fp = "333";
 	String pass_2_fp = request.getParameter("pass_2_fp");
-	pass_2_fp = "333";
+	//pass_2_fp = "333";
 
 	if (pass_1_fp == null || pass_1_fp.equals("")) {
 		txt_mensaje = "pass_1_incompleto";

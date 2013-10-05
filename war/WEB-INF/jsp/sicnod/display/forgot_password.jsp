@@ -62,7 +62,13 @@ margin-bottom: 15px;
 
 			boolean form = true;
           
-            if(form){ %>
+            if(form){ 
+			/*
+			 * FIXME: hacer una funcion JS que tome todos los input del form y enviarlo como parametro al 
+			 * metodo goPage(param)
+			 */
+			%>
+				
                 <form class="form-horizontal" action="javascript:goPage(3004)" method="post" name="FormForgot" id="FormForgot" >
                     <fieldset>
                         <legend>Olvidaste tu contraseña?</legend>

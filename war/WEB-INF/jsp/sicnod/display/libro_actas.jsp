@@ -26,7 +26,7 @@ position: relative;
 
 }
 .t_caption{
-{
+
 font-weight: bold;
 float: left;
 font-size: 25px;
@@ -73,77 +73,13 @@ margin-bottom: 15px;
                         </div>
                     </div>
 
-					<div class="control-group">
-						<label class="control-label" for="inputCurso">Curso</label>
-						<div class="controls">
-							<input type="text" id="inputCurso" placeholder=" "/>
-						</div>
-					</div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputCicloLectivo">CicloLectivo</label>
-                        <div class="controls">
-                            <input type="text" id="inputCicloLectivo" placeholder=" "/>
-                        </div>
-                    </div>
                     <div class="control-group">
                         <label class="control-label" for="inputCicloLectivo">Fecha Examen</label>
                         <div class="controls">
                             <input type="text" id="inputCicloLectivo" placeholder=" "/>
                         </div>
                     </div>
-                    <!--
-					<div class="control-group">
-						<label class="control-label" for="inputPresidente">Presidente</label>
-						<div class="controls">
-							<input type="text" id="inputPresidente" placeholder=" "/>
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputVocal1">Vocal1</label>
-						<div class="controls">
-							<input type="text" id="inputVocal1" placeholder=" "/>
-						</div>
-					</div>
-
-					<div class="control-group">
-						<label class="control-label" for="inputVocal2">Vocal2</label>
-						<div class="controls">
-							<input type="text" id="inputVocal2" placeholder=" "/>
-						</div>
-					</div>
-                <div class="control-group"><br>
-<br>
-
-                            <label class="control-label" for="inputTotalAlumnos">TotalAlumnos</label>
-                            <div class="controls">
-							<input type="text" id="inputTotalAlumnos" placeholder=" "/>
-                            </div>
-                            </div>
-
-
-                            <div class="control-group">
-                            <label class="control-label" for="inputTotalRegular">TotalRegular
-                          </label>
-                           <div class="controls">
-                                <input type="text" id="inputTotalRegular" placeholder=" "/>
-                                </div>
-                            </div>
-
-                            <div class="control-group">
-                            <label class="control-label" for="inputTotalNoRegular">TotalNoRegular</label>
-                            <div class="controls">
-<input type="text" id="inputTotalNoRegular" placeholder=" "/>
-	</div>
-                            </div>
-
-                            <div class="control-group">
-                            <label class="control-label" for="inputTotalEnCurso">TotalEnCurso
-                          </label>
-                           <div class="controls">
-                                <input type="text" id="inputTotalEnCurso" placeholder=" "/>
-                                </div>
-                            </div>
-                            -->
+                   
 					<div class="container" style="margin-left: 55px;">
 
 						<table border="1" cellpadding="2">
@@ -156,7 +92,6 @@ margin-bottom: 15px;
 								<th bordercolor="#000000" scope="col"><strong>Modal.</strong></th>
 								<th bordercolor="#000000" scope="col"><strong>Semi Pres.</strong></th>
 								<th bordercolor="#000000" scope="col"><strong>Turno</strong></th>
-								<th bordercolor="#000000" scope="col"><strong>Asist.</strong></th>
 								<th bordercolor="#000000" scope="col"><strong>Fecha Insc.</strong></th>
 								<th bordercolor="#000000" scope="col"><strong>Calif.</strong></th>
 								<th bordercolor="#000000" scope="col"><strong>Libro</strong></th>
@@ -168,7 +103,6 @@ margin-bottom: 15px;
 								<td bordercolor="#000000"><input style="max-width: 50px;" name="apellido" type="text" size="4" >&nbsp;</td>
 								<td bordercolor="#000000"><input style="max-width: 50px;" name="nombre" type="text" size="4" >&nbsp;</td>
 								<td bordercolor="#000000"><input style="max-width: 50px;" name="dni" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="mod" type="text" size="4" >&nbsp;</td>
                                 <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
                                 <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
                                 <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
@@ -176,51 +110,7 @@ margin-bottom: 15px;
                                 <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
                                 <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
 							</tr>
-                            <tr>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="numero" type="text" size="4" maxlength="4">&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="legajo" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="apellido" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="nombre" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="dni" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="mod" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="calificacion" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="libro" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="folio" type="text" size="4" >&nbsp;</td>
-                                <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
-                                <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
-                                <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
-
-							</tr>
-                            <tr>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="numero" type="text" size="4" maxlength="4">&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="legajo" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="apellido" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="nombre" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="dni" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="mod" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="calificacion" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="libro" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="folio" type="text" size="4" >&nbsp;</td>
-                                <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
-                                <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
-                                <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
-
-							</tr>
-                            <tr>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="legajo" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="apellido" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="nombre" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="dni" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="mod" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="calificacion" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="libro" type="text" size="4" >&nbsp;</td>
-								<td bordercolor="#000000"><input style="max-width: 50px;" name="folio" type="text" size="4" >&nbsp;</td>
-                                <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
-                                <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
-                                <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
-                                <td bordercolor="#000000"><input style="max-width: 50px;" name="" type="text" size="4" >&nbsp;</td>
-
-							</tr>
+ 
 							<tr>
                             	<td style="text-align:center;" colspan="15">
                                 	<button type="submit" class="btn btn-primary">Cargar</button>

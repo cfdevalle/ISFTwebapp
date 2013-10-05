@@ -4,11 +4,12 @@ import javax.servlet.jsp.tagext.TagSupport;
 //import org.isft.logic.collection.CollectionMateria;
 import java.util.HashMap;
 import java.util.Vector;
-import org.isft.domain.Materia;
+import org.isft.domain.Alumnos;
 
-public class TagComboMateria extends TagCombo {
-    private int cod_materia;
-    private String nombre;
+public class TagComboAlumnos extends TagCombo {
+    public int legajo=0;
+//    public String nombre;
+ //   public String apellido;
     
     public int doStartTag() throws JspException {
         try {
@@ -27,9 +28,14 @@ public class TagComboMateria extends TagCombo {
                 pageContext.getOut().print("<option value=\""+materia.getCod_materia()+"\">"+materia.getNombre()+"</option>\n");
             }
             */
+			//int paramLegajo= this.getLegajo();
+			
+			pageContext.getOut().print("paramLegajo: "+this.getLegajo()+" \n");
+			pageContext.getOut().print("<option value='1'>Sebastian Marquez</option>\n");
+			pageContext.getOut().print("<option value='2'>Dante </option>\n");
 	} catch(Exception exc){
             exc.printStackTrace();
-            throw new JspException("Exception en TagCombo Materia" + exc.getMessage());
+            throw new JspException("Exception en TagCombo Alumno" + exc.getMessage());
         }
         return SKIP_BODY;
     }
@@ -42,10 +48,13 @@ public class TagComboMateria extends TagCombo {
             throw new JspException(exc.getMessage());
         }return EVAL_PAGE;
     }
-	  public void setCod_materia(int cod_materia){
-	  	this.cod_materia=cod_materia;
+	/*
+	 * Sirve para setear/recuperar value
+	 */
+	  public void setLegajo(int legajo){
+	  	this.legajo=legajo;
 	  }
-	  public String getNombre(){
-	  	return this.nombre;
+	  public int getLegajo(){
+	  	return this.legajo;
 	  }
 }

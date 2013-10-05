@@ -75,4 +75,15 @@
     <name>FinalesInscriptos</name>
     <tag-class>org.isft.web.tags.TagFinalesInscriptos</tag-class>
   </tag>
+  <tag>
+    <name>ComboAlumnos</name>
+    <tag-class>org.isft.web.tags.TagComboAlumnos</tag-class>
+	
+	<attribute>
+      <name>legajo</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>int</type>
+    </attribute>
+  </tag>
 </taglib>

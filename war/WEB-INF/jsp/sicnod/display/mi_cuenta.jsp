@@ -1,4 +1,4 @@
-<head><%@include file="../../includes/metas_inc.jsp" %></head>
+
 <%@page import="org.isft.domain.Carrera, org.isft.web.servlets.frontController"%>
 <%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos, org.isft.domain.Carrera, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap, java.util.ResourceBundle"%>
 
@@ -43,12 +43,24 @@
 					Alumnos alumno = (Alumnos) request.getSession(false).getAttribute("alumno");
 					String SexoH = (alumno.getSexo()== "H") ? "checked='checked'" : "";
 					String SexoM = (alumno.getSexo() == "M") ? "checked='checked'" : "";
+					
+					int paramComboAlumno = 2;
 				%>
 					Bienvenido <%= alumno.getNombre()%> <%= alumno.getApellido()%><br />
 				<form class="form-horizontal" action="http://localhost:8080/ISFTwebapp/encabezado.go?codPage=3010" method="post" name="FormAlumno" id="FormAlumno" >
 				<!--<form class="form-horizontal" action="javascript:goPage(3010)" method="post" name="FormAlumno" id="FormAlumno" >-->
 					<fieldset>
 						<legend>Mis Datos</legend>
+						<div class="control-group ">
+							<label class="control-label" for="inputWarning">TAG EJ</label>
+							<div class="controls">
+								
+								<%@ taglib uri="/WEB-INF/tld/taglib.tld" prefix="tag" %>
+								<tag:ComboAlumnos legajo="2"/>
+								
+								
+							</div>
+						</div>       
 						<div class="control-group ">
 							<label class="control-label" for="inputWarning">Legajo</label>
 							<div class="controls">
