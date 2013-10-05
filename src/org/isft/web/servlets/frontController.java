@@ -32,10 +32,10 @@ public class frontController extends HttpServlet {
         String error = "";
         try {
             ResourceBundle bundle = ResourceBundle.getBundle("web.pathMenu");
-            /*if (request.getSession(false)==null || request.getSession(false).getAttribute("Usuario_logeado")==null){
+             if(request.getSession(false)==null || request.getSession(false).getAttribute("alumno")==null){
                 codPage="9404";
                 error="Usuario No Logeado";
-            }*/
+            }
             
             try {
                 path = bundle.getString(codPage);

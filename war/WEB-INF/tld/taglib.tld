@@ -75,6 +75,7 @@
     <name>FinalesInscriptos</name>
     <tag-class>org.isft.web.tags.TagFinalesInscriptos</tag-class>
   </tag>
+
   <tag>
     <name>ComboAlumnos</name>
     <tag-class>org.isft.web.tags.TagComboAlumnos</tag-class>
@@ -86,4 +87,84 @@
       <type>int</type>
     </attribute>
   </tag>
+
+
+  <!-- TAG GRILLA DE MATERIAS -->
+  <tag>
+    <name>GrillaMateria</name>
+    <tag-class>org.isft.web.tags.TagGrillaMateria</tag-class>
+    <attribute>
+      <name>carrera</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>String</type>
+    </attribute>
+    <attribute>
+      <name>curso</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>String</type>
+    </attribute>
+  </tag>
+  <!-- FIN GRILLA DE MATERIAS -->
+  
+/* TAGS MODULO SIM */
+/*TagGrillaInscripcionMaterias*/
+<tag>
+    <name>GrillaInscripcionMaterias</name>
+    <tag-class>org.isft.web.tags.sim.TagGrillaInscripcionMaterias</tag-class>
+    <body-content>empty</body-content>
+    <description>Tag with Parameter</description>
+    <attribute>
+      <name>usuario</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>org.isft.domain.Alumnos</type>
+    </attribute>
+</tag>
+
+/*TagGrillaModificarInscripcion*/
+<tag>
+    <name>GrillaModificarInscripcion</name>
+    <tag-class>org.isft.web.tags.sim.TagGrillaModificarInscripcion</tag-class>
+    <body-content>empty</body-content>
+    <description>Tag with Parameter</description>
+    <attribute>
+      <name>usuario</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>org.isft.domain.Alumnos</type>
+    </attribute>
+</tag>
+
+/*TagGrillaEliminarInscripcion*/
+<tag>
+    <name>GrillaEliminarInscripcion</name>
+    <tag-class>org.isft.web.tags.sim.TagGrillaEliminarInscripcion</tag-class>
+    <body-content>empty</body-content>
+    <description>Tag with Parameter</description>
+    <attribute>
+      <name>usuario</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>org.isft.domain.Alumnos</type>
+    </attribute>
+</tag>
+
+/*TagGrillaMateriasYaInscriptas*/
+<tag>
+    <name>GrillaMateriasYaInscriptas</name>
+    <tag-class>org.isft.web.tags.sim.TagGrillaMateriasYaInscriptas</tag-class>
+    <body-content>empty</body-content>
+    <description>Tag with Parameter</description>
+    <attribute>
+      <name>usuario</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>org.isft.domain.Alumnos</type>
+    </attribute>
+</tag>
+/* END TAGS MODULO SIM */
+  
+
 </taglib>

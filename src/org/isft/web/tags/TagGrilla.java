@@ -7,7 +7,7 @@ public class TagGrilla extends TagSupport {
 
     public int doStartTag() throws JspException {
         try {
-            pageContext.getOut().print("<table width='100%' border='1'>");
+            pageContext.getOut().print("<table class='table table-hover table-bordered table-condensed'>");
         } catch(Exception exc){
             exc.printStackTrace();
             throw new JspException(exc.getMessage());

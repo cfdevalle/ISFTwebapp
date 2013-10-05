@@ -71,7 +71,7 @@ margin-bottom: 15px;
                 </ul>
               
             <% }else{ %>
-                <form action='modulo.go?codPage=3002' name='form_login' id='form_login' method="post" onsubmit="if(!valida_int('txt_usuario')) return false;">
+                <form action='redirec.login?codPage=3002' name='form_login' id='form_login' method="post" onsubmit="if(!valida_int('txt_usuario')) return false;">
                     <table border="0" >
                     
                         <tr>
@@ -98,7 +98,7 @@ margin-bottom: 15px;
                         </tr>
                         <tr>
                             <td>    
-                             <a href="javascript:goPage(3003)">Recuperar password</a>
+                             <a href="javascript:goPageNoLogin(3003)">Recuperar password</a>
                             </td>
                             <td></td>
                        

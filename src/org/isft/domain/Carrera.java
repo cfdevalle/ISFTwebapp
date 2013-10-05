@@ -13,6 +13,7 @@ public class Carrera {
     private String nombre;
     private String descripcion;
 
+    
     /**
      * @return the cod_carrera
      */
