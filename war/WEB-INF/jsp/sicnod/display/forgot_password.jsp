@@ -69,7 +69,7 @@ margin-bottom: 15px;
 			 */
 			%>
 				
-                <form class="form-horizontal" action="javascript:goPage(3004)" method="post" name="FormForgot" id="FormForgot" >
+                <form class="form-horizontal" action="" method="post" name="FormForgot" id="FormForgot" >
                     <fieldset>
                         <legend>Olvidaste tu contraseña?</legend>
                          
@@ -89,10 +89,13 @@ margin-bottom: 15px;
 
 <script type="text/javascript">
 function sendFormForgot(){
-    if(document.getElementById("legajo").value==""){
+	var legajo = document.getElementById("legajo").value;
+    if(legajo==""){
         alert("Ingrese su legajo.");
         return false;
     }
-    document.getElementById("FormForgot").submit();
+	goPageNoLogin("3004&legajo="+legajo);
+	return false;
+    //document.getElementById("FormForgot").submit();
 }
 </script>

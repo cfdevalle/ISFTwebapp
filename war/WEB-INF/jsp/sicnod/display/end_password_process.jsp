@@ -35,7 +35,7 @@ margin-bottom: 15px;
 
 <%
 	String txt_mensaje = "";
-	String legajo = request.getParameter("legajo");
+	String legajo = request.getParameter("hid_legajo");
 	//legajo = "4455";
 	String pass_1_fp = request.getParameter("pass_1_fp");
 	//pass_1_fp = "333";
@@ -47,9 +47,11 @@ margin-bottom: 15px;
 	}else if (pass_2_fp == null || pass_2_fp.equals("")) {
 		txt_mensaje = "pass_2_incompleto";
 	} else {
+		System.out.println(legajo);
+		System.out.println(pass_1_fp);
 		Alumnos alumno = new Alumnos();
-		int aux = Integer.parseInt(legajo);
-		alumno.setLegajo(aux);
+		//int aux = Integer.parseInt(legajo);
+		alumno.setLegajo(Integer.parseInt(legajo));
 		alumno.setPwd(pass_1_fp);
 
 		ValidarUsuario validarUsuario = new ValidarUsuario();
@@ -65,7 +67,7 @@ margin-bottom: 15px;
 	%>
 		<script>
 			console.log("me voy a la 3004");
-			goPage("3004&result_forgot=<%= txt_mensaje%>");
+			goPageNoLogin("3004&result_forgot=<%= txt_mensaje%>");
 			//var url = "index.jsp?result_login=<%= txt_mensaje%>";
 			//window.location.href = url;
 		</script>

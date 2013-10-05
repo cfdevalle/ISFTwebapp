@@ -72,8 +72,7 @@ margin-bottom: 15px;
               
             <% }else{ %>
                 <form action='redirec.login?codPage=3002' name='form_login' id='form_login' method="post" onsubmit="if(!valida_int('txt_usuario')) return false;">
-                    <table border="0" >
-                    
+                    <table border="0" >                    
                         <tr>
                             <td width="240px">
                                 <input  type="text" maxlength="30" name="txt_usuario" id="txt_usuario" placeholder="INGRESAR USUARIO" required="true" />
@@ -82,9 +81,6 @@ margin-bottom: 15px;
                                 <img id="imagen_user" src="" width="25px" style="visibility:hidden;" />
                                 <span id="mensaje_user"></span>
                             </td>
-                        
-
-                       
                             <td><input   type="password" name="txt_password" id="txt_password" placeholder="INGRESAR PASSWORD" required="true" /></td>
                             <td>
                                 <img id="imagen_pass" src="" width="25px"  style="visibility:hidden;" />
@@ -98,7 +94,7 @@ margin-bottom: 15px;
                         </tr>
                         <tr>
                             <td>    
-                             <a href="javascript:goPageNoLogin(3003)">Recuperar password</a>
+                             <a href="javascript:goPageNoLogin(3004)">Recuperar password</a>
                             </td>
                             <td></td>
                        

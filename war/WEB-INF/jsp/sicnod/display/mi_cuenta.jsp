@@ -41,30 +41,44 @@
 				<%
 				if (request.getSession(false).getAttribute("alumno") != null) {
 					Alumnos alumno = (Alumnos) request.getSession(false).getAttribute("alumno");
-					String SexoH = (alumno.getSexo()== "H") ? "checked='checked'" : "";
-					String SexoM = (alumno.getSexo() == "M") ? "checked='checked'" : "";
+
+					String Sexo = alumno.getSexo(); 
+					String SexoH = (Sexo.equals("H")) ? "checked='checked'" : "";
+					String SexoM = (Sexo.equals("M")) ? "checked='checked'" : "";
 					
-					int paramComboAlumno = 2;
 				%>
-					Bienvenido <%= alumno.getNombre()%> <%= alumno.getApellido()%><br />
-				<form class="form-horizontal" action="http://localhost:8080/ISFTwebapp/encabezado.go?codPage=3010" method="post" name="FormAlumno" id="FormAlumno" >
+				<form class="form-horizontal" action="" method="post" name="FormAlumno" id="FormAlumno" >
 				<!--<form class="form-horizontal" action="javascript:goPage(3010)" method="post" name="FormAlumno" id="FormAlumno" >-->
 					<fieldset>
 						<legend>Mis Datos</legend>
-						<div class="control-group ">
-							<label class="control-label" for="inputWarning">TAG EJ</label>
-							<div class="controls">
-								
-								<%@ taglib uri="/WEB-INF/tld/taglib.tld" prefix="tag" %>
-								<tag:ComboAlumnos legajo="2"/>
-								
-								
-							</div>
-						</div>       
+						
+						<% boolean ejemploTLD=false; if(ejemploTLD){ %>
+							<div class="control-group ">
+								<label class="control-label" for="inputWarning">TAG EJ</label>
+								<div class="controls">
+									<%@ taglib uri="/WEB-INF/tld/taglib.tld" prefix="tag" %>
+									<tag:ComboAlumnos legajo="<%= alumno.getLegajo()%>"/>
+								</div>
+							</div>   
+						<% } %>				
 						<div class="control-group ">
 							<label class="control-label" for="inputWarning">Legajo</label>
 							<div class="controls">
 								<strong><%= alumno.getLegajo()%></strong>
+							</div>
+						</div>       
+						<div class="control-group ">
+							<label class="control-label" for="inputWarning">Carrera</label>
+							<div class="controls">
+								<%
+								if(alumno.getCarreras().size() > 0){
+								for (int i = 0; i < alumno.getCarreras().size(); i++) {
+									Carrera carrera = (Carrera) alumno.getCarreras().get(i);%> 
+									<strong><%=carrera.getCod_carrera()%></strong> - 
+									<strong><%=carrera.getNombre()%></strong>
+								<% }}else{ %> 
+									<strong>No tiene ninguna carrega asignada.</strong>
+								<% } %> 
 							</div>
 						</div>       
 						<div class="control-group ">
@@ -100,8 +114,8 @@
 						<div class="control-group ">
 							<label class="control-label" for="inputWarning">Sexo</label>
 							<div class="controls">
-								<input type="radio" name="Sexo" value="H" <%= SexoH %> /> Hombre<br />
-								<input type="radio" name="Sexo" value="M" <%= SexoM %> /> Mujer<br />
+								<input type="radio" name="Sexo" id="sexoH" value="H" <%= SexoH %> /> Hombre<br />
+								<input type="radio" name="Sexo" id="sexoH" value="M" <%= SexoM %> /> Mujer<br />
 							</div>
 						</div>       
 						
@@ -120,6 +134,10 @@
 	</div>
 <script type="text/javascript">
 function sendForm() {
+	var queryString = $("#FormAlumno").serialize();
+	console.log(queryString);
+	goPageNoLogin("3010&"+queryString);
+	return false;
 	document.getElementById("FormAlumno").submit();
 	return true;
 }

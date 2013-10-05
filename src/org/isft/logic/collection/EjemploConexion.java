@@ -108,9 +108,6 @@ public class EjemploConexion {
         //Vector vec = new Vector();
         boolean result = false;
         try{
-            /*
-             * pasar al hashmap la db 'login'
-             */
 			try{
 				DataBase db = new DataBase(new HashMap());
 				Connection cn = db.getConnection();
@@ -124,10 +121,10 @@ public class EjemploConexion {
 								+ ", Sexo =  '"+alumno.getSexo()+"' "
 								+ ", CP =  '"+alumno.getCp()+"' "
 								+ "WHERE legajo = '"+alumno.getLegajo()+"' ";
+				System.out.println("USER UPDATE: "+update);
 				int resultado = statementInsercion.executeUpdate(update); 
-				System.out.println("PASS UPDATE!");
 			} catch(Exception exc){
-				System.out.println("ERROR PASS UPDATE!");
+				System.out.println("ERROR USER UPDATE!");
 				throw new Exception(exc.getMessage());
 			}
         }catch(Exception exc){
@@ -169,8 +166,7 @@ public class EjemploConexion {
 			Carrera carrera=new Carrera();
 			carrera.setCod_carrera(rst.getInt("cc"));
 			carrera.setNombre(rst.getString("NombreCarrera"));
-
-
+			
 			carreras.add(carrera);
 				
             alumno.setCarreras(carreras);

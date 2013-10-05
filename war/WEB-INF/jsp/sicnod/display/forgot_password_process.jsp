@@ -35,10 +35,10 @@
 <script src="static/js/sicnod/login.js" type="text/javascript"></script>
 
 <%
+	
 	String txt_mensaje = "";
 	String legajo = request.getParameter("legajo");
-	//legajo = "4455";
-
+	System.out.println("Legajo de get "+legajo);
 	if (legajo == null || legajo.equals("")) {
 		txt_mensaje = "legajo_incompleto";
 	} else {
@@ -54,11 +54,14 @@
 			txt_mensaje = "legajo_invalido";
 		}
 	}
+	if(request.getSession(false).getAttribute("alumno")!=null){ 
+		txt_mensaje = "ok";
+	}
 	if (!txt_mensaje.equals("ok")) {
 	%>
 		<script>
 			console.log("me voy a la 3003");
-			goPage("3003&result_forgot=<%= txt_mensaje%>");
+			goPageNoLogin("3003&result_forgot=<%= txt_mensaje%>");
 			//var url = "index.jsp?result_login=<%= txt_mensaje%>";
 			//window.location.href = url;
 		</script>
@@ -66,8 +69,16 @@
 <div class="row-fluid">
 	<div class="box span12">		
 		<div class="box-content">
-			<form class="form-horizontal" action="javascript:goPage(3009)" method="post" name="FormForgot" id="FormForgot" >
-				<input type="hidden" name="legajo" id="legajo" value="<%=legajo%>" />
+			<form class="form-horizontal" action="" method="post" name="FormForgot" id="FormForgot" >
+				<%
+				if(request.getSession(false).getAttribute("alumno")!=null){ 
+					Alumnos alumno = (Alumnos)request.getSession(false).getAttribute("alumno");  
+					%>
+					<input type="hidden" name="hid_legajo" id="hid_legajo" value="<%= alumno.getLegajo() %>" />
+					<%
+				}else{ %>
+					<input type="hidden" name="hid_legajo" id="hid_legajo" value="<%= legajo%>" />
+				<% } %>
 				<fieldset>
 					<legend>Cambiar contraseña?</legend>
 					<div class="control-group ">
@@ -104,8 +115,9 @@
 			alert("Las contraseñas ingresadas deben coincidir.");
 			return false;
 		} else {
-			document.getElementById("FormForgot").submit();
-			return true;
+			goPageNoLogin("3009&hid_legajo="+document.getElementById("hid_legajo").value+"&pass_1_fp="+document.getElementById("pass_1_fp").value+"&pass_2_fp="+document.getElementById("pass_2_fp").value);
+			//document.getElementById("FormForgot").submit();
+			return false;
 		}
 	}
 </script>

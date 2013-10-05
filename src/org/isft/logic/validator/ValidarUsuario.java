@@ -61,10 +61,8 @@ public class ValidarUsuario {
             EjemploConexion ejemplo=new EjemploConexion();
 
             returnValue=ejemplo.updatePasswordUsuario(alumno);
-			System.out.println("updatePasswordUsuario: "+returnValue);
         } catch(Exception exc) {
             System.out.println(exc.getMessage());
-			System.out.println("updatePasswordUsuario: error!");
         }
         return returnValue;
     }
@@ -74,10 +72,8 @@ public class ValidarUsuario {
             EjemploConexion ejemplo=new EjemploConexion();
 
             returnValue=ejemplo.updateAlumno(alumno);
-			System.out.println("updatePasswordUsuario: "+returnValue);
         } catch(Exception exc) {
             System.out.println(exc.getMessage());
-			System.out.println("updatePasswordUsuario: error!");
         }
         return returnValue;
     }

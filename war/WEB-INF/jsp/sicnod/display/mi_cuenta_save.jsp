@@ -61,13 +61,14 @@
 
 				if (validarUsuario.isUsuarioValidoByLegajo(alumno)) {
 					validarUsuario.updateUsuario(alumno);
+					request.getSession(false).setAttribute("alumno", alumno);
 					txt_mensaje = "ok";
 				} else {
 					txt_mensaje = "legajo_invalido";
 				}
 			%>
 			<script>
-				console.log("me voy a la 3007");
+				console.log("me voy a la 3007&result_forgot=<%= txt_mensaje%>");
 				goPage("3007&result_forgot=<%= txt_mensaje%>");
 			</script>
 				(PROCESO UPDATE ALUMNO)
