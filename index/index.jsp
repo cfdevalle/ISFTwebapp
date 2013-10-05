@@ -1,3 +1,5 @@
+<% 
+if(request.getSession(false).getAttribute("alumno")==null){ %>
 <html>
     <head>
         <%@include file="jsp/includes/metas_inc.jsp" %>
@@ -13,8 +15,8 @@
                     <div class="well">
                             <table>
                                 <tr>
-                                    <td style=" width: 100px;"><a href="javascript:goPage(6019)"><img src="static/images/logo.png"></a></td>
-                                    <td style=" width: 800px;"><a href="javascript:goPage(6019)">   <H2>I.S.F.T. Nº 179 Dr. Carlos Pellegrini</h2></a>
+                                    <td style=" width: 100px;"><a href="javascript:goPageNoLogin(6019)"><img src="static/images/logo.png"></a></td>
+                                    <td style=" width: 800px;"><a href="javascript:goPageNoLogin(6019)">   <H2>I.S.F.T. Nº 179 Dr. Carlos Pellegrini</h2></a>
                                         
                                           <p class="muted">Excelencia Acad&eacute;mica - Solidez Institucional - Salida Laboral</p>
                                     </td>
@@ -45,25 +47,25 @@
                      <ul class="nav nav-list"> 
                          <li class="nav-header">Instituci&oacute;n</li> 
                          <li class="divider"></li>
-                         <li><a class="goTop" href="javascript:goPage(6001)">Visi&oacute;n y Misi&oacute;n</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6002)">Staff</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6003)">Docentes</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6004)">Peri&oacute;dico</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6007)">Biblioteca</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6005)">Normativa</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6006)">Contacto</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6001)">Visi&oacute;n y Misi&oacute;n</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6002)">Staff</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6003)">Docentes</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6004)">Peri&oacute;dico</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6007)">Biblioteca</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6005)">Normativa</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6006)">Contacto</a></li>
                          <li class="nav-header">CARRERAS</li> 
                          <li class="divider"></li
-                         <li><a class="goTop" href="javascript:goPage(6009)">Administraci&oacute;n General</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6010)">Servicios Gastron&oacute;micos</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6011)">Industria Textil</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6012)">Instalaci&oacute;n y Mantenimiento</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6013)">An&aacute;lisis De Sistemas</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6014)">Turismo</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6015)">Seguridad e Higiene Industrial</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6016)">Log&iacute;stica</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6017)">Desarrollo de Aplicaciones</a></li>
-                         <li><a class="goTop" href="javascript:goPage(6018)">Automatizaci&oacute;n y Rob&oacute;tica</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6009)">Administraci&oacute;n General</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6010)">Servicios Gastron&oacute;micos</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6011)">Industria Textil</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6012)">Instalaci&oacute;n y Mantenimiento</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6013)">An&aacute;lisis De Sistemas</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6014)">Turismo</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6015)">Seguridad e Higiene Industrial</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6016)">Log&iacute;stica</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6017)">Desarrollo de Aplicaciones</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6018)">Automatizaci&oacute;n y Rob&oacute;tica</a></li>
                             
                      </ul>
                    
@@ -82,5 +84,11 @@
         
     </body>
 </html>
+<%}else{%>
+    <script>
+    var url = "modulo.go?codPage=6020";
+    window.location.href = url;
+    </script>
+<%}%>
                
         

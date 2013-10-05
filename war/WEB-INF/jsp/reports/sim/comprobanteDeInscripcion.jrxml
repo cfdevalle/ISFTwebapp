@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="comprobanteDeInscripcion" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="da150933-2e7d-45fa-9a6d-b6db052f09da">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#D9D2C3">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFF7E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Tabla de Materias Inscriptas" uuid="db10e44e-20a3-4801-96bd-1e60db4b8ed6">
+		<queryString language="SQL">
+			<![CDATA[SELECT ca.Cod_Materia, ma.Nombre, ca.SituacionAcademica, ca.ModalidadInscripcion, cu.Descripcion, ca.Turno
+FROM  cursos_alumnos ca, curso cu,  materia ma
+WHERE ca.Cod_Carrera=10
+AND ca.Legajo=1234
+AND ca.Cod_Curso=cu.Cod_Curso
+AND ca.Cod_Materia=ma.Cod_Materia
+AND ca.Lectivo=2013]]>
+		</queryString>
+		<field name="Cod_Materia" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Nombre" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="SituacionAcademica" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="ModalidadInscripcion" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Descripcion" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Turno" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<group name="Cod_Materia">
+			<groupExpression><![CDATA[$F{Cod_Materia}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="Table Dataset 1" uuid="4e115bee-3245-4cba-9da2-93c490e22c83"/>
+	<parameter name="p_legajo" class="java.lang.String"/>
+	<parameter name="p_cod_carrera" class="java.lang.String"/>
+	<parameter name="p_nombre_carrera" class="java.lang.String"/>
+	<parameter name="p_fecha" class="java.lang.String"/>
+	<parameter name="p_hora" class="java.lang.String"/>
+	<parameter name="p_anio_actual" class="java.lang.String"/>
+	<parameter name="p_estudiante" class="java.lang.String"/>
+	<parameter name="p_cod_comprobante" class="java.lang.String"/>
+	<parameter name="p_ruta_imagen" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT ca.Cod_Materia, ma.Nombre, ca.SituacionAcademica, ca.ModalidadInscripcion, cu.Descripcion, ca.Turno
+FROM  cursos_alumnos ca, curso cu,  materia ma
+WHERE ca.Cod_Carrera=$P{p_cod_carrera}
+AND ca.Legajo=$P{p_legajo}
+AND ca.Cod_Curso=cu.Cod_Curso
+AND ca.Cod_Materia=ma.Cod_Materia
+AND ca.Lectivo=$P{p_anio_actual}]]>
+	</queryString>
+	<field name="Cod_Materia" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SituacionAcademica" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ModalidadInscripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Turno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="eb66ae20-e235-496d-b461-5fac6f515595" x="11" y="17" width="452" height="62"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Instituto Superior de Formacion Tecnica Nº179 Dr. Carlos Pellegrini.]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="135bd0fd-5b7b-4d4b-9170-db272f3ac63e" x="475" y="8" width="80" height="79"/>
+				<imageExpression><![CDATA[$P{p_ruta_imagen}+"\static\images\sim\comprobante_de_inscripcion.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="139" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="df708853-93df-4d90-8ea6-0dfcdc2c718e" x="11" y="39" width="55" height="20"/>
+				<textElement>
+					<font size="12" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Carrera:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="698cdaea-eb9c-4d7d-9e09-2343f77e4724" x="11" y="59" width="68" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estudiante:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="14b84353-e232-449d-8ff0-a2fc00c3ba27" x="11" y="79" width="68" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº Legajo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5569418f-ee56-4537-a34a-e358fa397944" x="12" y="99" width="55" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="583bf086-9b8e-426e-9330-e5e15709b671" x="156" y="99" width="35" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6404fe96-174b-4fd3-997d-3e35de748436" x="11" y="9" width="544" height="20"/>
+				<textElement>
+					<font size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Comprobante de inscripcion a materias Nº:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="d5b5c841-22d0-45e7-bacd-acd3532d314e" x="79" y="59" width="100" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_estudiante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5ad33a7f-d8e7-4636-806d-910c31721d03" x="79" y="79" width="100" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_legajo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="78810034-a591-481d-b42a-17c455d67abf" x="66" y="39" width="140" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_nombre_carrera}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2f145ceb-e01e-4e6f-8e49-71d2cd4359cc" x="312" y="9" width="243" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_cod_comprobante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c415f075-ae4e-4543-9cc5-4b45131c725c" x="56" y="99" width="100" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a4bf8c2e-fcc7-418b-b37a-be53436861a9" x="190" y="99" width="100" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_hora}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="113" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="152cb52c-3db9-4cad-955a-4503c1c4db74" x="0" y="0" width="133" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Tabla de Materias]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement uuid="9a9aee7e-1a3d-4739-979f-bfecc3c6fa37" key="table 2" style="table 2" x="0" y="20" width="555" height="93"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Tabla de Materias Inscriptas" uuid="cf792c44-69a3-4b53-a603-ea7df2ccfc3e">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="66" uuid="0e274b63-2c0f-4de4-a694-6e3131f0a0b5">
+						<jr:columnHeader style="table 2_CH" height="46" rowSpan="1">
+							<staticText>
+								<reportElement uuid="fc349fa9-104c-47b0-bb12-3c0700c5ec35" x="0" y="0" width="65" height="40"/>
+								<textElement textAlignment="Center">
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Codigo de Materia]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="0e992c87-0ec7-4d2e-936c-6e40a905c27b" x="0" y="0" width="66" height="20"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{Cod_Materia}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="121" uuid="91e6e630-0406-4315-9538-f3c7840c6a83">
+						<jr:columnHeader style="table 2_CH" height="46" rowSpan="1">
+							<staticText>
+								<reportElement uuid="d8773431-7153-4e6e-96d1-429dad05bc87" x="0" y="0" width="121" height="40"/>
+								<textElement textAlignment="Center">
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nombre de Materia]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="2701c4ea-f12d-4485-bc80-f018e5d53441" x="0" y="0" width="121" height="20"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="884b84a8-3c2e-4d23-a9a5-d6f3c9fc7010">
+						<jr:columnHeader style="table 2_CH" height="46" rowSpan="1">
+							<staticText>
+								<reportElement uuid="932c5013-8446-446c-a8b7-7ac81fdbbd5e" x="0" y="0" width="90" height="40"/>
+								<textElement textAlignment="Center">
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Situacion Academica]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="5bc927b9-6204-44f4-8393-1972ecb04022" x="0" y="2" width="90" height="18"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[(($F{SituacionAcademica}.equalsIgnoreCase("CO"))?"Cohorte":
+($F{SituacionAcademica}.equalsIgnoreCase("AA")?"Atraso Academico":
+($F{SituacionAcademica}.equalsIgnoreCase("RE")?"Recursante":"")))]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d2ec13e5-5905-42c1-a515-2f5c5e8d6fd1">
+						<jr:columnHeader style="table 2_CH" height="46" rowSpan="1">
+							<staticText>
+								<reportElement uuid="9eaa441b-3f33-45cb-969c-1a4de92b6f75" x="0" y="0" width="90" height="40"/>
+								<textElement textAlignment="Center">
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Modalidad de Inscripcion]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="14b060aa-e9bb-49ff-b775-31d72d478c11" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[(($F{ModalidadInscripcion}.equalsIgnoreCase("LI"))?"Libre":
+($F{ModalidadInscripcion}.equalsIgnoreCase("PR")?"Presencial":""))]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="92" uuid="cbaea7ea-0f46-4173-8713-3a53e31b0969">
+						<jr:columnHeader style="table 2_CH" height="46" rowSpan="1">
+							<staticText>
+								<reportElement uuid="95346125-6b43-441a-83fa-c88aaf7fc6e1" x="0" y="0" width="90" height="40"/>
+								<textElement textAlignment="Center">
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Curso]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="d35f3722-1e04-4fd2-88b5-d54cab57118e" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{Descripcion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="69" uuid="c86707c5-38a3-4703-8ec7-ce17a0b96c47">
+						<jr:columnHeader style="table 2_CH" height="46" rowSpan="1">
+							<staticText>
+								<reportElement uuid="47c6e39b-ad78-410e-b8c9-7c28d847ac68" x="0" y="0" width="69" height="40"/>
+								<textElement textAlignment="Center">
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Turno]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="f9f61003-b66e-4664-a72c-9746725fde31" x="0" y="0" width="69" height="20"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[(($F{Turno}.equalsIgnoreCase("M"))?"Mañana":
+($F{Turno}.equalsIgnoreCase("T")?"Tarde":""))]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<elementGroup/>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="28" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="76a2ccda-f36a-46b2-b496-9faf5dd2a5b6" x="345" y="8" width="198" height="46"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion: Martin Fierro 599 Telefono: (0237) 466-7020]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -11,6 +11,7 @@
 <script type="text/javascript" src="static/js/sim/sprintf.js"></script>
 <script type="text/javascript" src="static/js/sim/jquery.alerts.js"></script>
 <script type="text/javascript" src="static/js/sim/modals.js"></script>
+<script type="text/javascript" src="static/js/sim/abmSim.js"></script>
 
 <!-- Archivos CSS -->
 <link href="static/css/sim/jquery.alerts.css" rel="stylesheet" type="text/css">
@@ -21,6 +22,11 @@
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="org.isft.domain.helper.FechaHora"%>
+<%@page import="org.isft.domain.Alumnos"%>
+<%@page import="org.isft.domain.Carrera"%>
 
 <!-- Archivos JSP -->
-<%@include file="../display/divsMaster.jsp" %>
+<%@include file="../display/modalWindows.jsp" %>
+
+<!-- Libreria TLD -->
+<%@ taglib uri="/WEB-INF/tld/taglib.tld" prefix="tag" %>
