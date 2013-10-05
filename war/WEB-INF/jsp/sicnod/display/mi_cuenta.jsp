@@ -84,25 +84,25 @@
 						<div class="control-group ">
 							<label class="control-label" for="inputWarning">Nombre</label>
 							<div class="controls">
-								<input type="Nombre" name="Nombre" id="pass_2_fp" value="<%= alumno.getNombre()%>" />
+								<input type="Nombre" name="Nombre" id="Nombre" value="<%= alumno.getNombre()%>" />
 							</div>
 						</div>       
 						<div class="control-group ">
 							<label class="control-label" for="inputWarning">Apellido</label>
 							<div class="controls">
-								<input type="Apellido" name="Apellido" id="pass_2_fp" value="<%= alumno.getApellido()%>" />
+								<input type="Apellido" name="Apellido" id="Apellido" value="<%= alumno.getApellido()%>" />
 							</div>
 						</div>       
 						<div class="control-group ">
 							<label class="control-label" for="inputWarning">Direccion</label>
 							<div class="controls">
-								<input type="Direccion" name="Direccion" id="pass_2_fp" value="<%= alumno.getDireccion()%>" />
+								<input type="Direccion" name="Direccion" id="Direccion" value="<%= alumno.getDireccion()%>" />
 							</div>
 						</div>       
 						<div class="control-group ">
 							<label class="control-label" for="inputWarning">Localidad</label>
 							<div class="controls">
-								<input type="Localidad" name="Localidad" id="pass_2_fp" value="<%= alumno.getLocalidad()%>" />
+								<input type="Localidad" name="Localidad" id="Localidad" value="<%= alumno.getLocalidad()%>" />
 							</div>
 						</div>       
 						<div class="control-group ">
@@ -138,7 +138,5 @@ function sendForm() {
 	console.log(queryString);
 	goPageNoLogin("3010&"+queryString);
 	return false;
-	document.getElementById("FormAlumno").submit();
-	return true;
 }
 </script>
