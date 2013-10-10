@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Vector;
 import org.isft.logic.AccessManager;
-import org.isft.domain.Materia;
+import org.isft.domain.Mensaje;
 
 /**
  *
@@ -18,12 +18,6 @@ public class CollectionMensajes implements org.isft.logic.AccessInterface{
 
     public Vector select(HashMap parameters) throws Exception {
         
-       String campos = (String)parameters.get("campos");
-              
-       String carrera=(String)parameters.get("carrera"); 
-       //System.out.println("curso"+curso);
-        
-      //System.out.println("campos"+campos);
       ResultSet rs =null;
       AccessManager am = new AccessManager();
           //System.out.println("curso"+curso+curso.charAt(0));
@@ -32,7 +26,7 @@ public class CollectionMensajes implements org.isft.logic.AccessInterface{
             String query = "Select m.titulo, m.mensaje, m.respondido, a.nombre, a.apellido, c.nombre from mensaje m, alumnos a, carrera c where a.legajo = m.legajo and c.cod_carrera = 1";
             System.out.println(query);
             rs = am.execute(query);
-            System.out.println("terminado carga de mensajes");
+            System.out.println("terminado carga de mensajes");  
         }catch (Exception e){
             System.out.println("error: "+e.getMessage());
         }
@@ -40,10 +34,10 @@ public class CollectionMensajes implements org.isft.logic.AccessInterface{
      
        Vector vec = new Vector();
        while (rs.next()){
-        Mensaje m = new Materia();
-        m.setNombre(rs.getString("nombre"));
+        Mensaje m = new Mensaje();
+        m.setTitulo(rs.getString("titulo"));
         int cod = (int)rs.getInt(1);
-        m.setCod_materia(cod);
+        m.setId_mensaje(cod);
         vec.add(m);
        }
        return vec;

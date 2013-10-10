@@ -61,5 +61,6 @@
                 </tr>
             </tbody>
         </table>
+        <tag:GrillaMensaje/>
     </div>
 </div>

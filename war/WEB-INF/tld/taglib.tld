@@ -108,6 +108,15 @@
   </tag>
   <!-- FIN GRILLA DE MATERIAS -->
   
+    <!-- TAG GRILLA DE MENSAJES -->
+  <tag>
+    <name>GrillaMensaje</name>
+    <tag-class>org.isft.web.tags.TagGrillaMensajes</tag-class>
+  </tag>
+    
+   <!-- TAG GRILLA DE MENSAJES -->
+
+  
 /* TAGS MODULO SIM */
 /*TagGrillaInscripcionMaterias*/
 <tag>
