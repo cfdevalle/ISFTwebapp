@@ -1,4 +1,5 @@
 <script type="text/javascript" src="static/js/facebox.js"></script>
+<script type="text/javascript" src="static/js/sif/consultar_inscripcion.js"></script>
 <link type="text/css" rel="stylesheet" href="static/css/facebox.css"/>
 
 <style>
@@ -7,19 +8,20 @@
     }
 </style>
 
-        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div id="modalDesinscribir" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            
             <div class="modal-header">
-                <h3 id="myModalLabel">Envio de Email</h3>
+                <h3 id="myModalLabel">Materias a desinscribir</h3>
             </div>
-            <div class="modal-body">
-                Se a enviado un email a la dir a@a.com <br>
-            </div>
+            <div class="modal-body" id="mensaje_desinscribirse"></div>
+            <div class="modal-body" id="mensaje_desinscribirse2"></div>
             <div class="modal-footer">
-                <a role="button" class="btn">Modificar direccion de email</a>
                 <a class="btn" data-dismiss="modal" aria-hidden="true">cancelar</a>
-                <a href="javascript:goPage(2002)" class="btn btn-primary">aceptar</a>
+                <input type="button" onclick="realizar_desinscripcion()" data-dismiss="modal" class="btn btn-primary" value="Aceptar">    
             </div>
         </div>
+        
+        
             <div class="row-fluid">
             <div class="span12"> 
             	<ul class="nav nav-tabs">
@@ -31,20 +33,21 @@
             </div>
             </div>
             
-            <div class="span12">   
+            <div class="span12" id="pagina_consultar_inscripcion">   
                     <h1 align="center"><u>Materias Inscripto/a</u></h1>
                     <br>
                     <br>
                     <%@ taglib uri="/WEB-INF/tld/taglib.tld" prefix="tag" %>
+                    <div id="div_desinscripcion"></div>
                     <tag:FinalesInscriptos/>
                     <br>
                     <br>
                     <table align="center">
                         <tr>
-                            <td width="200"><a class="btn">Desinscribirse</a></td>
-                            <td width="200"><a class="btn">Descargar</a></td>
-                            <td width="200"><a href="#myModal" role="button" class="btn" data-toggle="modal">Enviar email</a></td>
+                            <td width="200"><input type="button" onclick="desinscribir()" class="btn btn-default" value="Desinscribirse"></td>
+                            <td width="200"><a class="btn btn-default" href="generar.rpt?cod=2000&param=p_cod_carrera=1@p_legajo=6030&file=ReporteFinalesInscriptos">Descargar</a>
                         </tr>
-                    </table> 
+                    </table>
                     <br>
             </div>
+   
