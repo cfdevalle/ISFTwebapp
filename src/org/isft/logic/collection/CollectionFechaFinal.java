@@ -28,7 +28,7 @@ public class CollectionFechaFinal extends AccessManager implements AccessInterfa
             String sql="select exa.Fecha1,exa.Fecha2,exa.Turno,exa.Cod_Materia,exa.Cod_Carrera,mat.Nombre\n" +
                         "from examenes exa, materia mat, carrera ca\n" +
                         "where exa.Cod_materia=mat.Cod_materia\n" +
-                        "and ca.Cod_Carrera="+carreras.elementAt(0).getCod_carrera()+
+                        "and ca.Cod_Carrera="+carreras.elementAt(0).getCod_carrera()+"\n"+
                         "order by Cod_Materia";
             System.out.println("CONSULTA A EJECUTAR: " + sql);
             ResultSet rst = execute(sql);   
@@ -36,12 +36,8 @@ public class CollectionFechaFinal extends AccessManager implements AccessInterfa
             while(rst.next()){
                 System.out.println("EN EL WHILE");
                 Examenes exa=new Examenes();
-				/*
-				 * Comentado por que getDate espera un date y Fecha1 es Long
-				 * no se puede compilar
-				 */
-//                exa.setFecha1(rst.getDate("Fecha1"));
-//                exa.setFecha2(rst.getDate("Fecha2"));
+                exa.setFecha1(rst.getDate("Fecha1"));     
+                exa.setFecha2(rst.getDate("Fecha2"));
                 String turno="";
                 if(rst.getString("Turno").equals("TM")){
                     turno="Turno Ma&ntildeana";
@@ -51,11 +47,7 @@ public class CollectionFechaFinal extends AccessManager implements AccessInterfa
                 exa.setTurno(turno);
                 exa.getMateria().setCod_materia(Integer.parseInt(rst.getString("Cod_Materia")));
                 exa.getMateria().setNombre(rst.getString("nombre"));
-				/*
-				 * Comentado por que getCarrera() no se encuentra en la Clases Examenes
-				 * no se puede compilar
-				 */
-                //exa.getCarrera().setCod_carrera(Integer.parseInt(rst.getString("Cod_Carrera")));
+                exa.getCarrera().setCod_carrera(Integer.parseInt(rst.getString("Cod_Carrera")));
                 vec_examenes.add(exa);
             }
             System.out.println("alumno carrera: "+ alu.getCarrera().getCod_carrera());
