@@ -37,6 +37,31 @@
 					Alumnos fullUsuario = validarUsuario.getFullUsuario(alumnoSession);
 					
 					
+					
+					String cod_carrera=request.getParameter("cbo_carrera");
+					if(cod_carrera==null || cod_carrera.equals("") ){
+						/*
+						 * mantengo la carrera actual de session
+						 */
+						Carrera carrera = (Carrera) alumnoSession.getCarrera();
+						fullUsuario.setCarrera(carrera);
+					} else{ 
+						/*
+						 * se cambia la carrera que selecciono el usuario en su cuenta
+						 */
+						if(fullUsuario.getCarreras().size() > 0){
+							int cod=(Integer.parseInt(cod_carrera));
+							for (int i = 0; i < fullUsuario.getCarreras().size(); i++) {
+								Carrera carrera = (Carrera) fullUsuario.getCarreras().get(i);
+								if(carrera.getCod_carrera() == cod){
+									fullUsuario.setCarrera(carrera);
+									break;
+								}
+							}
+						}
+						
+					}
+					
 					request.getSession(false).setAttribute("alumno", fullUsuario);
 					txt_mensaje = "ok";
 				} else {

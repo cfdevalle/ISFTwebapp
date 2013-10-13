@@ -67,18 +67,39 @@
 								<strong><%= alumno.getLegajo()%></strong>
 							</div>
 						</div>       
+						
 						<div class="control-group ">
-							<label class="control-label" for="inputWarning">Carrera</label>
+							<label class="control-label" for="inputWarning">Mi carrera actual</label>
 							<div class="controls">
-								<%
-								if(alumno.getCarreras().size() > 0){
-								for (int i = 0; i < alumno.getCarreras().size(); i++) {
-									Carrera carrera = (Carrera) alumno.getCarreras().get(i);%> 
-									<strong><%=carrera.getCod_carrera()%></strong> - 
-									<strong><%=carrera.getNombre()%></strong>
-								<% }}else{ %> 
+								<% if(alumno.getCarrera().getCod_carrera() > 0){ %>
+									<strong>(<%= alumno.getCarrera().getCod_carrera()%>) - <%= alumno.getCarrera().getNombre()%></strong>
+								<% }else{ %>
+									<strong>No tiene carrera actual asignada. <br />Seleccione una carrera de la lista:</strong>
+								<% } %>
+							</div>
+						</div>       
+
+						<div class="control-group ">
+							<label class="control-label" for="inputWarning">Mis Carrera</label>
+							<div class="controls">
+								<% if(alumno.getCarreras().size() > 0){ %>
+									<SELECT  NAME="cbo_carrera"> 
+										<%
+										String selected = "";
+										for (int i = 0; i < alumno.getCarreras().size(); i++) {
+											Carrera carrera = (Carrera) alumno.getCarreras().get(i);
+											if(alumno.getCarrera().getCod_carrera() == carrera.getCod_carrera()) 
+												selected = "selected='selected'";
+											else
+												selected = "";
+											%> 
+											<OPTION <%= selected %> value="<%=carrera.getCod_carrera()%>"><%=carrera.getNombre()%></OPTION>  
+										<% } %> 
+									</SELECT> 
+								<% }else{ %> 
 									<strong>No tiene ninguna carrega asignada.</strong>
 								<% } %> 
+								
 							</div>
 						</div>       
 						<div class="control-group ">

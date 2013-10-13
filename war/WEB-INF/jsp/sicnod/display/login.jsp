@@ -12,29 +12,9 @@ position: relative;
 <div class="row-fluid">
 	<div class="box span12">
 		<div class="box-content">
-
             <% 
-                              
 			if(request.getSession(false).getAttribute("alumno")!=null){ 
-			Alumnos alumno = (Alumnos)request.getSession(false).getAttribute("alumno");    
-			try{   
-				String cod_carrera=request.getParameter("cbo_carrera");
-				if(cod_carrera==null || cod_carrera.equals("") ){
-					cod_carrera = "";
-				} else{ 
-					
-					int cod=(Integer.parseInt(cod_carrera));
-					System.out.println("cod carrerra"+cod);
-					Carrera cadAux=new Carrera();
-					cadAux.setCod_carrera(cod);
-					alumno.setCarrera(cadAux);
-					request.getSession(false).setAttribute("alumno", alumno);
-					System.out.println("objeto alumno esta es la carrera"+alumno.getCarrera().getCod_carrera());  
-					
-				}
-			} catch(Exception exc){
-				exc.printStackTrace();
-			}
+				Alumnos alumno = (Alumnos)request.getSession(false).getAttribute("alumno");    
 			%>
                 <ul class="nav pull-right">
                     <li class="dropdown">
