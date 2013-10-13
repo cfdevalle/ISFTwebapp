@@ -1,38 +1,6 @@
-<head><%@include file="../../includes/metas_inc.jsp" %></head>
-<%@page import="org.isft.domain.Carrera, org.isft.web.servlets.frontController"%>
+<%@page import="org.isft.domain.Carrera, org.isft.web.servlets.frontController, org.isft.logic.updater.AbmAlumno"%>
 <%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos, org.isft.domain.Carrera, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap, java.util.ResourceBundle"%>
 
-<style>
-	#f{
-		width: 630px;
-		margin: 0 auto;
-		float:none;
-
-	}
-	.body{
-		position:relative;
-		float: left;
-		width:630px;
-		position:relative;
-		margin-top:150px !important;
-	}
-	.table{
-		text-align:center;
-	}
-	fieldset {
-
-		position: relative;
-
-	}
-	.t_caption{
-
-		font-weight: bold;
-		float: left;
-		font-size: 25px;
-		margin-bottom: 15px;
-	}
-</style>
-<script src="static/js/sicnod/login.js" type="text/javascript"></script>
 <div class="row-fluid">
 	<div class="box span12">		
 		<div class="box-content">
@@ -60,8 +28,41 @@
 				ValidarUsuario validarUsuario = new ValidarUsuario();
 
 				if (validarUsuario.isUsuarioValidoByLegajo(alumno)) {
-					validarUsuario.updateUsuario(alumno);
-					request.getSession(false).setAttribute("alumno", alumno);
+					/*
+					 * Cuando actualizo los datos del alumno, tambien hay que actualizar los datos en session
+					 */
+					AbmAlumno abmAlumno = new AbmAlumno();
+					abmAlumno.updateAlumno(alumno);
+					
+					Alumnos fullUsuario = validarUsuario.getFullUsuario(alumnoSession);
+					
+					
+					
+					String cod_carrera=request.getParameter("cbo_carrera");
+					if(cod_carrera==null || cod_carrera.equals("") ){
+						/*
+						 * mantengo la carrera actual de session
+						 */
+						Carrera carrera = (Carrera) alumnoSession.getCarrera();
+						fullUsuario.setCarrera(carrera);
+					} else{ 
+						/*
+						 * se cambia la carrera que selecciono el usuario en su cuenta
+						 */
+						if(fullUsuario.getCarreras().size() > 0){
+							int cod=(Integer.parseInt(cod_carrera));
+							for (int i = 0; i < fullUsuario.getCarreras().size(); i++) {
+								Carrera carrera = (Carrera) fullUsuario.getCarreras().get(i);
+								if(carrera.getCod_carrera() == cod){
+									fullUsuario.setCarrera(carrera);
+									break;
+								}
+							}
+						}
+						
+					}
+					
+					request.getSession(false).setAttribute("alumno", fullUsuario);
 					txt_mensaje = "ok";
 				} else {
 					txt_mensaje = "legajo_invalido";
@@ -78,9 +79,3 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-function sendForm() {
-	document.getElementById("FormAlumno").submit();
-	return true;
-}
-</script>

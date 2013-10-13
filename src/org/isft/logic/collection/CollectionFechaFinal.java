@@ -36,8 +36,12 @@ public class CollectionFechaFinal extends AccessManager implements AccessInterfa
             while(rst.next()){
                 System.out.println("EN EL WHILE");
                 Examenes exa=new Examenes();
-                exa.setFecha1(rst.getDate("Fecha1"));
-                exa.setFecha2(rst.getDate("Fecha2"));
+				/*
+				 * Comentado por que getDate espera un date y Fecha1 es Long
+				 * no se puede compilar
+				 */
+//                exa.setFecha1(rst.getDate("Fecha1"));
+//                exa.setFecha2(rst.getDate("Fecha2"));
                 String turno="";
                 if(rst.getString("Turno").equals("TM")){
                     turno="Turno Ma&ntildeana";
@@ -47,7 +51,11 @@ public class CollectionFechaFinal extends AccessManager implements AccessInterfa
                 exa.setTurno(turno);
                 exa.getMateria().setCod_materia(Integer.parseInt(rst.getString("Cod_Materia")));
                 exa.getMateria().setNombre(rst.getString("nombre"));
-                exa.getCarrera().setCod_carrera(Integer.parseInt(rst.getString("Cod_Carrera")));
+				/*
+				 * Comentado por que getCarrera() no se encuentra en la Clases Examenes
+				 * no se puede compilar
+				 */
+                //exa.getCarrera().setCod_carrera(Integer.parseInt(rst.getString("Cod_Carrera")));
                 vec_examenes.add(exa);
             }
             System.out.println("alumno carrera: "+ alu.getCarrera().getCod_carrera());

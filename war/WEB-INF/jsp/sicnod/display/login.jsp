@@ -1,58 +1,20 @@
 <%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos,org.isft.domain.Carrera, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap"%>
 <style>
-#f{
-    width: 630px;
-    margin: 0 auto;
-    float:none;
-
-}
-.body{
-    position:relative;
-    float: left;
-    width:630px;
-    position:relative;
-    margin-top:150px !important;
-}
-
+/*
 fieldset {
 
 position: relative;
 
 }
-.t_caption{
-font-weight: bold;
-float: left;
-font-size: 25px;
-margin-bottom: 15px;
-}
+*/
 </style>
 <script src="static/js/sicnod/login.js" type="text/javascript"></script>
 <div class="row-fluid">
 	<div class="box span12">
 		<div class="box-content">
-
             <% 
-                              
 			if(request.getSession(false).getAttribute("alumno")!=null){ 
-			Alumnos alumno = (Alumnos)request.getSession(false).getAttribute("alumno");    
-			try{   
-				String cod_carrera=request.getParameter("cbo_carrera");
-				if(cod_carrera==null || cod_carrera.equals("") ){
-					cod_carrera = "";
-				} else{ 
-					
-					int cod=(Integer.parseInt(cod_carrera));
-					System.out.println("cod carrerra"+cod);
-					Carrera cadAux=new Carrera();
-					cadAux.setCod_carrera(cod);
-					alumno.setCarrera(cadAux);
-					request.getSession(false).setAttribute("alumno", alumno);
-					System.out.println("objeto alumno esta es la carrera"+alumno.getCarrera().getCod_carrera());  
-					
-				}
-			} catch(Exception exc){
-				exc.printStackTrace();
-			}
+				Alumnos alumno = (Alumnos)request.getSession(false).getAttribute("alumno");    
 			%>
                 <ul class="nav pull-right">
                     <li class="dropdown">

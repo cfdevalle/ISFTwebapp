@@ -1,105 +1,115 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
  *
  * @author SEBASTIAN
  */
 package org.isft.logic.validator;
-//import org.isft.domain.Usuario;
-import org.isft.domain.Alumnos;
-import org.isft.logic.collection.EjemploConexion;
-import java.util.Vector;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Collection;
 import java.util.HashMap;
-//import org.isft.domain.Rol;
-public class ValidarUsuario {
+import java.util.Vector;
+import org.isft.jdbc.DataBase;
+import org.isft.logic.AccessManager;
+import org.isft.logic.AccessInterface;
+import org.isft.domain.Alumnos;
+import org.isft.domain.Carrera;
+//import org.isft.domain.Materia;
+
+
+public class ValidarUsuario extends AccessManager implements AccessInterface {
     public ValidarUsuario(){};
-    /**
-     * validacion simple
-    
-    public boolean isUsuarioValido(Alumnos alumno){
-        boolean returnValue = false;
-        try{
-            int txt_usuario = alumno.getLegajo();
-            String txt_password = alumno.getPwd();
-            boolean user = false;
-            boolean pass = false;
+	 public Vector select (HashMap param) throws Exception {
+        Vector vec_alumno = new Vector();
+
+		return vec_alumno;
+	 }
+    public boolean isUsuarioValido(Alumnos alumno) throws Exception {
+		boolean result = false;
+        try {
+            String sql = "";
             
-            if(txt_usuario.equals("jlopez"))
-                user = true;
+            sql += "SELECT * FROM alumnos WHERE legajo='"+alumno.getLegajo()+"' AND pwd='"+alumno.getPwd()+"'";
+            ResultSet rst = execute(sql);
             
-            if(txt_password.equals("lopezj"))
-                pass = true;
-            if(user && pass)
-                returnValue=true;
-
-
-            System.out.println("RESULTADO: "+returnValue);
-        } catch(Exception exc){
-            System.out.println(exc.getMessage());
+            while(rst.next()){
+                result = true;
+            }
+		} catch (Exception exc) {
+            throw new Exception(exc);
+        } finally {
+            try {
+                close_connection();
+            } catch (Exception exc) {
+                throw new Exception(exc.getMessage());
+            }
         }
-        return returnValue;
-    }*/
-
-    public boolean isUsuarioValidoBySql(Alumnos alumno){
-        boolean returnValue = false;
-        try{
-            EjemploConexion ejemplo=new EjemploConexion();
-
-            returnValue=ejemplo.usuarioValido(alumno);
-            System.out.println("USUARIO VALIDO: "+returnValue);
-        } catch(Exception exc) {
-            System.out.println(exc.getMessage());
-        }
-        return returnValue;
+		return result;
     }
-    public boolean updatePasswordUsuario(Alumnos alumno){
-        boolean returnValue = false;
-        try{
-            EjemploConexion ejemplo=new EjemploConexion();
-
-            returnValue=ejemplo.updatePasswordUsuario(alumno);
-        } catch(Exception exc) {
-            System.out.println(exc.getMessage());
+  
+    public boolean isUsuarioValidoByLegajo(Alumnos alumno) throws Exception {
+		boolean result = false;
+        try {
+            String sql = "";
+            
+            sql += "SELECT * FROM alumnos WHERE legajo = '"+alumno.getLegajo()+"' ";
+            ResultSet rst = execute(sql);
+            
+            while(rst.next()){
+                result = true;
+            }
+		} catch (Exception exc) {
+            throw new Exception(exc);
+        } finally {
+            try {
+                close_connection();
+            } catch (Exception exc) {
+                throw new Exception(exc.getMessage());
+            }
         }
-        return returnValue;
+		return result;
     }
-    public boolean updateUsuario(Alumnos alumno){
-        boolean returnValue = false;
-        try{
-            EjemploConexion ejemplo=new EjemploConexion();
+    public Alumnos getFullUsuario(Alumnos alumno) throws Exception {
+		Alumnos alumnoResult=new Alumnos();
+		Vector carreras= new Vector();
+        try {
+            String sql="  SELECT Apellido, Legajo, pwd, c.Nombre AS NombreCarrera, a.Nombre as NombreAlumno, c.Cod_carrera as cc, Sexo, Localidad, Direccion, Lectivo, CP " +
+							"FROM alumnos a " +
+							"LEFT JOIN carrera c ON ( a.Cod_Carrera = c.Cod_Carrera ) " +
+							"AND Legajo =  "+alumno.getLegajo()+" " +
+							"AND pwd    =  '"+alumno.getPwd()+"' ";
+            ResultSet rst = execute(sql);
+            
+            while(rst.next()){
+				alumnoResult.setLegajo(rst.getInt("Legajo"));
+				alumnoResult.setNombre(rst.getString("NombreAlumno"));
+				alumnoResult.setApellido(rst.getString("Apellido"));
+				alumnoResult.setPwd(rst.getString("pwd"));
+				alumnoResult.setSexo(rst.getString("Sexo"));
+				alumnoResult.setDireccion(rst.getString("Direccion"));
+				alumnoResult.setLocalidad(rst.getString("Localidad"));
+				alumnoResult.setCp(rst.getString("CP"));
+				alumnoResult.setLectivo(rst.getString("Lectivo"));
 
-            returnValue=ejemplo.updateAlumno(alumno);
-        } catch(Exception exc) {
-            System.out.println(exc.getMessage());
+				Carrera carrera=new Carrera();
+				carrera.setCod_carrera(rst.getInt("cc"));
+				carrera.setNombre(rst.getString("NombreCarrera"));
+
+				carreras.add(carrera);
+
+				alumnoResult.setCarreras(carreras);
+            }
+		} catch (Exception exc) {
+            throw new Exception(exc);
+        } finally {
+            try {
+                close_connection();
+            } catch (Exception exc) {
+                throw new Exception(exc.getMessage());
+            }
         }
-        return returnValue;
+		return alumnoResult;
     }
-    public boolean isUsuarioValidoByLegajo(Alumnos alumno){
-        boolean returnValue = false;
-        try{
-            EjemploConexion ejemplo=new EjemploConexion();
-
-            returnValue=ejemplo.usuarioValidoByLegajo(alumno);
-            System.out.println("USUARIO VALIDO: "+returnValue);
-        } catch(Exception exc) {
-            System.out.println(exc.getMessage());
-        }
-        return returnValue;
-    }
-    public Alumnos getFullUsuario(Alumnos alumno){
-        Alumnos returnValue=new Alumnos();
-        try{
-            EjemploConexion ejemplo=new EjemploConexion();
-
-            returnValue=ejemplo.getFullUsuario(alumno);
-           //System.out.println("USUARIO VALIDO: "+returnValue);
-        } catch(Exception exc) {
-            System.out.println(exc.getMessage());
-        }
-
-        return returnValue;
-    }
+   
 }
