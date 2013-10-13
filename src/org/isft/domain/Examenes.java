@@ -32,6 +32,7 @@ public class Examenes {
         this.modalidadInscripcion = modalidadInscripcion;
     }
 
+    
     /**
      * @return the fecha1
      */
