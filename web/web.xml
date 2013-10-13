@@ -46,9 +46,7 @@
 		<servlet-name>ControladorReporte</servlet-name>
 		<url-pattern>*.rpt</url-pattern>
 </servlet-mapping>
-
 <!-- FIN SERVLET REPORTES -->
-
 <!-- SERVLET MODULO SIM -->
 <servlet>
 	  <servlet-name>ControladorModuloSim</servlet-name>
@@ -59,5 +57,15 @@
 		<url-pattern>*.sim</url-pattern>
 </servlet-mapping>
 <!-- END SERVLET MODULO SIM -->
+<!-- SERVLET SIF -->
+<servlet>
+	<servlet-name>ControladorInscripcionFinales</servlet-name>
+	<servlet-class>org.isft.web.servlets.ControladorInscripcionFinales</servlet-class>
+</servlet>
 	
+<servlet-mapping>
+	<servlet-name>ControladorInscripcionFinales</servlet-name>
+	<url-pattern>*.sif</url-pattern>
+</servlet-mapping>
+<!-- FIN SERVLET SIF -->	
 </web-app>

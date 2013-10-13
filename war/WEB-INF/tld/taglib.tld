@@ -71,10 +71,6 @@
       <type>String</type>
     </attribute>
   </tag>
-  <tag>
-    <name>FinalesInscriptos</name>
-    <tag-class>org.isft.web.tags.TagFinalesInscriptos</tag-class>
-  </tag>
 
   <tag>
     <name>ComboAlumnos</name>
@@ -175,5 +171,20 @@
 </tag>
 /* END TAGS MODULO SIM */
   
+/* SIF */
+  <tag>
+    <name>FinalesInscriptos</name>
+    <tag-class>org.isft.web.tags.sif.TagFinalesInscriptos</tag-class>
+  </tag>
+  <tag>
+    <name>FechaFinales</name>
+    <tag-class>org.isft.web.tags.sif.TagFechaFinal</tag-class>
+  </tag>
+  <tag>
+    <name>FinalesInscribibles</name>
+    <tag-class>org.isft.web.tags.sif.TagFinalesInscribibles</tag-class>
+  </tag>
+
+/* END SIF */
 
 </taglib>
