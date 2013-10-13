@@ -1,33 +1,4 @@
-
-        <style>
-#f{
-    width: 630px;
-    margin: 0 auto;
-    float:none;
-
-}
-.body{
-    position:relative;
-    float: left;
-    width:630px;
-    position:relative;
-    margin-top:150px !important;
-}
-.table{
- text-align:center;
-}
-fieldset {
-
-position: relative;
-
-}
-.t_caption{
-
-font-weight: bold;
-float: left;
-font-size: 25px;
-margin-bottom: 15px;
-}
+<style>
 .error{
 	color:red;font-weight: bold;border-radius: 5px solid red;padding: 5px;
 }
@@ -59,30 +30,20 @@ margin-bottom: 15px;
 			<%
 			}
 			String legajo = request.getParameter("legajo");
+			%>				
+			<form class="form-horizontal" action="" method="post" name="FormForgot" id="FormForgot" >
+				<fieldset>
+					<legend>Olvidaste tu contraseña?</legend>
 
-			boolean form = true;
-          
-            if(form){ 
-			/*
-			 * FIXME: hacer una funcion JS que tome todos los input del form y enviarlo como parametro al 
-			 * metodo goPage(param)
-			 */
-			%>
-				
-                <form class="form-horizontal" action="" method="post" name="FormForgot" id="FormForgot" >
-                    <fieldset>
-                        <legend>Olvidaste tu contraseña?</legend>
-                         
-                        <div class="control-group ">
-                            <label class="control-label" for="inputWarning">Ingrese su Legajo:&nbsp;</label>
-                            <div class="controls">
-                                <input type="text" name="legajo" id="legajo" value="" style="border:1px solid gray" />
-                                <button type="button" name="recovery" class="btn btn-primary"  onclick="sendFormForgot();">Enviar</button>
-                            </div>
-                        </div>                      
-                    </fieldset>
-                </form>
-            <% } %> 
+					<div class="control-group ">
+						<label class="control-label" for="inputWarning">Ingrese su Legajo:&nbsp;</label>
+						<div class="controls">
+							<input type="text" name="legajo" id="legajo" value="" style="border:1px solid gray" />
+							<button type="button" name="recovery" class="btn btn-primary"  onclick="sendFormForgot();">Enviar</button>
+						</div>
+					</div>                      
+				</fieldset>
+			</form>
         </div>
     </div>
 </div>
@@ -96,6 +57,5 @@ function sendFormForgot(){
     }
 	goPageNoLogin("3004&legajo="+legajo);
 	return false;
-    //document.getElementById("FormForgot").submit();
 }
 </script>

@@ -13,6 +13,8 @@
                             <li class="divider-vertical"></li>
                             <li><a href="javascript:goPage(4001)">Situacion Academica y consultas </a></li>
                             <li class="divider-vertical"></li>
+                            <li><a href="javascript:goPage(3005)">Carga de Notas</a></li>
+                            <li class="divider-vertical"></li>
                             <ul class="nav pull-right">
                                 <li class="dropdown">
                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrativo<b class="caret"></b></a>

@@ -1,4 +1,3 @@
-<head><%@include file="../../includes/metas_inc.jsp" %></head>
 <%@page import="org.isft.domain.Carrera, org.isft.web.servlets.frontController"%>
 <%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos, org.isft.domain.Carrera, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap, java.util.ResourceBundle"%>
 
@@ -62,8 +61,6 @@
 		<script>
 			console.log("me voy a la 3003");
 			goPageNoLogin("3003&result_forgot=<%= txt_mensaje%>");
-			//var url = "index.jsp?result_login=<%= txt_mensaje%>";
-			//window.location.href = url;
 		</script>
 	<% }%>
 <div class="row-fluid">
