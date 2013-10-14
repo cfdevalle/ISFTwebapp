@@ -39,7 +39,7 @@ public class ComboCarrera extends TagCombo{
         }
         
         mensaje="<SELECT NAME=\"carrera\" id=\"carrera\" SIZE=1 onchange=\" carga();\">";
-        mensaje=mensaje+"<option value='0'>Seleccionar<option>" ;           
+        mensaje=mensaje+"<option value='0'>Seleccionar</option>" ;           
         for (int i = 0;i<car.size();i++){
                          Carrera carrera=(Carrera)car.get(i);
                          

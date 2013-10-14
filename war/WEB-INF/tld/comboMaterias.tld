@@ -33,4 +33,37 @@
      <bodycontent>empty</bodycontent>
      <info>combo de las Materias segun la carrera y el curso</info>
    </tag>
+	/* For SICNOD */
+	<tag>
+		<name>ComboMaterias</name>
+		<tag-class>org.isft.web.tags.ComboMateriasSicnod</tag-class>
+		<attribute>
+			<name>carrera</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>int</type>
+		</attribute>
+		<attribute>
+			<name>curso</name>
+			<type>String</type>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>   
+	</tag>
+	<tag>
+		<name>ComboTurno</name>
+		<tag-class>org.isft.web.tags.ComboMateriasSicnod</tag-class>
+		<attribute>
+			<name>carrera</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>int</type>
+		</attribute>
+		<attribute>
+			<name>curso</name>
+			<type>String</type>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>   
+	</tag>
 </taglib>
