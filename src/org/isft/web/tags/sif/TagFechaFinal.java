@@ -68,10 +68,6 @@ public class TagFechaFinal extends TagGrilla{
         return turno;
     }
     private String generarFecha(Examenes exa){
-		/*
-		 * Comenté esto por que tiene error de compatibilidad de variables y no se puede compilar
-		 */
-		/*
         Date dff1 = exa.getFecha1();
         DateFormat ff1 = DateFormat.getDateInstance(DateFormat.FULL);
         String fecha1 = ff1.format(dff1);
@@ -80,8 +76,6 @@ public class TagFechaFinal extends TagGrilla{
         String fecha2 = ff2.format(dff2);
         String fecha="</td><td><h6>"+fecha1+"</h5></td></tr>"+
                      "<tr><td><h6>"+fecha2+"</h5></td></tr>";
-					 */
-		String fecha="";
         return fecha;   
     }
     

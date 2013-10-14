@@ -4,16 +4,19 @@
  */
 package org.isft.domain;
 
+import java.sql.Date;
+
 /**
  *
  * @author st
  */
 public class Examenes {
     private String modalidadInscripcion;
-    private Long fecha1;
-    private Long fecha2;
+    private Date fecha1;
+    private Date fecha2;
     private String turno;
-    private Materia materia;
+    private Materia materia=new Materia();
+    private Carrera carrera=new Carrera();
 
     /**
      * @return the modalidadInscripcion
@@ -29,31 +32,32 @@ public class Examenes {
         this.modalidadInscripcion = modalidadInscripcion;
     }
 
+    
     /**
      * @return the fecha1
      */
-    public Long getFecha1() {
+    public Date getFecha1() {
         return fecha1;
     }
 
     /**
      * @param fecha1 the fecha1 to set
      */
-    public void setFecha1(Long fecha1) {
+    public void setFecha1(Date fecha1) {
         this.fecha1 = fecha1;
     }
 
     /**
      * @return the fecha2
      */
-    public Long getFecha2() {
+    public Date getFecha2() {
         return fecha2;
     }
 
     /**
      * @param fecha2 the fecha2 to set
      */
-    public void setFecha2(Long fecha2) {
+    public void setFecha2(Date fecha2) {
         this.fecha2 = fecha2;
     }
 
@@ -83,5 +87,19 @@ public class Examenes {
      */
     public void setMateria(Materia materia) {
         this.materia = materia;
+    }
+
+    /**
+     * @return the carrera
+     */
+    public Carrera getCarrera() {
+        return carrera;
+    }
+
+    /**
+     * @param carrera the carrera to set
+     */
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
     }
 }
