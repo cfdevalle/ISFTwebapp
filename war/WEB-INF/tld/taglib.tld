@@ -108,6 +108,18 @@
   <tag>
     <name>GrillaMensaje</name>
     <tag-class>org.isft.web.tags.TagGrillaMensajes</tag-class>
+    <attribute>
+      <name>mensaje</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>String</type>
+    </attribute>
+    <attribute>
+      <name>alumno</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>String</type>
+    </attribute>
   </tag>
     
    <!-- TAG GRILLA DE MENSAJES -->

@@ -23,7 +23,7 @@ public class CollectionMensajes implements org.isft.logic.AccessInterface{
           //System.out.println("curso"+curso+curso.charAt(0));
         try{
             System.out.println("anio:1ro");
-            String query = "Select m.titulo, m.mensaje, m.respondido, a.nombre, a.apellido, c.nombre from mensaje m, alumnos a, carrera c where a.legajo = m.legajo and c.cod_carrera = 1";
+            String query = "Select m.titulo, m.mensaje, m.respondido, m.id_mensaje, a.nombre, a.apellido, c.nombre from mensaje m, alumnos a, carrera c where a.legajo = m.legajo and c.cod_carrera = 1";
             System.out.println(query);
             rs = am.execute(query);
             System.out.println("terminado carga de mensajes");  
@@ -36,7 +36,7 @@ public class CollectionMensajes implements org.isft.logic.AccessInterface{
        while (rs.next()){
         Mensaje m = new Mensaje();
         m.setTitulo(rs.getString("titulo"));
-        int cod = (int)rs.getInt(1);
+        int cod = (int)rs.getInt("id_mensaje");
         m.setId_mensaje(cod);
         vec.add(m);
        }

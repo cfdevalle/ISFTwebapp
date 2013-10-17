@@ -100,4 +100,13 @@ public class Mensaje {
     public void setAlumnos(Alumnos alumnos) {
         this.alumnos = alumnos;
     }
+    /*
+    public void mandarMensaje(){
+         String query = "INSERT INTO m.titulo, m.mensaje, m.respondido, m.Cod_Carrera m.legajo from mensaje m, alumnos a, carrera c where a.legajo = m.legajo and c.cod_carrera = 1";
+         System.out.println(query);
+         rs = am.execute(query);
+         System.out.println("terminado carga de mensajes");  
+    }
+    */
+    
 }

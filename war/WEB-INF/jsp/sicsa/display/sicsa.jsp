@@ -1,4 +1,4 @@
-
+<%@ taglib uri="/WEB-INF/tld/taglib.tld" prefix="tag" %>
 <div class="row-fluid">
     <div class="span12"> 
     	<ul class="nav nav-tabs">
