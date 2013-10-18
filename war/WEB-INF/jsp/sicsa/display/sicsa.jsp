@@ -1,3 +1,15 @@
+<%@page import="org.isft.web.servlets.frontController" %>
+<%@page import="org.isft.logic.AccessManager, org.isft.logic.collection.CollectionNotaFinales, java.util.Vector,java.util.HashMap"%>
+
+<%
+    HashMap params = new HashMap();
+    params.put("legajo", 123);
+    CollectionNotasFinales nf = new CollectionNotasFinales();
+    Vector notas = nf.select(params);
+    System.out.println(notas);
+
+%>
+
 <%@ taglib uri="/WEB-INF/tld/taglib.tld" prefix="tag" %>
 <div class="row-fluid">
     <div class="span12"> 
