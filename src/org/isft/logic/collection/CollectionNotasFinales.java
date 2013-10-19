@@ -9,37 +9,41 @@ import java.util.HashMap;
 import java.util.Vector;
 import org.isft.logic.AccessManager;
 import org.isft.domain.Nota_examen;
+import org.isft.logic.AccessInterface;
 
 /**
  *
  * @author Fabian
  */
-public class CollectionNotasFinales implements org.isft.logic.AccessInterface {
+public class CollectionNotasFinales extends AccessManager implements AccessInterface {
 
     public Vector select(HashMap parameters) throws Exception {
-        int legajo = (Integer)parameters.get("legajo");
-        int cod_carrera = (Integer)parameters.get("cod_carrera");
-        
-        ResultSet rs = null;
-        AccessManager am = new AccessManager();
+        int legajo, cod_carrera;
+        if(parameters!=null && !parameters.isEmpty()){
+            if(parameters.get("legajo")!=null){
+                legajo=(Integer)parameters.get("legajo");
+            }
+            if(parameters.get("cod_carrera")!=null){
+                cod_carrera =(Integer)parameters.get("cod_carrera");
+            }
+        }
+        System.out.println("ANTS DEL QUERY");
+        Vector vec = new Vector();
         try{
             String query = "SELECT n.*, m.nombre FROM nota_examen n, materia m where m.Cod_Materia = n.Cod_Materia";
-            rs = am.execute(query);
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-        
-        Vector vec = new Vector();
+            ResultSet rs = execute(query);
+        System.out.println("AVERGAS");
         while(rs.next()){
             Nota_examen ex = new Nota_examen();
             ex.setNota_final(rs.getInt("Nota_final"));
             vec.add(ex);
         }
-        System.out.println(vec);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
         return vec;
         
-        
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
