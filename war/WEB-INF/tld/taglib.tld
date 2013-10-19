@@ -104,6 +104,19 @@
   </tag>
   <!-- FIN GRILLA DE MATERIAS -->
   
+  <!-- TAG GRILLA SITUACION ACADEMICA -->
+  <tag>
+    <name>GrillaConsultaAcademica</name>
+    <tag-class>org.isft.web.tags.TagGrillaConsultaAcademica</tag-class>
+    <attribute>
+      <name>legajo</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>int</type>
+    </attribute>
+  </tag>
+  <!-- FIN GRILLA SITUACION ACADEMICA -->
+  
     <!-- TAG GRILLA DE MENSAJES -->
   <tag>
     <name>GrillaMensaje</name>
