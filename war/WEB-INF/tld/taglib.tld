@@ -209,7 +209,42 @@
     <name>FinalesInscribibles</name>
     <tag-class>org.isft.web.tags.sif.TagFinalesInscribibles</tag-class>
   </tag>
-
+  /* ADD BY SICNOD */
+  <tag>
+	  <name>FinalesInscriptosFull</name>
+	  <tag-class>org.isft.web.tags.sif.TagFinalesInscriptosFull</tag-class>
+	  <attribute>
+			<name>carrera</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>int</type>
+		</attribute>
+		<attribute>
+			<name>materia</name>
+			<type>String</type>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>   
+		<attribute>
+			<name>turno</name>
+			<type>String</type>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>   
+		<attribute>
+			<name>lectivo</name>
+			<type>String</type>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>   
+		<attribute>
+			<name>fechaexamen</name>
+			<type>String</type>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>   
+  </tag>
+ 
 /* END SIF */
 
 </taglib>

@@ -17,6 +17,7 @@ public class FinalInscripto {
     private String profesor;
     private Carrera carrera=new Carrera();
     private Alumno alumno=new Alumno();
+    private Nota_examen notaexamen=new Nota_examen();
     
     /**
      * @return the turno
@@ -100,5 +101,21 @@ public class FinalInscripto {
      */
     public void setAlumno(Alumno alumno) {
         this.alumno = alumno;
+    }
+	/*
+	 * Add by Sicnod
+	 */
+    /**
+     * @return the Nota_examen
+     */
+    public Nota_examen getNotaexamen() {
+        return notaexamen;
+    }
+
+    /**
+     * @param Nota_examen the Nota_examen to set
+     */
+    public void setNotaexamen(Nota_examen notaexamen) {
+        this.notaexamen = notaexamen;
     }
 }

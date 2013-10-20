@@ -60,7 +60,7 @@ public class ComboFechaExamen extends TagSupport {
 			System.out.println(e.getMessage());
 		}
 		try {
-			pageContext.getOut().println("<SELECT NAME=\"lectivo\" id=\"lectivo\"  class=\"text\" style=\"width: auto\" onChange='return cargaGrillaAlumnos();'> ");
+			pageContext.getOut().println("<SELECT NAME=\"fecha_examen\" id=\"fecha_examen\"  class=\"text\" style=\"width: auto\" onChange='return cargaGrillaAlumnos();'> ");
 			pageContext.getOut().println("<option value='0'>Seleccionar</option>") ;
 		} catch (IOException ex) {
 			Logger.getLogger(ComboMaterias.class.getName()).log(Level.SEVERE, null, ex);

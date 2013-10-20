@@ -4,6 +4,8 @@
  */
 package org.isft.domain;
 
+import java.sql.Date;
+
 /**
  *
  * @author st
@@ -12,7 +14,7 @@ public class Nota_examen {
     private Long fecha_examen;
     private int nota_final;
     private boolean asistencia;
-    private long fecha_inscripcion;
+    private Date fecha_inscripcion;
     private int libroActExamen;
     private int FolioActExamen;
     private boolean semiPresencial;
@@ -67,14 +69,14 @@ public class Nota_examen {
     /**
      * @return the fecha_inscripcion
      */
-    public long getFecha_inscripcion() {
+    public Date getFecha_inscripcion() {
         return fecha_inscripcion;
     }
 
     /**
      * @param fecha_inscripcion the fecha_inscripcion to set
      */
-    public void setFecha_inscripcion(long fecha_inscripcion) {
+    public void setFecha_inscripcion(Date fecha_inscripcion) {
         this.fecha_inscripcion = fecha_inscripcion;
     }
 
