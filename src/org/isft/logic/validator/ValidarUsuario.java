@@ -74,11 +74,13 @@ public class ValidarUsuario extends AccessManager implements AccessInterface {
 		Alumnos alumnoResult=new Alumnos();
 		Vector carreras= new Vector();
         try {
-            String sql="  SELECT Apellido, Legajo, pwd, c.Nombre AS NombreCarrera, a.Nombre as NombreAlumno, c.Cod_carrera as cc, Sexo, Localidad, Direccion, Lectivo, CP " +
-							"FROM alumnos a " +
-							"LEFT JOIN carrera c ON ( a.Cod_Carrera = c.Cod_Carrera ) " +
-							"AND Legajo =  "+alumno.getLegajo()+" " +
-							"AND pwd    =  '"+alumno.getPwd()+"' ";
+            String sql= "SELECT Apellido, Legajo, pwd, c.Nombre AS NombreCarrera, a.Nombre AS NombreAlumno, c.Cod_carrera AS cc, Sexo, Localidad, Direccion, Lectivo, CP\n" +
+						"FROM alumnos a, carrera c\n" +
+						"WHERE a.Cod_Carrera = c.Cod_Carrera\n" +
+						"AND Legajo ="+alumno.getLegajo()+"\n" +
+						"AND pwd =  '"+alumno.getPwd()+"'";
+            
+			System.out.println("sql Login: "+sql);
             ResultSet rst = execute(sql);
             
             while(rst.next()){
@@ -97,7 +99,7 @@ public class ValidarUsuario extends AccessManager implements AccessInterface {
 				carrera.setNombre(rst.getString("NombreCarrera"));
 
 				carreras.add(carrera);
-
+				
 				alumnoResult.setCarreras(carreras);
             }
 		} catch (Exception exc) {

@@ -25,7 +25,12 @@
             Alumnos fullUsuario = validarUsuario.getFullUsuario(alumno);
             request.getSession(false).setAttribute("alumno", fullUsuario);
 
-			fullUsuario.setCarrera(new Carrera());
+			Vector<Carrera> carreras=new Vector();
+			carreras=fullUsuario.getCarreras();
+			//carreras.elementAt(0).getCod_carrera();
+			
+			fullUsuario.setCarrera(carreras.elementAt(0));
+			//fullUsuario.setCarrera(new Carrera());
 		    request.getSession(false).setAttribute("alumno", fullUsuario);
 			%> 
 			<script>window.location.href = 'modulo.go?codPage=6020';</script>
