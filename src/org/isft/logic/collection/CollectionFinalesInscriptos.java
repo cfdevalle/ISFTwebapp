@@ -37,7 +37,6 @@ public class CollectionFinalesInscriptos extends AccessManager implements Access
             ResultSet rst = execute(sql);   
             System.out.println("EJECUTO CONSULTA");
             while(rst.next()){
-                System.out.println("EN EL WHILE");
                 FinalInscripto fi=new FinalInscripto();
                 fi.getMateria().setNombre(rst.getString("nombre"));
                 fi.getMateria().setCod_materia(Integer.parseInt(rst.getString("Cod_Materia")));

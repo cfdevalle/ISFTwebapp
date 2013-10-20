@@ -1,11 +1,27 @@
-insert into carrera(Cod_Carrera,Nombre,Descripcion) values(1,'sistemas','Carrera para hacer sistemas informaticos');
-insert into carrera(Cod_Carrera,Nombre,Descripcion) values(2,'mantenimiento','Carrera para reperar pc');
-insert into alumnos (Legajo,Cod_Carrera,pwd) values(6030,1,6030);
-insert into alumnos (Legajo,Cod_Carrera,pwd) values(6031,2,6031);
-insert into alumnos (Legajo,Cod_Carrera,pwd) values(6032,1,6032);
-insert into alumnos (Legajo,Cod_Carrera,pwd) values(6033,2,6033);
-insert into alumnos (Legajo,Cod_Carrera,pwd) values(6034,1,6034);
+-- CARRERAS 
+-- insert into carrera(Cod_Carrera,Nombre,Descripcion) values(1,'sistemas','Carrera para hacer sistemas informaticos');
+-- insert into carrera(Cod_Carrera,Nombre,Descripcion) values(2,'mantenimiento','Carrera para reperar pc');
+
+INSERT INTO `carrera` (`Cod_Carrera`, `Nombre`, `Descripcion`) VALUES
+(1, 'Analista de Sistemas', 'Analista de Sistemas'),
+(2, 'Instalacion y Manteminiento', 'Instalacion y Manteminiento'),
+(3, 'Industria y Textil', 'Industria y Textil'),
+(4, 'Turismo', 'Turismo'),
+(5, 'Administracion General', 'Administracion General'),
+(6, 'Seguridad e Higiene Industrial', 'Seguridad e Higiene Industrial'),
+(7, 'Logistica', 'Logistica'),
+(8, 'Desarrollo de Aplicaciones', 'Desarrollo de Aplicaciones'),
+(9, 'Automatizacion y Robotica', 'Automatizacion y Robotica'),
+(10, 'Servicios Gastronomicos', 'Servicios Gastronomicos');
+-- ALUMNOS
+INSERT INTO `alumnos` (`Legajo`, `Nombre`, `Apellido`, `Direccion`, `Localidad`, `CP`, `Lectivo`, `Sexo`, `pwd`, `Cod_Carrera`) VALUES
+(6030, 'Sebastian', 'Marquez', 'Calaluña 5766', 'Moreno', '1744', '2013', 'H', '6030', 1),
+(6030, 'Sebastian', 'Marquez', 'Calaluña 5766', 'Moreno', '1744', '2013', 'H', '6030', 2),
+(6032, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '6032', 1),
+(6033, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '6033', 2),
+(6034, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '6034', 1);
 -- CAMBIAR ModalidadCursada por ModalidadInscripcion
+-- MATERIAS
 insert into materia(Cod_Materia,Nombre,ModalidadInscripcion,Cod_Carrera) values(101,'Analisis Matematico','LI',1);
 insert into materia(Cod_Materia,Nombre,ModalidadInscripcion,Cod_Carrera) values(102,'Algebra','LI',1);
 insert into materia(Cod_Materia,Nombre,ModalidadInscripcion,Cod_Carrera) values(103,'Programacion 1','LI',1);
@@ -29,7 +45,7 @@ insert into materia(Cod_Materia,Nombre,ModalidadInscripcion,Cod_Carrera) values(
 insert into materia(Cod_Materia,Nombre,ModalidadInscripcion,Cod_Carrera) values(306,'Economia Empresarial','LI',1);
 insert into materia(Cod_Materia,Nombre,ModalidadInscripcion,Cod_Carrera) values(307,'Practica Profesional','PR',1);
 insert into materia(Cod_Materia,Nombre,ModalidadInscripcion,Cod_Carrera) values(308,'Espacio Institucional 3','LI',1);
-insert into profesor (legajoProfesor) values(1);
+-- EXAMENES
 insert into examenes (Fecha1,Fecha2,Turno,Cod_Materia,Cod_Carrera) values ('2013-11-05','2013-11-22','TM',101,1);
 insert into examenes (Fecha1,Fecha2,Turno,Cod_Materia,Cod_Carrera) values ('2013-11-06','2013-11-21','TM',102,1);
 insert into examenes (Fecha1,Fecha2,Turno,Cod_Materia,Cod_Carrera) values ('2013-11-07','2013-11-20','TM',103,1);
@@ -76,6 +92,7 @@ insert into examenes (Fecha1,Fecha2,Turno,Cod_Materia,Cod_Carrera) values ('2013
 insert into examenes (Fecha1,Fecha2,Turno,Cod_Materia,Cod_Carrera) values ('2013-11-08','2013-11-19','TN',306,1);
 insert into examenes (Fecha1,Fecha2,Turno,Cod_Materia,Cod_Carrera) values ('2013-11-09','2013-11-16','TN',307,1);
 insert into examenes (Fecha1,Fecha2,Turno,Cod_Materia,Cod_Carrera) values ('2013-11-12','2013-11-15','TN',308,1);
+-- LIBRO MATRIZ
 insert into libro_matriz (Legajo,Cod_Carrera,Cod_Materia,Regularizado,Fecha_Reg,Nota_Final) 
 values (6030,1,101,TRUE,'2010-11-15',1);
 insert into libro_matriz (Legajo,Cod_Carrera,Cod_Materia,Regularizado,Fecha_Reg,Nota_Final) 
@@ -122,6 +139,7 @@ insert into libro_matriz (Legajo,Cod_Carrera,Cod_Materia,Regularizado,Fecha_Reg)
 values (6030,1,307,TRUE,'2010-11-15');
 insert into libro_matriz (Legajo,Cod_Carrera,Cod_Materia,Regularizado,Fecha_Reg,Nota_Final) 
 values (6030,1,308,TRUE,'2010-11-15',5);
+-- CORRELATIVA
 insert into correlativa (Cod_Carrera,Cod_Materia,Cod_Correlativa) values (1,201,101);
 insert into correlativa (Cod_Carrera,Cod_Materia,Cod_Correlativa) values (1,202,101);
 insert into correlativa (Cod_Carrera,Cod_Materia,Cod_Correlativa) values (1,202,102);
@@ -145,6 +163,7 @@ insert into correlativa (Cod_Carrera,Cod_Materia,Cod_Correlativa) values (1,307,
 insert into correlativa (Cod_Carrera,Cod_Materia,Cod_Correlativa) values (1,308,209);
 insert into curso (Descripcion,Turno,Cod_Curso,Cod_Carrera) values ('primer curso creado','N',1,1);
 -- FALTA AGREGAR LECTIVO AL MODELO
+-- CURSO ALUMNOS
 insert into cursos_alumnos (Cod_Curso,Legajo,Cod_Carrera,Cod_Materia,ModalidadInscripcion,SituacionAcademica,Lectivo) 
 values (1,6030,1,101,'LI','CO',2012);
 insert into cursos_alumnos (Cod_Curso,Legajo,Cod_Carrera,Cod_Materia,ModalidadInscripcion,SituacionAcademica,Lectivo) 

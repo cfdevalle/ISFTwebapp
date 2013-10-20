@@ -24,7 +24,6 @@ public class CollectionMateria extends AccessManager implements AccessInterface 
             ResultSet rst = execute(sql);   
             System.out.println("EJECUTO CONSULTA");
             while(rst.next()){
-                System.out.println("EN EL WHILE");
                 Materia materia=new Materia();
                 materia.setCod_materia(rst.getInt("cod_carrera"));
                 materia.setModalidadCursada(rst.getString("ModalidadCursada"));

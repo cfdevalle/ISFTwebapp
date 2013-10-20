@@ -34,7 +34,6 @@ public class CollectionFechaFinal extends AccessManager implements AccessInterfa
             ResultSet rst = execute(sql);   
             System.out.println("EJECUTO CONSULTA");
             while(rst.next()){
-                System.out.println("EN EL WHILE");
                 Examenes exa=new Examenes();
                 exa.setFecha1(rst.getDate("Fecha1"));     
                 exa.setFecha2(rst.getDate("Fecha2"));
