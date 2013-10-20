@@ -48,7 +48,6 @@
 					
 				%>
 				<form class="form-horizontal" action="" method="post" name="FormAlumno" id="FormAlumno" >
-				<!--<form class="form-horizontal" action="javascript:goPage(3010)" method="post" name="FormAlumno" id="FormAlumno" >-->
 					<fieldset>
 						<legend>Mis Datos</legend>
 						
@@ -145,6 +144,7 @@
 							<div class="controls">
 								<button type="button" name="updateInfo" class="btn btn-primary"   onclick="sendForm();">Enviar</button>
 							</div>
+						</div>
 					</fieldset>
 				</form>
 				<% }else{ %>

@@ -105,11 +105,11 @@
 <script type="text/javascript">
 	function sendFormForgot() {
 		if (document.getElementById("pass_1_fp").value == "" || document.getElementById("pass_2_fp").value == "") {
-			alert("Revise las contraseñas ingresadas");
+			Notifier.warning("Revise las contraseñas ingresadas");
 			return false;
 		}
 		if (document.getElementById("pass_1_fp").value != document.getElementById("pass_2_fp").value) {
-			alert("Las contraseñas ingresadas deben coincidir.");
+			Notifier.warning("Las contraseñas ingresadas deben coincidir.");
 			return false;
 		} else {
 			goPageNoLogin("3009&hid_legajo="+document.getElementById("hid_legajo").value+"&pass_1_fp="+document.getElementById("pass_1_fp").value+"&pass_2_fp="+document.getElementById("pass_2_fp").value);

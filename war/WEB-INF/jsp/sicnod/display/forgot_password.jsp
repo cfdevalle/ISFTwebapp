@@ -52,7 +52,8 @@
 function sendFormForgot(){
 	var legajo = document.getElementById("legajo").value;
     if(legajo==""){
-        alert("Ingrese su legajo.");
+        //alert("Ingrese su legajo.");
+		Notifier.warning("Ingrese su legajo.");	
         return false;
     }
 	goPageNoLogin("3004&legajo="+legajo);

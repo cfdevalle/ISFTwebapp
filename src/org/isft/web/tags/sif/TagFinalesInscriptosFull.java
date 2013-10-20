@@ -57,7 +57,6 @@ public class TagFinalesInscriptosFull extends TagGrilla {
                 CollectionFinalesInscriptos cfi=new CollectionFinalesInscriptos();
                 Vector<FinalInscripto> fi=cfi.getFullInscripciones(hm);
                 String tabla;
-                String semi;
                 tabla="<tr><td><h4>#</h4></td>";
                 
 				tabla+="<td><h4>Legajo</h4></td>"; 
@@ -65,7 +64,6 @@ public class TagFinalesInscriptosFull extends TagGrilla {
                 tabla+="<td><h4>Nombre</h4></td>";
                 
 				tabla+="<td><h4>Modalidad</h4></td>";
-                tabla+="<td><h4>Semipresencial</h4></td>";
                 tabla+="<td><h4>Fecha Inscripcion</h4></td>";
 
 				tabla+="<td><h4>Calificacion</h4></td>";
@@ -74,7 +72,6 @@ public class TagFinalesInscriptosFull extends TagGrilla {
 
 				int cantidad_checkbox=0;
                 for(int i=0;i<fi.size();i++){
-					semi = (fi.elementAt(i).getNotaexamen().isSemiPresencial()) ? "Si" : "No";
                     tabla+="<tr>";
 					
 					tabla+="<td>"+(i+1)+"</td>";
@@ -84,22 +81,14 @@ public class TagFinalesInscriptosFull extends TagGrilla {
 					tabla+="<td>"+fi.elementAt(i).getAlumno().getNombre()+"</td>";
 					
 					tabla+="<td>"+fi.elementAt(i).getNotaexamen().getModalidadInscripcion()+"</td>";
-					tabla+="<td>"+semi+"</td>";
 					tabla+="<td>"+fi.elementAt(i).getNotaexamen().getFecha_inscripcion()+"</td>";
 					
-					tabla+="<td><input style=\"max-width: 95px\" type=\"text\" value='' name=\"Calificacion[]\" /></td>";
-					tabla+="<td><input style=\"max-width: 95px\" type=\"text\" value='' name=\"Libro[]\" /></td>";
-					tabla+="<td><input style=\"max-width: 95px\" type=\"text\" value='' name=\"Folio[]\" /></td>";
-
+					tabla+="<td><input maxlength='2' style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getNota_final()+"' name=\"Calificacion\" /></td>";
+					tabla+="<td><input style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getLibroActExamen()+"' name=\"Libro\" required='true' /></td>";
+					tabla+="<td><input style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getFolioActExamen()+"' name=\"Folio\" required='true' />";
+					tabla+="<input type=\"hidden\" value='"+fi.elementAt(i).getAlumno().getLegajo()+"' name=\"Legajo\" /></td>";
 					
 					tabla+="</tr>";
-                    //tabla+="<td>"+fi.elementAt(i).getProfesor()+"</td>";
-//                    String nombre_checkbox;
-//                    nombre_checkbox=Integer.toString(fi.elementAt(i).getMateria().getCod_materia());
-//                    nombre_checkbox+="-"+Integer.toString(fi.elementAt(i).getCarrera().getCod_carrera());
-//                    nombre_checkbox+="-"+Integer.toString(fi.elementAt(i).getAlumno().getLegajo());
-//                    tabla+="<td><input type=\"checkbox\" id="+"mat"+i+" value="+nombre_checkbox+"></td></tr>";
-//                    tabla+="<input type=\"hidden\" value=\""+fi.elementAt(i).getMateria().getNombre()+"\" name="+"mat"+i+" />";
                     cantidad_checkbox++;
                 }
                 tabla+="<input type=\"hidden\" value=\""+cantidad_checkbox+"\" name=\"cantidad_checkbox\" />";

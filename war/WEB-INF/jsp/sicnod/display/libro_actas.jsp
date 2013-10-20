@@ -61,8 +61,13 @@
 		console.log("Fecha examen " + fecha_examen);
 		
 		$("#comboAlumnos").load("modulo.go?codPage=3015", {carrera: carrera,materia: materia,turno: turno,lectivo: lectivo, fecha_examen:fecha_examen}, 5000);
-		//alert("OK!");
 	}
+function sendFormLibroActas() {
+	var queryString = $("#FormLibroActas").serialize();
+	console.log(queryString);
+	goPageNoLogin("3016&"+queryString);
+	return false;
+}
 </script>
 <%@taglib  uri="/WEB-INF/tld/ComboCarrera.tld" prefix="carr" %>
 <div class="row-fluid">
@@ -70,8 +75,8 @@
         <div class="span12">
 			<fieldset>
 				<legend><img src="static/images/sicnod/ISFT.GIF" style="width:3%;  float:left;"> &nbsp;&nbsp;&nbsp;ACTA VOLANTE DE EVALUACIONES</legend>
-				<form class="form-horizontal" action="" method="post">
-					<div class="control-group">
+				<form class="form-horizontal" action="" method="post" name="FormLibroActas" id="FormLibroActas" >
+					<div class="control-group" style=" max-width: 50%; float: left; ">
 						<label class="control-label" for="inputMateria">Carrera: </label>
 						<div class="controls">
 							<carr:carrera></carr:carrera>

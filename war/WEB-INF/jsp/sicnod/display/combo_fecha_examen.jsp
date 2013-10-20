@@ -6,7 +6,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  uri="/WEB-INF/tld/ComboExamenes.tld" prefix="fechaExamen" %>
 <!DOCTYPE html>
-<div class="control-group">
+<div class="control-group" style=" max-width: 50%; float: left; ">
 	<label class="control-label" for="inputMateria">Fecha Examen: </label>
 	<div class="controls">
 		<%
@@ -20,6 +20,5 @@
 </div>
 
 <div class="control-group" id="comboAlumnos">
-
 </div>
 

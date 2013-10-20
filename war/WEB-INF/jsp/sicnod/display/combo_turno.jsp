@@ -6,7 +6,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  uri="/WEB-INF/tld/ComboExamenes.tld" prefix="turno" %>
 <!DOCTYPE html>
-<div class="control-group">
+<div class="control-group" style=" max-width: 50%; float: left; ">
 	<label class="control-label" for="inputMateria">Turno: </label>
 	<div class="controls">
 		<%

@@ -76,7 +76,7 @@ public class CollectionFinalesInscriptos extends AccessManager implements Access
 			//String lectivo = (String)parameters.get("lectivo"); 
 			String fechaexamen = (String)parameters.get("fechaexamen"); 
 
-			String sql= "SELECT ma.Nombre, nt.Fecha_Examen, nt.Turno, nt.Cod_Materia, nt.Cod_Carrera, nt.Legajo, al.Nombre NombreAlumno, al.Apellido ApellidoAlumno,nt.ModalidadInscripcion ntmi, nt.SemiPresencial ntsp, nt.Fecha_inscripcion ntfi " +
+			String sql= "SELECT ma.Nombre, nt.Fecha_Examen, nt.Turno, nt.Cod_Materia, nt.Cod_Carrera, nt.Legajo, al.Nombre NombreAlumno, al.Apellido ApellidoAlumno,nt.ModalidadInscripcion ntmi, nt.SemiPresencial ntsp, nt.Fecha_inscripcion ntfi, nt.Nota_Final ntnf,nt.LibroActExamen ntle, nt.FolioActExamen ntfac " +
                         "FROM nota_examen nt, materia ma, examenes ex , alumnos al " +
                         "WHERE nt.Cod_Materia=ma.Cod_Materia " +
 					
@@ -94,18 +94,16 @@ public class CollectionFinalesInscriptos extends AccessManager implements Access
 					
                         "AND nt.Legajo = al.Legajo " +
                         "AND nt.Fecha_Examen < cast((now() + interval 45 day) as date) " +
-                        "AND nt.Fecha_Examen > cast((now() - interval 45 day) as date) ";			
+                        "AND nt.Fecha_Examen > cast((now() - interval 45 day) as date) "
+						+ "GROUP BY nt.Legajo ORDER BY ApellidoAlumno, NombreAlumno";			
             System.out.println("CONSULTA A EJECUTAR: " + sql);
             ResultSet rst = execute(sql);   
             System.out.println("EJECUTO CONSULTA");
             while(rst.next()){
                 FinalInscripto fi=new FinalInscripto();
                 fi.getMateria().setNombre(rst.getString("nombre"));
-                fi.getMateria().setCod_materia(Integer.parseInt(rst.getString("Cod_Materia")));
-				
-                fi.getCarrera().setCod_carrera(Integer.parseInt(rst.getString("Cod_Carrera")));
-				
-                
+                fi.getMateria().setCod_materia(Integer.parseInt(rst.getString("Cod_Materia")));				
+                fi.getCarrera().setCod_carrera(Integer.parseInt(rst.getString("Cod_Carrera")));               
 				
                 String turno2="";
                 if(rst.getString("Turno").equals("TM")){
@@ -124,6 +122,10 @@ public class CollectionFinalesInscriptos extends AccessManager implements Access
                 fi.getNotaexamen().setModalidadInscripcion(rst.getString("ntmi"));
 				fi.getNotaexamen().setSemiPresencial(rst.getBoolean("ntsp"));
                 fi.getNotaexamen().setFecha_inscripcion(rst.getDate("ntfi"));
+                
+				fi.getNotaexamen().setNota_final(rst.getInt("ntnf"));
+				fi.getNotaexamen().setLibroActExamen(rst.getInt("ntle"));
+				fi.getNotaexamen().setFolioActExamen(rst.getInt("ntfac"));
                 
                 vec_FinalesInscriptos.add(fi);
             }          

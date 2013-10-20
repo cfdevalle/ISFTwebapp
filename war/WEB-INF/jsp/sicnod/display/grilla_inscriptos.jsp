@@ -18,4 +18,9 @@
 		%>
 		<inscriptos:FinalesInscriptosFull carrera="<%= carrera %>" materia="<%= materia %>" turno="<%= turno %>"  lectivo="<%= lectivo %>" fechaexamen="<%= fecha_examen %>"></inscriptos:FinalesInscriptosFull>
 
-
+<div class="control-group ">
+	<label class="control-label" for="inputWarning">&nbsp;</label>
+	<div class="controls">
+		<button type="button" name="updateInfo" class="btn btn-primary" onclick="sendFormLibroActas();">Guardar</button>
+	</div>
+</div>
