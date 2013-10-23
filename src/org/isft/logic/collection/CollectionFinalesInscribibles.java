@@ -30,14 +30,13 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
         Vector<FinalInscribible> vec_FinalesInscribiles = new Vector();
         try{
             Alumnos alu=(Alumnos) parameters.get("alumno");
-            Vector<Carrera> carreras=new Vector();
-            carreras=alu.getCarreras();
+            System.out.println("LA CARRERA SELECCIONADA ES: "+alu.getCarrera().getCod_carrera() );
             String sql="select lb.*, mat.Nombre, exa.Fecha1, exa.Fecha2, exa.Turno, ca.ModalidadInscripcion, ca.SituacionAcademica\n" +
                     "from libro_matriz lb, materia mat, examenes exa, cursos_alumnos ca\n" +
                     "where (lb.Nota_Final<4 or lb.Nota_Final is null)\n" +
                     "and lb.Regularizado=TRUE\n" +
                     "and lb.Legajo="+alu.getLegajo()+"\n" +
-                    "and lb.Cod_Carrera="+carreras.elementAt(0).getCod_carrera()+"\n" +
+                    "and lb.Cod_Carrera="+alu.getCarrera().getCod_carrera()+"\n" +
                     "and lb.Cod_Materia=mat.Cod_Materia\n" +
                     "and exa.Cod_Materia=lb.Cod_Materia\n" +
                     "and exa.Cod_Carrera=lb.Cod_Carrera\n" +
@@ -49,7 +48,24 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
                     "and exa.Fecha1 >= cast((now() - interval 3 day) as date)\n" +
                     "and exa.Fecha2 < cast((now() + interval 45 day) as date)\n" +
                     "and exa.Fecha2 >= cast((now() - interval 3 day) as date)";
-            ResultSet rst = execute(sql);   
+            ResultSet rst = execute(sql); 
+            //OBTENER CANTIDAD DE REGISTROS
+            ResultSet cant= execute(sql); 
+            int aux1,aux2,aux3,cantidad_fechas=0;
+            if(cant.next()){
+                aux1=cant.getInt("Cod_Materia");
+                cant.next();
+                aux2=cant.getInt("Cod_Materia");
+                cant.next();
+                aux3=cant.getInt("Cod_Materia");
+                if(aux1==aux2&&aux1==aux3){
+                    cantidad_fechas=3;
+                }else if(aux1==aux2){
+                    cantidad_fechas=2;
+                }else{
+                    cantidad_fechas=1;
+                }
+            }
             while(rst.next()){
                 boolean inscribible=true;
                 ValidarSituacionMateria validarSituacionMateria=new ValidarSituacionMateria();
@@ -57,15 +73,18 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
                 inscribible=validarSituacionMateria.isCorrelativasOk(rst);
                 //FECHAS
                 Vector<FechaFinal> vec_FechasFinal=new Vector();
-                FechaFinal ff1=new FechaFinal(rst.getDate("Fecha1"),rst.getString("Turno"));
-                FechaFinal ff2=new FechaFinal(rst.getDate("Fecha2"),rst.getString("Turno")); 
-                vec_FechasFinal.add(ff1);
-                vec_FechasFinal.add(ff2);
-                rst.next();
-                ff1=new FechaFinal(rst.getDate("Fecha1"),rst.getString("Turno"));
-                ff2=new FechaFinal(rst.getDate("Fecha2"),rst.getString("Turno")); 
-                vec_FechasFinal.add(ff1);
-                vec_FechasFinal.add(ff2);
+                for(int i=0;i<cantidad_fechas;i++){
+                    if(i==1){rst.next();}
+                    if(i==2){rst.next();}
+                    FechaFinal ff1=new FechaFinal(rst.getDate("Fecha1"),rst.getString("Turno"));
+                    FechaFinal ff2=new FechaFinal(rst.getDate("Fecha2"),rst.getString("Turno")); 
+                    if(ff1.getFecha().equals(ff2.getFecha())){
+                        vec_FechasFinal.add(ff1);
+                    }else{
+                        vec_FechasFinal.add(ff1);
+                        vec_FechasFinal.add(ff2);
+                    }
+                }
                 // EL RESTO
                 FinalInscribible fi=new FinalInscribible();
                 fi.getMateria().setNombre(rst.getString("Nombre"));
@@ -81,7 +100,7 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
                 paramValidacion.put("cod_materia", fi.getMateria().getCod_materia());
                 paramValidacion.put("legajo", fi.getAlumno().getLegajo());
                 if(inscribible){
-                    fi.setAccion(validarSituacionMateria.isInscripto(paramValidacion)?"U":"A");
+                    fi.setAccion(validarSituacionMateria.isInscripto(paramValidacion).equals("")?"A":"U");
                     vec_FinalesInscribiles.add(fi);
                 }
             }       

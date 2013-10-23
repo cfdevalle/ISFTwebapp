@@ -16,10 +16,6 @@
             </div>
             <div class="span12">  
              
-         
-                    <h1 align="center"><u>Bienvenido</u></h1>
-                    <br>
-                    <br>
                     <table border="0" align="center">
                         <tr>
                             <td rowspan="5"><img src="static/images/sim/sistema_de_inscripcion_a_materias.png" width="269" height="168"></td>

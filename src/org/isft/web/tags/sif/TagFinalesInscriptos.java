@@ -20,16 +20,11 @@ import org.isft.web.tags.TagGrilla;
 public class TagFinalesInscriptos extends TagGrilla {
     public int doStartTag() throws JspException {
             super.doStartTag();
-            try {
-                System.out.println("llego al tag de finalesInscriptos");
-                
+            try {                
                 HashMap hm=new HashMap();
                 CollectionFinalesInscriptos cfi=new CollectionFinalesInscriptos();
-                System.out.println("llego 1");
                 hm.put("alumno", pageContext.getSession().getAttribute("alumno"));
-                System.out.println("llego 2");
                 Vector<FinalInscripto> fi=cfi.select(hm);
-                System.out.println("llego 3");
                 String tabla;
                 tabla="<tr><td><h4>Materia</h4></td>";
                 tabla+="<td><h4>Fecha</h4></td>";

@@ -20,7 +20,6 @@ public class AbmInscripcionFinales extends UpdaterManager implements UpdaterInte
             valores+="'"+(String)parameters.get("fecha_actual")+"',";
             valores+="'"+(String)parameters.get("fecha_final")+"'";
             String sql_insert="insert into nota_examen ("+campos+") values ("+valores+")";
-            System.out.println(sql_insert);
             execute(sql_insert);
         }catch(Exception exc){
            throw new Exception(exc.getMessage());
@@ -30,9 +29,7 @@ public class AbmInscripcionFinales extends UpdaterManager implements UpdaterInte
     @Override
     public void delete(HashMap parameters) throws Exception {
         try{
-            System.out.println("llego al delete");
             String sql_delete="delete from nota_examen where Legajo="+(String)parameters.get("legajo")+" and Cod_Materia="+(String)parameters.get("cod_materia")+" and Cod_Carrera="+(String)parameters.get("cod_carrera")+"";
-            System.out.println(sql_delete);
             execute(sql_delete);
         }
         catch(Exception exc){
@@ -43,7 +40,6 @@ public class AbmInscripcionFinales extends UpdaterManager implements UpdaterInte
     @Override
     public void update(HashMap parameters) throws Exception {
         try{
-            System.out.println("LLEGO AL ABM UPDATE");
             String sql_update="UPDATE nota_examen SET ";
             sql_update+=" Turno='"+(String)parameters.get("turno")+"'";
             sql_update+=", Fecha_inscripcion='"+(String)parameters.get("fecha_actual")+"'";
@@ -53,7 +49,6 @@ public class AbmInscripcionFinales extends UpdaterManager implements UpdaterInte
             sql_update+=" and Cod_Materia="+(String)parameters.get("cod_materia")+"";
             System.out.println(sql_update);
             execute(sql_update);
-            
         }
         catch(Exception exc){
         		throw new Exception(exc.getMessage());

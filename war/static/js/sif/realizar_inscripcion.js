@@ -1,9 +1,25 @@
 function inscribir(){
     var cantidad_materias= $('input[name=cantidad_materias]').val();
-    var i=0;
+    var i=0,j=0,k;
     var seleccionadoA="";
     var seleccionadoB="";
-    while(i<cantidad_materias){
+    var inscribible;
+    while(j<cantidad_materias){
+        inscribible=true;
+        k=0;
+        while(k<cantidad_materias){
+            var suma=j+k;
+            if($('#select'+j+' :selected').text()==$('#select'+suma+' :selected').text()
+                &&$('#select'+j+' :selected').text()!=""
+                &&j!=suma){
+                inscribible=false;
+                j=cantidad_materias;
+            }
+            k++;
+        }
+        j++;
+    }if(inscribible){}else{Notifier.warning("Hay 2 materias seleccionadas el mismo dia y turno.");};
+    while(i<cantidad_materias&&inscribible==true){
         if($('#select'+i+' :selected').val()==i){
             
         }else{
@@ -48,10 +64,15 @@ function inscribir(){
         // ACA TERMINA LA PREGUNTA POR SI SE TOMO COMO SELECCION 0 QUE NO SERIA NADA
         i++;        
     }
-    // SE MANDA EL STRING CON ALTAS
-    if(seleccionadoA!=""){
+    if(seleccionadoA!=""||seleccionadoB!=""){
+      realizarIncripcion(seleccionadoA,seleccionadoB); 
+    }
+}
+
+function realizarIncripcion(datosAlta,datosUpdate){
+    if(datosAlta!=""){
         var parametros={
-		param:seleccionadoA,
+		param:datosAlta,
 		accion:'A'
 	}
         $.ajax({
@@ -59,38 +80,45 @@ function inscribir(){
 	  url: 'inscribir.sif',
 	  data: parametros,
 	  success: function(response){
-                //alert('Inscripcion realizada con exito.');
-	  	Notifier.success("Alta realizada con exito.");
+                if(response.substring(0,5)=='ERROR'){
+                    Notifier.warning(response.substring(6));
+                }else{
+                    Notifier.success(response);
+                    if(datosUpdate!=""){
+                        realizarUpdate(datosUpdate);
+                    }else{
+                        setTimeout(function(){goPage(2002)},1000); 
+                    }
+                }
 	  },
 	  error: function(response){
-	  	Notifier.warning(response.statusText);	
+	  	Notifier.error(response);	
 	  }
 	});
-       //$("#datos").load("incribir.sif?param="+seleccionadoA+"&accion=A");
+    }else if(datosUpdate!=""){
+        realizarUpdate(datosUpdate);
     }
-    // SE MANDA EL STRING CON UPDATE
-    if(seleccionadoB!=""){
-       var parametros={
-		param:seleccionadoB,
+}
+
+function realizarUpdate(datosUpdate){
+        var parametros={
+		param:datosUpdate,
 		accion:'U'
-	} 
+	}
         $.ajax({
 	  type: 'POST',
 	  url: 'inscribir.sif',
 	  data: parametros,
 	  success: function(response){
-                //alert('Modificacion realizada con exito.');
-
-	  	Notifier.success("Modificacion realizada con exito.");
+                if(response.substring(0,5)=='ERROR'){
+                    Notifier.warning(response.substring(6));
+                }else{
+                    Notifier.success(response);
+                    setTimeout(function(){goPage(2002)},1000); 
+                }
 	  },
 	  error: function(response){
-	  	alert(response.statusText);	
+	  	Notifier.error(response);	
 	  }
 	});
-       //$("#datos").load("incribir.sif?param="+seleccionadoB+"&accion=U");
-    }
-    // SI EJECUTO ALGUNA ACCION SE ENVIA A CONSULTAR INSCRIPCION
-    if(seleccionadoA!=""||seleccionadoB!=""){
-      setTimeout(function(){goPage(2002)},1500);  
-    }
 }

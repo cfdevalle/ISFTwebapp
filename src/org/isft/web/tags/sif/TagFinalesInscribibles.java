@@ -4,6 +4,7 @@ import java.util.Vector;
 import javax.servlet.jsp.JspException;
 import static javax.servlet.jsp.tagext.Tag.EVAL_PAGE;
 import static javax.servlet.jsp.tagext.Tag.SKIP_BODY;
+import org.isft.domain.Alumnos;
 import org.isft.domain.FinalInscribible;
 import org.isft.domain.FechaFinal;
 import org.isft.domain.FinalInscripto;
@@ -20,6 +21,7 @@ public class TagFinalesInscribibles extends TagGrilla {
                 HashMap hm=new HashMap();
                 CollectionFinalesInscribibles cfi=new CollectionFinalesInscribibles();
                 hm.put("alumno", pageContext.getSession().getAttribute("alumno"));
+                Alumnos alu=(Alumnos) pageContext.getSession().getAttribute("alumno");
                 Vector<FinalInscribible> fi=cfi.select(hm);
                 String tabla="";
                 tabla+="<tr><td><h4>Materia</h4></td>";

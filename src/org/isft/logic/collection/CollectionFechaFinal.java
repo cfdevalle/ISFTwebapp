@@ -23,16 +23,13 @@ public class CollectionFechaFinal extends AccessManager implements AccessInterfa
         Vector<Examenes> vec_examenes = new Vector();
         try{
             Alumnos alu=(Alumnos) parameters.get("alumno");
-            Vector<Carrera> carreras=new Vector();
-            carreras=alu.getCarreras();
             String sql="select exa.Fecha1,exa.Fecha2,exa.Turno,exa.Cod_Materia,exa.Cod_Carrera,mat.Nombre\n" +
                         "from examenes exa, materia mat, carrera ca\n" +
                         "where exa.Cod_materia=mat.Cod_materia\n" +
-                        "and ca.Cod_Carrera="+carreras.elementAt(0).getCod_carrera()+"\n"+
+                        "and ca.Cod_Carrera=exa.Cod_Carrera\n"+
+                        "and ca.Cod_Carrera="+alu.getCarrera().getCod_carrera()+"\n"+
                         "order by Cod_Materia";
-            System.out.println("CONSULTA A EJECUTAR: " + sql);
-            ResultSet rst = execute(sql);   
-            System.out.println("EJECUTO CONSULTA");
+            ResultSet rst = execute(sql);
             while(rst.next()){
                 Examenes exa=new Examenes();
                 exa.setFecha1(rst.getDate("Fecha1"));     
@@ -49,7 +46,6 @@ public class CollectionFechaFinal extends AccessManager implements AccessInterfa
                 exa.getCarrera().setCod_carrera(Integer.parseInt(rst.getString("Cod_Carrera")));
                 vec_examenes.add(exa);
             }
-            System.out.println("alumno carrera: "+ alu.getCarrera().getCod_carrera());
             
         }catch(Exception exc){
             throw new Exception(exc);

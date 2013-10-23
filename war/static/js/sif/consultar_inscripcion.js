@@ -40,11 +40,15 @@ function realizar_desinscripcion(){
 	  url: 'desinscribir.sif',
 	  data: parametros,
 	  success: function(response){
-                Notifier.success("Desinscripcion realizada con exito.");
-                setTimeout(function(){goPage(2002)},1000);
+                if(response.substring(0,5)=='ERROR'){
+                    Notifier.warning(response.substring(6));
+                }else{
+                    Notifier.success(response);
+                    setTimeout(function(){goPage(2002)},1000);
+                }
 	  },
 	  error: function(response){
-	  	alert(response.statusText);	
+	  	Notifier.error(response);	
 	  }
 	});
 }

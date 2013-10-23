@@ -1,22 +1,30 @@
 
-function mostrar(aMostrar){
+function mostrar(aMostrar,anio){
     var cant= $('input[name=cantidad_materias]').val()+1;
     var i=1;
-    var boton=1;
-    if( $("#div_"+aMostrar).is(':visible')){
-        $("#div_"+aMostrar).hide();
+    var boton=2;
+    var boton2=2;
+    var boton3=2;
+    if( $("#div_"+aMostrar+"_"+anio).is(':visible')){
+        $("#div_"+aMostrar+"_"+anio).hide();
     }else{
         while(i<cant){
-            $("#div_"+boton).hide();
+            $("#div_1_"+boton).hide();
+            $("#div_2_"+boton2).hide();
+            $("#div_3_"+boton3).hide();
             boton=boton+2;
+            boton2=boton2+2;
+            boton3=boton3+2;
             i++;
         }
-        $("#div_"+aMostrar).show();
+        $("#div_"+aMostrar+"_"+anio).show();
     }
 }
 
 $(document).ready(function(){
-      mostrar(0);
+      mostrar(0,0);
 });
 
-
+function mostrarAño(anio){
+    
+}
