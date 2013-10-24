@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="materias_inscriptas" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="82d827d9-0e2d-4235-8588-139b11c21469">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="p_cod_carrera" class="java.lang.String"/>
+	<parameter name="p_legajo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select ma.Nombre, nt.Fecha_Examen, nt.Turno, nt.Cod_Materia, nt.Cod_Carrera, nt.Legajo
+from nota_examen nt, materia ma
+where nt.Cod_Materia=ma.Cod_Materia
+and Legajo=$P{p_legajo}
+and nt.Cod_Carrera=$P{p_cod_carrera}
+order by Nombre]]>
+	</queryString>
+	<field name="Nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Fecha_Examen" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Turno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cod_Materia" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cod_Carrera" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Legajo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="c433c271-4999-4c4d-983d-7c50f1ed8eb1" x="146" y="30" width="277" height="49"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true" isItalic="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Materias Inscriptas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="97" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="b3ed1a9d-5184-45fd-a598-0fb6ae4195e4" x="117" y="49" width="100" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Materia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dc6aaa89-de05-4e08-a31e-42ecabfe5680" x="238" y="49" width="100" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f39339f6-35f8-42c5-8525-e3ab3ac3045b" x="394" y="49" width="100" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Turno]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="">
+				<reportElement uuid="337d5b04-0ed2-4645-a875-ea9c8e11753a" x="117" y="6" width="100" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="bb8186fa-56bb-4490-ab73-516547374abc" x="238" y="6" width="110" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha_Examen}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="">
+				<reportElement uuid="26e3e8c0-e606-4138-aa6f-f75e1d6111a7" x="394" y="6" width="100" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Turno}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
