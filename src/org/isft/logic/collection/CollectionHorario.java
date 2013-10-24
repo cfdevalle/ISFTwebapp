@@ -10,11 +10,12 @@ import java.util.HashMap;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.isft.domain.helper.FechaHora;
 import org.isft.logic.AccessManager;
 
 /**
  *
- * @author Asus
+ * @author Ariel
  */
 public class CollectionHorario extends  org.isft.logic.AccessManager{
 
@@ -74,8 +75,11 @@ public class CollectionHorario extends  org.isft.logic.AccessManager{
      AccessManager am = new AccessManager();
      ResultSet rs=null;   
      System.out.println("entro en getmateriahorario");
+        FechaHora fecha = new FechaHora();
        try{
-           rs = am.execute("Select materia.nombre, profesor.nombre, profesor.apellido from profesor, horario, dia, curso, materia, hora, carrera where materia.cod_materia=horario.cod_materia&&curso.Cod_curso='"+curso+"'&& curso.cod_curso=horario.cod_curso&&dia.dia='"+dia+"'&&dia.dia=horario.dia&& hora.hora_desde='"+hora+"'&&hora.hora_desde=horario.hora_desde&&carrera.Cod_carrera='"+carrera+"'&&carrera.cod_carrera=horario.cod_carrera&&horario.legajoprofesor=profesor.legajoprofesor;");
+           String cadena="Select materia.nombre, profesor.nombre, profesor.apellido from profesor, horario, dia, curso, materia, hora, carrera where materia.cod_materia=horario.cod_materia&&curso.Cod_curso='"+curso+"'&& curso.cod_curso=horario.cod_curso&&dia.dia='"+dia+"'&&dia.dia=horario.dia&& hora.hora_desde='"+hora+"'&&hora.hora_desde=horario.hora_desde&&carrera.Cod_carrera='"+carrera+"'&&carrera.cod_carrera=horario.cod_carrera&&horario.legajoprofesor=profesor.legajoprofesor&&lectivo='"+fecha.getAnioActual()+"';";
+           
+           rs = am.execute(cadena);
            System.out.println("rs = am.execute(\"Select materia.nombre, profesor.nombre, profesor.apellido from profesor, horario, dia, curso, materia, hora, carrera where materia.cod_materia=horario.cod_materia&&curso.descripcion='"+curso+"'&& curso.cod_curso=horario.cod_curso&&dia.dia='"+dia+"'&&dia.dia=horario.dia&& hora.hora_desde='"+hora+"'&&hora.hora_desde=horario.hora_desde&&carrera.nombre='"+carrera+"'&&carrera.cod_carrera=horario.cod_carrera&&horario.legajoprofesor=profesor.legajoprofesor;");
        }catch (Exception e){
            System.out.println("error"+e.getMessage());

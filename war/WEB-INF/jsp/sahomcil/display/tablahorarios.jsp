@@ -4,6 +4,8 @@
     Author     : Ariel Dupuy
 --%>
 
+<%@page import="org.isft.domain.Carrera"%>
+<%@page import="org.isft.domain.Alumnos"%>
 <%@page import="org.isft.logic.collection.CollectionHorario"%>
 <%@page import="org.isft.logic.collection.CollectionMaterias"%>
 <%@page import="java.sql.ResultSet"%>
@@ -12,11 +14,23 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="org.isft.logic.AccessInterface"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="/WEB-INF/tld/Combocursos.tld" prefix="cursos" %>
+<%@taglib uri="/WEB-INF/tld/Horario.tld" prefix="horario"%>
 <!DOCTYPE html>
 <html>
     <head>
+        <script>
+            function horariosincarga(){
+        //recupera valor del curso seleccionado   
+        var curso=$("#curso").val(); 
+              
+              //carga en el div principal la tabla y le paso el parametro curso mas un tiempo de recarga 
+              $("#principal").load("modulo.go?codPage=5004",{curso:curso},5000);
+                
+            }
+        </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>The Sahomcil boys</title>
         
     </head>
     <body>
@@ -24,231 +38,71 @@
 
       <div class="row">
             <div class="span10 offset1">
+                <h4>Seleccione su curso</h4>
+                <%
+                //se recupera el alumno de sesion
+                Alumnos alu = (Alumnos)request.getSession(false).getAttribute("alumno");
+                //se recupera la carrera de sesion
+                Vector crrs=alu.getCarreras();
+                Carrera carrera =(Carrera) crrs.get(0);
+                out.println("Tu carrera es: "+carrera.getNombre());
+                int cod_carrera=carrera.getCod_carrera();
+                %>
+                <br>
+                <!-- se llama al tld cursos y se le pasa la carrera para que de los cursos disponibles segun la carrera-->
+                <cursos:cursos carrera="<%=String.valueOf(cod_carrera)%>" carga="false"></cursos:cursos>
                 <h1> Horarios:</h1><br>
+              <!-- se crea cabecera de la tabla-->
                 <table class="table table-hover table-bordered table-condensed" id="table">
                     <thead> 
                      
                     </thead>
                     <tbody>
+                        <%
                        
-                            <%
-                            int i=0;
                             int j=0;
-                            String curso=request.getParameter("curso");
-                            CollectionHorario ch = new CollectionHorario();
-                            HashMap hm =new HashMap ();
-                            HashMap p= new HashMap();
-                            HashMap horario=new HashMap();
-                            hm.put("dia", "1");
-                            p.put("dia","1");
-                            horario.put("dia","lunes" );
-                            horario.put("curso",curso);
-                            Vector dias =ch.getdias();
-                            Vector hora_desde=ch.gethora_desde();
-                            HashMap mathor=new HashMap();
-                            mathor.put("hora", "08:00:00");
-                            mathor.put("curso", curso);
-                            Vector matxhora=ch.getMateriahora(mathor);
-                           Vector dia=new Vector();
-                            try {
-                               dia=ch.getmatdia(mathor);
-                                                     }catch (Exception e){
-                                                     System.out.println("error "+e.getMessage());
-                                                     } 
-                           out.print("<tr><td>Horas</td>");
-                            int k=0;
-                                for (i=-1;i<dia.size();i++)
-                                    
-                                out.print("<td class=\"success\">"+(String)dias.get(i+1)+"</td>");
-                                    System.out.println("dia:"+(String)dias.get(i)); 
-                                    System.out.println("dia.size en jsp: "+dias.size());
-                                    out.println("</tr>");
-                                //hora:08:00
-                                    System.out.println("empezo fila:"+(String)hora_desde.get(0));
-                                    out.println("</tr>");
-                                out.print("<tr>");
-                               
-                                      out.print("<td class=\"success\">"+(String)hora_desde.get(0)+"</td>");
-                                   System.out.println("dias: "+dia.size());
-                                      for(j=0 ;j<dias.size()||k<=dia.size(); j++){
-                                         
-                                         
-                                       if (k==j){                                     
-                                         out.println("<td class=\"success\">"+(String)matxhora.get(j)+"</td>");
-                                         k++;                                     }
-                                          else{
-                                          
-                                          out.println("<td class=\"success\">vacio</td>");          }}      
-                                 out.println("</tr>");
-                                //hora 09:00
-                                mathor.put("hora", "09:00:00");
-                                mathor.put("curso", curso);
-                                matxhora=ch.getMateriahora(mathor);
-                                try {
-                               dia=ch.getmatdia(mathor);
-                                                     }catch (Exception e){
-                                                     System.out.println("error "+e.getMessage());
-                                                     } 
+                            //recupero parametros
+                           String curso=request.getParameter("curso");
+                           out.println("tu curso es: "+curso);
+                           //instancio collection horario
+                           CollectionHorario ch = new CollectionHorario();
+                           Vector dias=null;
+                           //crep hashmap para los parametros
+                           HashMap mathor = new HashMap();
+                           mathor.put("carrera", carrera);
+                           mathor.put("curso", curso);
+                           //recupero dias
+                           dias=ch.getdias();
+                           //recupero las horas
+                           Vector hora_desde=ch.gethora_desde();
+                           //crea las filas de la cabecera
+                           out.print("<tr></tr>");
+                           out.print("<tr><td style=\" width: 7; height: 7\"><center>Horas</center></td>");
+                           for(int i=0;i<dias.size();i++)
+                            out.print("<td style=\" width: 7; height: 7\"><center>"+dias.get(i)+"</center></td>");   
+                            out.print("</tr>");
+                            out.print("<tr></tr>");
+                            //crea las filas restantes con los datos si los hay sino queda vacio
+                            for (j=0;j<hora_desde.size()&&j<8;j++){
+                             out.print("<tr></tr>");
                             
-                                 out.print("<tr>");
-                               
-                                      out.print("<td class=\"success\">"+(String)hora_desde.get(1)+"</td>");
-                               
-                                     for(j=0 ;j<dias.size()||k<dia.size(); j++){
-                                          
-                                      
-                                       if (k==j){
-                                           k++;
-                                                                           
-                                         out.println("<td class=\"success\">"+(String)matxhora.get(j-1)+"</td>");
-                                                                              }
-                                         else{
-                                          
-                                          out.println("<td class=\"success\">vacio</td>");          }}      
-                                 out.println("</tr>");
-                                //hora 10:00
-                                 mathor.put("hora", "10:00");
-                                mathor.put("curso", curso);
-                                matxhora=ch.getMateriahora(mathor);
-                                try {
-                               dia=ch.getmatdia(mathor);
-                                                     }catch (Exception e){
-                                                     System.out.println("error "+e.getMessage());
-                                                     } 
-                            
-                                 out.print("<tr>");
-                               
-                                      out.print("<td class=\"success\">"+(String)hora_desde.get(2)+"</td>");
+                                out.print("<tr><td style=\" width:75; height: 75\"><a class='btn'>"+(String)hora_desde.get(j)+"<a/></td>");
+                                for (int i=0;i<dias.size();i++)
+                                 
+                                    { 
+                                    String d=String.valueOf(i+1);
+                                //se llama al tld encargado de revisar segun la hora y el dia si hay o no materias
+                        %><horario:materia carrera="<%=String.valueOf(cod_carrera)%>" curso="<%=curso%>" dia="<%=d%>" hora="<%=(String)hora_desde.get(j)%>"></horario:materia>
                                    
-                                      for(j=0 ;j<dias.size()||k<dia.size(); j++){
-                                       if (k==j){                                     
-                                         out.println("<td class=\"sucess\">"+(String)matxhora.get(j-1)+"</td>");
-                                         k++;                                     }
-                                         else{
-                                          
-                                          out.println("<td>vacio</td>");          }}      
-                                 out.println("</tr>");
-                                
-                                //hora 11:00
-                                 mathor.put("hora", "11:00");
-                                mathor.put("curso", curso);
-                                matxhora=ch.getMateriahora(mathor);
-                                try {
-                               dia=ch.getmatdia(mathor);
-                                                     }catch (Exception e){
-                                                     System.out.println("error "+e.getMessage());
-                                                     } 
-                            
-                                 out.print("<tr>");
-                               
-                                      out.print("<td class=\"success\">"+(String)hora_desde.get(3)+"</td>");
-                                   
-                                      for(j=0 ;j<dias.size()||k<dia.size(); j++){
-                                         
-                                         
-                                       if (k==j){                                     
-                                         out.println("<td class=\"sucess\">"+(String)matxhora.get(j-1)+"</td>");
-                                          k++;                                    }
-                                         else{
-                                          
-                                          out.println("<td class=\"sucess\">vacio</td>");          }}      
-                                 out.println("</tr>");
-                                
-                                                                
-                                                                                            
-                            /*
-                                out.println("</tr>");
-                             out.println("<tr class='alert'>");
-                              out.print( "<td  id='"+j+i+"'----<br><b>"+(String)hora_desde.get(i)+"</b></td>");
+                 <%
+                                    } out.print("</tr>");}
                               
-                                for ( i=0;i<hora_desde.size();i++)
-                            {   if(hora_desde.get(i)==null)
-                             out.print( "<td id='"+j+i+"'<P ALIGN=center> <a href=\"#myModal\" role=\"button\" class=\"btn\" data-toggle=\"modal\">Agregar</a></p></td>");
-                             else
-                                  out.println("<td>"+(String)hora_desde.get(i)+"</td>");
-                                          } 
-                           
-                           
- /*
-                                            
-                             j++;
-                             out.println("</tr>");
-                             out.println("<tr class='alert'>");
-                                  out.print( "<td  id='"+j+i+"'----<br><b>09:00</b></td>");
-                              for ( i=0;i<6;i++)
-                            {
-                             out.print( "<td id='"+j+i+"'<P ALIGN=center> <a href=\"#myModal\" role=\"button\" class=\"btn\" data-toggle=\"modal\">Agregar</a></p></td>");
-                                           } 
-                                  out.println("<tr class='success'>");
-                            out.print( "<td id='"+j+i+"' ><b>10:00<br></td>");
-                            j++;
-                            for ( i=0;i<6;i++)
-                            {
-                             out.print( "<td id='"+j+i+"'<P ALIGN=center> <a href=\"#myModal\" role=\"button\" class=\"btn\" data-toggle=\"modal\">Agregar</a></p></td>");
-                                           } 
-                             j++;
-                             out.println("</tr>");
-                             out.println("<tr class='success'>");       
-                             out.print( "<td id='"+j+i+"' ><b>11:00<br></td>");
-                            for ( i=0;i<6;i++)
-                            {
-                             out.print( "<td id='"+j+i+"'<P ALIGN=center> <a href=\"#myModal\" role=\"button\" class=\"btn\" data-toggle=\"modal\">Agregar</a></p></td>");
-                                           } 
-                             j++;
-                             out.println("</tr>");
-                             out.println("<tr class='success'>");
-                 */   %></tbody>
+                    %>
+                       
+                           </tbody>
                 </table>
             </div>
         </div>
-                 <!-- esta es la ventana modal que se muestra al apretar el boton agregar   -->
-          <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> Para llenar el campo
-                <h3 id="myModalLabel">Seleccione la Materia</h3>
-        </div>
-        <div class="modal-body">
-            <SELECT NAME="materia" id="materia" style=" width:100px" SIZE=1></p> 
-            <% 
-                HashMap hm1= new HashMap();
-                String cursos=request.getParameter("curso");
-                hm1.put("campos","nombre" );
-                hm1.put("curso","3-B" );
-                CollectionMaterias cm = new CollectionMaterias();
-                Vector vector=cm.select(hm1);
-                for (i=0;i<vector.size();i++){
-                String materia=(String)vector.get(i);
-                out.println("<OPTION VALUE='"+materia+"'>"+materia+"</OPTION>");
-                }
-            
-            %>
-            </SELECT> <br>
-</div>
-<div class="modal-footer">
-<button class="btn" data-dismiss="modal" aria-hidden="true">cancelar</button>
-<button class="btn btn-primary">aceptar</button>
-</div>
-</div>
-                 <!-- aca hay una serie de DIV'S ocupando 3 columnas cada una de ellas y 3 columnas en offset     -->
-           <div class="span12 row" style="min-height: 100px; float: left" >
-               <a class="btn success  " style="float: right" onclick="javascript: alert('Al oprimir aqui se podra imprimir el horario')">
-                   Imprimir
-                </a>
-           
-                  <div class="span2 " style="min-height: 100px; float: right">
-               <a class="btn btn-error success " style="float: rigth" onclick="javascript: alert('Al oprimir aqui se podra actualizar las horas en las que se dictan las clases')">
-                   Modificar horas
-                </a>
-                  </div>
-                  <div class="span2 row" style="min-height: 100px; float: right" >
-               <a class="btn btn row" style="float: right" onclick="javascript: alert('Al oprimir aqui se podra actualizar los dias de cursada')">
-                   Modificar dias
-                </a>
-                  </div>
-               </div>
-            
-                 <div class="span10 row">
-      
-        </div>
+                 <
     </body>
 </html>

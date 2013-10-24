@@ -23,9 +23,7 @@
     <body>
 
       <div class="row">
-          <div class="span2">
-          <h1>&nbsp &nbsp Horarios:</h1><br>
-          </div>       
+              
             <div class="span10 offset1">
                
                 <table class="table table-hover table-bordered table-condensed" id="table">
@@ -35,21 +33,25 @@
                     <tbody>
                    
                         <%
-                       
+                            //recibo parametros
                             int j=0;
                             String carrera=request.getParameter("carrera");
                             String curso=request.getParameter("curso");
                             String hora=request.getParameter("hora");
                             String dia=request.getParameter("dia");    
-                       
-
+                            
+                            //instancio objeto collectionHorario (se encarga de hacer la consulta de horarios)
                            CollectionHorario ch = new CollectionHorario();
                            Vector dias=null;
+                           //creo hashmap para los parametros de collectionHorario
                            HashMap mathor = new HashMap();
                            mathor.put("carrera", carrera);
                            mathor.put("curso", curso);
+                           //recupero dias
                            dias=ch.getdias();
+                           //recupero horas
                            Vector hora_desde=ch.gethora_desde();
+                           //creo cabecera de la tabla
                            out.print("<tr></tr>");
                            out.print("<tr><td style=\" width: 7; height: 7\"><center>Horas</center></td>");
                            for(int i=0;i<dias.size();i++)
@@ -59,14 +61,15 @@
                             for (j=0;j<hora_desde.size()&&j<8;j++){
                              out.print("<tr></tr>");
                             
-                                out.print("<tr><td style=\" width:75; height: 75\">"+(String)hora_desde.get(j)+"</td>");
+                                out.print("<tr><td style=\" width:75; height: 75\"><a class='btn'>"+(String)hora_desde.get(j)+"<a/></td>");
                                 for (int i=0;i<dias.size();i++)
                                  
                                     { 
                                     String d=String.valueOf(i+1);
+                                    //se llama al tld agrhor que se encarga de poner el dato si esta disponible o un boton en caso contrario
                %><td style="background-color: #dff0d8; width: 75; height: 75; " ><br/><center><AGRHOR:materia carrera="<%=(String)carrera%>" curso="<%=(String)curso%>" dia="<%=d%>" hora="<%=(String)hora_desde.get(j)%>"></AGRHOR:materia></center></td>
                                    
-                 <%
+                 <%             //cierro la fila
                                     } out.print("</tr>");}
                               
                     %></tbody>
@@ -76,21 +79,11 @@
               
             <!-- aca hay una serie de DIV'S ocupando 3 columnas cada una de ellas y 3 columnas en offset     -->
            <div class="span12 row" style="min-height: 100px; float: left" >
-               <a class="btn success  " style="float: right" onclick="javascript: alert('Al oprimir aqui se podra imprimir el horario')">
+            <!-- botom de impresion todavia no funciona    -->
+               <button onclick="modulo.rpt?cod=5000&param=cod_carrera=<%=carrera%>@cod_curso=<%=curso%>@nombre carrera=sistemas@nombre curso=1-a&file=sahomcil">
                    Imprimir
-                </a>
+                </button>
                
-               
-                  <div class="span2 " style="min-height: 100px; float: right">
-               <a class="btn btn-error success " style="float: right" onclick="javascript: alert('Al oprimir aqui se podra actualizar las horas en las que se dictan las clases')">
-                   Modificar horas
-                </a>
-                  </div>
-                  <div class="span2 row" style="min-height: 100px; float: right" >
-               <a class="btn btn row" style="float: right" onclick="javascript: alert('Al oprimir aqui se podra actualizar los dias de cursada')">
-                   Modificar dias
-                </a>
-                  </div>
                </div>
             
                  <div class="span10 row">

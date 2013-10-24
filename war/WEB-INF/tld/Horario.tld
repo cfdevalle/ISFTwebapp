@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+  <tlib-version>1.0</tlib-version>
+  <short-name>HORARIO</short-name>
+  <uri>/WEB-INF/tld/horario</uri>
+   <tlibversion>1.0</tlibversion>
+   <jspversion>1.1</jspversion>
+   <shortname>horario</shortname>
+   <uri>org.isft.web.tags.Horario</uri>
+   <info>A simple sample tag library</info>
+ 
+   <tag>
+     <name>materia</name>
+     <tagclass>org.isft.web.tags.Horario</tagclass>
+     
+<attribute>
+        <name>hora</name>
+        <type>String</type>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+        
+</attribute>
+     <attribute>
+        <name>carrera</name>
+        <type>String</type>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+        
+    </attribute>
+<attribute>
+        <name>dia</name>
+        <type>String</type>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+        
+    </attribute>
+    <attribute>
+        <name>curso</name>
+        <type>String</type>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+        
+    </attribute>   
+     
+     <bodycontent>empty</bodycontent>
+     <info>Verifica si en el dia y la hora existe materia cargada</info>
+   </tag>
+</taglib>

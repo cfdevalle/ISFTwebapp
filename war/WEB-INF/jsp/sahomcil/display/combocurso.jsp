@@ -1,7 +1,7 @@
 <%-- 
     Document   : combocurso
     Created on : 07-jul-2013, 21:32:16
-    Author     : Ariel Dupuy
+    Author     : Pablo
 --%>
 
 <%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
@@ -14,23 +14,23 @@
 <%@taglib uri="/WEB-INF/tld/combocursos" prefix="cursos" %>
 <!DOCTYPE html>
 
-<div class="row " >
-            <div class="span3" style="min-height: 70px">
-                <h4> Seleccione Curso:</h4>
+
+            <div class="span2" >
+                <h5> Seleccione Curso:</h5>
             </div>
-                <div class="span4" >
-                    <% 
+                <div class="span2" >
+                    <% //recibo parametro de carrera
                     String carrera=(String)request.getParameter("carrera");
-                    %><cursos:cursos carrera="<%=carrera%>"></cursos:cursos>
+                    %><cursos:cursos carrera="<%=carrera%>" carga="true"></cursos:cursos>
         
                 </div>
         </div>
        
-     <!-- la tabla de informacion de materias/horas/profesor/dia ocupando 12 columnas     -->
+     <!-- div donde secargara la tabla con todos los datos -->
      <div name="tablahorario" id="tablahorario">
          
      </div>
-                  
+      <!-- div donde se cargara la ventana modal -->
      <div name="ventana" id="ventana">
          
      </div>

@@ -8,51 +8,51 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Vector;
 import org.isft.domain.Carrera;
+import org.isft.domain.Profesor;
 import org.isft.logic.AccessManager;
 
 /**
  *
- * @author Carolina
+ * @author Pablo
  */
-public class CollectionCarrera  implements org.isft.logic.AccessInterface{
-
+public class CollectionProfesores {
+    
     public Vector select(HashMap parameters) throws Exception {
-       //se recuperan parametros del hashmap 
+        //se recuperan parametros del hashmap
        String campos = (String)parameters.get("campos");
        String tablas = (String)parameters.get("tablas");
        ResultSet rs =null;
-       //se instancia clase accesManager para la coneccion y ejecucion de consultas
+       //se instancia accessmanager
        AccessManager am = new AccessManager();
        try{
-         //realizo la consulta segun el campo requerido y la tabla (esto se hizo asi por que no se puede no usar el hashmap)  
+           //se realiza la consulta
        rs = am.execute("Select "+campos+" from "+tablas+";");
        }catch (Exception e){
            System.out.println("error"+e.getMessage());
        }
-       //instancio vector
+       //se instancia un vector
        Vector vec = new Vector();
        int i=0;
-       //while para recuperar datos de la consulta
+       //se sacan datos de la consulta
        while (rs.next()){
            i++;
        String nombre = rs.getString("nombre");
-       String cod_carrera = rs.getString("Cod_carrera");
-       String descripcion = rs.getString("descripcion");
-       //se instancia carrera
-       Carrera carrera=new Carrera();
-       //se setean sus variables internas
-       carrera.setCod_carrera(Integer.parseInt(cod_carrera));
-       carrera.setNombre(nombre);
-       carrera.setDescripcion(descripcion);
+       String legajoprofesor = rs.getString("legajoProfesor");
+       String apellido = rs.getString("apellido");
+           Profesor profe = new Profesor ();
+       profe.setLegajoProfesor(Integer.parseInt(legajoprofesor));
+       profe.setNombre(nombre);
+       profe.setApellido(apellido);
            
         System.out.println("carrera nº"+i+": "+nombre);
-       //se agregan al vector
-        vec.add(carrera);
+        //se agrega al vector
+       vec.add(profe);
        }
-       //se retorna el vector ya cargado con carreras
+       //se retorna el vector
        return vec;
        
     }
     
     
+
 }
