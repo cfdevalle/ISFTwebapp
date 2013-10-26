@@ -67,5 +67,15 @@
 	<servlet-name>ControladorInscripcionFinales</servlet-name>
 	<url-pattern>*.sif</url-pattern>
 </servlet-mapping>
-<!-- FIN SERVLET SIF -->	
+<!-- FIN SERVLET SIF -->
+<!-- SERVLET EQUIVALENCIAS-->
+  <servlet>    
+	 <servlet-name>servletEquivalencias</servlet-name>  
+	 <servlet-class>org.isft.web.servlets.servletEquivalencias</servlet-class>
+ </servlet> 
+ <servlet-mapping>  
+ <servlet-name>servletEquivalencias</servlet-name>
+ <url-pattern>*.equivalencias</url-pattern> 
+	</servlet-mapping>
+<!--  FIN SERVLET EQUIVALENCIAS-->	
 </web-app>

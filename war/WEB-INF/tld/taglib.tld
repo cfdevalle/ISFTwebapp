@@ -253,4 +253,32 @@
  
 /* END SIF */
 
+<!-- COMBO CARRERAS EQUIVALENCIAS Y CARRERA -->
+<tag>
+     <name>ComboCarrera</name>
+     <tagclass>org.isft.web.tags.ComboCarrera</tagclass>
+</tag>    
+<tag>
+     <name>ComboMateriaEquivalencias</name>
+     <tagclass>org.isft.web.tags.ComboMateriasEquivalencias</tagclass>
+     <attribute>
+      <name>cod_carrera</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>String</type>
+    </attribute>     
+   </tag>
+<!--*TagGrillaEquivalencias-->
+<tag>
+    <name>GrillaEquivalencias</name>
+    <tag-class>org.isft.web.tags.TagGrillaEquivalencias</tag-class>
+    <body-content>empty</body-content>
+    <description>Tag with Parameter</description>
+    <attribute>
+      <name>cod_carrera</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+</tag>
+
 </taglib>
