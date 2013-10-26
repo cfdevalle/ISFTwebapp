@@ -11,7 +11,7 @@ import java.sql.Date;
  * @author st
  */
 public class Nota_examen {
-    private Long fecha_examen;
+    private FechaFinal fecha_examen;
     private int nota_final;
     private boolean asistencia;
     private Date fecha_inscripcion;
@@ -23,18 +23,20 @@ public class Nota_examen {
     
   /*  private Horario horario;*/
     private Alumnos alumnos;
+    
+    private Materia materia;
 
     /**
      * @return the fecha_examen
      */
-    public Long getFecha_examen() {
+    public FechaFinal getFecha_examen() {
         return fecha_examen;
     }
 
     /**
      * @param fecha_examen the fecha_examen to set
      */
-    public void setFecha_examen(Long fecha_examen) {
+    public void setFecha_examen(FechaFinal fecha_examen) {
         this.fecha_examen = fecha_examen;
     }
 
@@ -176,5 +178,19 @@ public class Nota_examen {
      */
     public void setAlumnos(Alumnos alumnos) {
         this.alumnos = alumnos;
+    }
+
+    /**
+     * @return the materia
+     */
+    public Materia getMateria() {
+        return materia;
+    }
+
+    /**
+     * @param materia the materia to set
+     */
+    public void setMateria(Materia materia) {
+        this.materia = materia;
     }
 }

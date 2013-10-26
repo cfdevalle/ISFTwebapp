@@ -110,7 +110,13 @@
     <tag-class>org.isft.web.tags.TagGrillaConsultaAcademica</tag-class>
     <attribute>
       <name>legajo</name>
-      <required>false</required>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>int</type>
+    </attribute>
+    <attribute>
+      <name>carrera</name>
+      <required>true</required>
       <rtexprvalue>true</rtexprvalue>
       <type>int</type>
     </attribute>
