@@ -253,11 +253,31 @@
  
 /* END SIF */
 
-<!-- COMBO CARRERAS EQUIVALENCIAS Y CARRERA -->
+<!-- END TAGS MODULO SIM 
+ COMBO CARRERAS -->
 <tag>
      <name>ComboCarrera</name>
      <tagclass>org.isft.web.tags.ComboCarrera</tagclass>
-</tag>    
+      <attribute>
+      <name>cod_carrera</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>String</type>
+    </attribute>
+     
+   </tag>
+<tag>
+     <name>ComboCarreraEquivalencia</name>
+     <tagclass>org.isft.web.tags.ComboCarreraEquivalencia</tagclass>
+      <attribute>
+      <name>cod_carrera</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>String</type>
+    </attribute>
+     
+   </tag>
+<!-- COMBO Materias -->
 <tag>
      <name>ComboMateriaEquivalencias</name>
      <tagclass>org.isft.web.tags.ComboMateriasEquivalencias</tagclass>
