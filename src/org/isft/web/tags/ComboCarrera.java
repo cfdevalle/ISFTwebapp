@@ -21,10 +21,11 @@ import org.isft.logic.collection.CollectionCarrera;
  * @author Ariel
  */
 public class ComboCarrera extends TagCombo{
-private String cod_carrera="";
+
+    @Override
     
     public int doStartTag() throws JspException {
-         System.out.println("entro al tag CARRERA CODIG CARRERA ES  "+ cod_carrera);
+         System.out.println("entro al tag ");
          HashMap hm = new HashMap();
                     hm.put("campos", "*");
                     hm.put("tablas", "carrera");
@@ -42,12 +43,9 @@ private String cod_carrera="";
         mensaje=mensaje+"<option value='0'>Seleccionar<option>" ;           
         for (int i = 0;i<car.size();i++){
                          Carrera carrera=(Carrera)car.get(i);
-                          Integer aux=carrera.getCod_carrera();
-                          String codCar= aux.toString();
-                         if (!cod_carrera.equals(codCar)){
                          
-             mensaje=mensaje+"<OPTION VALUE='"+carrera.getCod_carrera()+"'>"+carrera.getCod_carrera()+"-"+carrera.getNombre()+"</OPTION>";
-                         } }
+             mensaje=mensaje+"<OPTION VALUE='"+carrera.getCod_carrera()+"'>"+carrera.getCod_carrera()+ "-" +carrera.getNombre()+"</OPTION>";
+                               }
         try {
             pageContext.getOut().print(mensaje);
         } catch (IOException ex) {
@@ -68,15 +66,5 @@ private String cod_carrera="";
         
     }
 
-    
-
-
-
-    /**
-     * @param cod_carrera the cod_carrera to set
-     */
-    public void setCod_carrera(String cod_carrera) {
-        this.cod_carrera = cod_carrera;
-    }
-    
 }
+   

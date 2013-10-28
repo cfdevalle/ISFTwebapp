@@ -39,8 +39,8 @@
            var cod_carrera = document.getElementById('carrera').value;
            //console.log("este es mi codigo materia",+codigo+" codigo materia= "+cod_carrera);
         
-              $('#altas').load("adm.login?codPage=6023&carrera="+cod_carrera+"&cod_materia="+codigo);
-              
+              var url = "adm.login?codPage=6023&carrera="+cod_carrera+"&cod_materia="+codigo;
+              window.location.href = url;
              
      
        }
@@ -77,24 +77,17 @@
 </head>
 
 <body onload="carga()">
-       <div class="row-fluid">
-         
-        <div class="span8">
-             <div class="well">
-                    <h4> Asignacion de Equivalencias </h4>
-                    <hr>
-                    Carrera : <tag:ComboCarrera/> 
-                   
-                    <div id="display"></div>
-             </div>
-               
+    <div class="row-fluid">
+        <div class="span12">
+        <div class="well">
+            <h4> Asignacion de Equivalencias </h4>
+            <hr>
+            Carrera : <tag:ComboCarrera/> 
+            
+            <hr>
+            <div id="display"></div>
         </div>
-        <div class="span4">
-            <div class="well">
-                    <div id="altas"></div>
-            </div>
         </div>
-       
-     </div>      
+    </div>
 </body>
 </html>

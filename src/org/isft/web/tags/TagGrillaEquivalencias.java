@@ -30,7 +30,7 @@ public class TagGrillaEquivalencias extends TagGrilla {
     public int doStartTag() throws JspException {
             super.doStartTag();
             try {
-               // System.out.println("ENTRO AL TAG GRILLA codigo carrera es "+cod_carrera);
+              //  System.out.println("ENTRO AL TAG GRILLA");
                 String tabla;
                 tabla="<table class='table table-condensed'><tr><td><h4>Codigo</h4></td>";
                 tabla+="<td><h4>Nombre</h4></td>";
