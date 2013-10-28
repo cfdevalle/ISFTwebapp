@@ -20,11 +20,11 @@ import org.isft.logic.collection.CollectionCarrera;
  *
  * @author Ariel
  */
-public class ComboCarrera extends TagCombo{
+public class ComboCarreraEquivalencia extends TagCombo{
 private String cod_carrera="";
     
     public int doStartTag() throws JspException {
-         System.out.println("entro al tag CARRERA CODIG CARRERA ES  "+ cod_carrera);
+        // System.out.println("entro al tag CARRERA CODIG CARRERA ES  "+ cod_carrera);
          HashMap hm = new HashMap();
                     hm.put("campos", "*");
                     hm.put("tablas", "carrera");
@@ -38,7 +38,7 @@ private String cod_carrera="";
             Logger.getLogger(ComboCarrera.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        mensaje="<SELECT NAME=\"carrera\" id=\"carrera\" SIZE=1 onchange=\" carga();\">";
+        mensaje="<SELECT NAME=\"carrera\" id=\"carreraE\" SIZE=1 onchange=\" cargaE();\">";
         mensaje=mensaje+"<option value='0'>Seleccionar<option>" ;           
         for (int i = 0;i<car.size();i++){
                          Carrera carrera=(Carrera)car.get(i);

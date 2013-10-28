@@ -15,14 +15,14 @@
    %>
  <script>
        
-        function carga(){
-           var codigo = document.getElementById('carrera').value;
+        function cargaE(){
+           var codigo = document.getElementById('carreraE').value;
            $('#displayIngreso').load("adm.login?codPage=6024&carrera="+codigo);
           }
         function alta(){
             var codigo_carrera_o = <%=cod_carrera%>;
             var codigo_materia_o = <%=cod_materia%>;
-            var codigo_carrera_d = document.getElementById('carrera').value;
+            var codigo_carrera_d = document.getElementById('carreraE').value;
             var codigo_materia_d = document.getElementById('materia').value;
             var accion_a="1";
             //console.log("mis datos cod carrera o: "+codigo_carrera_o+"codigo materia o: "+codigo_materia_o+" materias destino cod carrera desti"+codigo_carrera_d+"codigo materia dest: "+codigo_materia_d);
@@ -41,23 +41,23 @@
            success:function(response){
               
                Notifier.success("ingreso satisfactorio");
-               var url = "adm.login?codPage=6021"
-               window.location.href = url;
+               $('#display').load("adm.login?codPage=6022&carrera="+<%=cod_carrera%>);
                //console.log("fue enviado se cargo correctamente");
            },
            error:function(response){
-                Notifier.error(response.statusText);
+                Notifier.error("Equivalencia ya asignada");
               // console.log("error de envio");
            }
         });
-        }    
+        }
+        function cerrar(){
+          $('#altas').load("adm.login?codPage=6025");
+        }
  </script>  
- <div class="row-fluid">
-     <div class="span12">
-         <div class="well">
-      <div>
-  <hr>
-   <h4>Asignacion de equivalencia Final</h4>
+ 
+    <h4>Alta de Equivalencia</h4>
+    <hr>
+  
     <br>
     
     
@@ -69,18 +69,15 @@
    <hr>
    <h4>Equivalencia con :</h4>
    
-   <br>
-   
-   Carrera destino : <tag:ComboCarrera />
-   
   
+   
+   Carrera destino:<tag:ComboCarreraEquivalencia cod_carrera="<%=cod_carrera%>" />
+   
+    <br>
    <div id="displayIngreso"></div>
    
    <br>
-   <hr>
+  
    <input name="update" class="btn-primary" value="PROCESAR EQUIVALENCIA" type="button" onclick="alta();">
- 
-      </div>
- </div>
-     </div>
- 
+   <input name="update" class="btn-primary" value="Cerrar" type="button" onclick="cerrar();">
+  <hr>
