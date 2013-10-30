@@ -128,16 +128,16 @@
     <name>GrillaMensaje</name>
     <tag-class>org.isft.web.tags.TagGrillaMensajes</tag-class>
     <attribute>
-      <name>mensaje</name>
+      <name>legajo</name>
       <required>false</required>
       <rtexprvalue>true</rtexprvalue>
-      <type>String</type>
+      <type>int</type>
     </attribute>
     <attribute>
-      <name>alumno</name>
+      <name>carrera</name>
       <required>false</required>
       <rtexprvalue>true</rtexprvalue>
-      <type>String</type>
+      <type>int</type>
     </attribute>
   </tag>
     

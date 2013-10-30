@@ -1,4 +1,4 @@
-
+<%@ taglib uri="/WEB-INF/tld/taglib.tld" prefix="tag" %>
         <title>Consulta de Situaci&oacute;n acad&eacute;mica</title>
         <script type="text/javascript">
         function eliminarMensaje(id, elm){
@@ -78,6 +78,7 @@
                         </tbody>
                     </table>
                     <p><input type="button" class="btn btn-primary" value="Eliminar"></p>
+                    <tag:GrillaMensaje carrera="1"/>
                 </div>
             </div>
             <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

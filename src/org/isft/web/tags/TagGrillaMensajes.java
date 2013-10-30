@@ -18,27 +18,22 @@ import org.isft.domain.Mensaje;
  */
 
 public class TagGrillaMensajes extends TagGrilla {
-    String mensaje, alumno;
-
-    public void setMensaje(String mensaje){
-        this.mensaje = mensaje;
-    }
-
-    public void setAlumno(String alumno){
-        this.alumno = alumno;
-    }
+    private int legajo;
+    private int carrera;
     public int doStartTag() throws JspException {
             super.doStartTag();
             try {
                 String tabla;
                 tabla = "<thead>";
                 tabla += "<tr><th>Codigo</th>";
-                tabla += "<th>Nombre</th></tr>";
+                tabla += "<th>Estado</th>";
+                tabla += "<th>Fecha</th>";
+                tabla += "<th>Titulo</th>";
+                tabla += "<th></th></tr>";
                 tabla += "</thead>";
                 HashMap hm=new HashMap();
-                System.out.println(getMensaje()+' '+getAlumno());
-                hm.put("mensaje", getMensaje());
-                hm.put("alumno", getAlumno());
+                hm.put("legajo", getLegajo());
+                hm.put("carrera", getCarrera());
                 hm.put("campos", "*");
 
                 CollectionMensajes cm=new CollectionMensajes();
@@ -47,8 +42,21 @@ public class TagGrillaMensajes extends TagGrilla {
                 
                 for(int i=0;i<mensajes.size();i++){
                     Mensaje m = (Mensaje)mensajes.get(i);
-                    tabla+="<tr><td>"+m.getId_mensaje()+"</td>";
+                    String clase = "";
+                    String estado = "";
+                    if(m.isRespondido()){
+                        estado = "Respondido";
+                        clase = "success";
+                    }else{
+                        estado = "Esperando respuesta";
+                        clase = "error";
+                    }
+                    
+                    tabla+="<tr class="+clase+"><td>"+m.getId_mensaje()+"</td>";
+                    tabla+="<td>"+estado+"</td>";
+                    tabla+="<td>"+m.getFecha()+"</td>";
                     tabla+="<td>"+m.getTitulo()+"</td>";
+                    tabla+="<td><a href=\"javascript:verPeticion("+m.getId_mensaje()+")\">Ver</a></td></tr>";
                 }
 
                 pageContext.getOut().print(tabla);
@@ -63,11 +71,32 @@ public class TagGrillaMensajes extends TagGrilla {
         super.doEndTag();
         return EVAL_PAGE;
     }
-    public String getAlumno(){
-        return this.alumno;
+
+    /**
+     * @return the legajo
+     */
+    public int getLegajo() {
+        return legajo;
     }
 
-    public String getMensaje(){
-        return this.mensaje;
+    /**
+     * @param legajo the legajo to set
+     */
+    public void setLegajo(int legajo) {
+        this.legajo = legajo;
+    }
+
+    /**
+     * @return the carrera
+     */
+    public int getCarrera() {
+        return carrera;
+    }
+
+    /**
+     * @param carrera the carrera to set
+     */
+    public void setCarrera(int carrera) {
+        this.carrera = carrera;
     }
 }

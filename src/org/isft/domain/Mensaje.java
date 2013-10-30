@@ -4,6 +4,8 @@
  */
 package org.isft.domain;
 
+import java.sql.Date;
+
 /**
  *
  * @author st
@@ -12,7 +14,7 @@ public class Mensaje {
     private int id_mensaje;
     private String titulo;
     private String mensaje;
-    private Long fecha;
+    private Date fecha;
     private boolean respondido;
     
     private Alumnos alumnos;
@@ -62,14 +64,14 @@ public class Mensaje {
     /**
      * @return the fecha
      */
-    public Long getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
     /**
      * @param fecha the fecha to set
      */
-    public void setFecha(Long fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
