@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sahomcil" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c31d5c04-e234-4a79-bae1-1220d5112f96">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sahomcil"  pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c31d5c04-e234-4a79-bae1-1220d5112f96">
 	<property name="ireport.zoom" value="0.75"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<template><![CDATA["C:\\Users\\Ariel\\Desktop\\sahomcilstyle.jrtx"]]></template>
 	<style name="Crosstab Data Text" hAlign="Center"/>
 	<parameter name="Cod_carrera" class="java.lang.String"/>
-	<parameter name="Nombre carrera" class="java.lang.String"/>
+	<parameter name="Nombre_carrera" class="java.lang.String"/>
 	<parameter name="Cod_curso" class="java.lang.String"/>
-	<parameter name="nombre curso" class="java.lang.String"/>
+	<parameter name="nombre_curso" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT concat(dia.dia, '-', dia.descripcion) as descripcion, hora.hora_desde, materia.nombre
 FROM dia
 LEFT JOIN horario ON dia.dia = horario.dia
 RIGHT JOIN materia ON horario.cod_materia = materia.cod_materia
-AND horario.cod_carrera =  10
-AND horario.cod_curso =  11
+AND horario.cod_carrera = $P{Cod_carrera}
+AND horario.cod_curso =  $P{Cod_curso}
 RIGHT JOIN hora ON horario.hora_desde = hora.hora_desde
 ORDER BY dia.Dia, hora.hora_desde]]>
 	</queryString>
@@ -57,14 +57,14 @@ ORDER BY dia.Dia, hora.hora_desde]]>
 				<textElement>
 					<font fontName="Arial" size="12" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Nombre carrera}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Nombre_carrera}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="8d44fa48-d24d-41db-b33d-32ad2f73f707" x="583" y="30" width="100" height="20"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{nombre curso}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{nombre_curso}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>

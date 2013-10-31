@@ -41,7 +41,7 @@
         <rtexprvalue>true</rtexprvalue>
         
     </attribute>   
-     
+      
      <bodycontent>empty</bodycontent>
      <info>Verifica si en el dia y la hora existe materia cargada</info>
    </tag>

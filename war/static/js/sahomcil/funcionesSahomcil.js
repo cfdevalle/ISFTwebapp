@@ -22,6 +22,14 @@ function curso(){
             $("#tablahorario").load("modulo.go?codPage=5005",{curso:curso , carrera:carrera});
             
             }
+              function horariosincarga(){
+        //recupera valor del curso seleccionado   
+        var curso=$("#curso").val(); 
+              
+              //carga en el div principal la tabla y le paso el parametro curso mas un tiempo de recarga 
+              $("#principal").load("modulo.go?codPage=5004",{curso:curso},5000);
+                
+            }
 function eliminarMateria(dia, hora,carrera,curso,materia){
         $("#sacarMateria").load("modulo.go?codPage=5010",{dia:dia,hora:hora,curso:curso,carrera:carrera,materia:materia});
     }

@@ -8,9 +8,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!--pagina de prueba de ambos caminos (sin importancia relativa)-->
+            
         <script>
-            <!--pagina de prueba de ambos caminos (sin importancia relativa)-->
             function despachador(){
+           
              var seleccion=$("#despachador").val();  
           
              if (seleccion=="false")
