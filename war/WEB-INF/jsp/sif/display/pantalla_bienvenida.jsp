@@ -18,7 +18,7 @@
              
                     <table border="0" align="center">
                         <tr>
-                            <td rowspan="5"><img src="static/images/sim/sistema_de_inscripcion_a_materias.png" width="269" height="168"></td>
+                            <td rowspan="5"><img src="static/images/sif/examenes.jpg" width="269" height="168"></td>
                         </tr>
                         <tr>
                             <td><h4>Consultar Fechas</h4></td>
