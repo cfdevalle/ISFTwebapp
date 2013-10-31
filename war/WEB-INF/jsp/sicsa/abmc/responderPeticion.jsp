@@ -66,7 +66,7 @@
                                     </li>
                                 <%}%>
                                 <textarea class="txtRespuesta" name="txtRespuesta" onfocus="if(this.value=='Respuesta')this.value=''">Respuesta</textarea>
-                                <input type="hidden" name="respondido" value="0">
+                                <input type="hidden" name="respondido" value="1">
                                 <input type="hidden" name="accion" value="responder">
                                 <input type="hidden" name="id_mensaje" value="<%=id_mensaje%>">
                                 <input type="submit" class="btn btn-primary" value="Responder" name="submit">

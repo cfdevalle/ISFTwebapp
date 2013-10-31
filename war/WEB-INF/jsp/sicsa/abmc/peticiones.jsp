@@ -5,12 +5,13 @@
             var c = confirm("Esta seguro que desea eliminar el mensaje "+id+"?");
             if(c){
                 var tr = elm.parentNode.parentNode;
+                $.get('jsp/sicsa/abmc/ajaxMensajes.jsp?id_mensaje='+id+'&accion=eliminar');
                 tr.remove();
                 return false;
             }
         }
-        function verPeticion(){
-            $('.modal-body').load("jsp/sicsa/display/verPeticion.php");
+        function verPeticion(id_mensaje){
+            $('.modal-body').load("jsp/sicsa/abmc/responderPeticion.jsp?id_mensaje="+id_mensaje);
             $('#myModal').modal('show');
         }
         </script>
@@ -24,61 +25,14 @@
             </div>-->
             <div class="row-fluid">
                 <div class="span10 offset1">
-                    <h1> Mensajes <a style="float:right;" href="javascript:" class="btn btn-primary" >Ver mensajes sin responder</a></h1>
+                    <h1> Mensajes</h1>
                     <p>
                         <span>Carrera: 
-                            <select>
-                                <option value="">Sistemas</option>
-                                <option value="">Turismo</option>
-                                <option value="">Seguridad e higiene</option>
-                            </select>
-                            <input type="button" value="filtrar">
+                            <tag:ComboMateria nombreCombo="comboMaterias" />
+                            <input class="btn btn-primary" type="button" value="filtrar">
                         </span>
                     </p>
-                    <table class="table table-hover table-bordered table-condensed">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>ID)</th>
-                                <th>Alumno</th>
-                                <th>Carrera</th>
-                                <th>Estado</th>
-                                <th>Fecha</th>
-                                <th>Titulo</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="success">
-                                <td><input type="checkbox"></td>
-                                <td>210</td>
-                                <td>Garcia Nicolas</td>
-                                <td>Sistemas</td>
-                                <td>Respondida</td>
-                                <td>14/06/2013</td>
-                                <td>Mal ingreso de nota</td>
-                                <td>
-                                    <a href="javascript:verPeticion()">Contestar</a>
-                                    <a href="javascript:" onclick="eliminarMensaje(210, this);">Eliminar</a>
-                                </td>
-                            </tr>
-                            <tr class="error">
-                                <td><input type="checkbox"></td>
-                                <td>210</td>
-                                <td>Garcia Nicolas</td>
-                                <td>Sistemas</td>
-                                <td>Sin respuesta</td>
-                                <td>14/06/2013</td>
-                                <td>Mal ingreso de nota</td>
-                                <td>
-                                    <a href="javascript:verPeticion()">Contestar</a>
-                                    <a href="javascript:" onclick="eliminarMensaje(210, this);">Eliminar</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p><input type="button" class="btn btn-primary" value="Eliminar"></p>
-                    <tag:GrillaMensaje carrera="1"/>
+                    <tag:GrillaMensaje carrera="1" isAdmin="1"/>
                 </div>
             </div>
             <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
