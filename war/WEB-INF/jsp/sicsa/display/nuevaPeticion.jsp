@@ -18,13 +18,12 @@
                     if(titulo != "" && mensaje != ""){
                         $.post('jsp/sicsa/abmc/ajaxMensajes.jsp', $('#nuevoMensaje').serialize())
                         $('#myModal').modal('hide');
-                        goPage(4001);
+                        goPage(4002);
                     }
                     return false;
                 }); 
             });
         </script>
-        <title>Nuevao mensaje</title>
     </head>
     <body>
             <div>
@@ -38,7 +37,7 @@
                             </li>
                             <li>
                                 <label>Mensaje</label>
-                                <textarea rows="6" name="mensaje" class="mensaje"></textarea>
+                                <textarea maxlength="150" rows="6" name="mensaje" class="mensaje"></textarea>
                             </li>
                             <input type="submit" class="btn btn-primary" value="Enviar mensaje" name="submit">
                             <input type="hidden" name="accion" value="nuevo" />
