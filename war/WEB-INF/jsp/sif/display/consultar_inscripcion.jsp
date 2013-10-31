@@ -54,7 +54,7 @@
                     <br>
                     <table align="center">
                         <tr>
-                            <td width="200"><input type="button" onclick="ingresarEmail()" class="btn btn-default" value="enviarEmail"></td>
+                            <td width="200"><input type="button" onclick="ingresarEmail()" class="btn btn-default" value="Enviar Email"></td>
                             <td width="200"><input type="button" onclick="desinscribir()" class="btn btn-default" value="Desinscribirse"></td>
                             <td width="200"><a class="btn btn-default" href="generar.rpt?cod=2000&param=p_cod_carrera=1@p_legajo=6030&file=ReporteFinalesInscriptos">Descargar</a>
                         </tr>
