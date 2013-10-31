@@ -70,7 +70,7 @@ public class TagFechaFinal extends TagGrilla{
     
     
     private String generarAnio(Vector<Examenes> exa, int anio, int cant_materias){
-        String tabla="<tr><td colspan=\"3\"><h4>A&ntildeo "+anio+"</h4></td></tr>";
+        String tabla="<tr><td colspan=\"3\"><h4>A&ntilde;o "+anio+"</h4></td></tr>";
         for(int i=1;i<cant_materias;i=i+2){
             int j=i-1;
             tabla+=generarMateria(exa.elementAt(j),exa.elementAt(i),i,anio);

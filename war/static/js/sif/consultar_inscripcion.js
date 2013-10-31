@@ -33,8 +33,6 @@ function realizar_desinscripcion(){
 		param:seleccion,
 		accion:'B'
 		}		
-	
-	
 	$.ajax({
 	  type: 'POST',
 	  url: 'desinscribir.sif',
@@ -45,6 +43,35 @@ function realizar_desinscripcion(){
                 }else{
                     Notifier.success(response);
                     setTimeout(function(){goPage(2002)},1000);
+                }
+	  },
+	  error: function(response){
+	  	Notifier.error(response);	
+	  }
+	});
+}
+
+function ingresarEmail(){
+    $('#enviar_email').modal('show');
+    $('#email').val('');
+}
+
+function enviarEmail(){
+    var seleccion= $('input[name=email]').val();
+    seleccion+="-Estado de Inscripcion";
+    seleccion+="-Se a enviado uno o mas archivos adjunto con el estado actual de su inscripcion a finales";
+    var parametros={
+		param:seleccion,
+		}
+    $.ajax({
+	  type: 'POST',
+	  url: 'enviar.email',
+	  data: parametros,
+	  success: function(response){
+                if(response==''){
+                    Notifier.warning("Email no valido");
+                }else{
+                    Notifier.success(response);
                 }
 	  },
 	  error: function(response){
