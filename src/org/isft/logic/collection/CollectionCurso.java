@@ -16,21 +16,19 @@ import org.isft.logic.AccessManager;
  */
 public class CollectionCurso implements org.isft.logic.AccessInterface{
 
-    public Vector select(HashMap parameters) throws Exception {
+    public Vector select(HashMap parameters){
         //recupero parametros del hashMap
-        String carrera=(String)parameters.get("carrera");
-        
+        String carrera= (String)parameters.get("carrera");
+          Vector vec = new Vector();
        ResultSet rs =null;
        //instancio AccessManager para el uso de consultas
        AccessManager am = new AccessManager();
        try{
            //se realiza la consulta usando carrera como condicion
        rs = am.execute("Select * from curso where Curso.cod_carrera='"+carrera+"';");
-       }catch (Exception e){
-           System.out.println("error"+e.getMessage());
-       }
+      
        //instancio un vector
-       Vector vec = new Vector();
+     
        
        // se sacan los datos de la consulta
        while (rs.next()){
@@ -38,7 +36,7 @@ public class CollectionCurso implements org.isft.logic.AccessInterface{
        String cod_curso=rs.getString("cod_curso");
        String turno=rs.getString("turno");
        String Cod_carrera=rs.getString("cod_carrera");
-       
+        
        //se instancia curso
        Curso curso=new Curso();
        
@@ -48,6 +46,9 @@ public class CollectionCurso implements org.isft.logic.AccessInterface{
        curso.setDescripcion(descripcion);
        //se agrega al vector
        vec.add(curso);
+       }
+       }catch (Exception e){
+           System.out.println("error"+e.getMessage());
        }
        //se retorna el vector
        return vec;

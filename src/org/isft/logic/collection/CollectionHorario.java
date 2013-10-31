@@ -44,12 +44,31 @@ public class CollectionHorario extends  org.isft.logic.AccessManager{
     }
     public Vector gethora_desde() throws SQLException{
        ResultSet rs =null;
+       //ResultSet turn=null;
        AccessManager am = new AccessManager();
         System.out.println("entro en gethora_desde");
+       //String turno="";
+      /* if (!(curso==null))
        try{
-       rs = am.execute("Select distinct hora_desde from hora;");
-       }catch (Exception e){
+       turn= am.execute("select turno from curso where curso='"+curso+"';");
+       while (turn.next()){
+       turno=turn.getString("turno");
+       }
+       
+       if (turno.charAt(1)=='n'){
+                System.out.println("entro en turno n");
+       rs = am.execute("Select distinct hora_desde from hora where hora_desde>11:00:00;");
+        }   else {
+           System.out.println("entro en turno m");
+           rs=am.execute("Select distinct hora_desde from hora where hora_desde<18:20:00;");
+       }}catch (Exception e){
            System.out.println("error"+e.getMessage());
+       }
+       else 
+        */    try {
+           rs=am.execute("Select distinct hora_desde from hora;");
+       } catch (Exception ex) {
+           Logger.getLogger(CollectionHorario.class.getName()).log(Level.SEVERE, null, ex);
        }
        Vector vec = new Vector();
        

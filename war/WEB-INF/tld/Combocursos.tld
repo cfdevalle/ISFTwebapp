@@ -19,7 +19,14 @@
         <rtexprvalue>true</rtexprvalue>
         
     </attribute>
-     <bodycontent>empty</bodycontent>
+    <attribute>
+        <name>carga</name>
+        <type>boolean</type>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+        
+    </attribute> 
+    <bodycontent>empty</bodycontent>
      <info>combo de los cursos segun la carrera</info>
    </tag>
 </taglib>
