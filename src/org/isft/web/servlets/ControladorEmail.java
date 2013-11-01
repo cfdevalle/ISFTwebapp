@@ -39,6 +39,7 @@ public class ControladorEmail extends HttpServlet {
         String[] archivo=new String[1];
         String fileName=request.getParameter("file");
         
+        
         //EL RESTO
         archivo[0] = "../webapps/ISFTWebapp/jsp/reports/sif/"+fileName+".pdf";
         response.setContentType("html/text");
@@ -59,7 +60,6 @@ public class ControladorEmail extends HttpServlet {
 	  	String path="",  error="";
   		String codPage=request.getParameter("cod"); //codPage, vinculado con pathReportes.properties
   		String fileName=request.getParameter("file"); //nombre del archivo que se exportara
-  		String param=request.getParameter("param"); //parametros de filtro para enviar al reporte
       ResourceBundle resbound=ResourceBundle.getBundle("web.pathReportes");
       try{
           path=resbound.getString(codPage);
@@ -71,17 +71,11 @@ public class ControladorEmail extends HttpServlet {
       try{
           DataBase db=new DataBase(new HashMap());
           Connection cn=db.getConnection();
-
-          if(param!=null){
-          	System.out.println("Parametros originales: " + param);
-          	String[] s_param=param.split("-");
-      			for(int i=0; i<s_param.length; i++){
-          		System.out.println("Parametros: " + s_param[i]);
-          		String[] ss_param=s_param[i].split("=");
-          		parameters.put(ss_param[0], ss_param[1]);
-          	}
-          }
-
+          Alumnos alumno_sesion=(Alumnos) request.getSession(false).getAttribute("alumno");
+          String legajo=Integer.toString(alumno_sesion.getLegajo());
+          String carrera=Integer.toString(alumno_sesion.getCarrera().getCod_carrera());
+          parameters.put(carrera, legajo);
+          
           //ServletOutputStream out;
           JasperReport jasperReport = (JasperReport)JRLoader.loadObject (path);
 

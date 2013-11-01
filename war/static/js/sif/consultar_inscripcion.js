@@ -64,7 +64,6 @@ function enviarEmail(){
 		file:'ReporteSIF',
                 cod:2000,        
                 datos:seleccion,
-                param:'p_cod_carrera=1@p_legajo=6030',
 		}
     $.ajax({
 	  type: 'POST',
@@ -72,7 +71,7 @@ function enviarEmail(){
 	  data: parametros,
 	  success: function(response){
                 if(response==''){
-                    Notifier.warning("Email no valido");
+                    Notifier.warning("Error al intentar enviar el email.");
                 }else{
                     Notifier.success(response);
                 }
