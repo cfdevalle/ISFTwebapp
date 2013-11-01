@@ -4,6 +4,8 @@
     Author     : Ariel
 --%>
 
+<%@page import="org.isft.logic.helper.sim.recuperanombre"%>
+<%@page import="java.util.HashMap"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%
@@ -13,6 +15,20 @@ String carrera= request.getParameter("carrera");
 String dia= request.getParameter("dia");
 String hora= request.getParameter("hora");
 String curso=request.getParameter("curso");
+recuperanombre rn = new recuperanombre();
+ HashMap hm = new HashMap ();
+ String nomdia;
+ String nomcurso;
+  hm.put("cod",curso);
+                hm.put("campo","descripcion");
+                hm.put("where","cod_curso");
+                hm.put ("tabla","curso");
+                nomcurso=rn.getnombre(hm);
+                hm.put("cod",dia);
+                hm.put("campo","descripcion");
+                hm.put("where","dia");
+                hm.put ("tabla","dia");
+                nomdia=rn.getnombre(hm);
 
 
 %>
@@ -25,10 +41,10 @@ String curso=request.getParameter("curso");
         </div>
             <!--muestra los datos que se van a eliminar-->
         <div class="modal-body" id="sacarMateria">
-            <p class="text-warning"><%=materia%></p><br/>
-            <p class="text-warning"><%=dia%></p><br/>
-            <p class="text-warning"><%=hora%></p><br/>
-            <p class="text-warning"><%=curso%></p>
+            <p class="text-warning">Materia: <%=materia%></p><br/>
+            <p class="text-warning">Dia: <%=nomdia%></p><br/>
+            <p class="text-warning">Hora: <%=hora%></p><br/>
+            <p class="text-warning">Curso: <%=nomcurso%></p>
 <div class="modal-footer" id="elimfooter">
 <button class="btn" data-dismiss="modal" aria-hidden="true">cancelar</button>
 <!--apretando el boton finalmente se llama a el js que cara en el div ejecutor la pagina que elimina esos datos y arroja un mensaje-->

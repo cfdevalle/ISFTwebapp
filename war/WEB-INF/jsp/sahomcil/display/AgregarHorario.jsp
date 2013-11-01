@@ -1,8 +1,10 @@
 <%@page import="org.isft.logic.updater.AbmHorario"%>
 <%@page import="org.isft.logic.collection.CollectionMaterias"%>
+<%@page import="org.isft.logic.AccessManager"%>
 <%@page import="java.util.Vector"%>
 <%@page import="org.isft.logic.collection.CollectionHorario"%>
 <%@page import="java.util.HashMap"%>
+<%@page import="org.isft.logic.helper.sim.recuperanombre"%>
 <%@taglib uri="/WEB-INF/tld/comboMaterias.tld" prefix="materias" %>
 <%@taglib uri="/WEB-INF/tld/ComboProfesores.tld" prefix="profes"%>
 <%
@@ -27,11 +29,34 @@
         <div id="myModal" class="modal hide fade lightbox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
 
             <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button> Para llenar el campo
+            <button type="button" class="close" data-dismiss="modal">×</button> 
             <%  
                 //muestra datos seleccionados anteriormente
-                out.println("<p>Carrera: "+carrera+" curso: "+curso+" dia: "+dia+"hora: "+hora+"</p>");
-               %>    
+                recuperanombre rn = new recuperanombre();
+                String nomcar="";
+                String nomcurso="";
+                String nomdia="";
+                HashMap hm = new HashMap ();
+                hm.put("cod",carrera);
+                hm.put("campo","nombre");
+                hm.put("where","cod_carrera");
+                hm.put ("tabla","carrera");
+                nomcar=rn.getnombre(hm);
+
+                hm.put("cod",curso);
+                hm.put("campo","descripcion");
+                hm.put("where","cod_curso");
+                hm.put ("tabla","curso");
+                nomcurso=rn.getnombre(hm);
+
+                hm.put("cod",dia);
+                hm.put("campo","descripcion");
+                hm.put("where","dia");
+                hm.put ("tabla","dia");
+                nomdia=rn.getnombre(hm);
+                out.println("<p>Carrera: "+nomcar+" curso: "+nomcurso+" dia: "+nomdia+" hora: "+hora+"</p>");
+                    out.println("Para llenar el campo");
+            %>    
             <h3 id="myModalLabel">Seleccione la Materia</h3>
         
         </div>
