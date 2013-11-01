@@ -18,6 +18,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import net.sf.jasperreports.engine.JasperPrint;
  
 public class EnviarEmail {
  
@@ -60,17 +61,17 @@ public class EnviarEmail {
  
         // adds attachments
         if (attachFiles != null && attachFiles.length > 0) {
-            for (String filePath : attachFiles) {
-                MimeBodyPart attachPart = new MimeBodyPart();
- 
-                try {
-                    attachPart.attachFile(filePath);
-                } catch (IOException ex) {
-                    ex.printStackTrace();
+                for (String filePath : attachFiles) {
+                        MimeBodyPart attachPart = new MimeBodyPart();
+
+                        try {
+                                attachPart.attachFile(filePath);
+                        } catch (IOException ex) {
+                                ex.printStackTrace();
+                        }
+
+                        multipart.addBodyPart(attachPart);
                 }
- 
-                multipart.addBodyPart(attachPart);
-            }
         }
  
         // sets the multi-part as e-mail's content

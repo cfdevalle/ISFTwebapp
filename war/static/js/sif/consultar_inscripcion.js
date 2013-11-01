@@ -61,7 +61,10 @@ function enviarEmail(){
     seleccion+="-Estado de Inscripcion";
     seleccion+="-Se a enviado uno o mas archivos adjunto con el estado actual de su inscripcion a finales";
     var parametros={
-		param:seleccion,
+		file:'ReporteSIF',
+                cod:2000,        
+                datos:seleccion,
+                param:'p_cod_carrera=1@p_legajo=6030',
 		}
     $.ajax({
 	  type: 'POST',
