@@ -33,10 +33,13 @@ public final class DataBase {
 //    paramSQL.put("password", password_);
 	
     public DataBase(HashMap param){
-		ResourceBundle resbound = ResourceBundle.getBundle("web.conexionDb");
+		System.out.println("uno");
+		ResourceBundle resbound = ResourceBundle.getBundle("web.conectionDb");
+		System.out.println("dos");
 		origen_datos_ = resbound.getString("origen_datos");
         user_ = resbound.getString("user");
         password_ = resbound.getString("password");
+		System.out.println("tres");
 		try {
 			origen_datos_ = resbound.getString("origen_datos");
 			user_ = resbound.getString("user");
