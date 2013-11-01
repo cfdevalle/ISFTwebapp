@@ -21,6 +21,7 @@
                                     <ul class="dropdown-menu">
                             
                                             <li><a href="javascript:goPage(5001)">Gestion de Horarios</a></li>
+                                             <li><a href="javascript:goPage(4005)">Ver Mensajes</a></li>
                                           
                                             
                                           

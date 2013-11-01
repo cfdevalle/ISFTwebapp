@@ -9,7 +9,6 @@
 </style>
 
         <div id="modalDesinscribir" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            
             <div class="modal-header">
                 <h3 id="myModalLabel">Materias a desinscribir</h3>
             </div>
@@ -20,7 +19,18 @@
                 <input type="button" onclick="realizar_desinscripcion()" data-dismiss="modal" class="btn btn-primary" value="Aceptar">    
             </div>
         </div>
-        
+
+        <div id="enviar_email" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <h3 id="myModalLabel">Enviar Email</h3>
+            </div>
+            <p><b>Por favor ingrese una direccion de email para enviarle el estado de inscripcion</b></p>
+            <input type="text" name="email" id="email">
+            <div class="modal-footer">
+                <a class="btn" data-dismiss="modal" aria-hidden="true">cancelar</a>
+                <input type="button" onclick="enviarEmail()" data-dismiss="modal" class="btn btn-primary" value="Aceptar">    
+            </div>
+        </div>
         
             <div class="row-fluid">
             <div class="span12"> 
@@ -44,6 +54,7 @@
                     <br>
                     <table align="center">
                         <tr>
+                            <td width="200"><input type="button" onclick="ingresarEmail()" class="btn btn-default" value="Enviar Email"></td>
                             <td width="200"><input type="button" onclick="desinscribir()" class="btn btn-default" value="Desinscribirse"></td>
                             <td width="200"><a class="btn btn-default" href="generar.rpt?cod=2000&param=p_cod_carrera=1@p_legajo=6030&file=ReporteFinalesInscriptos">Descargar</a>
                         </tr>

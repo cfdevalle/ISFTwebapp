@@ -139,6 +139,12 @@
       <rtexprvalue>true</rtexprvalue>
       <type>int</type>
     </attribute>
+    <attribute>
+      <name>isAdmin</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>int</type>
+    </attribute>
   </tag>
     
    <!-- TAG GRILLA DE MENSAJES -->

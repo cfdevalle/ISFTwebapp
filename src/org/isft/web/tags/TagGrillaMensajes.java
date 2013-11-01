@@ -9,6 +9,8 @@ import java.util.Vector;
 import javax.servlet.jsp.JspException;
 import static javax.servlet.jsp.tagext.Tag.EVAL_PAGE;
 import static javax.servlet.jsp.tagext.Tag.SKIP_BODY;
+import org.isft.domain.Alumnos;
+import org.isft.domain.Carrera;
 import org.isft.logic.collection.CollectionMensajes;
 import org.isft.domain.Mensaje;
 
@@ -20,12 +22,18 @@ import org.isft.domain.Mensaje;
 public class TagGrillaMensajes extends TagGrilla {
     private int legajo;
     private int carrera;
+    private int isAdmin;
     public int doStartTag() throws JspException {
             super.doStartTag();
             try {
                 String tabla;
                 tabla = "<thead>";
-                tabla += "<tr><th>Codigo</th>";
+                tabla += "<tr>";
+                tabla += "<th>Codigo</th>";
+                if(isAdmin()){
+                    tabla += "<th>Alumno</th>";
+                    tabla += "<th>Carrera</th>";
+                }
                 tabla += "<th>Estado</th>";
                 tabla += "<th>Fecha</th>";
                 tabla += "<th>Titulo</th>";
@@ -52,11 +60,23 @@ public class TagGrillaMensajes extends TagGrilla {
                         clase = "error";
                     }
                     
-                    tabla+="<tr class="+clase+"><td>"+m.getId_mensaje()+"</td>";
+                    tabla+="<tr class="+clase+">";
+                    tabla+="<td>"+m.getId_mensaje()+"</td>";
+                    if(isAdmin()){
+                        Alumnos a = (Alumnos)m.getAlumnos();
+                        tabla+="<td>"+a.getNombre()+" "+a.getApellido()+"</td>";
+                        Carrera c = (Carrera)a.getCarrera();
+                        tabla+="<td>"+c.getNombre()+"</td>";
+                    }
                     tabla+="<td>"+estado+"</td>";
                     tabla+="<td>"+m.getFecha()+"</td>";
                     tabla+="<td>"+m.getTitulo()+"</td>";
-                    tabla+="<td><a href=\"javascript:verPeticion("+m.getId_mensaje()+")\">Ver</a></td></tr>";
+                    if(isAdmin()){
+                        tabla+="<td><a href=\"javascript:verPeticion("+m.getId_mensaje()+")\">Contestar</a>&nbsp;<a href=\"javascript:\" onclick=\"eliminarMensaje("+m.getId_mensaje()+", this);\">Eliminar</a></td>";
+                    }else{
+                        tabla+="<td><a href=\"javascript:verPeticion("+m.getId_mensaje()+")\">Ver</a></td></tr>";
+                    }
+                    
                 }
 
                 pageContext.getOut().print(tabla);
@@ -98,5 +118,27 @@ public class TagGrillaMensajes extends TagGrilla {
      */
     public void setCarrera(int carrera) {
         this.carrera = carrera;
+    }
+
+    /**
+     * @return the isAdmin
+     */
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    /**
+     * @param isAdmin the isAdmin to set
+     */
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+    
+    public boolean isAdmin(){
+        if(getIsAdmin()==1){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

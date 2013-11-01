@@ -3,14 +3,12 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="p_cod_carrera" class="java.lang.String"/>
-	<parameter name="p_legajo" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select ma.Nombre, nt.Fecha_Examen, nt.Turno, nt.Cod_Materia, nt.Cod_Carrera, nt.Legajo
 from nota_examen nt, materia ma
 where nt.Cod_Materia=ma.Cod_Materia
-and Legajo=$P{p_legajo}
-and nt.Cod_Carrera=$P{p_cod_carrera}
+and Legajo=6030
+and nt.Cod_Carrera=1
 order by Nombre]]>
 	</queryString>
 	<field name="Nombre" class="java.lang.String">
@@ -91,7 +89,7 @@ order by Nombre]]>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Turno}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Turno}.compareTo( "TM" ) ? "Turno Mañana" : "Turno Noche"]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

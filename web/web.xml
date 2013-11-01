@@ -68,4 +68,15 @@
 	<url-pattern>*.sif</url-pattern>
 </servlet-mapping>
 <!-- FIN SERVLET SIF -->	
+<!-- SERVLET EMAIL -->
+<servlet>
+	<servlet-name>ControladorEmail</servlet-name>
+	<servlet-class>org.isft.web.servlets.ControladorEmail</servlet-class>
+</servlet>
+	
+<servlet-mapping>
+	<servlet-name>ControladorEmail</servlet-name>
+	<url-pattern>*.email</url-pattern>
+</servlet-mapping>
+<!-- FIN SERVLET EMAIL -->
 </web-app>

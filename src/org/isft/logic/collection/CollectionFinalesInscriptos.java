@@ -20,7 +20,6 @@ public class CollectionFinalesInscriptos extends AccessManager implements Access
        public Vector select(HashMap parameters) throws Exception{
         Vector<FinalInscripto> vec_FinalesInscriptos = new Vector();
         try{
-            System.out.println("entro al collection de finales inscriptos");
             Alumnos alu=(Alumnos) parameters.get("alumno");
             String sql="select ma.Nombre, nt.Fecha_Examen, nt.Turno, nt.Cod_Materia, nt.Cod_Carrera, nt.Legajo \n" +
                         "from nota_examen nt, materia ma\n" +
@@ -29,7 +28,6 @@ public class CollectionFinalesInscriptos extends AccessManager implements Access
                         "and nt.Cod_Carrera="+alu.getCarrera().getCod_carrera()+"\n"+
                         "and Fecha_Examen < cast((now() + interval 45 day) as date)\n" +
                         "and Fecha_Examen > cast((now() - interval 45 day) as date)";
-            System.out.println("CONSULTA A EJECUTAR: " + sql);
             ResultSet rst = execute(sql);   
             while(rst.next()){
                 FinalInscripto fi=new FinalInscripto();

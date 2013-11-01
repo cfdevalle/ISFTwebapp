@@ -23,7 +23,6 @@ public class ControladorInscripcionFinales  extends HttpServlet {
 
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String param=request.getParameter("param");
-        System.out.println(param);
         String accion=request.getParameter("accion");
         AbmInscripcionFinales abm=new AbmInscripcionFinales();
         HashMap hash=new HashMap();

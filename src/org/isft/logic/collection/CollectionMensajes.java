@@ -7,6 +7,8 @@ package org.isft.logic.collection;
 import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Vector;
+import org.isft.domain.Alumnos;
+import org.isft.domain.Carrera;
 import org.isft.logic.AccessManager;
 import org.isft.domain.Mensaje;
 
@@ -33,9 +35,10 @@ public class CollectionMensajes implements org.isft.logic.AccessInterface{
           //System.out.println("curso"+curso+curso.charAt(0));
         try{
             System.out.println("anio:1ro");
-            String query = "Select m.titulo, m.mensaje, m.fecha, m.respondido, m.id_mensaje from mensaje m where 1";
+            String query = "Select m.titulo, m.mensaje, m.fecha, m.respondido, m.id_mensaje, a.nombre, a.apellido, c.nombre as carrera from mensaje m, alumnos a, carrera c where a.Legajo = m.Legajo and c.Cod_Carrera = a.Cod_Carrera";
             query += whereLegajo;
             query += whereCarrera;
+            query += " group by m.id_mensaje";
             System.out.println(query);
             rs = am.execute(query);
             System.out.println("terminado carga de mensajes");  
@@ -53,6 +56,17 @@ public class CollectionMensajes implements org.isft.logic.AccessInterface{
         
         int cod = (int)rs.getInt("id_mensaje");
         m.setId_mensaje(cod);
+        
+        //Agrego el alumno y carrera
+        Alumnos a = new Alumnos();
+        a.setNombre(rs.getString("nombre"));
+        a.setApellido(rs.getString("apellido"));
+        Carrera c = new Carrera();
+        c.setNombre(rs.getString("carrera"));
+        a.setCarrera(c);
+        
+        m.setAlumnos(a);
+           System.out.println("DESP DE AGREGAR ALUMNO");
         vec.add(m);
        }
        return vec;

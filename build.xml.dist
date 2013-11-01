@@ -10,40 +10,26 @@
     <property name="weblib.dir" value="${tomcat.dir}/WEB-INF/lib"/>
     <property name="classesTomcat.dir" value="${tomcat.dir}/WEB-INF/classes"/>
     <property name="dir.root" value="."/>
-    <!-- NUEVO TLD-->
-    <property name="webtld.dir" value="${tomcat.dir}/WEB-INF/tld"/>
-    <property name="tldTomcat.dir" value="war/WEB-INF/tld"/>
-    <!-- FIN NUEVO TLD-->
     <path id="master-classpath">
         <fileset dir="${dir.root}/lib/j2ee">
             <include name="servlet-api.jar"/>
             <include name="jsp-api.jar"/>
+		<include name="mail.jar"/>
         </fileset>
-        <!-- NUEVO JASPER -->
+<!-- NUEVO JASPER -->
         <fileset dir="${dir.root}/lib">
             <include name="jasperreports-5.2.0.jar"/>
         </fileset>
     </path>
-    <!-- fin NUEVO JASPER -->
+<!-- fin NUEVO JASPER -->
+<!-- NUEVO TLD-->
+	<property name="webtld.dir" value="${tomcat.dir}/WEB-INF/tld"/>
+	<property name="tldTomcat.dir" value="war/WEB-INF/tld"/>
+<!-- FIN NUEVO TLD-->
 
 <!-- DEFINICION DE TAREAS-->
 
 
-    <taskdef name="reload" classname="org.apache.catalina.ant.ReloadTask">
-        <classpath>
-            <path location="${appserver.home}/lib/catalina-ant.jar"/>
-        </classpath>
-    </taskdef>
-    <taskdef name="start" classname="org.apache.catalina.ant.StartTask">
-        <classpath>
-            <path location="${appserver.home}/lib/catalina-ant.jar"/>
-        </classpath>
-    </taskdef>
-    <taskdef name="stop" classname="org.apache.catalina.ant.StopTask">
-        <classpath>
-            <path location="${appserver.home}/lib/catalina-ant.jar"/>
-        </classpath>
-    </taskdef>
 
 <!-- TAREAS BASICAS -->
     <target name="deployTomcat" depends="build">
@@ -86,12 +72,15 @@
 		<!--<copy todir="${tomcat.dir}/db" preservelastmodified="true">
 			<fileset dir="${dir.root}/db"/>
 		</copy>-->
+ 
     <!-- NUEVO TLD-->
 	<mkdir dir="${webtld.dir}" />
 		<copy todir="${webtld.dir}" preservelastmodified="true">
 			<fileset dir="${tldTomcat.dir}"/>
 		</copy>	
     <!-- FIN NUEVO TLD-->
+
+
     <!-- NUEVO JASPER -->
         <replace dir="${tomcat.dir}" value="${deployTomcat.dir}">
             <include name="**/*.*"/>
@@ -102,6 +91,5 @@
             <replacetoken>ISFT_REPORT_PATH</replacetoken>
         </replace>
 	<!-- FIN NUEVO JASPER -->
-    </target>
-
+	</target>
 </project>

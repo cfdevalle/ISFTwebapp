@@ -19,7 +19,7 @@
     <head>
         <script type="text/javascript">
             $(document).ready(function(){
-                /*$('#responder').submit(function(){
+                $('#responder').submit(function(){
                     var mensaje = $('.txtRespuesta').val().trim();
                     if(mensaje == ""){
                         alert("Por favor, ingrese un mensaje valido.");
@@ -27,10 +27,10 @@
                     }else{
                         $.post('jsp/sicsa/abmc/ajaxMensajes.jsp', $('#responder').serialize())
                         $('#myModal').modal('hide');
-                        goPage(4001);
+                        goPage(4005);
                     }
                     return false;
-                });*/
+                }); 
             });
         </script>
         <title>Nuevo mensaje</title>
@@ -64,6 +64,12 @@
                                         <span><strong>Administrador</strong> dijo:</span>
                                         <p><%=resp.getString("respuesta")%></p>
                                     </li>
+                                <%}else{%>
+                                <textarea maxlength="200" class="txtRespuesta" name="txtRespuesta" onfocus="if(this.value=='Respuesta')this.value=''">Respuesta</textarea>
+                                <input type="hidden" name="respondido" value="1">
+                                <input type="hidden" name="accion" value="responder">
+                                <input type="hidden" name="id_mensaje" value="<%=id_mensaje%>">
+                                <input type="submit" class="btn btn-primary" value="Responder" name="submit">
                                 <%}%>
                             </ul>
                         </form>
