@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
-import org.isft.logic.collection.CollectionMaterias;
+import org.isft.logic.collection.CollectionMateriasSicnod;
 import org.isft.domain.Materia;
 
 /**
@@ -43,7 +43,7 @@ public class ComboMateriasSicnod extends TagSupport {
 		Vector vector = null;
 
 
-		CollectionMaterias cm = new CollectionMaterias();
+		CollectionMateriasSicnod cm = new CollectionMateriasSicnod();
 		try {
 			vector = cm.select(mat);
 		} catch (Exception e) {
