@@ -42,7 +42,7 @@ public class CollectionHorario extends  org.isft.logic.AccessManager{
        
         
     }
-    public Vector gethora_desde() throws SQLException{
+    public Vector gethora_desde(String curso) throws SQLException {
        ResultSet rs =null;
        //ResultSet turn=null;
        AccessManager am = new AccessManager();
@@ -65,8 +65,30 @@ public class CollectionHorario extends  org.isft.logic.AccessManager{
            System.out.println("error"+e.getMessage());
        }
        else 
-        */    try {
+        */  
+        String turno="";
+         try {   
+        if (curso.equals("todas")||curso==null){
            rs=am.execute("Select distinct hora_desde from hora;");
+            
+            }
+            else{
+       
+            
+            
+            rs=am.execute("Select turno from curso where cod_curso='"+curso+"';");
+            while(rs.next()){
+            turno=rs.getString("turno");
+            }
+            if (turno.equals("m")||turno.equals("M")){
+           rs=am.execute("Select distinct hora_desde from hora where hora_desde >='08:00:00' && hora_desde<='13:00:00';");
+           }
+             if (turno.equals("t")||turno.equals("T")){
+           rs=am.execute("Select distinct hora_desde from hora where hora_desde >='11:00:00' && hora_desde<='18:00:00' ;");
+           }
+              if (turno.equals("n")||turno.equals("N")){
+           rs=am.execute("Select distinct hora_desde from hora where hora_desde >='08:00:00' && hora_desde<='23:00:00';");
+           }}
        } catch (Exception ex) {
            Logger.getLogger(CollectionHorario.class.getName()).log(Level.SEVERE, null, ex);
        }
@@ -81,6 +103,29 @@ public class CollectionHorario extends  org.isft.logic.AccessManager{
         System.out.println("salida de gethoras");
        return vec;
        }
+    public Vector gethora_desde() throws SQLException {
+       ResultSet rs =null;
+       AccessManager am = new AccessManager();
+        System.out.println("entro en gethora_desde");
+        String turno="";
+         try {   
+           rs=am.execute("Select distinct hora_desde from hora;");
+        
+       } catch (Exception ex) {
+           Logger.getLogger(CollectionHorario.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       Vector vec = new Vector();
+       
+       while (rs.next()){
+       String nombre;
+            nombre = String.valueOf(rs.getTime("hora_desde"));
+            System.out.println("nombre"+nombre);
+       vec.add(nombre);
+       }
+        System.out.println("salida de gethoras");
+       return vec;
+       }
+    
     public Vector getMateriahora (HashMap hm){
     
     String hora= (String) hm.get("hora");

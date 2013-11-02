@@ -4,6 +4,7 @@
     Author     : Ariel Dupuy
 --%>
 
+<%@page import="java.sql.SQLException"%>
 <%@page import="org.isft.domain.Carrera"%>
 <%@page import="org.isft.logic.collection.CollectionCarrera"%>
 <%@page import="org.isft.domain.Curso"%>
@@ -54,7 +55,12 @@
                            //recupero dias
                            dias=ch.getdias();
                            //recupero horas
-                           Vector hora_desde=ch.gethora_desde();
+                         Vector hora_desde=null;
+                           try{
+                           hora_desde=ch.gethora_desde("todas");
+                          }catch(SQLException e){
+                          System.out.println("error: "+e);
+                          }
                            //creo cabecera de la tabla
                            out.print("<tr></tr>");
                            out.print("<tr><td style=\" width: 7; height: 7\"><center>Horas</center></td>");
@@ -62,7 +68,17 @@
                             out.print("<td style=\" width: 7; height: 7\"><center>"+dias.get(i)+"</center></td>");   
                             out.print("</tr>");
                             out.print("<tr></tr>");
-                            for (j=0;j<hora_desde.size()&&j<8;j++){
+                            for (j=0;j<hora_desde.size();j++){
+                           if(j==0)
+                            out.println("<tr><td></td></tr>");                            
+                            
+                            else
+                            if(j==4)
+                            out.println("<tr><td></td></tr>");                            
+                            
+                            else if(j==12)
+                                out.println("<tr><td></td></tr>");                            
+                                                
                              out.print("<tr></tr>");
                             
                                 out.print("<tr><td style=\" width:75; height: 75\">"+(String)hora_desde.get(j)+"</td>");
@@ -76,7 +92,7 @@
                  <%             //cierro la fila
                                     } out.print("</tr>");}
                             
-                            //se recupera de la base de datos el nombre del curso
+                 //se recupera de la base de datos el nombre del curso
                             CollectionCurso cu = new CollectionCurso();
                             HashMap hm2=new HashMap();
                             hm2.put("carrera",carrera );

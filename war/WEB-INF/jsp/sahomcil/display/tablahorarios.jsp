@@ -26,10 +26,14 @@
             function horariosincarga(){
         //recupera valor del curso seleccionado   
         var curso=$("#curso").val(); 
-         var tur=$("#turno").val(); 
-              
               //carga en el div principal la tabla y le paso el parametro curso mas un tiempo de recarga 
-              $("#pag").load("modulo.go?codPage=5011",{curso:curso,tur:tur},5000);
+              $("#div_screen").load("modulo.go?codPage=5011",{curso:curso},5000);
+                
+            }
+            function ver(){
+            var ver=$("#vertodo:checked").val();
+            $("#div_screen").load("modulo.go?codPage=5011",{curso:"todo"},5000);
+          
                 
             }
         </script>
@@ -41,7 +45,7 @@
         
 
         </div> <div class="row">
-            <div class="span7 offset1">
+            <div class="span7 offset1" id="tabla">
                 <h4>Seleccione su curso</h4>
                 <%
                
@@ -56,7 +60,9 @@
                 <br>
                 <!-- se llama al tld cursos y se le pasa la carrera para que de los cursos disponibles segun la carrera-->
                 <cursos:cursos carrera="<%=String.valueOf(cod_carrera)%>" carga="false"></cursos:cursos><br>
+             
                 <div class="span10" >
+                    
               <!-- se crea cabecera de la tabla-->
                 <table class="table table-hover table-bordered table-condensed" id="table">
                     <thead> 
@@ -68,8 +74,8 @@
                             int j=0;
                             //recupero parametros
                            String curso=request.getParameter("curso");
-                           String turno=(String)request.getParameter("tur");
-                          
+                           String check=request.getParameter("check");
+                        
                            //instancio collection horario
                            CollectionHorario ch = new CollectionHorario();
                            Vector dias=null;
@@ -80,33 +86,24 @@
                            //recupero dias
                            dias=ch.getdias();
                            //recupero las horas
-                           Vector hora_desde=ch.gethora_desde();
-                           //crea las filas de la cabecera
+                           Vector hora_desde=null;
+                           if(curso!=null)
+                           hora_desde=ch.gethora_desde(curso);
+                           else //if (check.ecuals)
+                           hora_desde=ch.gethora_desde();
+                           //else
+                           //hora_desde=ch.gethora_desde(curso);
+                           
+//crea las filas de la cabecera
                            out.print("<tr></tr>");
                            out.print("<tr><td style=\" width: 7; height: 7\"><center>Horas</center></td>");
                            for(int i=0;i<dias.size();i++)
                             out.print("<td style=\" width: 7; height: 7\"><center>"+dias.get(i)+"</center></td>");   
                             out.print("</tr>");
                             out.print("<tr></tr>");
-                           if (Integer.parseInt(turno)==1){
-                          //crea las filas respetando la eleccion del combo de vista con los datos si los hay sino queda vacio
-                           
-                             for (j=0;j<hora_desde.size()&&j<4;j++){
-                             out.print("<tr></tr>");
-                            
-                                out.print("<tr><td style=\" width:75; height: 75\"><a class='btn'>"+(String)hora_desde.get(j)+"<a/></td>");
-                                for (int i=0 ;i<dias.size();i++)
-                                 
-                                    { 
-                                    String d=String.valueOf(i+1);
-                                //se llama al tld encargado de revisar segun la hora y el dia si hay o no materias
-                        %><horario:materia carrera="<%=String.valueOf(cod_carrera)%>" curso="<%=curso%>" dia="<%=d%>" hora="<%=(String)hora_desde.get(j)%>"></horario:materia>
-                                   
-                 <%
-                                    } out.print("</tr>");}}
 //crea las filas respetando la eleccion del combo de vista con los datos si los hay sino queda vacio
-                               else if (Integer.parseInt(turno)==2){
-                             for (j=4;j<hora_desde.size()&&j<8;j++){
+                              
+                             for (j=0;j<hora_desde.size();j++){
                              out.print("<tr></tr>");
                             
                                 out.print("<tr><td style=\" width:75; height: 75\"><a class='btn'>"+(String)hora_desde.get(j)+"<a/></td>");
@@ -118,7 +115,7 @@
                         %><horario:materia carrera="<%=String.valueOf(cod_carrera)%>" curso="<%=curso%>" dia="<%=d%>" hora="<%=(String)hora_desde.get(j)%>"></horario:materia>
                                    
                  <%
-                                    } out.print("</tr>");}}
+                                    } out.print("</tr>");}
                             if (!(curso==null)){
                                 
                                 CollectionCurso cu = new CollectionCurso();
@@ -149,7 +146,7 @@
                     <div class="span12 offset1">
                         <%  
 //boton de impresion muestra reporte pdf
-out.println("  </div><div class=\"span12 row\" style=\"min-height: 100px; float: left\" >" );
+out.println("  </div><div class=\"span12 offset12 row\" style=\"min-height: 100px; float: left\" >" );
 out.println(" <a href=\"modulo.rpt?cod=5000&param=Cod_carrera="+carrera.getCod_carrera()+"@Cod_curso="+curso+"@Nombre_carrera="+carrera.getNombre()+"@nombre_curso="+nom_curso+"&file=sahomcil\" class=\"btn btn-primary\">Imprimir</a>");}%>
               
             </div>

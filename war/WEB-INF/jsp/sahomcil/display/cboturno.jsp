@@ -19,11 +19,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div class="row"><select id="turno" onchange="cortatabla()">
+        <div class="row">
+            <div class="offset1"><select id="turno" onchange="cortatabla()">
             <option value="">Seleccionar vista de tabla</option>
             <option value="1">08:00-12:00</option>
             <option value="2">18:20-22:20</option>
-            </select>
+            </select></div>
         <div id="pag"></div>
     </body>
 </html>

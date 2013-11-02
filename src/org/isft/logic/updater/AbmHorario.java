@@ -28,7 +28,7 @@ import sun.util.calendar.BaseCalendar.Date;
  */
 public class AbmHorario extends UpdaterManager implements UpdaterInterface{
 
-    public void insert(HashMap parameters){
+    public void insert(HashMap parameters) throws Exception{
         //se reciben los parametros
         String carrera=(String)parameters.get("carrera");
         String curso=(String)parameters.get("curso");
@@ -49,7 +49,15 @@ public class AbmHorario extends UpdaterManager implements UpdaterInterface{
             //se realiza la consulta de hora_hasta
             rs = am.execute("select hora_hasta from hora where hora_desde='"+hora_desde+"';");
         } catch (Exception ex) {
+<<<<<<< HEAD
+<<<<<<< HEAD
+          throw new Exception();
+=======
             System.out.println(ex.getMessage());
+>>>>>>> 91dba56387913719c5e28bc3bc52d07d41791e45
+=======
+            System.out.println(ex.getMessage());
+>>>>>>> 91dba56387913719c5e28bc3bc52d07d41791e45
         }
         String hora_hasta="";
         //se carga hora_hasta con el valor traido por la consulta
@@ -60,8 +68,16 @@ public class AbmHorario extends UpdaterManager implements UpdaterInterface{
             
             }
         } catch (SQLException ex) {
+<<<<<<< HEAD
+<<<<<<< HEAD
+           throw new Exception();
+}
+=======
+=======
+>>>>>>> 91dba56387913719c5e28bc3bc52d07d41791e45
             System.out.println(ex.getMessage());
         }
+>>>>>>> 91dba56387913719c5e28bc3bc52d07d41791e45
         System.out.println("hora_hasta: "+hora_hasta);
         try{
             //se realiza el insert en cursoscantidad de un nuevo curso con cantidad de alumnos 0
@@ -72,14 +88,31 @@ public class AbmHorario extends UpdaterManager implements UpdaterInterface{
                 //se realiza el insert en la tabla horario en el caso de que cursocantidad ya este
                 execute("INSERT INTO horario (dia, Hora_desde, Hora_hasta, lectivo, legajoProfesor, Cod_Curso, Cod_Carrera, Cod_Materia) VALUES ('"+dia+"', '"+hora_desde+"', '"+hora_hasta+"', '"+lectivo+"', '"+Profesor+"', '"+curso+"', '"+carrera+"', '"+Materia+"');");
             } catch (Exception ex) {
+<<<<<<< HEAD
+<<<<<<< HEAD
+          throw new Exception();
+  }
+=======
+=======
+>>>>>>> 91dba56387913719c5e28bc3bc52d07d41791e45
                 System.out.println(ex.getMessage());
             }
+>>>>>>> 91dba56387913719c5e28bc3bc52d07d41791e45
     }
         try {   
             //se realiza el inset en horario en el caso de que curso cantidad no estaba
             execute("INSERT INTO horario (dia, Hora_desde, Hora_hasta, lectivo, legajoProfesor, Cod_Curso, Cod_Carrera, Cod_Materia) VALUES ('"+dia+"', '"+hora_desde+"', '"+hora_hasta+"', '"+lectivo+"', '"+Profesor+"', '"+curso+"', '"+carrera+"', '"+Materia+"');");
         } catch (Exception ex) {
+<<<<<<< HEAD
+<<<<<<< HEAD
+            throw new Exception();
+
+=======
             System.out.println(ex.getMessage());
+>>>>>>> 91dba56387913719c5e28bc3bc52d07d41791e45
+=======
+            System.out.println(ex.getMessage());
+>>>>>>> 91dba56387913719c5e28bc3bc52d07d41791e45
         }
         System.out.println("insert horario listo");
        

@@ -11,7 +11,9 @@
                             <li class="divider-vertical"></li>
                             <li><a href="javascript:goPage(2001)">Inscripcion a Finales</a></li>
                             <li class="divider-vertical"></li>
-                            <li><a href="javascript:goPage(4001)">Situacion Academica y consultas </a></li>
+                            <li><a href="javascript:goPage(5011)">Horario de cursada</a></li>
+                            <li class="divider-vertical"></li>
+				<li><a href="javascript:goPage(4001)">Situacion Academica y consultas </a></li>
                             <li class="divider-vertical"></li>
                             <li><a href="javascript:goPage(3005)">Carga de Notas</a></li>
                             <li class="divider-vertical"></li>
@@ -20,7 +22,7 @@
                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrativo<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                             
-                                            <li><a href="javascript:goPage(5001)">Gestion de Horarios</a></li>
+                                            <li><a href="javascript:goPage(5002)">Gestion de Horarios</a></li>
                                              <li><a href="javascript:goPage(4005)">Ver Mensajes</a></li>
                                           
                                             
