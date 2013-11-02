@@ -79,4 +79,14 @@
 	<url-pattern>*.email</url-pattern>
 </servlet-mapping>
 <!-- FIN SERVLET EMAIL -->
+<!-- SERVLET EQUIVALENCIAS-->
+  <servlet>    
+	 <servlet-name>servletEquivalencias</servlet-name>  
+	 <servlet-class>org.isft.web.servlets.servletEquivalencias</servlet-class>
+ </servlet> 
+ <servlet-mapping>  
+ <servlet-name>servletEquivalencias</servlet-name>
+ <url-pattern>*.equivalencias</url-pattern> 
+	</servlet-mapping>
+<!--  FIN SERVLET EQUIVALENCIAS-->
 </web-app>

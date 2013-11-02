@@ -12,6 +12,7 @@ public class Materia {
     private int cod_materia;
     private String nombre;
     private String modalidadCursada;
+    private String modalidadInscripcion;
 
     /**
      * @return the cod_materia
@@ -53,6 +54,20 @@ public class Materia {
      */
     public void setModalidadCursada(String modalidadCursada) {
         this.modalidadCursada = modalidadCursada;
+    }
+
+    /**
+     * @return the modalidadInscripcion
+     */
+    public String getModalidadInscripcion() {
+        return modalidadInscripcion;
+    }
+
+    /**
+     * @param modalidadInscripcion the modalidadInscripcion to set
+     */
+    public void setModalidadInscripcion(String modalidadInscripcion) {
+        this.modalidadInscripcion = modalidadInscripcion;
     }
     
 }
