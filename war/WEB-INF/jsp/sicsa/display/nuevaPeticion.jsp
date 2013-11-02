@@ -33,7 +33,7 @@
                         <ul>
                             <li>
                                 <label>Titulo</label>
-                                <input type="text" name="titulo" class="titulo">
+                                <input maxlength="50" type="text" name="titulo" class="titulo">
                             </li>
                             <li>
                                 <label>Mensaje</label>
