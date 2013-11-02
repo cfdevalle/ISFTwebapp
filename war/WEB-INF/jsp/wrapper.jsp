@@ -23,7 +23,7 @@ if(request.getSession(false).getAttribute("alumno")!=null){ %>
                                   
                                     <td>
                                         
-                                        <%@include file="sicnod/display/login.jsp" %>
+                                       <%@include file="sicnod/display/login.jsp" %>
                                     </td>
                                 </tr> 
                                 
@@ -38,11 +38,11 @@ if(request.getSession(false).getAttribute("alumno")!=null){ %>
              
 </div>
 <%@include file="includes/encabezado_inc.jsp" %>
-<div class="row" >
+<div class="row-fluid" >
                 
                 <div class="span12">
-                        <div  id="div_screen">
-            
+                        <div  id="div_screen" >
+                            <p style="text-align: center"> <img src="static/images/estudiando2.jpg"></p>
                         </div>
                 </div>
 </div>

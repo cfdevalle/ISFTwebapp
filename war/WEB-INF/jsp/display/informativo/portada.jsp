@@ -1,6 +1,6 @@
 
 <div class="row-fluid">
-    <div class="span10">
+    <div class="span12">
 <div>
     <div class="post-headline"><table><tr class="info"><td><h4>Bienvenidos</h4></td></tr></table></div>
 
@@ -51,10 +51,6 @@
 </div>
 </div>
         </div>
-        <div class="span2" >
-            
-            <h4> Sitios de inter&eacute;s  </h4>
-           
-        </div>
+      
 </div>
 
