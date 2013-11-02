@@ -162,7 +162,7 @@ CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`cursos_cantidad` (
   INDEX `fk_cursoscantidad_profesor1_idx` (`legajoProfesor` ASC) ,
   INDEX `fk_cursoscantidad_curso1_idx` (`Cod_Curso` ASC, `Cod_Carrera` ASC) ,
   INDEX `fk_cursoscantidad_materia1_idx` (`Cod_Materia` ASC) )
-ENGINE = MyISAM
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
