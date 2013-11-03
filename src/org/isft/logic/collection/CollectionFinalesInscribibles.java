@@ -53,11 +53,6 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
 			
             //OBTENER CANTIDAD DE REGISTROS
             ResultSet cant= execute(sql); 
-			
-			System.out.println("BEGIN: CollectionFinalesInscribibles");
-			System.out.println("query: "+sql);
-			System.out.println("Cantidad registros: "+cant.next());
-			System.out.println("END: CollectionFinalesInscribibles");
             int aux1,aux2,aux3,cantidad_fechas=0;
             if(cant.next()){
                 aux1=cant.getInt("Cod_Materia");
