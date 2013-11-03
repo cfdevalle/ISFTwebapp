@@ -32,7 +32,7 @@
     
     
         <!-- el div que tiene el combo de carreras ocupando 3 columnas     -->
-       <div class="row">
+       <div class="row-fluid">
             <div class="span2" >
                 <h5>Seleccione Carrera:</h5>
             </div>

@@ -36,7 +36,7 @@ out.println("<p class=\"text-success\">Materia añadida correctamente</p><br/>")
 out.println("<button class=\"btn btn-primary\" data-dismiss=\"modal\" aria-hidden=\"true\" onclick=\"recargar();\">Aceptar</button>");
 
 }catch(Exception e){
-System.out.println("error"+e);
+System.out.println("error"+e.getMessage());
 //mensaje de resultado negativo
 out.print("se ha producido un error en la carga por favor pongase en contacto con el desarrollador");
 

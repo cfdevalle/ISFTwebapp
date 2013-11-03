@@ -48,15 +48,7 @@ function recargar(){
  function altahorario(dia, hora , carrera, curso){
         
         var materia = $("#materia").val();
-<<<<<<< HEAD
-<<<<<<< HEAD
-        var profesor= $(");
-=======
         var profesor= $("#profesor").val();
->>>>>>> 91dba56387913719c5e28bc3bc52d07d41791e45
-=======
-        var profesor= $("#profesor").val();
->>>>>>> 91dba56387913719c5e28bc3bc52d07d41791e45
        
         $("#materias").load("modulo.go?codPage=5007",{dia:dia, hora:hora, carrera:carrera, curso:curso, materia:materia,profesor:profesor});
         $("#footer").empty();
