@@ -32,7 +32,7 @@ try{
 //realizo la consulta a la bd
 ah.insert(parameters);
 //mensaje re resultado positivo
-out.println("<p class=\"text-success\">Materia añadida correctamente</p><br/>");
+out.println("<p class=\"text-success\">Materia a&ntilde;adida correctamente</p><br/>");
 out.println("<button class=\"btn btn-primary\" data-dismiss=\"modal\" aria-hidden=\"true\" onclick=\"recargar();\">Aceptar</button>");
 
 }catch(Exception e){

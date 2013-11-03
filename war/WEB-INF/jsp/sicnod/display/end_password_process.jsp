@@ -47,8 +47,8 @@
 		<div class="box-content">
 			<form class="form-horizontal" action="" method="post" name="FormForgot" id="FormForgot" >
 			   <fieldset>
-				   <legend>Cambiaste tu contraseña!</legend>
-				   <p>Ahora puedes loguearte con tu nueva contraseña.
+				   <legend>Cambiaste tu contrase&ntilde;a!</legend>
+				   <p>Ahora puedes loguearte con tu nueva contrase&ntilde;a.
 				   </p>
 			   </fieldset>
 		   </form>

@@ -161,3 +161,15 @@ function sendForm() {
 	return false;
 }
 </script>
+<%
+String salida = "";
+String result_forgot = request.getParameter("result_forgot");
+if( result_forgot==null || result_forgot.equals("") ){
+	salida = "";
+}else{
+	if(result_forgot.equals("ok")){ %>
+		<script type="text/javascript">
+			Notifier.success("Datos modificados con éxito!");	
+		</script>
+<%  } } %>	
+

@@ -15,6 +15,6 @@ Determinar los elementos de protección personal adecuados a los tipos de riesgo 
 
 Describir y aplicar los distintos enfoques con que se administra un programa de higiene y medio ambiente, basado en la detección, evaluación y control de los contaminantes y demás variables presentes en las organizaciones industriales y civiles.
 
-Diseñar campañas referidas a necesidades del área de seguridad, higiene y medio ambiente.
+Dise&ntilde;ar campa&ntilde;as referidas a necesidades del área de seguridad, higiene y medio ambiente.
 
 Aplicar a nivel operativo las herramientas básicas de la estadística para recoger, organizar, resumir y analizar datos en materia de seguridad e higiene. Asimismo brindar la base necesaria para la determinación, análisis e interpretación de los costos de accidentes.</p>

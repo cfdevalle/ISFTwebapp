@@ -19,15 +19,12 @@ position: relative;
                 <ul class="nav pull-right">
                     <li class="dropdown">
                         Bienvenido <%= alumno.getNombre() %> <%= alumno.getApellido() %><br />
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>Mi cuenta<b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>Mi cuenta<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-
-                            <li><a href="javascript:goPage(3007)">  
-                                    Mis datos</a></li>
+                            <li><a href="javascript:goPage(3007)">Mis datos</a></li>
                             <li><a href="javascript:goPage(3004)">Cambiar contrase&ntilde;a</a></li>
                             <li class="divider"/>
                             <li><a href="modulo.go?codPage=3001"><i class="icon-remove-sign"></i> Cerrar sesi&oacute;n</a></li>
-                            
                         </ul>
                     </li>
                 </ul>
@@ -56,7 +53,7 @@ position: relative;
                         </tr>
                         <tr>
                             <td>    
-                             <a href="javascript:goPageNoLogin(3004)">Recuperar password</a>
+                             <a href="javascript:goPageNoLogin(3003)">Recuperar password</a>
                             </td>
                             <td></td>
                        

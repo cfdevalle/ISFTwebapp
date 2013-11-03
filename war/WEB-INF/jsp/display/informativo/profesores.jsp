@@ -75,7 +75,7 @@
 <tr>
 <td  valign="top">BRUZONI, Luis</td>
 <td valign="top">KLEKOC, Jorge O.</td>
-<td valign="top">SANTIBAÑEZ, Alejandro</td>
+<td valign="top">SANTIBA&Ntilde;EZ, Alejandro</td>
 </tr>
 <tr>
 <td  valign="top">BUORO, Luis María</td>
@@ -138,7 +138,7 @@
 <td  valign="top">TRUBBA, Marcela</td>
 </tr>
 <tr>
-<td  valign="top">DEL CASTAÑO, Felipe</td>
+<td  valign="top">DEL CASTA&Ntilde;O, Felipe</td>
 <td  valign="top">ORELLANA, Rubén</td>
 <td  valign="top">VENTOSA, Francisco</td>
 </tr>

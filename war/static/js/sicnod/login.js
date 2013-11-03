@@ -117,3 +117,7 @@ function valida_int(Field){
     
     return success;
 }
+
+function gotTop(){
+	$("html, body").animate({scrollTop: 0}, 1000);
+}

@@ -21,6 +21,6 @@
 <div class="control-group ">
 	<label class="control-label" for="inputWarning">&nbsp;</label>
 	<div class="controls">
-		<button type="button" name="updateInfo" class="btn btn-primary" onclick="sendFormLibroActas();">Guardar</button>
+		<button type="button" name="updateInfo" class="btn btn-primary" onclick="sendModalFormLibroActas();">Guardar</button>
 	</div>
 </div>

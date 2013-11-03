@@ -77,19 +77,17 @@
 					<input type="hidden" name="hid_legajo" id="hid_legajo" value="<%= legajo%>" />
 				<% } %>
 				<fieldset>
-					<legend>Cambiar contraseña?</legend>
+					<legend>Cambiar contrase&ntilde;a?</legend>
 					<div class="control-group ">
-						<label class="control-label" for="inputWarning">Ingrese su nueva contraseña</label>
+						<label class="control-label" for="inputWarning">Ingrese su nueva contrase&ntilde;a</label>
 						<div class="controls">
 							<input type="password" name="pass_1_fp" id="pass_1_fp" value="" />
-
 						</div>
 					</div>       
 					<div class="control-group ">
-						<label class="control-label" for="inputWarning">reingrese la nueva contraseña</label>
+						<label class="control-label" for="inputWarning">reingrese la nueva contrase&ntilde;a</label>
 						<div class="controls">
 							<input type="password" name="pass_2_fp" id="pass_2_fp" value="" />
-
 						</div>
 					</div> 
 					<div class="control-group ">
@@ -105,11 +103,13 @@
 <script type="text/javascript">
 	function sendFormForgot() {
 		if (document.getElementById("pass_1_fp").value == "" || document.getElementById("pass_2_fp").value == "") {
-			Notifier.warning("Revise las contraseñas ingresadas");
+			gotTop();
+			Notifier.warning("Revise las contrase&ntilde;as ingresadas");
 			return false;
 		}
 		if (document.getElementById("pass_1_fp").value != document.getElementById("pass_2_fp").value) {
-			Notifier.warning("Las contraseñas ingresadas deben coincidir.");
+			gotTop();
+			Notifier.warning("Las contrase&ntilde;as ingresadas deben coincidir.");
 			return false;
 		} else {
 			goPageNoLogin("3009&hid_legajo="+document.getElementById("hid_legajo").value+"&pass_1_fp="+document.getElementById("pass_1_fp").value+"&pass_2_fp="+document.getElementById("pass_2_fp").value);

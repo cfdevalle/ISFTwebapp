@@ -5,8 +5,8 @@ Las computadoras y, en particular, la informática, como procesamiento automático
 </p>
 <h6>Perfil Profesional</h6>
 <p>
-El/la Técnico/a Superior en Análisis de Sistemas estará capacitado para diagnosticar necesidades, diseñar, desarrollar, poner en servicio y mantener productos, servicios o soluciones informáticas acorde a las organizaciones que lo requieran. Estas competencias serán desarrolladas según las incumbencias y las normas técnicas y legales que rigen su campo profesional.
+El/la Técnico/a Superior en Análisis de Sistemas estará capacitado para diagnosticar necesidades, dise&ntilde;ar, desarrollar, poner en servicio y mantener productos, servicios o soluciones informáticas acorde a las organizaciones que lo requieran. Estas competencias serán desarrolladas según las incumbencias y las normas técnicas y legales que rigen su campo profesional.
 </p>
 <h6>Areas de Competencia</h6>
 <p>
-    Estas áreas requieren del/a técnico/a superior el dominio de un saber hacer complejo en el que se movilizan conocimientos, valores, actitudes y habilidades de carácter tecnológico, social y personal que definen su identidad profesional. Diagnosticar para determinar en donde se encuentra el conflicto de una organización. Organizar gestionando los recursos y las actividades dentro de la organización. Diseñar servicios y soluciones informáticas para organizaciones. Instalar y mantener sistemas diseñados bajo diferentes entornos. Desarrollar servicios y soluciones informáticas.</p>
+    Estas áreas requieren del/a técnico/a superior el dominio de un saber hacer complejo en el que se movilizan conocimientos, valores, actitudes y habilidades de carácter tecnológico, social y personal que definen su identidad profesional. Diagnosticar para determinar en donde se encuentra el conflicto de una organización. Organizar gestionando los recursos y las actividades dentro de la organización. Dise&ntilde;ar servicios y soluciones informáticas para organizaciones. Instalar y mantener sistemas dise&ntilde;ados bajo diferentes entornos. Desarrollar servicios y soluciones informáticas.</p>

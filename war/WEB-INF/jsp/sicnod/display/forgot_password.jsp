@@ -14,26 +14,23 @@
 			if( result_forgot==null || result_forgot.equals("") ){
 				salida = "";
 			}else{
-				%>
 				
-				<div class="error">
-						<%
-						if(result_forgot.equals("legajo_incompleto")){
-							salida = "legajo incompleto";
-						}
-						else if(result_forgot.equals("legajo_invalido")){
-							salida = "legajo invalido";
-						}
-						%>
-						<%=salida%>
-					</div>
-			<%
-			}
+				if(result_forgot.equals("legajo_incompleto")){
+					salida = "legajo incompleto";
+				}
+				else if(result_forgot.equals("legajo_invalido")){
+					salida = "legajo invalido";
+				}
+				%>
+				<script type="text/javascript">
+					Notifier.warning("<%=salida%>.");	
+				</script>
+			<%  }			
 			String legajo = request.getParameter("legajo");
 			%>				
 			<form class="form-horizontal" action="" method="post" name="FormForgot" id="FormForgot" >
 				<fieldset>
-					<legend>Olvidaste tu contraseña?</legend>
+					<legend>Olvidaste tu contrase&ntilde;a?</legend>
 
 					<div class="control-group ">
 						<label class="control-label" for="inputWarning">Ingrese su Legajo:&nbsp;</label>
@@ -52,8 +49,12 @@
 function sendFormForgot(){
 	var legajo = document.getElementById("legajo").value;
     if(legajo==""){
-        //alert("Ingrese su legajo.");
+		gotTop();
 		Notifier.warning("Ingrese su legajo.");	
+        return false;
+    } else if (isNaN(legajo)) {
+		gotTop();
+		Notifier.warning("El legajo debe ser numérico.");	
         return false;
     }
 	goPageNoLogin("3004&legajo="+legajo);

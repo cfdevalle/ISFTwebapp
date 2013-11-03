@@ -62,11 +62,69 @@
 		
 		$("#comboAlumnos").load("modulo.go?codPage=3015", {carrera: carrera,materia: materia,turno: turno,lectivo: lectivo, fecha_examen:fecha_examen}, 5000);
 	}
+function sendModalFormLibroActas() {
+	$('#modalDesinscribir').modal('show');
+}
 function sendFormLibroActas() {
-	var queryString = $("#FormLibroActas").serialize();
-	console.log(queryString);
-	goPageNoLogin("3016&"+queryString);
+	if(!validateForm("Calificacion"))
+		return false;
+	if(!validateForm("Libro"))
+		return false;
+	if(!validateForm("Folio"))
+		return false;
+	gotTop();
+	sendAjax();
+
 	return false;
+}
+function validateForm(nombreLista){
+	var Folios = document.getElementsByName(nombreLista);
+	for(var i=0; i < Folios.length; i++){
+		var currentValue = Folios[i].value;
+		
+		if(currentValue == ""){
+			gotTop();
+			Notifier.warning("No puede dejar en blanco los campos de la columna: "+nombreLista+"");	
+			return false;
+		} else if (	validarInt(currentValue)==false || currentValue<0) {
+			gotTop();
+			Notifier.warning("Los valores de la columna "+nombreLista+" deben ser numéricos a partir del cero (0)");
+			return false;
+		}
+		if(nombreLista=="Calificacion" && (currentValue<0 || currentValue>10)){
+			gotTop();
+			Notifier.warning("La calificación permitida es de 0 a 10");
+			return false;
+		}
+	}
+	return true;
+}
+ function validarInt(value) {
+     var error = true;
+     var re = /^(-)?[0-9]*$/;
+     if (!re.test(value)) {
+		 error = false;
+     }
+     return error;
+ }
+ function sendAjax(){
+	var queryString = $("#FormLibroActas").serialize();
+	$.ajax({
+		type: 'POST',
+		url: 'modulo.go?codPage=3017&'+queryString,
+		success: function(response){
+		if(response=='ERROR'){
+			Notifier.warning("Error al intentar guardar los datos.");
+		}else if(response=='NO_RESULT'){
+			Notifier.warning("No se procesaron los datos enviados.");
+		}else{
+			Notifier.success("Los datos se actualizaron con éxito!");
+		}
+	},
+	error: function(response){
+		Notifier.error(response);	
+	}
+	});
 }
 </script>
 <%@taglib  uri="/WEB-INF/tld/ComboCarrera.tld" prefix="carr" %>
@@ -86,5 +144,16 @@ function sendFormLibroActas() {
 				</form>
 			</fieldset>
 		</div>
+	</div>
+</div>
+						
+<div id="modalDesinscribir" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<h3 id="myModalLabel">Carga de Notas en acta volante</h3>
+	</div>
+	<div class="modal-body" id="mensaje_desinscribirse">Confirma que los datos ingresados en el acta volante serán guardados en el sistema?</div>
+	<div class="modal-footer">
+		<a class="btn" data-dismiss="modal" aria-hidden="true">cancelar</a>
+		<input type="button" onclick="sendFormLibroActas()" data-dismiss="modal" class="btn btn-primary" value="Aceptar">    
 	</div>
 </div>

@@ -70,28 +70,31 @@ public class TagFinalesInscriptosFull extends TagGrilla {
                 tabla+="<td><h4>Libro</h4></td>";
                 tabla+="<td><h4>Folio</h4></td></tr>";
 
-				int cantidad_checkbox=0;
-                for(int i=0;i<fi.size();i++){
-                    tabla+="<tr>";
-					
-					tabla+="<td>"+(i+1)+"</td>";
-					
-					tabla+="<td>"+fi.elementAt(i).getAlumno().getLegajo()+"</td>";
-					tabla+="<td>"+fi.elementAt(i).getAlumno().getApellido()+"</td>";
-					tabla+="<td>"+fi.elementAt(i).getAlumno().getNombre()+"</td>";
-					
-					tabla+="<td>"+fi.elementAt(i).getNotaexamen().getModalidadInscripcion()+"</td>";
-					tabla+="<td>"+fi.elementAt(i).getNotaexamen().getFecha_inscripcion()+"</td>";
-					
-					tabla+="<td><input maxlength='2' style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getNota_final()+"' name=\"Calificacion\" /></td>";
-					tabla+="<td><input style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getLibroActExamen()+"' name=\"Libro\" required='true' /></td>";
-					tabla+="<td><input style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getFolioActExamen()+"' name=\"Folio\" required='true' />";
-					tabla+="<input type=\"hidden\" value='"+fi.elementAt(i).getAlumno().getLegajo()+"' name=\"Legajo\" /></td>";
-					
+				if(fi.size() > 0){
+					for(int i=0;i<fi.size();i++){
+						tabla+="<tr>";
+
+						tabla+="<td>"+(i+1)+"</td>";
+
+						tabla+="<td>"+fi.elementAt(i).getAlumno().getLegajo()+"</td>";
+						tabla+="<td>"+fi.elementAt(i).getAlumno().getApellido()+"</td>";
+						tabla+="<td>"+fi.elementAt(i).getAlumno().getNombre()+"</td>";
+
+						tabla+="<td>"+fi.elementAt(i).getNotaexamen().getModalidadInscripcion()+"</td>";
+						tabla+="<td>"+fi.elementAt(i).getNotaexamen().getFecha_inscripcion()+"</td>";
+
+						tabla+="<td><input maxlength='2' style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getNota_final()+"' name=\"Calificacion\" /></td>";
+						tabla+="<td><input style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getLibroActExamen()+"' name=\"Libro\" required='true' /></td>";
+						tabla+="<td><input style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getFolioActExamen()+"' name=\"Folio\" required='true' />";
+						tabla+="<input type=\"hidden\" value='"+fi.elementAt(i).getAlumno().getLegajo()+"' name=\"Legajo\" /></td>";
+
+						tabla+="</tr>";
+					}
+				}else{
+					tabla+="<tr>";
+					tabla+="<td colspan='9'>No se encontraron resultados.</td>";
 					tabla+="</tr>";
-                    cantidad_checkbox++;
-                }
-                tabla+="<input type=\"hidden\" value=\""+cantidad_checkbox+"\" name=\"cantidad_checkbox\" />";
+				}
                 pageContext.getOut().print(tabla);
                 } catch(Exception exc){
                     exc.printStackTrace();

@@ -49,7 +49,7 @@ RUTA DEL SERVIDOR: <%=ruta%>
 						<td>Algebra</td>
 						<td> <select id="slot1"><option>Recurso</option><option>Coherte</option></Select> </td>
 						<td> <select id="slot2"><option>Presencial</option><option>No Presencial</option></Select> </td>
-						<td> <select id="slot3"><option>1ºA Mañana</option><option>1ºA Tarde</option><option>1ºA Noche</option><option>1ºB Mañana</option><option>1ºA Noche</option></Select> </td>
+						<td> <select id="slot3"><option>1ºA Ma&ntilde;ana</option><option>1ºA Tarde</option><option>1ºA Noche</option><option>1ºB Ma&ntilde;ana</option><option>1ºA Noche</option></Select> </td>
 					</tr>
 				</tbody>
 			</table>

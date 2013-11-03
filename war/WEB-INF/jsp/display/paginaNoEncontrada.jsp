@@ -7,7 +7,7 @@
                 <div class="row-fluid">
 				<div class="span6">   <center><img src="/ISFTwebapp/static/images/errores/505.jpg" value="ops" /></center></div>
 				<div class="span6">                 <div class="alert alert-info">
-									Puede que no recuerdes tu contraseña o tu sesion haya expirado, si no recuerdas los datos de ingreso, haz clic en Recordar.
+									Puede que no recuerdes tu contrase&ntilde;a o tu sesion haya expirado, si no recuerdas los datos de ingreso, haz clic en Recordar.
 									</div>
 									<blockquote>Instituto De Formacion Terciaria Carlos Pellegrini N°179</blockquote>
 				</div>
