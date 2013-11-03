@@ -21,8 +21,8 @@ public class TagFinalesInscribibles extends TagGrilla {
                 HashMap hm=new HashMap();
                 CollectionFinalesInscribibles cfi=new CollectionFinalesInscribibles();
                 hm.put("alumno", pageContext.getSession().getAttribute("alumno"));
-                Alumnos alu=(Alumnos) pageContext.getSession().getAttribute("alumno");
-                Vector<FinalInscribible> fi=cfi.select(hm);
+				
+				Vector<FinalInscribible> fi=cfi.select(hm);
                 String tabla="";
                 tabla+="<tr><td><h4>Materia</h4></td>";
                 tabla+="<td><h4>Fecha</h4></td>";

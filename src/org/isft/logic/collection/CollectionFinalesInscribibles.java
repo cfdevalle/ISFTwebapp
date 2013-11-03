@@ -31,10 +31,10 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
         try{
             Alumnos alu=(Alumnos) parameters.get("alumno");
             System.out.println("LA CARRERA SELECCIONADA ES: "+alu.getCarrera().getCod_carrera() );
-            String sql="select lb.*, mat.Nombre, exa.Fecha1, exa.Fecha2, exa.Turno, ca.ModalidadInscripcion, ca.SituacionAcademica\n" +
+            String sql="select lb.*, mat.Nombre, exa.Fecha1, exa.Fecha2, exa.Turno, ca.ModalidadInscripcion, ca.SituacionAcademica, lb.Cod_Carrera, lb.Legajo, lb.Cod_Materia\n" +
                     "from libro_matriz lb, materia mat, examenes exa, cursos_alumnos ca\n" +
                     "where (lb.Nota_Final<4 or lb.Nota_Final is null)\n" +
-                    "and lb.Regularizado=TRUE\n" +
+                    "and lb.Regularizado=1\n" +
                     "and lb.Legajo="+alu.getLegajo()+"\n" +
                     "and lb.Cod_Carrera="+alu.getCarrera().getCod_carrera()+"\n" +
                     "and lb.Cod_Materia=mat.Cod_Materia\n" +
@@ -47,10 +47,17 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
                     "and exa.Fecha1 < cast((now() + interval 45 day) as date)\n" +
                     "and exa.Fecha1 >= cast((now() - interval 3 day) as date)\n" +
                     "and exa.Fecha2 < cast((now() + interval 45 day) as date)\n" +
-                    "and exa.Fecha2 >= cast((now() - interval 3 day) as date)";
+                    "and exa.Fecha2 >= cast((now() - interval 3 day) as date) ";
             ResultSet rst = execute(sql); 
+			
+			
             //OBTENER CANTIDAD DE REGISTROS
             ResultSet cant= execute(sql); 
+			
+			System.out.println("BEGIN: CollectionFinalesInscribibles");
+			System.out.println("query: "+sql);
+			System.out.println("Cantidad registros: "+cant.next());
+			System.out.println("END: CollectionFinalesInscribibles");
             int aux1,aux2,aux3,cantidad_fechas=0;
             if(cant.next()){
                 aux1=cant.getInt("Cod_Materia");
