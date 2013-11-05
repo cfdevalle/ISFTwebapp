@@ -1,4 +1,4 @@
-<table  class="table table-bordered" border="0" cellspacing="0" cellpadding="0">
+<table  class="table table-condensed" border="0" cellspacing="0" cellpadding="0"  style="font-size:12px">
 <tbody>
     <tr class="info"><td>Nombre</td><td>Nombre</td><td>Nombre</td>
     </tr>

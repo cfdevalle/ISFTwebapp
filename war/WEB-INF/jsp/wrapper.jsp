@@ -16,7 +16,7 @@ if(request.getSession(false).getAttribute("alumno")!=null){ %>
                             <table>
                                 <tr>
                                     <%-- <td style=" width: 200px;"><div style="border: 1px solid;"><a href="javascript:goPage(6019)"><img src="static/images/logo.png"></a></div></td>--%>
-                                    <td style=" width: 800px;">   <H2>I.S.F.T. NÂ° 179 Dr. Carlos Pellegrini</h2></a
+                                    <td style=" width: 800px;">   <H2>I.S.F.T. N° 179 Dr. Carlos Pellegrini</h2></a
                                         
                                           <p class="muted">Excelencia Acad&eacute;mica - Solidez Institucional - Salida Laboral</p>
                                     </td>

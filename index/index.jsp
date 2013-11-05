@@ -1,12 +1,17 @@
 <% 
 if(request.getSession(false).getAttribute("alumno")==null){ %>
+<script>
+    function foco(){
+        document.getElementById("txt_usuario").focus();
+    }
+</script>
 <html>
     <head>
         <%@include file="jsp/includes/metas_inc.jsp" %>
        
         <title>ISFT 179</title>
     </head>
-    <body>
+    <body onload="foco()">
 
  
             <div class="row-fluid">
@@ -40,22 +45,21 @@ if(request.getSession(false).getAttribute("alumno")==null){ %>
 
        <!--<div class="row" style=" max-height: 400px; overflow-y: auto;  ">-->
        <div class="row-fluid" >
-                
+           
                 <div class="span2">
                   
                     <div class="well">
                      <ul class="nav nav-list"> 
                          <li class="nav-header">Instituci&oacute;n</li> 
                          <li class="divider"></li>
-                         <li><a class="goTop" href="javascript:goPageNoLogin(6001)">Visi&oacute;n y Misi&oacute;n</a></li>
-                         <li><a class="goTop" href="javascript:goPageNoLogin(6002)">Staff</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6019)">Inicio</a></li>
+                         <li><a class="goTop" href="javascript:goPageNoLogin(6002)">Inscripcion</a></li>
                          <li><a class="goTop" href="javascript:goPageNoLogin(6003)">Docentes</a></li>
                          <li><a class="goTop" href="javascript:goPageNoLogin(6004)">Peri&oacute;dico</a></li>
-                         <li><a class="goTop" href="javascript:goPageNoLogin(6007)">Biblioteca</a></li>
                          <li><a class="goTop" href="javascript:goPageNoLogin(6005)">Normativa</a></li>
                          <li><a class="goTop" href="javascript:goPageNoLogin(6006)">Contacto</a></li>
                          <li class="nav-header">CARRERAS</li> 
-                         <li class="divider"></li
+                         <li class="divider"></li>
                          <li><a class="goTop" href="javascript:goPageNoLogin(6009)">Administraci&oacute;n General</a></li>
                          <li><a class="goTop" href="javascript:goPageNoLogin(6010)">Servicios Gastron&oacute;micos</a></li>
                          <li><a class="goTop" href="javascript:goPageNoLogin(6011)">Industria Textil</a></li>
@@ -66,6 +70,12 @@ if(request.getSession(false).getAttribute("alumno")==null){ %>
                          <li><a class="goTop" href="javascript:goPageNoLogin(6016)">Log&iacute;stica</a></li>
                          <li><a class="goTop" href="javascript:goPageNoLogin(6017)">Desarrollo de Aplicaciones</a></li>
                          <li><a class="goTop" href="javascript:goPageNoLogin(6018)">Automatizaci&oacute;n y Rob&oacute;tica</a></li>
+                         <li class="nav-header">Links</li> 
+                         <li class="divider"></li>
+                         <li><a class="goTop" href="https://www.google.com.ar">Google</a></li>
+                         <li><a class="goTop" href="http://es.wikipedia.org/">Wikipedia</a></li>
+                         <li><a class="goTop" href="http://www.unm.edu.ar/">Universidad Nacional De Moreno</a></li>
+                         <li><a class="goTop" href="http://cooperadora179moreno.blogspot.com.ar/">Blog De Coperadora</a></li>
                             
                      </ul>
                    
@@ -75,9 +85,12 @@ if(request.getSession(false).getAttribute("alumno")==null){ %>
                 </div>
                 
                 <div class="span10" id="div_screen">
-                    <%@include file="jsp/display/informativo/portada.jsp" %></div>
-         </div> 
-                     
+                   
+                    <%@include file="jsp/display/informativo/portada.jsp" %>
+                   
+                </div>
+         </div>
+               
                         
             <%@include file="jsp/includes/pie_inc.jsp" %>
             
