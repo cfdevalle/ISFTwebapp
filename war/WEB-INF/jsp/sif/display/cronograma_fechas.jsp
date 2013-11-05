@@ -1,5 +1,3 @@
-<script type="text/javascript" src="static/js/facebox.js"></script>
-<link type="text/css" rel="stylesheet" href="static/css/facebox.css"/>
 <script type="text/javascript" src="static/js/sif/cronograma_fechas.js"></script>
 
 <style>

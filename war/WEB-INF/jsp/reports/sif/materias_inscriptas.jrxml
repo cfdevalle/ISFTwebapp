@@ -3,12 +3,14 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="p_legajo" class="java.lang.String"/>
+	<parameter name="p_cod_carrera" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select ma.Nombre, nt.Fecha_Examen, nt.Turno, nt.Cod_Materia, nt.Cod_Carrera, nt.Legajo
 from nota_examen nt, materia ma
 where nt.Cod_Materia=ma.Cod_Materia
-and Legajo=6030
-and nt.Cod_Carrera=1
+and Legajo=1234
+and nt.Cod_Carrera=10
 order by Nombre]]>
 	</queryString>
 	<field name="Nombre" class="java.lang.String">

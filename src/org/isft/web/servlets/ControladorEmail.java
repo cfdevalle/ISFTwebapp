@@ -20,9 +20,11 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import org.isft.domain.Alumnos;
 import org.isft.jdbc.DataBase;
 import org.isft.logic.EnviarEmail;
+import org.isft.logic.validator.ValidarSituacionMateria;
 
 
 public class ControladorEmail extends HttpServlet {
+    private String hayDatos="";
 
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   	doGet(request, response);
@@ -38,24 +40,33 @@ public class ControladorEmail extends HttpServlet {
         String mensaje_mail=p_split[2];
         String[] archivo=new String[1];
         String fileName=request.getParameter("file");
-        
+        Alumnos alumno_sesion=(Alumnos) request.getSession(false).getAttribute("alumno");
+        String legajo=Integer.toString(alumno_sesion.getLegajo());
+        String carrera=Integer.toString(alumno_sesion.getCarrera().getCod_carrera());
+        ValidarSituacionMateria vsm=new ValidarSituacionMateria();
         
         //EL RESTO
         archivo[0] = "../webapps/ISFTWebapp/jsp/reports/sif/"+fileName+".pdf";
         response.setContentType("html/text");
         EnviarEmail mailer = new EnviarEmail();
         try {
-            generar(request,response);
-            mailer.enviarEmailConArchivoAdjunto(destino, titulo_mail, mensaje_mail, archivo);
-            response.getWriter().write("Email enviado con exito.");
-            return;
+            hayDatos=vsm.hayDatos(legajo,carrera);
+            if(!hayDatos.equals("")){
+                response.getWriter().write("ERROR:"+hayDatos);
+                return;        
+            }else{
+                generar(request,response,carrera,legajo);
+                mailer.enviarEmailConArchivoAdjunto(destino, titulo_mail, mensaje_mail, archivo);
+                response.getWriter().write("");
+                return;
+            }
         } catch (Exception ex) {
             System.out.println("Error en controlador Email.");
             ex.printStackTrace();
         }
    }
   
-  public void generar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  public void generar(HttpServletRequest request, HttpServletResponse response, String carrera, String legajo) throws ServletException, IOException {
 	  	HashMap parameters=new HashMap();
 	  	String path="",  error="";
   		String codPage=request.getParameter("cod"); //codPage, vinculado con pathReportes.properties
@@ -71,35 +82,20 @@ public class ControladorEmail extends HttpServlet {
       try{
           DataBase db=new DataBase(new HashMap());
           Connection cn=db.getConnection();
-          Alumnos alumno_sesion=(Alumnos) request.getSession(false).getAttribute("alumno");
-          String legajo=Integer.toString(alumno_sesion.getLegajo());
-          String carrera=Integer.toString(alumno_sesion.getCarrera().getCod_carrera());
-          parameters.put(carrera, legajo);
           
-          //ServletOutputStream out;
-          JasperReport jasperReport = (JasperReport)JRLoader.loadObject (path);
-
-       		//byte[] reporte= JasperRunManager.runReportToPdf (jasperReport, parameters, cn);
-                
+          if(!hayDatos.equals("")){
+              response.getWriter().write("ERROR:"+hayDatos);
+              return;        
+          }else{
+                parameters.put(carrera, legajo);
+                //ServletOutputStream out;
+                JasperReport jasperReport = (JasperReport)JRLoader.loadObject (path);                
                 // fill JasperPrint using fillReport() method
                 JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,parameters,cn);
                 JasperExportManager.exportReportToPdfFile(jasperPrint,
                 "../webapps/ISFTWebapp/jsp/reports/sif/"+fileName+".pdf");
                 response.setContentType("application/pdf");
-                /*
-                
-          response.setContentType ("application/pdf");
-          response.setHeader ("Content-disposition", "inline; filename="+fileName+".pdf");
-          response.setHeader ("Cache-Control", "max-age=30");
-          response.setHeader ("Pragma", "No-cache");
-          response.setDateHeader ("Expires", 0);
-          response.setContentLength (reporte.length);
-          out = response.getOutputStream ();
-
-          out.write (reporte, 0, reporte.length);
-          out.flush ();
-          out.close ();*/
-
+          }     
       }catch(Exception exc){
       		exc.printStackTrace();
           throw new ServletException("Error al generar el reporte");

@@ -1,4 +1,4 @@
-var seleccion;
+var seleccion="";
 function desinscribir(){
    var cant= $('input[name=cantidad_checkbox]').val();
    var i=0;
@@ -29,7 +29,10 @@ function desinscribir(){
 
 }
 function realizar_desinscripcion(){
-    var parametros={
+    if(seleccion==""){
+        
+    }else{
+        var parametros={
 		param:seleccion,
 		accion:'B'
 		}		
@@ -49,6 +52,7 @@ function realizar_desinscripcion(){
 	  	Notifier.error(response);	
 	  }
 	});
+    }    
 }
 
 function ingresarEmail(){
@@ -57,27 +61,49 @@ function ingresarEmail(){
 }
 
 function enviarEmail(){
-    var seleccion= $('input[name=email]').val();
-    seleccion+="-Estado de Inscripcion";
-    seleccion+="-Se a enviado uno o mas archivos adjunto con el estado actual de su inscripcion a finales";
-    var parametros={
-		file:'ReporteSIF',
-                cod:2000,        
-                datos:seleccion,
-		}
-    $.ajax({
-	  type: 'POST',
-	  url: 'enviar.email',
-	  data: parametros,
-	  success: function(response){
-                if(response==''){
-                    Notifier.warning("Error al intentar enviar el email.");
-                }else{
-                    Notifier.success(response);
-                }
-	  },
-	  error: function(response){
-	  	Notifier.error(response);	
-	  }
-	});
+    var datos= $('input[name=email]').val();
+    if(!validar_email(datos)){
+        Notifier.warning("Email no valido.");
+    }else{
+        datos+="-Estado de Inscripcion";
+        datos+="-Se a enviado uno o mas archivos adjunto con el estado actual de su inscripcion a finales";
+        var parametros={
+                    file:'ReporteSIF',
+                    cod:2000,        
+                    datos:datos,
+                    }
+        $.ajax({
+              type: 'POST',
+              url: 'enviar.email',
+              data: parametros,
+              success: function(response){
+                    if(response.substring(0,5)=='ERROR'){
+                        Notifier.warning(response.substring(6));
+                    }else{
+                        Notifier.success("Email enviado con exito.");
+                    }
+              },
+              error: function(response){
+                    Notifier.error(response);	
+              }
+            });
+    }
 }
+
+function validar_email(valor){
+        // creamos nuestra regla con expresiones regulares.
+        var filter = /[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+        // utilizamos test para comprobar si el parametro valor cumple la regla
+        if(filter.test(valor))
+            return true;
+        else
+            return false;
+}
+
+$( document ).ready(function() {
+    if ($('#tablaGrilla >tbody >tr').length < 2){
+        $('.my-link').hide();
+    }else{
+        $('.my-link').show();
+    }
+});

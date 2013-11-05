@@ -67,6 +67,9 @@ function inscribir(){
     if(seleccionadoA!=""||seleccionadoB!=""){
       realizarIncripcion(seleccionadoA,seleccionadoB); 
     }
+    if(seleccionadoA==""&&seleccionadoB==""){
+      Notifier.warning("No se ha seleccionado ninguna materia");
+    }
 }
 
 function realizarIncripcion(datosAlta,datosUpdate){

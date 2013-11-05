@@ -212,4 +212,19 @@ public class ValidarSituacionMateria extends AccessManager {
         return "";
     }
 
+    public String hayDatos(String legajo, String carrera) throws Exception {
+        String estado="";
+        String sql="select * \n" +
+                "from nota_examen\n" +
+                "where Legajo="+legajo+"\n" +
+                "and Cod_Carrera="+carrera+"";
+        ResultSet rst=execute(sql);
+        if(rst.next()){
+            estado="";
+        }else{
+            estado="No se ha realizado ninguna inscripcion.";
+        }
+        return estado;
+    }
+
 }

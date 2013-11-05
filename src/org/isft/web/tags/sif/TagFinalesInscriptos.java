@@ -25,7 +25,7 @@ public class TagFinalesInscriptos extends TagGrilla {
                 CollectionFinalesInscriptos cfi=new CollectionFinalesInscriptos();
                 hm.put("alumno", pageContext.getSession().getAttribute("alumno"));
                 Vector<FinalInscripto> fi=cfi.select(hm);
-                String tabla;
+                String tabla="";
                 tabla="<tr><td><h4>Materia</h4></td>";
                 tabla+="<td><h4>Fecha</h4></td>";
                 tabla+="<td><h4>Turno</h4></td>";
