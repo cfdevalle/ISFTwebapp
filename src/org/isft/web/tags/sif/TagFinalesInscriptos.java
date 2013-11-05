@@ -19,7 +19,7 @@ import org.isft.web.tags.TagGrilla;
  */
 public class TagFinalesInscriptos extends TagGrilla {
     public int doStartTag() throws JspException {
-            super.doStartTag();
+            super.doStartTag("tablaGrilla");
             try {                
                 HashMap hm=new HashMap();
                 CollectionFinalesInscriptos cfi=new CollectionFinalesInscriptos();
