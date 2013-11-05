@@ -42,9 +42,9 @@ public final class DataBase {
 			user_ = resbound.getString("user");
 			password_ = resbound.getString("password");
 			
-			System.out.println("CONEXION UNFICADA= DB:" + origen_datos_ +":USER:"+user_+":PASS: "+password_);
+			//System.out.println("CONEXION UNFICADA= DB:" + origen_datos_ +":USER:"+user_+":PASS: "+password_);
 		} catch (Exception exc) {
-			System.out.println("MISSING EXCEPTION:" + exc.toString());
+			//System.out.println("MISSING EXCEPTION:" + exc.toString());
 		}
 		
         setUser(param.get("user")==null ? user_ : (String)param.get("user"));

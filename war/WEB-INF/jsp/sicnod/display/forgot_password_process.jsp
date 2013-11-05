@@ -59,7 +59,6 @@
 	if (!txt_mensaje.equals("ok")) {
 	%>
 		<script>
-			console.log("me voy a la 3003");
 			goPageNoLogin("3003&result_forgot=<%= txt_mensaje%>");
 		</script>
 	<% }%>
