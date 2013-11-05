@@ -5,7 +5,6 @@
 <%@page import="java.util.HashMap"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  uri="/WEB-INF/tld/ComboExamenes.tld" prefix="turno" %>
-<!DOCTYPE html>
 <div class="control-group" style=" max-width: 50%; float: left; ">
 	<label class="control-label" for="inputMateria">Turno: </label>
 	<div class="controls">
@@ -16,8 +15,5 @@
 		<turno:comboTurno carrera="<%= carrera %>" materia="<%= materia %>" ></turno:comboTurno>
 	</div>
 </div>
-
-<div class="control-group" id="comboLectivo">
-
-</div>
+<div class="control-group" id="comboLectivo"></div>
 

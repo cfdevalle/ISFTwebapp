@@ -44,7 +44,7 @@ public class TagFinalesInscriptosFull extends TagGrilla {
     public int doStartTag() throws JspException {
             super.doStartTag();
             try {
-                System.out.println("llego al tag de finalesInscriptosFULL");
+                //System.out.println("llego al tag de finalesInscriptosFULL");
 				
                 HashMap hm=new HashMap();
 				hm.put("materia", materia);
@@ -52,7 +52,7 @@ public class TagFinalesInscriptosFull extends TagGrilla {
 				hm.put("turno", turno);
 				hm.put("lectivo", lectivo);
 				hm.put("fechaexamen", fechaexamen);
-				System.out.println(materia + " : " + carrera + " : " + turno + " : " + lectivo + " : " + fechaexamen);
+				//System.out.println(materia + " : " + carrera + " : " + turno + " : " + lectivo + " : " + fechaexamen);
 				
                 CollectionFinalesInscriptos cfi=new CollectionFinalesInscriptos();
                 Vector<FinalInscripto> fi=cfi.getFullInscripciones(hm);
@@ -84,8 +84,13 @@ public class TagFinalesInscriptosFull extends TagGrilla {
 						tabla+="<td>"+fi.elementAt(i).getNotaexamen().getFecha_inscripcion()+"</td>";
 
 						tabla+="<td><input maxlength='2' style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getNota_final()+"' name=\"Calificacion\" /></td>";
-						tabla+="<td><input style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getLibroActExamen()+"' name=\"Libro\" required='true' /></td>";
-						tabla+="<td><input style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getFolioActExamen()+"' name=\"Folio\" required='true' />";
+						if(i==0){
+							tabla+="<td><input onchange='return setLibroFolio();' style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getLibroActExamen()+"' name=\"Libro\" /></td>";
+							tabla+="<td><input onchange='return setLibroFolio();' style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getFolioActExamen()+"' name=\"Folio\" />";
+						}else{
+							tabla+="<td><input type=\"text\" disabled style=\"max-width: 95px\" value='"+fi.elementAt(i).getNotaexamen().getLibroActExamen()+"' name=\"Libro\" /></td>";
+							tabla+="<td><input type=\"text\" disabled style=\"max-width: 95px\" value='"+fi.elementAt(i).getNotaexamen().getFolioActExamen()+"' name=\"Folio\" />";
+						}
 						tabla+="<input type=\"hidden\" value='"+fi.elementAt(i).getAlumno().getLegajo()+"' name=\"Legajo\" /></td>";
 
 						tabla+="</tr>";

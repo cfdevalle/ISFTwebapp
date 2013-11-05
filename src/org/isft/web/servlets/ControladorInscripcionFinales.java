@@ -28,7 +28,9 @@ public class ControladorInscripcionFinales  extends HttpServlet {
         HashMap hash=new HashMap();
         String[] p_split=param.split("@");
         Alumnos alumno_sesion=(Alumnos) request.getSession(false).getAttribute("alumno");
-        Carrera car_sesion=(Carrera)alumno_sesion.getCarreras().elementAt(0);
+		
+        //Carrera car_sesion=(Carrera)alumno_sesion.getCarreras().elementAt(0);
+        Carrera car_sesion=(Carrera)alumno_sesion.getCarrera();
         //fecha hoy
         Calendar currentDate = Calendar.getInstance();
         SimpleDateFormat formatter= new SimpleDateFormat("yyyy/MM/dd"); 

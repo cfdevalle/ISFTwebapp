@@ -31,8 +31,8 @@ try {
 
 			hm.put("legajo", LegajoList[i]);
 			hm.put("calificacion", CalificacionList[i]);
-			hm.put("libro", LibroList[i]);
-			hm.put("folio", FolioList[i]);
+			hm.put("libro", LibroList[0]);
+			hm.put("folio", FolioList[0]);
 
 			AbmNotaExamen notaExamen = new AbmNotaExamen();
 			notaExamen.update(hm);

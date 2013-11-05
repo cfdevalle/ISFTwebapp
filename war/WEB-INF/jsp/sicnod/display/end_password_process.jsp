@@ -38,7 +38,6 @@
 	if (!txt_mensaje.equals("ok")) {
 	%>
 		<script>
-			console.log("me voy a la 3004");
 			goPageNoLogin("3004&result_forgot=<%= txt_mensaje%>");
 		</script>
 	<% }%>

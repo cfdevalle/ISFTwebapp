@@ -59,9 +59,11 @@ public class ValidarSituacionMateria extends AccessManager {
     public String validarAlta(HashMap hashAlta) throws Exception{
         String materia_valida="";
         if(isInscribible(hashAlta).equals("")){
+			System.out.println("isInscribible:1");
         //SI DEVUELVE "" QUIERE DECIR QUE ES INSCRIBIBLE
         }else{
         //SI NO 
+			System.out.println("isInscribible:2");
             materia_valida=isInscribible(hashAlta);
             return materia_valida;
         }
@@ -135,18 +137,24 @@ public class ValidarSituacionMateria extends AccessManager {
                     "and lb.Fecha_Reg > cast((now() - interval 5 year) as date)\n"+
                     "order by lb.Cod_Materia";
         ResultSet rst = execute(sql); 
+		System.out.println("query: "+sql);
         while(rst.next()){
             if(isCorrelativasOk(rst)){
+				System.out.println("isCorrelativasOk");
                 //PROBE MUCHISIMAS COMPARACIONES Y CAST Y ESTA ES LA UNICA Q FUNCIONO
                 if(Integer.toString(rst.getInt("Cod_Materia")).equals(hashInscripcion.get("cod_materia"))){
+					System.out.println("isCorrelativasOk  A");
                     inscribible="";
                 }
                 //SE HACE 2 VECES LO MISMO POR QUE EL SQL TRAE 2 REGISTRO CASI IDENTICOS, POR CULPA DE TURNO
                 rst.next();
                 if(Integer.toString(rst.getInt("Cod_Materia")).equals(hashInscripcion.get("cod_materia"))){
+					System.out.println("isCorrelativasOk  B");
                     inscribible="";
                 }
-            }
+            }else{
+				System.out.println("isCorrelativasOk NOT");
+			}
          } 
         return inscribible;
     }
@@ -173,9 +181,11 @@ public class ValidarSituacionMateria extends AccessManager {
     public String validarUpdate(HashMap hashUpdate)throws Exception  {
         String materia_valida="";
         if(isInscribible(hashUpdate).equals("")){
+			System.out.println("isInscribible:3");
         //SI DEVUELVE "" QUIERE DECIR QUE ES INSCRIBIBLE
         }else{
         //SI NO 
+			System.out.println("isInscribible:4");
             materia_valida=isInscribible(hashUpdate);
             return materia_valida;
         }

@@ -69,7 +69,6 @@
 				}
 			%>
 			<script>
-				console.log("me voy a la 3007&result_forgot=<%= txt_mensaje%>");
 				goPage("3007&result_forgot=<%= txt_mensaje%>");
 			</script>
 				(PROCESO UPDATE ALUMNO)

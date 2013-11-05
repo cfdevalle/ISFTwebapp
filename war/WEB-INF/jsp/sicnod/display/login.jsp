@@ -18,7 +18,8 @@ position: relative;
 			%>
                 <ul class="nav pull-right">
                     <li class="dropdown">
-                        Bienvenido <%= alumno.getNombre() %> <%= alumno.getApellido() %><br />
+                        Bienvenido <strong><span id="nombre_login"><%= alumno.getNombre() %> <%= alumno.getApellido() %></span></strong><br />
+						Mi carrera <strong><span id="carrera_login"><%= alumno.getCarrera().getNombre()%></span></strong><br />
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>Mi cuenta<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="javascript:goPage(3007)">Mis datos</a></li>
@@ -44,8 +45,7 @@ position: relative;
                             <td>
                                 <img id="imagen_pass" src="" width="25px"  style="visibility:hidden;" />
                                 <span id="mensaje_pass"></span>
-                            </td>
-                       
+                            </td>                       
                             <td>
                                 <!--<input class="btn btn-primary" type="reset" value="Cancelar" name="btn_cancelar" />-->
                                 <input class="btn  btn-primary"   type="submit" name="btn_aceptar" value="Aceptar" />
@@ -77,7 +77,7 @@ position: relative;
                                         salida = "Password incompleto";
                                     }
                                     else if(result_login.equals("datos_invalidos")){
-                                        salida = "Usuario/password inválidos";
+                                        salida = "Usuario/password inv&aacute;lidos";
                                     }
                                     %>
                                     <%=salida%>

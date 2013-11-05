@@ -75,11 +75,12 @@
 								<% }else{ %>
 									<strong>No tiene carrera actual asignada. <br />Seleccione una carrera de la lista:</strong>
 								<% } %>
+									<input type="hidden" name="curret_carrera" id="current_carrera" value="<%= alumno.getCarrera().getNombre()%>" />
 							</div>
 						</div>       
 
 						<div class="control-group ">
-							<label class="control-label" for="inputWarning">Mis Carrera</label>
+							<label class="control-label" for="inputWarning">Mis Carreras</label>
 							<div class="controls">
 								<% if(alumno.getCarreras().size() > 0){ %>
 									<SELECT  NAME="cbo_carrera"> 
@@ -156,7 +157,6 @@
 <script type="text/javascript">
 function sendForm() {
 	var queryString = $("#FormAlumno").serialize();
-	console.log(queryString);
 	goPageNoLogin("3010&"+queryString);
 	return false;
 }
@@ -172,4 +172,13 @@ if( result_forgot==null || result_forgot.equals("") ){
 			Notifier.success("Datos modificados con éxito!");	
 		</script>
 <%  } } %>	
+<script type="text/javascript">
+$(document).ready(function(){
+	var Nombre = $('#Nombre').val();
+	var Apellido = $('#Apellido').val();
+	var current_carrera = $('#current_carrera').val();
 
+	$('#nombre_login').html(Nombre+" "+Apellido);
+	$('#carrera_login').html(current_carrera);
+});
+</script>

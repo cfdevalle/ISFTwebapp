@@ -17,35 +17,28 @@
 	 */
 	function carga() {
 		var carrera = $("#carrera").val();
-		console.log("Carrera: " + carrera);
-		$("#comboMateria").load("modulo.go?codPage=3011", {carrera: carrera}, 5000);
+		$("#comboMateria").load("modulo.go?codPage=3011", {carrera: carrera});
 	}
 	function cargaTurnos() {
 		var carrera = $("#carrera").val();
 		var materia = $("#materia").val();
-		console.log("Carrera: " + carrera);
-		console.log("Materia " + materia);
-		$("#comboTurno").load("modulo.go?codPage=3012", {carrera: carrera,materia: materia}, 5000);
+
+		$("#comboTurno").load("modulo.go?codPage=3012", {carrera: carrera,materia: materia});
 	}
 	function cargaLectivo() {
 		var carrera = $("#carrera").val();
 		var materia = $("#materia").val();
 		var turno = $("#turno").val();
-		console.log("Carrera: " + carrera);
-		console.log("Materia " + materia);
-		console.log("Turno " + turno);
-		$("#comboLectivo").load("modulo.go?codPage=3013", {carrera: carrera,materia: materia,turno: turno}, 5000);
+
+		$("#comboLectivo").load("modulo.go?codPage=3013", {carrera: carrera,materia: materia,turno: turno});
 	}
 	function cargaFechaExamen() {
 		var carrera = $("#carrera").val();
 		var materia = $("#materia").val();
 		var turno = $("#turno").val();
 		var lectivo = $("#lectivo").val();
-		console.log("Carrera: " + carrera);
-		console.log("Materia " + materia);
-		console.log("Turno " + turno);
-		console.log("Lectivo " + lectivo);
-		$("#comboFechaExamen").load("modulo.go?codPage=3014", {carrera: carrera,materia: materia,turno: turno,lectivo: lectivo}, 5000);
+
+		$("#comboFechaExamen").load("modulo.go?codPage=3014", {carrera: carrera,materia: materia,turno: turno,lectivo: lectivo});
 	}
 	function cargaGrillaAlumnos(){
 		
@@ -54,13 +47,8 @@
 		var turno = $("#turno").val();
 		var lectivo = $("#lectivo").val();
 		var fecha_examen = $("#fecha_examen").val();
-		console.log("Carrera: " + carrera);
-		console.log("Materia " + materia);
-		console.log("Turno " + turno);
-		console.log("Lectivo " + lectivo);
-		console.log("Fecha examen " + fecha_examen);
 		
-		$("#comboAlumnos").load("modulo.go?codPage=3015", {carrera: carrera,materia: materia,turno: turno,lectivo: lectivo, fecha_examen:fecha_examen}, 5000);
+		$("#comboAlumnos").load("modulo.go?codPage=3015", {carrera: carrera,materia: materia,turno: turno,lectivo: lectivo, fecha_examen:fecha_examen});
 	}
 function sendModalFormLibroActas() {
 	$('#modalDesinscribir').modal('show');
@@ -77,7 +65,20 @@ function sendFormLibroActas() {
 
 	return false;
 }
+function setLibroFolio(){
+	var Folios = document.getElementsByName("Folio");
+	var Libros = document.getElementsByName("Libro");
+	if(Folios.length > 1){
+		var Folio1 = document.getElementsByName("Folio")[0].value;
+		var Libro1 = document.getElementsByName("Libro")[0].value;
+		for(var i=0; i < Folios.length; i++){
+			Folios[i].value = Folio1;
+			Libros[i].value = Libro1;
+		}
+	}
+}
 function validateForm(nombreLista){
+	setLibroFolio();
 	var Folios = document.getElementsByName(nombreLista);
 	for(var i=0; i < Folios.length; i++){
 		var currentValue = Folios[i].value;
@@ -134,13 +135,13 @@ function validateForm(nombreLista){
 			<fieldset>
 				<legend><img src="static/images/sicnod/ISFT.GIF" style="width:3%;  float:left;"> &nbsp;&nbsp;&nbsp;ACTA VOLANTE DE EVALUACIONES</legend>
 				<form class="form-horizontal" action="" method="post" name="FormLibroActas" id="FormLibroActas" >
-					<div class="control-group" style=" max-width: 50%; float: left; ">
+					<div class="control-group" style=" max-width: 50%; float: left;max-height: 30px; ">
 						<label class="control-label" for="inputMateria">Carrera: </label>
 						<div class="controls">
 							<carr:carrera></carr:carrera>
 						</div>
 					</div>
-					<div id="comboMateria" class="control-group"></div>
+						<div id="comboMateria" class="control-group"></div>
 				</form>
 			</fieldset>
 		</div>
