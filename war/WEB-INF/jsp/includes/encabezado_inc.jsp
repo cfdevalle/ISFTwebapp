@@ -24,7 +24,7 @@
                             
                                             <li><a href="javascript:goPage(5002)">Gestion de Horarios</a></li>
                                              <li><a href="javascript:goPage(4005)">Ver Mensajes</a></li>
-                                              <li><a href="javascript:goPage(6021)">Asignacion de Equivalencias</a></li>
+                                             <!-- <li><a href="javascript:goPage(6021)">Asignacion de Equivalencias</a></li> -->
                                           
                                             
                                           
