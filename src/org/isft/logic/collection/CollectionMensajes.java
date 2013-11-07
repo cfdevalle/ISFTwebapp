@@ -39,9 +39,7 @@ public class CollectionMensajes implements org.isft.logic.AccessInterface{
             query += whereLegajo;
             query += whereCarrera;
             query += " group by m.id_mensaje";
-            System.out.println(query);
             rs = am.execute(query);
-            System.out.println("terminado carga de mensajes");  
         }catch (Exception e){
             System.out.println("error: "+e.getMessage());
         }
@@ -66,7 +64,6 @@ public class CollectionMensajes implements org.isft.logic.AccessInterface{
         a.setCarrera(c);
         
         m.setAlumnos(a);
-           System.out.println("DESP DE AGREGAR ALUMNO");
         vec.add(m);
        }
        return vec;

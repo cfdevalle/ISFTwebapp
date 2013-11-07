@@ -16,9 +16,15 @@
                     }
                     
                     if(titulo != "" && mensaje != ""){
-                        $.post('jsp/sicsa/abmc/ajaxMensajes.jsp', $('#nuevoMensaje').serialize())
-                        $('#myModal').modal('hide');
-                        goPage(4002);
+                        $.ajax({
+                            url: 'jsp/sicsa/abmc/ajaxMensajes.jsp',
+                            data: $('#nuevoMensaje').serialize(),
+                            type: "POST",
+                            success: function(){ 
+                                $('#myModal').modal('hide');
+                                goPage(4002);   
+                            }
+                        });
                     }
                     return false;
                 }); 
