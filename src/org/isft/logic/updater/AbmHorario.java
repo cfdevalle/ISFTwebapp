@@ -18,10 +18,12 @@ import java.util.Locale;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.isft.domain.Materia;
 import org.isft.domain.helper.FechaHora;
 import org.isft.logic.AccessManager;
 import sun.util.calendar.BaseCalendar.Date;
 
+//eliminar
 /**
  *
  * @author Ariel
@@ -39,9 +41,9 @@ public class AbmHorario extends UpdaterManager implements UpdaterInterface{
         System.out.println("profesor"+Profesor);
         //se instancia una fecha
         FechaHora fecha = new FechaHora();
-        //se carga lectivo con el año actual
+        //se carga lectivo con el aÃ±o actual
         int lectivo=fecha.getAnioActual();
-        System.out.println("el año actual es: "+lectivo);
+        System.out.println("el aÃ±o actual es: "+lectivo);
         //se instancia accesMannager
         AccessManager am = new AccessManager();
         ResultSet rs = null;
@@ -49,19 +51,27 @@ public class AbmHorario extends UpdaterManager implements UpdaterInterface{
             //se realiza la consulta de hora_hasta
             rs = am.execute("select hora_hasta from hora where hora_desde='"+hora_desde+"';");
         } catch (Exception ex) {
+
           throw new Exception();
+
         }
-        String hora_hasta="";
+      String hora_hasta="";
         //se carga hora_hasta con el valor traido por la consulta
-        try {
+ try {
             while(rs.next()){
             hora_hasta=rs.getString("hora_hasta");
         
             
             }
         } catch (SQLException ex) {
-           throw new Exception();
-}
+        
+            throw new Exception();
+        
+
+           
+        }
+
+        
         try{
             //se realiza el insert en cursoscantidad de un nuevo curso con cantidad de alumnos 0
         execute("insert into cursos_cantidad (lectivo, cant_alumnos, legajoProfesor,cod_curso,cod_carrera,cod_materia) values ('"+lectivo+"', 0,'"+Profesor+"', '"+curso+"', '"+carrera+"', '"+Materia+"');");
@@ -71,19 +81,33 @@ public class AbmHorario extends UpdaterManager implements UpdaterInterface{
                 //se realiza el insert en la tabla horario en el caso de que cursocantidad ya este
                 execute("INSERT INTO horario (dia, Hora_desde, Hora_hasta, lectivo, legajoProfesor, Cod_Curso, Cod_Carrera, Cod_Materia) VALUES ('"+dia+"', '"+hora_desde+"', '"+hora_hasta+"', '"+lectivo+"', '"+Profesor+"', '"+curso+"', '"+carrera+"', '"+Materia+"');");
             } catch (Exception ex) {
+
           throw new Exception();
   }
-    }
+
+                
+           
+ 
+
         try {   
             //se realiza el inset en horario en el caso de que curso cantidad no estaba
             execute("INSERT INTO horario (dia, Hora_desde, Hora_hasta, lectivo, legajoProfesor, Cod_Curso, Cod_Carrera, Cod_Materia) VALUES ('"+dia+"', '"+hora_desde+"', '"+hora_hasta+"', '"+lectivo+"', '"+Profesor+"', '"+curso+"', '"+carrera+"', '"+Materia+"');");
         } catch (Exception ex) {
+
+
             throw new Exception();
-        }
-        System.out.println("insert horario listo");
-       
+
 }
-//eliminar
+           
+
+            
+
+        
+        System.out.println("insert horario listo");
+
+    
+       
+        }}
     public void delete(HashMap parameters){
       //se reciben parametros
       String hora=(String) parameters.get("hora");
@@ -103,6 +127,11 @@ public class AbmHorario extends UpdaterManager implements UpdaterInterface{
         System.out.println("eliminado correctamente");
     }
     //modificaciones no son necesarias
+    /**
+     *
+     * @param parameters
+     * @throws Exception
+     */
     public void update(HashMap parameters) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }

@@ -37,6 +37,13 @@ private String cod_carrera_Exeptuar="";
         } catch (Exception ex) {
             Logger.getLogger(ComboCarrera.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+
+        //se cra la estructura del combo
+        mensaje="<SELECT NAME=\"carrera\" id=\"carrera\" SIZE=1 onchange=\" carga();\">";
+        mensaje=mensaje+"<option value='0'>Seleccionar</option>" ;           
+        //se carga el combo con los resultados de la consulta
+
        
         if (cod_carrera_Exeptuar.isEmpty()){
             mensaje="<SELECT NAME=\"carrera\" id=\"carrera\" SIZE=1 onchange=\" carga();\">";

@@ -1,7 +1,7 @@
 <%-- 
     Document   : modalEliminar
     Created on : 16-sep-2013, 18:01:51
-    Author     : Ariel
+    Author     : Ariel y carolina
 --%>
 
 <%@page import="org.isft.logic.helper.sim.recuperanombre"%>
