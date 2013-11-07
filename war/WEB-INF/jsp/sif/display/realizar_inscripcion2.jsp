@@ -1,5 +1,3 @@
-<script type="text/javascript" src="static/js/facebox.js"></script>
-<link type="text/css" rel="stylesheet" href="static/css/facebox.css"/>
 <script type="text/javascript" src="static/js/sif/realizar_inscripcion.js"></script>
 <style>
     .table td {
@@ -46,7 +44,7 @@
                     <table align="center">
                         <tr>         
                             <td width="200"><input type="button" onclick="inscribir()" class="btn btn-default" value="Inscribir"></td>
-                            <td width="200"><a class="btn">Actualizar Pagina</a></td>
+                            <td width="200"><a class="btn btn-default" href="javascript:goPage(2004)">Actualizar</a></td>
                         </tr>
                     </table>
                 </div>

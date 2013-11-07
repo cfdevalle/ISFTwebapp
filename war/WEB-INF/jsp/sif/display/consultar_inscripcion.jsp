@@ -1,6 +1,6 @@
-<script type="text/javascript" src="static/js/facebox.js"></script>
 <script type="text/javascript" src="static/js/sif/consultar_inscripcion.js"></script>
-<link type="text/css" rel="stylesheet" href="static/css/facebox.css"/>
+<%@page import="org.isft.domain.Alumnos"%>
+<%@page import="org.isft.domain.Carrera"%>
 
 <style>
     .table td {
@@ -56,7 +56,14 @@
                         <tr>
                             <td width="200"><input type="button" onclick="ingresarEmail()" class="btn btn-default" value="Enviar Email"></td>
                             <td width="200"><input type="button" onclick="desinscribir()" class="btn btn-default" value="Desinscribirse"></td>
-                            <td width="200"><a class="btn btn-default" href="generar.rpt?cod=2000&param=p_cod_carrera=1@p_legajo=6030&file=ReporteFinalesInscriptos">Descargar</a>
+                            <%
+                                Alumnos alumno_sesion=new Alumnos();
+                                alumno_sesion=(Alumnos)request.getSession(false).getAttribute("alumno");
+                                String legajo=Integer.toString(alumno_sesion.getLegajo());
+                                String carrera=Integer.toString(alumno_sesion.getCarrera().getCod_carrera());
+                                
+                            %>
+                            <td width="200"><a class="btn btn-default my-link" href="generar.rpt?cod=2000&param=p_cod_carrera=<%out.println(carrera);%>@p_legajo=<%out.println(legajo);%>&file=ReporteFinalesInscriptos">Descargar</a>
                         </tr>
                     </table>
                     <br>

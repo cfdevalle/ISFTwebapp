@@ -19,13 +19,13 @@ import org.isft.web.tags.TagGrilla;
  */
 public class TagFinalesInscriptos extends TagGrilla {
     public int doStartTag() throws JspException {
-            super.doStartTag();
+            super.doStartTag("tablaGrilla");
             try {                
                 HashMap hm=new HashMap();
                 CollectionFinalesInscriptos cfi=new CollectionFinalesInscriptos();
                 hm.put("alumno", pageContext.getSession().getAttribute("alumno"));
                 Vector<FinalInscripto> fi=cfi.select(hm);
-                String tabla;
+                String tabla="";
                 tabla="<tr><td><h4>Materia</h4></td>";
                 tabla+="<td><h4>Fecha</h4></td>";
                 tabla+="<td><h4>Turno</h4></td>";

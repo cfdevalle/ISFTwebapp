@@ -15,15 +15,16 @@ if(request.getSession(false).getAttribute("alumno")!=null){ %>
                     <div class="well">
                             <table>
                                 <tr>
-                                    <%-- <td style=" width: 200px;"><div style="border: 1px solid;"><a href="javascript:goPage(6019)"><img src="static/images/logo.png"></a></div></td>--%>
-                                    <td style=" width: 800px;">   <H2>I.S.F.T. NÂ° 179 Dr. Carlos Pellegrini</h2></a
+                                    <td>   </td>
+                                    <td style=" width: 8%;"><img src="static/images/logo.png" style="border: solid 1px "></td>
+                                   <td style=" width: 72%;"><a href="#"><H2>I.S.F.T. N° 179 Dr. Carlos Pellegrini</h2></a>
                                         
-                                          <p class="muted">Excelencia Acad&eacute;mica - Solidez Institucional - Salida Laboral</p>
+                                         <p class="muted">Excelencia Acad&eacute;mica - Solidez Institucional - Salida Laboral</p>
                                     </td>
                                   
-                                    <td>
+                                    <td style=" width: 20%;">
                                         
-                                       <%@include file="sicnod/display/login.jsp" %>
+                                     <%@include file="sicnod/display/login.jsp" %>
                                     </td>
                                 </tr> 
                                 
@@ -46,7 +47,7 @@ if(request.getSession(false).getAttribute("alumno")!=null){ %>
                         </div>
                 </div>
 </div>
-           <%@include file="includes/pie_inc.jsp" %>
+          
             
         
     </body>

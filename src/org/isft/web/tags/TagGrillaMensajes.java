@@ -4,6 +4,8 @@
  */
 package org.isft.web.tags;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Vector;
 import javax.servlet.jsp.JspException;
@@ -46,7 +48,6 @@ public class TagGrillaMensajes extends TagGrilla {
 
                 CollectionMensajes cm=new CollectionMensajes();
                 Vector mensajes=cm.select(hm);
-                System.out.println(mensajes);
                 
                 for(int i=0;i<mensajes.size();i++){
                     Mensaje m = (Mensaje)mensajes.get(i);
@@ -69,7 +70,10 @@ public class TagGrillaMensajes extends TagGrilla {
                         tabla+="<td>"+c.getNombre()+"</td>";
                     }
                     tabla+="<td>"+estado+"</td>";
-                    tabla+="<td>"+m.getFecha()+"</td>";
+                    
+                    SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy");
+                    String fecha=formatter.format(m.getFecha());
+                    tabla+="<td>"+fecha+"</td>";
                     tabla+="<td>"+m.getTitulo()+"</td>";
                     if(isAdmin()){
                         tabla+="<td><a href=\"javascript:verPeticion("+m.getId_mensaje()+")\">Contestar</a>&nbsp;<a href=\"javascript:\" onclick=\"eliminarMensaje("+m.getId_mensaje()+", this);\">Eliminar</a></td>";

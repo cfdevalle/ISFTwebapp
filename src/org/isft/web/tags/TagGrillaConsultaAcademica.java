@@ -4,6 +4,7 @@
  */
 package org.isft.web.tags;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Vector;
 import javax.servlet.jsp.JspException;
@@ -29,7 +30,6 @@ public class TagGrillaConsultaAcademica extends TagGrilla{
                 hm.put("carrera", getCarrera());
                 hm.put("legajo", getLegajo());
 
-                System.out.println("HM: " + hm.toString());
                 CollectionNotasFinales cm=new CollectionNotasFinales();
                 Vector finales=cm.select(hm);
                 //System.out.println(finales);
@@ -59,9 +59,13 @@ public class TagGrillaConsultaAcademica extends TagGrilla{
                         tabla+="<td>"+m.getModalidadInscripcion()+"</td>";
                         tabla+="<td>"+m.getFolioActExamen()+"</td>";
                         tabla+="<td>"+m.getLibroActExamen()+"</td>";
-
+                        
+                        
                         FechaFinal f = m.getFecha_examen();
-                        tabla+="<td>"+f.getFecha()+"</td>";
+                        
+                        SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy");
+                        String fecha=formatter.format(f.getFecha());
+                        tabla+="<td>"+fecha+"</td>";
                         tabla+="<td>"+m.getNota_final()+"</td>";
                     }
                 }else{

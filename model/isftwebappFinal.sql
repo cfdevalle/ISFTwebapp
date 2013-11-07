@@ -328,7 +328,7 @@ CREATE  TABLE IF NOT EXISTS `isftwebappfinal`.`mensaje` (
   `id_mensaje` INT NOT NULL AUTO_INCREMENT ,
   `titulo` VARCHAR(30) NOT NULL ,
   `mensaje` VARCHAR(150) NOT NULL ,
-  `fecha` TIME NOT NULL ,
+  `fecha` DATETIME NOT NULL ,
   `respondido` TINYINT(1) NOT NULL DEFAULT 0 ,
   `Legajo` INT(6) NOT NULL ,
   `Cod_Carrera` INT(2) NOT NULL ,

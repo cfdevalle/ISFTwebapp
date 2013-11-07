@@ -19,7 +19,7 @@ position: relative;
                 <ul class="nav pull-right">
                     <li class="dropdown">
                         Bienvenido <strong><span id="nombre_login"><%= alumno.getNombre() %> <%= alumno.getApellido() %></span></strong><br />
-						Mi carrera <strong><span id="carrera_login"><%= alumno.getCarrera().getNombre()%></span></strong><br />
+						Carrera <strong><span id="carrera_login"><%= alumno.getCarrera().getNombre()%></span></strong><br />
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>Mi cuenta<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="javascript:goPage(3007)">Mis datos</a></li>
