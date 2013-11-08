@@ -61,6 +61,21 @@ function ingresarEmail(){
 }
 
 function enviarEmail(){
+    mensaje_ui.innerHTML="<h4>Por favor espere, esta operacion puede demorar varios segundos...</h4>";
+    $.blockUI(
+        { message: $('#mensaje_ui')},
+        { css: { 
+        border: 'none', 
+        padding: '15px', 
+        backgroundColor: '#000', 
+        '-webkit-border-radius': '10px', 
+        '-moz-border-radius': '10px', 
+        opacity: .5, 
+        color: '#fff' } 
+        }
+    ); 
+       
+ 
     var datos= $('input[name=email]').val();
     if(!validar_email(datos)){
         Notifier.warning("Email no valido.");
@@ -77,6 +92,8 @@ function enviarEmail(){
               url: 'enviar.email',
               data: parametros,
               success: function(response){
+                    setTimeout($.unblockUI, 20); 
+                    mensaje_ui.innerHTML=""; 
                     if(response.substring(0,5)=='ERROR'){
                         Notifier.warning(response.substring(6));
                     }else{
@@ -103,7 +120,7 @@ function validar_email(valor){
 $( document ).ready(function() {
     var cantidad_materias= $('input[name=cantidad_checkbox]').val();
     if(cantidad_materias==0){
-        pagina_consultar_inscripcion.innerHTML="<h3 align='center'>No se encontraron ah realizado ninguna inscripcion</h3>"
+        pagina_consultar_inscripcion.innerHTML="<h3 align='center'>No se ah realizado ninguna inscripcion</h3>"
         pagina_consultar_inscripcion.innerHTML+="<img style='display: block; margin: 0 auto;' src='static/images/sif/error.jpg'>";
         
     }else{

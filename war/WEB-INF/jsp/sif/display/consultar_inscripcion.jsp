@@ -1,4 +1,5 @@
 <script type="text/javascript" src="static/js/sif/consultar_inscripcion.js"></script>
+<script type="text/javascript" src="static/js/sif/jquery.blockUI.js"></script>
 <%@page import="org.isft.domain.Alumnos"%>
 <%@page import="org.isft.domain.Carrera"%>
 
@@ -50,6 +51,7 @@
                     <%@ taglib uri="/WEB-INF/tld/taglib.tld" prefix="tag" %>
                     <div id="div_desinscripcion"></div>
                     <tag:FinalesInscriptos/>
+                    <div id="mensaje_ui"></div>
                     <br>
                     <br>
                     <table align="center">
