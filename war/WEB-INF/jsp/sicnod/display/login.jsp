@@ -1,13 +1,5 @@
 <%@page import="org.isft.logic.collection.EjemploConexion, org.isft.domain.Alumnos,org.isft.domain.Carrera, org.isft.logic.validator.ValidarUsuario, java.util.Vector,java.util.HashMap"%>
-<style>
-/*
-fieldset {
 
-position: relative;
-
-}
-*/
-</style>
 <script src="static/js/sicnod/login.js" type="text/javascript"></script>
 <div class="row-fluid">
 	<div class="box span12">

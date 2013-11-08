@@ -65,12 +65,20 @@ function sendFormLibroActas() {
 
 	return false;
 }
-function setLibroFolio(){
-	var Folios = document.getElementsByName("Folio");
-	var Libros = document.getElementsByName("Libro");
+function setLibroFolio(group,i){
+	//var Folios = document.getElementsByName("Folio");
+	//var Libros = document.getElementsByName("Libro");
+
+	var Folios = $('.Folio_'+group);
+	var Libros = $('.Libro_'+group);
+	
 	if(Folios.length > 1){
-		var Folio1 = document.getElementsByName("Folio")[0].value;
-		var Libro1 = document.getElementsByName("Libro")[0].value;
+		//var Folio1 = document.getElementsByName("Folio")[0].value;
+		//var Libro1 = document.getElementsByName("Libro")[0].value;
+		
+		var Folio1 = $('.Folio_'+group)[i].value;
+		var Libro1 = $('.Libro_'+group)[i].value;
+		
 		for(var i=0; i < Folios.length; i++){
 			Folios[i].value = Folio1;
 			Libros[i].value = Libro1;
@@ -78,7 +86,7 @@ function setLibroFolio(){
 	}
 }
 function validateForm(nombreLista){
-	setLibroFolio();
+	//setLibroFolio();
 	var Folios = document.getElementsByName(nombreLista);
 	for(var i=0; i < Folios.length; i++){
 		var currentValue = Folios[i].value;
@@ -89,7 +97,7 @@ function validateForm(nombreLista){
 			return false;
 		} else if (	validarInt(currentValue)==false || currentValue<0) {
 			gotTop();
-			Notifier.warning("Los valores de la columna "+nombreLista+" deben ser numéricos a partir del cero (0)");
+			Notifier.warning("Los valores de la columna "+nombreLista+" deben ser numéricos a partir del cero (0) hasta el diez (10)");
 			return false;
 		}
 		if(nombreLista=="Calificacion" && (currentValue<0 || currentValue>10)){

@@ -80,7 +80,6 @@ public class ValidarUsuario extends AccessManager implements AccessInterface {
 						"AND Legajo ="+alumno.getLegajo()+"\n" +
 						"AND pwd =  '"+alumno.getPwd()+"'";
             
-			System.out.println("sql Login: "+sql);
             ResultSet rst = execute(sql);
             
             while(rst.next()){

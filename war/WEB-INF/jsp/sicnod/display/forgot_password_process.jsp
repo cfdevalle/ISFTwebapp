@@ -37,7 +37,6 @@
 	
 	String txt_mensaje = "";
 	String legajo = request.getParameter("legajo");
-	System.out.println("Legajo de get "+legajo);
 	if (legajo == null || legajo.equals("")) {
 		txt_mensaje = "legajo_incompleto";
 	} else {
