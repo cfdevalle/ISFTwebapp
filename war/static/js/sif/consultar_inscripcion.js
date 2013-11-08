@@ -101,9 +101,12 @@ function validar_email(valor){
 }
 
 $( document ).ready(function() {
-    if ($('#tablaGrilla >tbody >tr').length < 2){
-        $('.my-link').hide();
+    var cantidad_materias= $('input[name=cantidad_checkbox]').val();
+    if(cantidad_materias==0){
+        pagina_consultar_inscripcion.innerHTML="<h3 align='center'>No se encontraron ah realizado ninguna inscripcion</h3>"
+        pagina_consultar_inscripcion.innerHTML+="<img style='display: block; margin: 0 auto;' src='static/images/sif/error.jpg'>";
+        
     }else{
-        $('.my-link').show();
+        
     }
 });

@@ -16,7 +16,7 @@
                 </ul>
             </div>
             </div>
-            <div class="span12">
+            <div class="span12" id="cronograma_fechas">
                     <%@ taglib uri="/WEB-INF/tld/taglib.tld" prefix="tag" %>
                     <h1 align="center"><u>Cronograma Finales</u></h1>
                     <br>

@@ -1,75 +1,76 @@
 function inscribir(){
-    var cantidad_materias= $('input[name=cantidad_materias]').val();
-    var i=0,j=0,k;
-    var seleccionadoA="";
-    var seleccionadoB="";
-    var inscribible;
-    while(j<cantidad_materias){
-        inscribible=true;
-        k=0;
-        while(k<cantidad_materias){
-            var suma=j+k;
-            if($('#select'+j+' :selected').text()==$('#select'+suma+' :selected').text()
-                &&$('#select'+j+' :selected').text()!=""
-                &&j!=suma){
-                inscribible=false;
-                j=cantidad_materias;
+        var cantidad_materias= $('input[name=cantidad_materias]').val();
+        var i=0,j=0,k;
+        var seleccionadoA="";
+        var seleccionadoB="";
+        var inscribible;
+        while(j<cantidad_materias){
+            inscribible=true;
+            k=0;
+            while(k<cantidad_materias){
+                var suma=j+k;
+                if($('#select'+j+' :selected').text()==$('#select'+suma+' :selected').text()
+                    &&$('#select'+j+' :selected').text()!=""
+                    &&j!=suma){
+                    inscribible=false;
+                    j=cantidad_materias;
+                }
+                k++;
             }
-            k++;
+            j++;
+        }if(inscribible){}else{Notifier.warning("Hay 2 materias seleccionadas el mismo dia y turno.");};
+        while(i<cantidad_materias&&inscribible==true){
+            if($('#select'+i+' :selected').val()==i){
+
+            }else{
+               var accion=$('#select'+i+' :selected').val();
+               //SE TOMAN LOS VALORES PARA ALTA 
+               if(seleccionadoA!=""){
+                   seleccionadoA+="@";
+               }
+               if(accion=="A"){
+                    seleccionadoA+= $('input[name=mat'+i+']').val();
+                    var fecha_turno=$('#select'+i+' :selected').text().split('(');
+                    var turno=fecha_turno[1];
+                    var fecha_selecionada=fecha_turno[0];
+                    var ion="-";
+                    fecha_selecionada=fecha_selecionada.replace(ion,'');
+                    fecha_selecionada=fecha_selecionada.replace(ion,'');
+                    seleccionadoA+=fecha_selecionada;
+                    seleccionadoA+="-";
+                    var parentesis=")";
+                    turno=turno.replace(parentesis,'');
+                    seleccionadoA+=turno;
+                }
+                // SE TOMAN LOS VALORES PARA MODIFICACION
+                if(seleccionadoB!=""){
+                   seleccionadoB+="@";
+                }
+                if(accion=="U"){
+                    seleccionadoB+= $('input[name=mat'+i+']').val();
+                    var fecha_turno=$('#select'+i+' :selected').text().split('(');
+                    var turno=fecha_turno[1];
+                    var fecha_selecionada=fecha_turno[0];
+                    var ion="-";
+                    fecha_selecionada=fecha_selecionada.replace(ion,'');
+                    fecha_selecionada=fecha_selecionada.replace(ion,'');
+                    seleccionadoB+=fecha_selecionada;
+                    seleccionadoB+="-";
+                    var parentesis=")";
+                    turno=turno.replace(parentesis,'');
+                    seleccionadoB+=turno;  
+                }
+            }
+            // ACA TERMINA LA PREGUNTA POR SI SE TOMO COMO SELECCION 0 QUE NO SERIA NADA
+            i++;        
         }
-        j++;
-    }if(inscribible){}else{Notifier.warning("Hay 2 materias seleccionadas el mismo dia y turno.");};
-    while(i<cantidad_materias&&inscribible==true){
-        if($('#select'+i+' :selected').val()==i){
-            
-        }else{
-           var accion=$('#select'+i+' :selected').val();
-           //SE TOMAN LOS VALORES PARA ALTA 
-           if(seleccionadoA!=""){
-               seleccionadoA+="@";
-           }
-           if(accion=="A"){
-                seleccionadoA+= $('input[name=mat'+i+']').val();
-                var fecha_turno=$('#select'+i+' :selected').text().split('(');
-                var turno=fecha_turno[1];
-                var fecha_selecionada=fecha_turno[0];
-                var ion="-";
-                fecha_selecionada=fecha_selecionada.replace(ion,'');
-                fecha_selecionada=fecha_selecionada.replace(ion,'');
-                seleccionadoA+=fecha_selecionada;
-                seleccionadoA+="-";
-                var parentesis=")";
-                turno=turno.replace(parentesis,'');
-                seleccionadoA+=turno;
-            }
-            // SE TOMAN LOS VALORES PARA MODIFICACION
-            if(seleccionadoB!=""){
-               seleccionadoB+="@";
-            }
-            if(accion=="U"){
-                seleccionadoB+= $('input[name=mat'+i+']').val();
-                var fecha_turno=$('#select'+i+' :selected').text().split('(');
-                var turno=fecha_turno[1];
-                var fecha_selecionada=fecha_turno[0];
-                var ion="-";
-                fecha_selecionada=fecha_selecionada.replace(ion,'');
-                fecha_selecionada=fecha_selecionada.replace(ion,'');
-                seleccionadoB+=fecha_selecionada;
-                seleccionadoB+="-";
-                var parentesis=")";
-                turno=turno.replace(parentesis,'');
-                seleccionadoB+=turno;  
-            }
+        if(seleccionadoA!=""||seleccionadoB!=""){
+          realizarIncripcion(seleccionadoA,seleccionadoB); 
         }
-        // ACA TERMINA LA PREGUNTA POR SI SE TOMO COMO SELECCION 0 QUE NO SERIA NADA
-        i++;        
-    }
-    if(seleccionadoA!=""||seleccionadoB!=""){
-      realizarIncripcion(seleccionadoA,seleccionadoB); 
-    }
-    if(seleccionadoA==""&&seleccionadoB==""){
-      Notifier.warning("No se ha seleccionado ninguna materia");
-    }
+        if(seleccionadoA==""&&seleccionadoB==""){
+          Notifier.warning("No se ha seleccionado ninguna materia");
+        }
+    
 }
 
 function realizarIncripcion(datosAlta,datosUpdate){
@@ -125,3 +126,14 @@ function realizarUpdate(datosUpdate){
 	  }
 	});
 }
+
+$( document ).ready(function() {
+    var cantidad_materias= $('input[name=cantidad_materias]').val();
+    if(cantidad_materias==0){
+        realizar_inscripcion.innerHTML="<h3 align='center'>No se encontraron datos para generar esta pantalla</h3>"
+        realizar_inscripcion.innerHTML+="<img style='display: block; margin: 0 auto;' src='static/images/sif/error.jpg'>";
+        
+    }else{
+        
+    }
+});

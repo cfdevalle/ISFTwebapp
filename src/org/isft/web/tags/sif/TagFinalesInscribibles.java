@@ -21,9 +21,9 @@ public class TagFinalesInscribibles extends TagGrilla {
                 HashMap hm=new HashMap();
                 CollectionFinalesInscribibles cfi=new CollectionFinalesInscribibles();
                 hm.put("alumno", pageContext.getSession().getAttribute("alumno"));
-				
-				Vector<FinalInscribible> fi=cfi.select(hm);
+		Vector<FinalInscribible> fi=cfi.select(hm);
                 String tabla="";
+                
                 tabla+="<tr><td><h4>Materia</h4></td>";
                 tabla+="<td><h4>Fecha</h4></td>";
                 tabla+="<td><h4>Modalidad de Inscripcion</h4></td>";
@@ -31,7 +31,13 @@ public class TagFinalesInscribibles extends TagGrilla {
                 int cantidad_materias=0;
                 for(int i=0;i<fi.size();i++,cantidad_materias++){
                     FinalInscribible finalInscribible=(FinalInscribible)fi.get(i);
-					tabla+="<tr><td>"+finalInscribible.getMateria().getNombre()+"</td>";
+                    String modificable="";
+                    if(finalInscribible.getAccion().equals("U")){
+                        modificable="class=\"warning\"";
+                    }else{
+                        modificable="class=\"success\"";
+                    }
+                    tabla+="<tr "+modificable+"><td>"+finalInscribible.getMateria().getNombre()+"</td>";
                     //tabla+="<td><input type=\"checkbox\" id="+"mat"+i+" value="+nombre_checkbox+"></td></tr>";
                     tabla+="<td><select id=\"select"+i+"\">";
                     tabla+="<option value=\""+i+"\"></option>";
@@ -51,6 +57,9 @@ public class TagFinalesInscribibles extends TagGrilla {
                     datos_capturados+=fecha_actual.getFechaIso()+"-";
                     System.out.println(datos_capturados);
                     tabla+="<input type=\"hidden\" value=\""+datos_capturados+"\" name="+"mat"+i+" />";
+                }
+                if(fi.size()==0){
+                    tabla+="<input type=\"hidden\" value=\""+fi.size()+"\" name=\"cant_datos\" />";
                 }
                 tabla+="<input type=\"hidden\" value=\""+cantidad_materias+"\" name=\"cantidad_materias\" />";
                 pageContext.getOut().print(tabla);

@@ -29,10 +29,16 @@
             </div>
             </div>
 
-            <div class="span12">
+            <div class="span12" id="realizar_inscripcion">
                     <h1 align="center"><u>Inscripcion a Finales</u></h1>
                     <br>
                     <br>
+                        <h5 align="center">Las materias marcadas en verde son aquellas a las que aun no se ah inscripto, en cambio aquellas que estan marcadas con un color mas claro ya esta inscripto y cualquiera que se seleccione con ese color se tomara como una modificacion.</h5>
+                   <%-- <div class="span6" aling="middle">
+                        <h5>Las materias marcadas en verde son aquellas a las que aun no se ah inscripto,
+                        en cambio aquellas que estan marcadas con un color mas claro ya esta 
+                        inscripto y cualquier valor ingresado se tomara como una modificacion.</h5></div>--%>
+                    
                     <%@ taglib uri="/WEB-INF/tld/taglib.tld" prefix="tag" %>
                     <tag:FinalesInscribibles/>
                     <div id="datos"></div>

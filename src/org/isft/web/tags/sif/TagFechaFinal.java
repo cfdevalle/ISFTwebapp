@@ -47,12 +47,12 @@ public class TagFechaFinal extends TagGrilla{
                         examenes_3.add(examenes.elementAt(f));
                     }     
                 }
-                int total=cant_anio1+cant_anio2+cant_anio3;
+                int total=0;
+                total=cant_anio1+cant_anio2+cant_anio3;
+                tabla+="<input type=\"hidden\" value=\""+total+"\" name=\"cantidad_materias\" />";
                 tabla+=generarAnio(examenes_1,1,cant_anio1);
                 tabla+=generarAnio(examenes_2,2,cant_anio2);  
                 tabla+=generarAnio(examenes_3,3,cant_anio3);  
-                
-                tabla+="<input type=\"hidden\" value=\""+total+"\" name=\"cantidad_materias\" />";
                 pageContext.getOut().print(tabla);
                 } catch(Exception exc){
                     exc.printStackTrace();

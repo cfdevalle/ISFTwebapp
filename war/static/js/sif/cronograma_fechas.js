@@ -21,10 +21,14 @@ function mostrar(aMostrar,anio){
     }
 }
 
-$(document).ready(function(){
-      mostrar(0,0);
-});
 
-function mostrarAño(anio){
-    
-}
+$( document ).ready(function() {
+    var cantidad_materias= $('input[name=cantidad_materias]').val();
+    if(cantidad_materias==0){
+        cronograma_fechas.innerHTML="<h3 align='center'>No hay fechas cargadas en la base de datos</h3>"
+        cronograma_fechas.innerHTML+="<img style='display: block; margin: 0 auto;' src='static/images/sif/error.jpg'>";
+        
+    }else{
+        mostrar(0,0);
+    }
+});
