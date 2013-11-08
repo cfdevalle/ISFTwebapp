@@ -11,7 +11,6 @@ String materia = (String) request.getParameter("materia");
 String turno   = (String) request.getParameter("turno");
 String lectivo = (String) request.getParameter("lectivo");
 String fecha_examen = (String) request.getParameter("fecha_examen");
-System.out.println("grilla: "+fecha_examen);
 %>
 <inscriptos:FinalesInscriptosFull carrera="<%= carrera %>" materia="<%= materia %>" turno="<%= turno %>"  lectivo="<%= lectivo %>" fechaexamen="<%= fecha_examen %>"></inscriptos:FinalesInscriptosFull>
 <div class="control-group ">

@@ -38,7 +38,7 @@ public class ComboMateriasSicnod extends TagSupport {
 		mat.put("campos", "materia.Nombre, materia.Cod_Materia");
 		mat.put("curso", curso);
 		mat.put("carrera", carrera);
-		System.out.println(curso + " " + carrera);
+		//System.out.println(curso + " " + carrera);
 
 		Vector vector = null;
 
@@ -55,10 +55,10 @@ public class ComboMateriasSicnod extends TagSupport {
 		} catch (IOException ex) {
 			Logger.getLogger(ComboMaterias.class.getName()).log(Level.SEVERE, null, ex);
 		}
-		System.out.println("vector: " + vector.size());
+		//System.out.println("vector: " + vector.size());
 		for (int i = 0; i < vector.size(); i++) {
 			Materia materia = (Materia) vector.get(i);
-			System.out.println("cod_materia" + materia.getCod_materia());
+			//System.out.println("cod_materia" + materia.getCod_materia());
 			try {
 				pageContext.getOut().println("<OPTION VALUE='" + materia.getCod_materia() + "'>" + materia.getNombre() + "</OPTION>");
 			} catch (IOException ex) {

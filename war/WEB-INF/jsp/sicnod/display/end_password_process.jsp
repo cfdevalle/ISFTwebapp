@@ -6,21 +6,15 @@
 <%
 	String txt_mensaje = "";
 	String legajo = request.getParameter("hid_legajo");
-	//legajo = "4455";
 	String pass_1_fp = request.getParameter("pass_1_fp");
-	//pass_1_fp = "333";
 	String pass_2_fp = request.getParameter("pass_2_fp");
-	//pass_2_fp = "333";
 
 	if (pass_1_fp == null || pass_1_fp.equals("")) {
 		txt_mensaje = "pass_1_incompleto";
 	}else if (pass_2_fp == null || pass_2_fp.equals("")) {
 		txt_mensaje = "pass_2_incompleto";
 	} else {
-		System.out.println(legajo);
-		System.out.println(pass_1_fp);
 		Alumnos alumno = new Alumnos();
-		//int aux = Integer.parseInt(legajo);
 		alumno.setLegajo(Integer.parseInt(legajo));
 		alumno.setPwd(pass_1_fp);
 

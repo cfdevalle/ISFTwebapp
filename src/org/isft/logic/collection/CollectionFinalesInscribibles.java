@@ -30,7 +30,6 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
         Vector<FinalInscribible> vec_FinalesInscribiles = new Vector();
         try{
             Alumnos alu=(Alumnos) parameters.get("alumno");
-            System.out.println("LA CARRERA SELECCIONADA ES: "+alu.getCarrera().getCod_carrera() );
             String sql="select lb.*, mat.Nombre, exa.Fecha1, exa.Fecha2, exa.Turno, ca.ModalidadInscripcion, ca.SituacionAcademica, lb.Cod_Carrera, lb.Legajo, lb.Cod_Materia\n" +
                     "from libro_matriz lb, materia mat, examenes exa, cursos_alumnos ca\n" +
                     "where (lb.Nota_Final<4 or lb.Nota_Final is null)\n" +
@@ -50,6 +49,7 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
                     "and exa.Fecha2 >= cast((now() - interval 3 day) as date) ";
             ResultSet rst = execute(sql); 
 			
+			System.out.println(sql);
 			
             //OBTENER CANTIDAD DE REGISTROS
             ResultSet cant= execute(sql); 

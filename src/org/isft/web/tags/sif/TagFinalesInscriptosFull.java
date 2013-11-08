@@ -57,22 +57,42 @@ public class TagFinalesInscriptosFull extends TagGrilla {
                 CollectionFinalesInscriptos cfi=new CollectionFinalesInscriptos();
                 Vector<FinalInscripto> fi=cfi.getFullInscripciones(hm);
                 String tabla;
-                tabla="<tr><td><h4>#</h4></td>";
+                String head;
+				
+                head="<tr><td><h4>#</h4></td>";
                 
-				tabla+="<td><h4>Legajo</h4></td>"; 
-                tabla+="<td><h4>Apellido</h4></td>";
-                tabla+="<td><h4>Nombre</h4></td>";
+				head+="<td><h4>Legajo</h4></td>"; 
+                head+="<td><h4>Apellido</h4></td>";
+                head+="<td><h4>Nombre</h4></td>";
                 
-				tabla+="<td><h4>Modalidad</h4></td>";
-                tabla+="<td><h4>Fecha Inscripcion</h4></td>";
+				head+="<td><h4>Modalidad</h4></td>";
+                head+="<td><h4>Fecha Inscripcion</h4></td>";
 
-				tabla+="<td><h4>Calificacion</h4></td>";
-                tabla+="<td><h4>Libro</h4></td>";
-                tabla+="<td><h4>Folio</h4></td></tr>";
-
+				head+="<td><h4>Calificacion</h4></td>";
+                head+="<td><h4>Libro</h4></td>";
+                head+="<td><h4>Folio</h4></td></tr>";
+				
+				tabla = head;
+				
+				int i_aux = 0;
+				int max_aux = 10;
+				int max_static = 10;
+				
 				if(fi.size() > 0){
 					for(int i=0;i<fi.size();i++){
-						tabla+="<tr>";
+						if(i == max_aux){
+							i_aux = 0;
+							max_aux += max_static;
+							tabla+="</tr>";
+							
+							tabla+="<tr>";
+							tabla+= head;
+							tabla+="</tr>";
+							tabla+="<tr>";
+						}else{
+							tabla+="<tr>";
+						}
+						
 
 						tabla+="<td>"+(i+1)+"</td>";
 
@@ -84,16 +104,17 @@ public class TagFinalesInscriptosFull extends TagGrilla {
 						tabla+="<td>"+fi.elementAt(i).getNotaexamen().getFecha_inscripcion()+"</td>";
 
 						tabla+="<td><input maxlength='2' style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getNota_final()+"' name=\"Calificacion\" /></td>";
-						if(i==0){
-							tabla+="<td><input onchange='return setLibroFolio();' style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getLibroActExamen()+"' name=\"Libro\" /></td>";
-							tabla+="<td><input onchange='return setLibroFolio();' style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getFolioActExamen()+"' name=\"Folio\" />";
-						}else{
-							tabla+="<td><input type=\"text\" disabled style=\"max-width: 95px\" value='"+fi.elementAt(i).getNotaexamen().getLibroActExamen()+"' name=\"Libro\" /></td>";
-							tabla+="<td><input type=\"text\" disabled style=\"max-width: 95px\" value='"+fi.elementAt(i).getNotaexamen().getFolioActExamen()+"' name=\"Folio\" />";
-						}
+						//if(i==0){
+							tabla+="<td><input class='Libro_"+max_aux+"' onchange='return setLibroFolio("+max_aux+","+i_aux+");' onkeyup='return setLibroFolio("+max_aux+","+i_aux+");' style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getLibroActExamen()+"' name=\"Libro\" /></td>";
+							tabla+="<td><input class='Folio_"+max_aux+"' onchange='return setLibroFolio("+max_aux+","+i_aux+");' onkeyup='return setLibroFolio("+max_aux+","+i_aux+");' style=\"max-width: 95px\" type=\"text\" value='"+fi.elementAt(i).getNotaexamen().getFolioActExamen()+"' name=\"Folio\" />";
+						//}else{
+							//tabla+="<td><input type=\"text\" disabled style=\"max-width: 95px\" value='"+fi.elementAt(i).getNotaexamen().getLibroActExamen()+"' name=\"Libro\" /></td>";
+							//tabla+="<td><input type=\"text\" disabled style=\"max-width: 95px\" value='"+fi.elementAt(i).getNotaexamen().getFolioActExamen()+"' name=\"Folio\" />";
+						//}
 						tabla+="<input type=\"hidden\" value='"+fi.elementAt(i).getAlumno().getLegajo()+"' name=\"Legajo\" /></td>";
 
 						tabla+="</tr>";
+						i_aux++;
 					}
 				}else{
 					tabla+="<tr>";

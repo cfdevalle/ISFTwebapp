@@ -10,7 +10,8 @@ INSERT INTO `alumnos` (`Legajo`, `Nombre`, `Apellido`, `Direccion`, `Localidad`,
 (6030, 'Sebastian', 'Marquez', 'Calalunia 5766', 'Moreno', '1744', '2013', 'H', '6030', 10),
 (6999, 'Aldana', 'Ojeda', 'Matoya 1987', 'Merlo', '1722', '1998', 'F', '6999', 10);
 
-insert into alumnos (legajo,nombre,apellido,direccion,localidad,cp,lectivo,sexo,pwd,cod_carrera) values (6869,'facundo','devalle','Abello2176','1744','2013','masculino','facu1102',10);
+insert into alumnos (legajo,nombre,apellido,direccion,localidad,cp,lectivo,sexo,pwd,cod_carrera) 
+values				(6869,'facundo','devalle','Abello2176', 'Moreno','1744','2013','masculino','facu1102',10);
 
 --
 -- Volcar la base de datos para la tabla `carrera`

@@ -14,7 +14,7 @@ public class AbmAlumno extends UpdaterManager implements UpdaterInterface{
     public void insert(HashMap parameters) throws Exception {
         try{
             String sql_insert="INSERT INTO USUARIO (USUARIO, PASSWORD, APELLIDO, NOMBRE) values('"+(String)parameters.get("usuario")+"','"+(String)parameters.get("password")+"', '"+(String)parameters.get("apellido")+"', '"+(String)parameters.get("nombre")+"')";
-            System.out.println("Cadena de insercion: " + sql_insert);
+            //System.out.println("Cadena de insercion: " + sql_insert);
             execute(sql_insert);
         }
         catch(Exception exc){

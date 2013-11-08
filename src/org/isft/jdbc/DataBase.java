@@ -27,7 +27,7 @@ public class DataBase {
        try{
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             cn = DriverManager.getConnection(url,dataBaseDomain.getUser(),dataBaseDomain.getPassword());     
-            System.out.println("Conexion establecida exitosamente a base de datos");
+            //System.out.println("Conexion establecida exitosamente a base de datos");
         }catch(SQLException e){ throw new Exception(e.getMessage()); }
          catch(Exception e){ throw new Exception(e.getMessage()); }      
     }
@@ -36,9 +36,9 @@ public class DataBase {
     	String url = "jdbc:mysql://localhost:3306/"+dataBaseDomain.getOrigenDatos();
         try{
             Class.forName("com.mysql.jdbc.Driver").newInstance();     
-            System.out.println(url+":: "+dataBaseDomain.getUser()+":: "+dataBaseDomain.getPassword());
+            //System.out.println(url+":: "+dataBaseDomain.getUser()+":: "+dataBaseDomain.getPassword());
             cn = DriverManager.getConnection(url, dataBaseDomain.getUser(), dataBaseDomain.getPassword());
-            System.out.println("Conexion establecida exitosamente a base de datos");
+            //System.out.println("Conexion establecida exitosamente a base de datos");
         }catch(SQLException e){ throw new Exception(e.getMessage());}
         catch(Exception e){ throw new Exception(e.getMessage()); }
     }
@@ -46,7 +46,7 @@ public class DataBase {
     public void closeConection(Connection cn) throws Exception{
         try{
            cn.close();
-           System.out.println("Conexion cerrada con exito");
+           //System.out.println("Conexion cerrada con exito");
         }
         catch(Exception exc){
            throw new Exception(exc.getMessage());

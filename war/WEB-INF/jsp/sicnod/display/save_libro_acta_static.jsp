@@ -20,7 +20,6 @@ try {
 	LibroList = (String[])request.getParameterValues("Libro");
 	String[] FolioList;
 	FolioList = (String[])request.getParameterValues("Folio");
-	System.out.println("TRY");
 	if(CalificacionList.length > 0){
 		for(int i = 0; i < CalificacionList.length; i++){
 
@@ -31,8 +30,8 @@ try {
 
 			hm.put("legajo", LegajoList[i]);
 			hm.put("calificacion", CalificacionList[i]);
-			hm.put("libro", LibroList[0]);
-			hm.put("folio", FolioList[0]);
+			hm.put("libro", LibroList[i]);
+			hm.put("folio", FolioList[i]);
 
 			AbmNotaExamen notaExamen = new AbmNotaExamen();
 			notaExamen.update(hm);
@@ -46,7 +45,6 @@ try {
 	}
 } catch (Exception exc) {
 	returnValue = "ERROR";
-	System.out.println("CATCH!");
 	throw new Exception(exc);
 }
 %>
