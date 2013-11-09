@@ -1,0 +1,24 @@
+BODY INPUT{
+	width:80px;
+	
+}
+TABLE{
+	border:0px;
+	margin-left:5px;
+}
+H2{
+	margin-left:10px;
+	color:#08C;
+}
+#datosAlumno{
+	float:left;
+	margin-left:30%;
+}
+#datosCarrera{
+	float:left;
+	margin-left:5px;
+}
+#ingresarDatos{
+	width:300px;
+	margin-left:5px;
+}

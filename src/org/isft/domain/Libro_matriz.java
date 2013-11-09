@@ -3,19 +3,20 @@
  * and open the template in the editor.
  */
 package org.isft.domain;
-
+import org.isft.domain.helper.FechaHora;
 /**
  *
  * @author st
  */
 public class Libro_matriz {
     private boolean regularizado;
-    private long fecha_reg;
+    private String fecha_reg;
     private int nota_final;
-    private long fecha_final;
+    private String fecha_final;
     private int libroActExamen;
     private int FolioActExamen;
     private int folio_matriz;
+    private int libro_Matriz;
     
     private Materia materia;
     private Alumnos alumnos;
@@ -37,14 +38,14 @@ public class Libro_matriz {
     /**
      * @return the fecha_reg
      */
-    public long getFecha_reg() {
+    public String getFecha_reg() {
         return fecha_reg;
     }
 
     /**
      * @param fecha_reg the fecha_reg to set
      */
-    public void setFecha_reg(long fecha_reg) {
+    public void setFecha_reg(String fecha_reg) {
         this.fecha_reg = fecha_reg;
     }
 
@@ -65,14 +66,14 @@ public class Libro_matriz {
     /**
      * @return the fecha_final
      */
-    public long getFecha_final() {
+    public String getFecha_final() {
         return fecha_final;
     }
 
     /**
      * @param fecha_final the fecha_final to set
      */
-    public void setFecha_final(long fecha_final) {
+    public void setFecha_final(String fecha_final) {
         this.fecha_final = fecha_final;
     }
 
@@ -144,5 +145,19 @@ public class Libro_matriz {
      */
     public void setAlumnos(Alumnos alumnos) {
         this.alumnos = alumnos;
+    }
+
+    /**
+     * @return the libro_Matriz
+     */
+    public int getLibro_Matriz() {
+        return libro_Matriz;
+    }
+
+    /**
+     * @param libro_Matriz the libro_Matriz to set
+     */
+    public void setLibro_Matriz(int libro_Matriz) {
+        this.libro_Matriz = libro_Matriz;
     }
 }

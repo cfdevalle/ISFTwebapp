@@ -89,4 +89,14 @@
  <url-pattern>*.equivalencias</url-pattern> 
 	</servlet-mapping>
 <!--  FIN SERVLET EQUIVALENCIAS-->
+<!-- SERVLET Libro Matriz-->
+  <servlet>    
+	 <servlet-name>ControladorLibroMatriz</servlet-name>  
+	 <servlet-class>org.isft.web.servlets.ControladorLibroMatriz</servlet-class>
+ </servlet> 
+ <servlet-mapping>  
+ <servlet-name>ControladorLibroMatriz</servlet-name>
+ <url-pattern>*.libro</url-pattern>
+	</servlet-mapping>
+<!--  FIN SERVLET libro matriz-->
 </web-app>

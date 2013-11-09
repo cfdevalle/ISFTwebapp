@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+  <tlib-version>1.0</tlib-version>
+  <short-name>LibroMatriz</short-name>
+  <uri>/WEB-INF/tld/LibroMatriz</uri>
+   <tlibversion>1.0</tlibversion>
+   <jspversion>1.1</jspversion>
+   <shortname>grillaLibroMatriz</shortname>
+   <uri>org.isft.web.tags.TagGrillaLibroMatriz</uri>
+   <info>A simple sample tag library</info>
+ 
+   <tag>
+     <name>LibroMatriz</name>
+     <tagclass>org.isft.web.tags.TagGrillaLibroMatriz</tagclass>
+     <bodycontent>empty</bodycontent>
+     <info>combo de las Materias segun la carrera y el curso</info>
+     <attribute>
+      <name>legajo</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>String</type>
+    </attribute>
+   </tag>
+</taglib>
