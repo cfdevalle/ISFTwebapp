@@ -33,7 +33,7 @@ public class TagFinalesInscribibles extends TagGrilla {
                     FinalInscribible finalInscribible=(FinalInscribible)fi.get(i);
                     String modificable="";
                     if(finalInscribible.getAccion().equals("U")){
-                        modificable="class=\"warning\"";
+                        modificable="class=\"error\"";
                     }else{
                         modificable="class=\"success\"";
                     }
