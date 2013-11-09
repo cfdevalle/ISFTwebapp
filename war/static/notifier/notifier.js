@@ -2,10 +2,10 @@
 
   var config = window.NotifierjsConfig = {
     defaultTimeOut: 5000,
-    position: ["top", "right"],
+    position: ["top", "left"],
     notificationStyles: {
       padding: "12px 18px",
-      margin: "10 10 6px 10",
+      margin: "-100 0 6px -150",
       backgroundColor: "#CC3300",
       opacity: 0.9,
       color: "#fff",
@@ -23,10 +23,10 @@
   };
 
   $(document).ready(function() {
-    config.container.css("position", "absolute");
+    config.container.css("position", "fixed");
     config.container.css("z-index", 9999);
-    config.container.css(config.position[0], "12px");
-    config.container.css(config.position[1], "12px");
+    config.container.css(config.position[0], "50%");
+    config.container.css(config.position[1], "50%");
     $("body").append(config.container);
   });
 
