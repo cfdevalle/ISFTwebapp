@@ -38,7 +38,7 @@ public class CollectionMensajes implements org.isft.logic.AccessInterface{
             String query = "Select m.titulo, m.mensaje, m.fecha, m.respondido, m.id_mensaje, a.nombre, a.apellido, c.nombre as carrera from mensaje m, alumnos a, carrera c where a.Legajo = m.Legajo and c.Cod_Carrera = a.Cod_Carrera";
             query += whereLegajo;
             query += whereCarrera;
-            query += " group by m.id_mensaje";
+            query += " group by m.id_mensaje order by m.respondido asc, m.fecha desc";
             rs = am.execute(query);
         }catch (Exception e){
             System.out.println("error: "+e.getMessage());
