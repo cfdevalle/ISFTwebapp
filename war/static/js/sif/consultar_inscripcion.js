@@ -120,8 +120,7 @@ function validar_email(valor){
 $( document ).ready(function() {
     var cantidad_materias= $('input[name=cantidad_checkbox]').val();
     if(cantidad_materias==0){
-        pagina_consultar_inscripcion.innerHTML="<h3 align='center'>No se ah realizado ninguna inscripcion</h3>"
-        pagina_consultar_inscripcion.innerHTML+="<img style='display: block; margin: 0 auto;' src='static/images/sif/error.jpg'>";
+        pagina_consultar_inscripcion.innerHTML="<img style='display: block; margin: 0 auto;' src='static/images/sif/consultar_inscripcion_vacio.jpg'>";
         
     }else{
         

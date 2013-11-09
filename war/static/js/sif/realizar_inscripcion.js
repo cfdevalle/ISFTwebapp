@@ -130,8 +130,7 @@ function realizarUpdate(datosUpdate){
 $( document ).ready(function() {
     var cantidad_materias= $('input[name=cantidad_materias]').val();
     if(cantidad_materias==0){
-        realizar_inscripcion.innerHTML="<h3 align='center'>No se encontraron datos para generar esta pantalla</h3>"
-        realizar_inscripcion.innerHTML+="<img style='display: block; margin: 0 auto;' src='static/images/sif/error.jpg'>";
+        realizar_inscripcion.innerHTML="<img style='display: block; margin: 0 auto;' src='static/images/sif/realizar_inscripcion_vacio.jpg'>";
         
     }else{
         
