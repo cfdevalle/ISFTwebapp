@@ -45,7 +45,7 @@ public class CollectionCarrera  implements org.isft.logic.AccessInterface{
        carrera.setNombre(nombre);
        carrera.setDescripcion(descripcion);
            
-        System.out.println("carrera nº"+i+": "+nombre);
+        //System.out.println("carrera nº"+i+": "+nombre);
        //se agregan al vector
         vec.add(carrera);
        }

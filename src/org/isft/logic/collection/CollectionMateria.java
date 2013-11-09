@@ -18,7 +18,7 @@ public class CollectionMateria extends AccessManager implements AccessInterface 
         Vector vec_Materias = new Vector();
         String cod_carrera="", cod_materia="";
         try{
-            
+           // System.out.println("EN COLLECTION MATERIA");
             if (param!=null && !param.isEmpty()){
                 if(param.get("cod_carrera")!=null){
                     cod_carrera=(String)param.get("cod_carrera");
@@ -27,7 +27,7 @@ public class CollectionMateria extends AccessManager implements AccessInterface 
                     cod_materia=(String)param.get("cod_materia");
                 }
             }
-            
+            //System.out.println("COD MATERIA: "+cod_materia);
             String sql="SELECT * from materia  where cod_materia is not null";
             if(!cod_carrera.equals("")){
                 sql+=" and cod_carrera=" + cod_carrera;
@@ -36,11 +36,11 @@ public class CollectionMateria extends AccessManager implements AccessInterface 
                 sql+=" and cod_materia=" + cod_materia;
             }
             
-            System.out.println("CONSULTA A EJECUTAR: " + sql);
+           // System.out.println("CONSULTA A EJECUTAR: " + sql);
             ResultSet rst = execute(sql);   
-            System.out.println("EJECUTO CONSULTA");
+            //System.out.println("EJECUTO CONSULTA");
             while(rst.next()){
-                System.out.println("EN EL WHILE");
+               // System.out.println("EN EL WHILE");
                 Materia materia=new Materia();
                 materia.setCod_materia(rst.getInt("cod_materia"));
                 materia.setModalidadCursada(rst.getString("ModalidadInscripcion"));
@@ -48,7 +48,7 @@ public class CollectionMateria extends AccessManager implements AccessInterface 
                 materia.setNombre(rst.getString("nombre"));
             
                 vec_Materias.add(materia);
-                System.out.println("materia recuparada: " + materia.getNombre());
+             //   System.out.println("materia recuparada: " + materia.getNombre());
             } 
             
         }catch(Exception exc){
@@ -64,5 +64,4 @@ public class CollectionMateria extends AccessManager implements AccessInterface 
         }   
         return vec_Materias;
     }
-    
 }
