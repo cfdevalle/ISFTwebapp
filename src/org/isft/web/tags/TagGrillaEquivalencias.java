@@ -36,7 +36,9 @@ public class TagGrillaEquivalencias extends TagGrilla {
                 tabla="<table class='table table-condensed'><tr><td><h4>Codigo</h4></td>";
                 tabla+="<td><h4>Nombre</h4></td>";
                 tabla+="<td><h4>Equivalencias</h4></td>";
+             
                 tabla+="<td><h4>Altas</h4></td>";
+                
      
                 
                 
@@ -62,16 +64,17 @@ public class TagGrillaEquivalencias extends TagGrilla {
                                 for(int j=0;j<vectorEquivalencias.size();j++){
                                 Equivalencias equivalencia=new Equivalencias();
                                 equivalencia=(Equivalencias)vectorEquivalencias.get(j);
-                                tabla+="<tr class='success'><td style='width:200px'>"+equivalencia.getNombre_materia()+"-"+equivalencia.getCod_materia_d()+"-"+equivalencia.getCod_carrera_d()+"</td>";
+                                tabla+="<tr class='success'><td style='width:45%'>"+equivalencia.getCod_materia_d()+"-"+equivalencia.getNombre_materia()+"</td><td style='width:45%'>"+equivalencia.getCod_carrera_d()+"-"+equivalencia.getNombre_carrera()+"</td>";
                                // tabla+="<tag:TagGrillaEquivalenciasAceptadas cod_materia=\""+equivalencia.getCod_materia_d()+"\"cod_carrera=\""+equivalencia.getCod_carrera_d()+"\"/>";
-                                tabla+="<td><INPUT type=\"button\" value='Borrar' class='btn-primary'  onClick=\"borrar("+equivalencia.getCod_materia_d()+","+equivalencia.getCod_carrera_d()+","+equivalencia.getCod_materia_o()+","+equivalencia.getCod_carrera_o()+");\"></td>";
+                                tabla+="<td style='width:10%'><INPUT type=\"button\" value='Borrar' class='btn-primary'  onClick=\"borrar("+equivalencia.getCod_materia_d()+","+equivalencia.getCod_carrera_d()+","+equivalencia.getCod_materia_o()+","+equivalencia.getCod_carrera_o()+");\"></td>";
                                 
                                 }
                     tabla+="</table></td>";
-                    tabla+="<td><INPUT type=\"button\" value='ingresar' class='btn-primary'   onClick=\"ingresar("+materia.getCod_materia()+");\"></td>";
+                    tabla+="<td><INPUT type=\"button\" value='ingresar' class='btn-primary' data-toggle=\"modal\"    onClick=\"ingresar("+materia.getCod_materia()+");\"> </td>";
               
-                }
-                
+                }  
+                //<a href=\"#altas\" role=\"button\" class=\"btn-primary\" data-toggle=\"modal\" onClick=\"ingresar("+materia.getCod_materia()+");\">ingresar</a>
+               
                 pageContext.getOut().print(tabla);
                 } catch(Exception exc){
                     exc.printStackTrace();

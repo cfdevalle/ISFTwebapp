@@ -6,6 +6,8 @@ public class Equivalencias{
     private int cod_materia_d;
     private int cod_carrera_d;
     private String nombre_materia;
+    private String nombre_carrera;
+    
 
     /**
      * @return the cod_materia_o
@@ -75,6 +77,16 @@ public class Equivalencias{
      */
     public void setNombre_materia(String nombre_materia) {
         this.nombre_materia = nombre_materia;
+    }
+    public String getNombre_carrera() {
+        return nombre_carrera;
+    }
+
+    /**
+     * @param nombre_materia the nombre_materia to set
+     */
+    public void setNombre_carrera(String nombre_carrera) {
+        this.nombre_carrera = nombre_carrera;
     }
 
     

@@ -21,7 +21,7 @@
                };
                
            $('#display').load("adm.login?codPage=6022&carrera="+cod_carrera);//+legajo);
-           $('#altas').load("adm.login?codPage=6025");
+          // $('#altas').load("adm.login?codPage=6025");
            /*$.ajax({
                type:'POST',
                url:'redirec.go?codPage=6021',
@@ -38,9 +38,10 @@
        function ingresar(codigo){
            
            var cod_carrera = document.getElementById('carrera').value;
-           //console.log("este es mi codigo materia",+codigo+" codigo materia= "+cod_carrera);
-        
+           //console.log("este es mi codigo materia",+codigo+" codigo materia= "+cod_carrera);}
+             // $('#altas').modal('show')      
               $('#altas').load("adm.login?codPage=6023&carrera="+cod_carrera+"&cod_materia="+codigo);
+              $('#altas').modal('show');
               
              
      
@@ -80,7 +81,7 @@
 <body onload="carga()">
        <div class="row-fluid">
          
-        <div class="span8">
+        <div class="span12">
              <div class="well">
                     <h4> Asignacion de Equivalencias </h4>
                     <hr>
@@ -90,12 +91,16 @@
              </div>
                
         </div>
-        <div class="span4">
+        <!--<div class="span4">
             <div class="well">
-                    <div id="altas"></div>
+                    
             </div>
-        </div>
+            </div>
+        -->
        
-     </div>      
+    
+       
+        </div>      
+                    <div id="altas" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 </body>
 </html>

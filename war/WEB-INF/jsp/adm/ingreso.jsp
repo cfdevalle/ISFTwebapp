@@ -51,19 +51,32 @@
            }
         });
         }
-        function cerrar(){
-          $('#altas').load("adm.login?codPage=6025");
-        }
+       
  </script>  
  
-    <h4>Alta de Equivalencia</h4>
-    <hr>
+    
+   
+   
   
-    <br>
+ 
+  
+<div class="modal-header">
+
+<h3 id="myModalLabel">Asignacion De equivalencias</h3>
+
+</div>
+<div class="modal-body">
     
     
     
-    Carrera Numero : <%=cod_carrera%>
+   
+    
+  
+    
+    
+    
+    
+    Carrera Numero : <%=cod_carrera%><br/>
    
   
     <% 
@@ -82,19 +95,34 @@
              
                
   %> 
-    Materia : <%=cod_materia%> - <%=materia.getNombre()%>
-   <hr>
+    
+    
+    
+ Materia : <%=cod_materia%> - <%=materia.getNombre()%>
+ <hr/>
+   
    <h4>Equivalencia con :</h4>
    
   
    
    Carrera destino:<tag:ComboCarrera cod_carrera_Exeptuar="<%=cod_carrera%>"/>
    
-    <br>
-   <div id="displayIngreso"></div>
+    
+   <div id="displayIngreso"> </div>
+    
+
+</div>
    
-   <br>
+<div class="modal-footer">
+    
+   <input name="update" class="btn-primary" value="PROCESAR EQUIVALENCIA" type="button" onclick="alta(); " data-dismiss="modal" aria-hidden="true">
   
-   <input name="update" class="btn-primary" value="PROCESAR EQUIVALENCIA" type="button" onclick="alta();">
-   <input name="update" class="btn-primary" value="Cerrar" type="button" onclick="cerrar();">
-  <hr>
+  
+  <input class="btn" data-dismiss="modal" aria-hidden="true" value="cancelar">
+
+
+</div>
+   
+  
+ 
+   
