@@ -37,7 +37,7 @@ try {
 			notaExamen.update(hm);
 
 			AbmLibroMatriz libroMatriz = new AbmLibroMatriz();
-			libroMatriz.update(hm);		
+			libroMatriz.updateSICNOD(hm);		
 			returnValue = "OK";
 		}
 	}else{

@@ -6,6 +6,7 @@
 		carrera = "1";
 	}
 %>
+<script src="static/js/sicnod/login.js" type="text/javascript"></script>
 <script>
 	$("#carrera").ready(//id del tag select carrera
 		$("#comboMateria").load("modulo.go?codPage=3011").ready(// container
@@ -95,14 +96,18 @@ function validateForm(nombreLista){
 			gotTop();
 			Notifier.warning("No puede dejar en blanco los campos de la columna: "+nombreLista+"");	
 			return false;
-		} else if (	validarInt(currentValue)==false || currentValue<0) {
+		} else if (	validarInt(currentValue)==false) {
 			gotTop();
-			Notifier.warning("Los valores de la columna "+nombreLista+" deben ser numéricos a partir del cero (0) hasta el diez (10)");
+			Notifier.warning("Los valores de la columna "+nombreLista+" deben ser numéricos");
 			return false;
-		}
-		if(nombreLista=="Calificacion" && (currentValue<0 || currentValue>10)){
+		} else if(nombreLista=="Calificacion" && (currentValue<0 || currentValue>10)){
 			gotTop();
 			Notifier.warning("La calificación permitida es de 0 a 10");
+			return false;
+		}
+		if( (nombreLista=="Libro" || nombreLista=="Folio") && currentValue < 1){
+			gotTop();
+			Notifier.warning("El numero de "+nombreLista+" debe ser un número mayor que cero (0)");
 			return false;
 		}
 	}
