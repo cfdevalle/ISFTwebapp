@@ -89,25 +89,20 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
                     if(i==1){rst.next();}
                     if(i==2){rst.next();}
                     FechaFinal ff1=new FechaFinal();
+                    ff1.setFecha(rst.getDate("Fecha1"));
                     FechaFinal ff2=new FechaFinal();
+                    ff2.setFecha(rst.getDate("Fecha2"));
                     if(rst.getString("Fecha1").compareTo(hoy)>0){
-                        System.out.println("--------------> ES MAYOR 1   "+rst.getDate("Fecha1")+"   "+hoy);
                         ff1=new FechaFinal(rst.getDate("Fecha1"),rst.getString("Turno"));
                     }
                     if(rst.getString("Fecha2").compareTo(hoy)>0){
-                        System.out.println("--------------> ES MAYOR 2   "+rst.getDate("Fecha2")+"   "+hoy);
                         ff2=new FechaFinal(rst.getDate("Fecha2"),rst.getString("Turno")); 
                     }    
-                    if(ff1.getFecha().equals(ff2.getFecha())&&!ff1.getTurno().equals("")&&!ff2.getTurno().equals("")){
-                        System.out.println("1");
+                    if(ff1.getFecha().equals(ff2.getFecha())){
                         vec_FechasFinal.add(ff1);
-                        System.out.println("2");
                     }else{
-                        System.out.println("3");
                         if(!ff1.getTurno().equals("")){vec_FechasFinal.add(ff1);}
-                        System.out.println("4");
                         if(!ff2.getTurno().equals("")){vec_FechasFinal.add(ff2);}
-                        System.out.println("5");
                     }
                 }
                 // EL RESTO
