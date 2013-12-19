@@ -14,10 +14,16 @@ public class FechaFinal {
     private Date fecha;
     private String turno;
         
+    
     public FechaFinal(Date fecha,String turno){
         this.fecha=fecha;
         this.turno=turno;
     }
+
+    public FechaFinal() {
+        
+    }
+
   
     /**
      * @return the fecha
