@@ -5,7 +5,7 @@
     position: ["top", "left"],
     notificationStyles: {
       padding: "12px 18px",
-      margin: "-100 0 6px -150",
+      margin: "0 0 6px 0",
       backgroundColor: "#CC3300",
       opacity: 0.9,
       color: "#fff",
