@@ -44,6 +44,7 @@
             </div>
             </div>
             
+            <div class="row-fluid">
             <div class="span12" id="pagina_consultar_inscripcion">   
                     <h1 align="center"><u>Materias Inscripto/a</u></h1>
                     <br>
@@ -70,4 +71,4 @@
                     </table>
                     <br>
             </div>
-   
+            </div>

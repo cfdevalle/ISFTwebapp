@@ -18,7 +18,7 @@
                 <a href="javascript:goPage(2002)" class="btn btn-primary">aceptar</a>
             </div>
         </div>
-            <div class="row">
+            <div class="row-fluid">
             <div class="span12"> 
             	<ul class="nav nav-tabs">
                     <li><a href="javascript:goPage(2001)">Bienvenido</a></li>
@@ -28,7 +28,7 @@
                 </ul>
             </div>
             </div>
-
+            <div class="row-fluid">
             <div class="span12" id="realizar_inscripcion">
                     <h1 align="center"><u>Inscripcion a Finales</u></h1>
                     <br>
@@ -50,3 +50,4 @@
                         </tr>
                     </table>
                 </div>
+            </div>         
