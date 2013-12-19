@@ -1,0 +1,6 @@
+UPDATE `isftwebappfinal`.`examenes` SET `Fecha1`='2013-12-24', `Fecha2`='2013-12-29' WHERE `Turno`='TM' and`Fecha2`='2013-11-15' and`Fecha1`='2013-11-12' and`Cod_Materia`='207' and`Cod_Carrera`='10';
+UPDATE `isftwebappfinal`.`examenes` SET `Fecha1`='2013-12-25', `Fecha2`='2013-12-28' WHERE `Turno`='TN' and`Fecha2`='2013-11-15' and`Fecha1`='2013-11-12' and`Cod_Materia`='207' and`Cod_Carrera`='10';
+UPDATE `isftwebappfinal`.`examenes` SET `Fecha1`='2013-12-26', `Fecha2`='2013-12-27' WHERE `Turno`='TM' and`Fecha2`='2013-11-14' and`Fecha1`='2013-11-13' and`Cod_Materia`='208' and`Cod_Carrera`='10';
+UPDATE `isftwebappfinal`.`examenes` SET `Fecha1`='2013-12-27', `Fecha2`='2013-12-26' WHERE `Turno`='TN' and`Fecha2`='2013-11-14' and`Fecha1`='2013-11-13' and`Cod_Materia`='208' and`Cod_Carrera`='10';
+UPDATE `isftwebappfinal`.`examenes` SET `Fecha1`='2013-12-28', `Fecha2`='2013-12-25' WHERE `Turno`='TM' and`Fecha2`='2013-11-13' and`Fecha1`='2013-11-14' and`Cod_Materia`='209' and`Cod_Carrera`='10';
+UPDATE `isftwebappfinal`.`examenes` SET `Fecha1`='2013-12-29', `Fecha2`='2013-12-24' WHERE `Turno`='TN' and`Fecha2`='2013-11-13' and`Fecha1`='2013-11-14' and`Cod_Materia`='209' and`Cod_Carrera`='10';
