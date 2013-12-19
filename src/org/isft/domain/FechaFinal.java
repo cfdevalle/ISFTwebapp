@@ -12,7 +12,7 @@ import java.sql.Date;
  */
 public class FechaFinal {
     private Date fecha;
-    private String turno;
+    private String turno="";
         
     
     public FechaFinal(Date fecha,String turno){

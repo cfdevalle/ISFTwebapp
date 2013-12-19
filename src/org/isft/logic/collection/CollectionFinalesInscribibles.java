@@ -45,10 +45,14 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
                     "and ca.Legajo=lb.Legajo\n" +
                     "and ca.Cod_Materia=lb.Cod_Materia\n" + 
                     "and lb.Fecha_Reg > cast((now() - interval 5 year) as date)\n"+
-                    "and exa.Fecha1 < cast((now() + interval 45 day) as date)\n" +
-                    "and exa.Fecha1 >= cast((now() - interval 3 day) as date)\n" +
-                    "and exa.Fecha2 < cast((now() + interval 45 day) as date)\n" +
-                    "and exa.Fecha2 >= cast((now() - interval 3 day) as date) ";
+                    "and lb.Fecha_Reg > cast((now() - interval 5 year) as date)\n" +
+                    "and ((exa.Fecha1 < cast((now() + interval 45 day) as date)\n" +
+                    "and exa.Fecha1 >= cast((now() - interval 3 day) as date))\n" +
+                    "or\n" +
+                    "(exa.Fecha2 < cast((now() + interval 45 day) as date)\n" +
+                    "and exa.Fecha2 >= cast((now() - interval 3 day) as date))\n" +
+                    ")"+
+                    "order by cod_materia";
             ResultSet rst = execute(sql); 
 			
 		System.out.println(sql);
@@ -81,6 +85,7 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
                 //FECHAS
                 Vector<FechaFinal> vec_FechasFinal=new Vector();
                 for(int i=0;i<cantidad_fechas;i++){
+                    System.out.println("--------->"+cantidad_fechas);
                     if(i==1){rst.next();}
                     if(i==2){rst.next();}
                     FechaFinal ff1=new FechaFinal();
@@ -94,10 +99,15 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
                         ff2=new FechaFinal(rst.getDate("Fecha2"),rst.getString("Turno")); 
                     }    
                     if(ff1.getFecha().equals(ff2.getFecha())&&!ff1.getTurno().equals("")&&!ff2.getTurno().equals("")){
+                        System.out.println("1");
                         vec_FechasFinal.add(ff1);
+                        System.out.println("2");
                     }else{
+                        System.out.println("3");
                         if(!ff1.getTurno().equals("")){vec_FechasFinal.add(ff1);}
+                        System.out.println("4");
                         if(!ff2.getTurno().equals("")){vec_FechasFinal.add(ff2);}
+                        System.out.println("5");
                     }
                 }
                 // EL RESTO
