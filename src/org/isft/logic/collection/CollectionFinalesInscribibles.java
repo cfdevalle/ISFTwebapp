@@ -8,7 +8,9 @@ import org.isft.domain.Materia;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Vector;
 import org.isft.domain.Alumnos;
@@ -49,7 +51,7 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
                     "and exa.Fecha2 >= cast((now() - interval 3 day) as date) ";
             ResultSet rst = execute(sql); 
 			
-			System.out.println(sql);
+		System.out.println(sql);
 			
             //OBTENER CANTIDAD DE REGISTROS
             ResultSet cant= execute(sql); 
@@ -68,6 +70,9 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
                     cantidad_fechas=1;
                 }
             }
+            Date aux=new Date();
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            String hoy=format.format(aux);
             while(rst.next()){
                 boolean inscribible=true;
                 ValidarSituacionMateria validarSituacionMateria=new ValidarSituacionMateria();
@@ -78,13 +83,21 @@ public class CollectionFinalesInscribibles extends AccessManager implements Acce
                 for(int i=0;i<cantidad_fechas;i++){
                     if(i==1){rst.next();}
                     if(i==2){rst.next();}
-                    FechaFinal ff1=new FechaFinal(rst.getDate("Fecha1"),rst.getString("Turno"));
-                    FechaFinal ff2=new FechaFinal(rst.getDate("Fecha2"),rst.getString("Turno")); 
-                    if(ff1.getFecha().equals(ff2.getFecha())){
+                    FechaFinal ff1=new FechaFinal();
+                    FechaFinal ff2=new FechaFinal();
+                    if(rst.getString("Fecha1").compareTo(hoy)>0){
+                        System.out.println("--------------> ES MAYOR 1   "+rst.getDate("Fecha1")+"   "+hoy);
+                        ff1=new FechaFinal(rst.getDate("Fecha1"),rst.getString("Turno"));
+                    }
+                    if(rst.getString("Fecha2").compareTo(hoy)>0){
+                        System.out.println("--------------> ES MAYOR 2   "+rst.getDate("Fecha2")+"   "+hoy);
+                        ff2=new FechaFinal(rst.getDate("Fecha2"),rst.getString("Turno")); 
+                    }    
+                    if(ff1.getFecha().equals(ff2.getFecha())&&!ff1.getTurno().equals("")&&!ff2.getTurno().equals("")){
                         vec_FechasFinal.add(ff1);
                     }else{
-                        vec_FechasFinal.add(ff1);
-                        vec_FechasFinal.add(ff2);
+                        if(!ff1.getTurno().equals("")){vec_FechasFinal.add(ff1);}
+                        if(!ff2.getTurno().equals("")){vec_FechasFinal.add(ff2);}
                     }
                 }
                 // EL RESTO
